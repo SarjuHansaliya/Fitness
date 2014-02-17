@@ -8,7 +8,8 @@
 
 #import "ISEditReminderViewController.h"
 #import "ISRepeatReminderViewController.h"
-#import "macros.txt"
+#import "macros.h"
+#import "ISAlertReminderViewController.h"
 
 @interface ISEditReminderViewController ()
 
@@ -67,13 +68,13 @@
     self.navigationItem.titleView.backgroundColor=[UIColor clearColor];
     
     
-    UIView *leftView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 38, 15)];
+    UIView *leftView = [[UIView alloc]initWithFrame:CGRectMake(0, 5, 38, 18)];
     
     UITapGestureRecognizer *tapOnCancel = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(cancelClicked:)];
     tapOnCancel.numberOfTapsRequired=1;
     [leftView addGestureRecognizer:tapOnCancel];
     
-    UILabel *leftLable=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 38, 15)];
+    UILabel *leftLable=[[UILabel alloc]initWithFrame:CGRectMake(0, 5, 38, 18)];
     
     leftLable.backgroundColor=[UIColor clearColor];
     leftLable.text=@"Cancel";
@@ -86,13 +87,13 @@
     [self.navigationItem setLeftBarButtonItem:leftButton];
 
     
-    UIView *rightView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 38, 15)];
+    UIView *rightView = [[UIView alloc]initWithFrame:CGRectMake(0, 5, 38, 18)];
     
     UITapGestureRecognizer *tapOnSave = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(saveClicked:)];
     tapOnSave.numberOfTapsRequired=1;
     [rightView addGestureRecognizer:tapOnSave];
     
-    UILabel *rightLable=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 38, 15)];
+    UILabel *rightLable=[[UILabel alloc]initWithFrame:CGRectMake(0, 5, 38, 18)];
     
     rightLable.backgroundColor=[UIColor clearColor];
     rightLable.text=@"Save";
@@ -122,6 +123,10 @@
     UITapGestureRecognizer *tapOnRepeat = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(repeatClicked:)];
     tapOnRepeat.numberOfTapsRequired=1;
     [self.repeatView addGestureRecognizer:tapOnRepeat];
+    
+    UITapGestureRecognizer *tapOnAlert = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(alertClicked:)];
+    tapOnAlert.numberOfTapsRequired=1;
+    [self.alertView addGestureRecognizer:tapOnAlert];
 }
 
 
@@ -158,14 +163,23 @@
                         options: UIViewAnimationOptionCurveEaseIn
                      animations:^{
                          self.datePicker.alpha = 1.0 - self.datePicker.alpha;
-                         self.datePicker.frame = CGRectMake(0, 354, 320, 216);
+                         self.datePicker.frame = CGRectMake(0, 290, 320, 216);
                          
                      }
                      completion:nil];
    
 }
+-(void)alertClicked:(id)sender
+{
+    
+    [self.navigationController pushViewController:[[ISAlertReminderViewController alloc]initWithNibName:nil bundle:nil ] animated:YES ];
+}
 
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+   
+    [self.view endEditing:YES];
+}
 
 
 @end

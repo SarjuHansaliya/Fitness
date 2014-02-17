@@ -15,5 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 
 @property (weak, nonatomic) IBOutlet UIView *startView;
+@property (weak, nonatomic) IBOutlet UIView *repeatView;
+@property (weak, nonatomic) IBOutlet UIView *alertView;
 
 @end

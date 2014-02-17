@@ -44,6 +44,8 @@
 		1FEC257618B219AC0053A996 /* menu1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FEC257518B219AC0053A996 /* menu1@2x.png */; };
 		1FEC257A18B21A200053A996 /* ISRepeatReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FEC257818B21A200053A996 /* ISRepeatReminderViewController.m */; };
 		1FEC257B18B21A200053A996 /* ISRepeatReminderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FEC257918B21A200053A996 /* ISRepeatReminderViewController.xib */; };
+		1FEC257F18B2364B0053A996 /* ISAlertReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FEC257D18B2364B0053A996 /* ISAlertReminderViewController.m */; };
+		1FEC258018B2364B0053A996 /* ISAlertReminderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FEC257E18B2364B0053A996 /* ISAlertReminderViewController.xib */; };
 		BB005F4B18AB3BA4003FAF8B /* 04-workout goals.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BB005F3A18AB3BA4003FAF8B /* 04-workout goals.jpg */; };
 		BB005F4C18AB3BA4003FAF8B /* back1.png in Resources */ = {isa = PBXBuildFile; fileRef = BB005F3C18AB3BA4003FAF8B /* back1.png */; };
 		BB005F4D18AB3BA4003FAF8B /* radio-sel.png in Resources */ = {isa = PBXBuildFile; fileRef = BB005F3D18AB3BA4003FAF8B /* radio-sel.png */; };
@@ -90,7 +92,7 @@
 		BB11E4D218A8CD3D00406313 /* helvetica-world.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB11E4D118A8CD3D00406313 /* helvetica-world.ttf */; };
 		BB1F96A518AC9A9B0023A174 /* ribbon-bg1.png in Resources */ = {isa = PBXBuildFile; fileRef = BB1F96A418AC9A9B0023A174 /* ribbon-bg1.png */; };
 		BB1F96A718ACBA6F0023A174 /* helvetica-condensed-thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB1F96A618ACBA6F0023A174 /* helvetica-condensed-thin.ttf */; };
-		BB28211718AB658F00ADE985 /* macros.txt in Resources */ = {isa = PBXBuildFile; fileRef = BB28211618AB658F00ADE985 /* macros.txt */; };
+		BB28211718AB658F00ADE985 /* macros.h in Resources */ = {isa = PBXBuildFile; fileRef = BB28211618AB658F00ADE985 /* macros.h */; };
 		BB3C66CB18A9EA2800CAA240 /* ISProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB3C66C918A9EA2800CAA240 /* ISProfileViewController.m */; };
 		BB3C66CC18A9EA2800CAA240 /* ISProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB3C66CA18A9EA2800CAA240 /* ISProfileViewController.xib */; };
 		BB779DDA18AA1DED009C2D8C /* comic sans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB779DD918AA1DED009C2D8C /* comic sans.ttf */; };
@@ -198,6 +200,9 @@
 		1FEC257718B21A200053A996 /* ISRepeatReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISRepeatReminderViewController.h; sourceTree = "<group>"; };
 		1FEC257818B21A200053A996 /* ISRepeatReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISRepeatReminderViewController.m; sourceTree = "<group>"; };
 		1FEC257918B21A200053A996 /* ISRepeatReminderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISRepeatReminderViewController.xib; sourceTree = "<group>"; };
+		1FEC257C18B2364B0053A996 /* ISAlertReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISAlertReminderViewController.h; sourceTree = "<group>"; };
+		1FEC257D18B2364B0053A996 /* ISAlertReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISAlertReminderViewController.m; sourceTree = "<group>"; };
+		1FEC257E18B2364B0053A996 /* ISAlertReminderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISAlertReminderViewController.xib; sourceTree = "<group>"; };
 		BB005F3A18AB3BA4003FAF8B /* 04-workout goals.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "04-workout goals.jpg"; sourceTree = "<group>"; };
 		BB005F3C18AB3BA4003FAF8B /* back1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back1.png; sourceTree = "<group>"; };
 		BB005F3D18AB3BA4003FAF8B /* radio-sel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "radio-sel.png"; sourceTree = "<group>"; };
@@ -251,7 +256,7 @@
 		BB11E4D118A8CD3D00406313 /* helvetica-world.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "helvetica-world.ttf"; sourceTree = "<group>"; };
 		BB1F96A418AC9A9B0023A174 /* ribbon-bg1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ribbon-bg1.png"; sourceTree = "<group>"; };
 		BB1F96A618ACBA6F0023A174 /* helvetica-condensed-thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "helvetica-condensed-thin.ttf"; sourceTree = "<group>"; };
-		BB28211618AB658F00ADE985 /* macros.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = macros.txt; sourceTree = "<group>"; };
+		BB28211618AB658F00ADE985 /* macros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = macros.h; sourceTree = "<group>"; };
 		BB3C66C818A9EA2800CAA240 /* ISProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISProfileViewController.h; sourceTree = "<group>"; };
 		BB3C66C918A9EA2800CAA240 /* ISProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISProfileViewController.m; sourceTree = "<group>"; };
 		BB3C66CA18A9EA2800CAA240 /* ISProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISProfileViewController.xib; sourceTree = "<group>"; };
@@ -574,6 +579,9 @@
 				1FEC257718B21A200053A996 /* ISRepeatReminderViewController.h */,
 				1FEC257818B21A200053A996 /* ISRepeatReminderViewController.m */,
 				1FEC257918B21A200053A996 /* ISRepeatReminderViewController.xib */,
+				1FEC257C18B2364B0053A996 /* ISAlertReminderViewController.h */,
+				1FEC257D18B2364B0053A996 /* ISAlertReminderViewController.m */,
+				1FEC257E18B2364B0053A996 /* ISAlertReminderViewController.xib */,
 			);
 			name = screens;
 			sourceTree = "<group>";
@@ -628,7 +636,7 @@
 		BB28211518AB657000ADE985 /* included files */ = {
 			isa = PBXGroup;
 			children = (
-				BB28211618AB658F00ADE985 /* macros.txt */,
+				BB28211618AB658F00ADE985 /* macros.h */,
 			);
 			name = "included files";
 			sourceTree = "<group>";
@@ -829,6 +837,7 @@
 				BB779DEA18AA4186009C2D8C /* line@1x.png in Resources */,
 				BB11E4CB18A8CA5900406313 /* head bg.png in Resources */,
 				BB779E2518AA4765009C2D8C /* mile-icn.png in Resources */,
+				1FEC258018B2364B0053A996 /* ISAlertReminderViewController.xib in Resources */,
 				1F4E037118AE115700BAF4D8 /* back@2x.png in Resources */,
 				BB779E5A18AA56F4009C2D8C /* line.png in Resources */,
 				BB779E2118AA4765009C2D8C /* head-bg.png in Resources */,
@@ -876,7 +885,7 @@
 				1FEC257B18B21A200053A996 /* ISRepeatReminderViewController.xib in Resources */,
 				1FEC254518B1E8F60053A996 /* ISNewReminderViewController.xib in Resources */,
 				BB0B80DC18ACCA9A00BCC2E0 /* edit.png in Resources */,
-				BB28211718AB658F00ADE985 /* macros.txt in Resources */,
+				BB28211718AB658F00ADE985 /* macros.h in Resources */,
 				BB779E1C18AA4765009C2D8C /* 02-dashboard edit.png in Resources */,
 				BB005F4F18AB3BA4003FAF8B /* set.png in Resources */,
 				BB779E5B18AA56F4009C2D8C /* line@2x.png in Resources */,
@@ -930,6 +939,7 @@
 				1F05309318B1D43300F34E0D /* ISEditReminderViewController.m in Sources */,
 				BB11E4BE18A8C9C400406313 /* ISUserProfileViewController.m in Sources */,
 				BB779E5118AA518B009C2D8C /* ISMenuViewController.m in Sources */,
+				1FEC257F18B2364B0053A996 /* ISAlertReminderViewController.m in Sources */,
 				BB0EE33C18A3ADAB00E3EA63 /* ISAppDelegate.m in Sources */,
 				1F4E038418AE16D800BAF4D8 /* ISBLEConnectionManagerViewController.m in Sources */,
 				BB779E6B18AA5A3E009C2D8C /* MMDrawerController.m in Sources */,

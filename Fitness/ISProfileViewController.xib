@@ -442,7 +442,7 @@
         </view>
     </objects>
     <resources>
-        <image name="bg.png" width="321" height="570"/>
+        <image name="bg.png" width="641" height="1138"/>
         <image name="date btn.png" width="25" height="29"/>
         <image name="head bg.png" width="640" height="129"/>
         <image name="mid img.png" width="640" height="290"/>

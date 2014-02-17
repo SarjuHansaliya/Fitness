@@ -96,8 +96,9 @@
 {
     ISNewReminderViewController *newReminder=[[ISNewReminderViewController alloc]initWithNibName:nil bundle:nil];
     newReminder.wantsFullScreenLayout = YES;
-    
-    [self presentViewController:newReminder animated:YES completion:nil];
+    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:newReminder];
+
+    [self presentViewController:nav animated:YES completion:nil];
 
 }
 -(void)goBack:(id)sender

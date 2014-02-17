@@ -9,7 +9,7 @@
 #import "ISSetWorkoutGoalViewController.h"
 #import "ISWorkoutRemindersViewController.h"
 #import "ISAppDelegate.h"
-#import "macros.txt"
+#import "macros.h"
 
 @interface ISSetWorkoutGoalViewController ()
 

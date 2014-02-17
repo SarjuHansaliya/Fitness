@@ -11,7 +11,7 @@
 #import "ISSetWorkoutGoalViewController.h"
 #import "ISHRMonitorViewController.h"
 #import "ISConnectionManagerViewController.h"
-#import "macros.txt"
+#import "macros.h"
 
 @interface ISMenuViewController ()
 

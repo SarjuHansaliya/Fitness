@@ -1,18 +1,18 @@
 //
-//  ISRepeatReminderViewController.m
+//  ISAlertReminderViewController.m
 //  Fitness
 //
 //  Created by ispluser on 2/17/14.
 //  Copyright (c) 2014 ISC. All rights reserved.
 //
 
-#import "ISRepeatReminderViewController.h"
+#import "ISAlertReminderViewController.h"
 
-@interface ISRepeatReminderViewController ()
+@interface ISAlertReminderViewController ()
 
 @end
 
-@implementation ISRepeatReminderViewController
+@implementation ISAlertReminderViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -36,7 +36,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-
 //--------------------------------setting up navigation bar--------------------------------------
 
 -(void)setupNavigationBar
@@ -48,10 +47,10 @@
     self.navigationController.navigationBar.translucent=NO;
     
     
-    UILabel *titleLable=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 60, 25)];
+    UILabel *titleLable=[[UILabel alloc]initWithFrame:CGRectMake(50, 0, 50, 25)];
     
     titleLable.backgroundColor=[UIColor clearColor];
-    titleLable.text=@"Repeat";
+    titleLable.text=@"Alert";
     titleLable.font=[UIFont fontWithName:@"Arial" size:20.0];
     titleLable.textColor= [UIColor colorWithHue:31.0/360.0 saturation:99.0/100.0 brightness:87.0/100.0 alpha:1];
     

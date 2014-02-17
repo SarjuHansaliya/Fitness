@@ -8,7 +8,7 @@
 
 #import "ISDashboardViewController.h"
 #import "ISAppDelegate.h"
-#import "macros.txt"
+#import "macros.h"
 #import "MMDrawerBarButtonItem.h"
 #import "ISPathViewController.h"
 
