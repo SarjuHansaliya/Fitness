@@ -705,7 +705,7 @@
         </view>
     </objects>
     <resources>
-        <image name="bg.png" width="321" height="570"/>
+        <image name="bg.png" width="641" height="1138"/>
         <image name="black.png" width="12" height="21"/>
         <image name="cal-icn.png" width="36" height="36"/>
         <image name="cal.png" width="145" height="88"/>

@@ -20,14 +20,17 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="iTy-F4-8aE">
-                    <rect key="frame" x="-1" y="0.0" width="321" height="568"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="320" id="STV-jW-2gS"/>
+                    </constraints>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GX3-VA-adF" userLabel="View Header">
                     <rect key="frame" x="10" y="10" width="300" height="37"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="start goal.png" translatesAutoresizingMaskIntoConstraints="NO" id="xEC-t3-ZK5">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="start-goal.png" translatesAutoresizingMaskIntoConstraints="NO" id="xEC-t3-ZK5">
                             <rect key="frame" x="0.0" y="0.0" width="300" height="37"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         </imageView>
@@ -285,10 +288,10 @@
         </view>
     </objects>
     <resources>
-        <image name="bg.png" width="321" height="570"/>
+        <image name="bg.png" width="641" height="1138"/>
         <image name="radoi.png" width="15" height="15"/>
         <image name="set.png" width="75" height="38"/>
-        <image name="start goal.png" width="600" height="75"/>
+        <image name="start-goal.png" width="300" height="38"/>
         <image name="start.png" width="300" height="54"/>
     </resources>
 </document>

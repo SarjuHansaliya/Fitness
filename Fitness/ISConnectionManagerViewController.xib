@@ -99,7 +99,7 @@
         </view>
     </objects>
     <resources>
-        <image name="bg.png" width="321" height="570"/>
+        <image name="bg.png" width="641" height="1138"/>
         <image name="black line 640.png" width="640" height="1"/>
         <image name="device.png" width="600" height="75"/>
         <image name="refresh.png" width="62" height="50"/>

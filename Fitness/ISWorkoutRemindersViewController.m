@@ -111,8 +111,8 @@
     
     ISEditReminderViewController *edit=[[ISEditReminderViewController alloc]initWithNibName:nil bundle:nil];
     edit.wantsFullScreenLayout = YES;
-   
-    [self presentViewController:edit animated:YES completion:nil];
+    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:edit];
+    [self presentViewController:nav animated:YES completion:nil];
     
 }
 

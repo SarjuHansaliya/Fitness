@@ -41,6 +41,9 @@
 		1FEC254018B1E2850053A996 /* line_edit_reminder.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FEC253E18B1E2850053A996 /* line_edit_reminder.png */; };
 		1FEC254418B1E8F60053A996 /* ISNewReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FEC254218B1E8F60053A996 /* ISNewReminderViewController.m */; };
 		1FEC254518B1E8F60053A996 /* ISNewReminderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FEC254318B1E8F60053A996 /* ISNewReminderViewController.xib */; };
+		1FEC257618B219AC0053A996 /* menu1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FEC257518B219AC0053A996 /* menu1@2x.png */; };
+		1FEC257A18B21A200053A996 /* ISRepeatReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FEC257818B21A200053A996 /* ISRepeatReminderViewController.m */; };
+		1FEC257B18B21A200053A996 /* ISRepeatReminderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FEC257918B21A200053A996 /* ISRepeatReminderViewController.xib */; };
 		BB005F4B18AB3BA4003FAF8B /* 04-workout goals.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BB005F3A18AB3BA4003FAF8B /* 04-workout goals.jpg */; };
 		BB005F4C18AB3BA4003FAF8B /* back1.png in Resources */ = {isa = PBXBuildFile; fileRef = BB005F3C18AB3BA4003FAF8B /* back1.png */; };
 		BB005F4D18AB3BA4003FAF8B /* radio-sel.png in Resources */ = {isa = PBXBuildFile; fileRef = BB005F3D18AB3BA4003FAF8B /* radio-sel.png */; };
@@ -49,13 +52,13 @@
 		BB005F5018AB3BA4003FAF8B /* start-goal.png in Resources */ = {isa = PBXBuildFile; fileRef = BB005F4018AB3BA4003FAF8B /* start-goal.png */; };
 		BB005F5118AB3BA4003FAF8B /* start.png in Resources */ = {isa = PBXBuildFile; fileRef = BB005F4118AB3BA4003FAF8B /* start.png */; };
 		BB005F5218AB3BA4003FAF8B /* text.png in Resources */ = {isa = PBXBuildFile; fileRef = BB005F4218AB3BA4003FAF8B /* text.png */; };
-		BB005F5318AB3BA4003FAF8B /* back@2.png in Resources */ = {isa = PBXBuildFile; fileRef = BB005F4418AB3BA4003FAF8B /* back@2.png */; };
-		BB005F5418AB3BA4003FAF8B /* radio sel.png in Resources */ = {isa = PBXBuildFile; fileRef = BB005F4518AB3BA4003FAF8B /* radio sel.png */; };
-		BB005F5518AB3BA4003FAF8B /* radoi.png in Resources */ = {isa = PBXBuildFile; fileRef = BB005F4618AB3BA4003FAF8B /* radoi.png */; };
-		BB005F5618AB3BA4003FAF8B /* set.png in Resources */ = {isa = PBXBuildFile; fileRef = BB005F4718AB3BA4003FAF8B /* set.png */; };
-		BB005F5718AB3BA4003FAF8B /* start goal.png in Resources */ = {isa = PBXBuildFile; fileRef = BB005F4818AB3BA4003FAF8B /* start goal.png */; };
-		BB005F5818AB3BA4003FAF8B /* start.png in Resources */ = {isa = PBXBuildFile; fileRef = BB005F4918AB3BA4003FAF8B /* start.png */; };
-		BB005F5918AB3BA4003FAF8B /* text.png in Resources */ = {isa = PBXBuildFile; fileRef = BB005F4A18AB3BA4003FAF8B /* text.png */; };
+		BB005F5318AB3BA4003FAF8B /* back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BB005F4418AB3BA4003FAF8B /* back@2x.png */; };
+		BB005F5418AB3BA4003FAF8B /* radio-sel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BB005F4518AB3BA4003FAF8B /* radio-sel@2x.png */; };
+		BB005F5518AB3BA4003FAF8B /* radoi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BB005F4618AB3BA4003FAF8B /* radoi@2x.png */; };
+		BB005F5618AB3BA4003FAF8B /* set@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BB005F4718AB3BA4003FAF8B /* set@2x.png */; };
+		BB005F5718AB3BA4003FAF8B /* start-goal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BB005F4818AB3BA4003FAF8B /* start-goal@2x.png */; };
+		BB005F5818AB3BA4003FAF8B /* start@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BB005F4918AB3BA4003FAF8B /* start@2x.png */; };
+		BB005F5918AB3BA4003FAF8B /* text@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BB005F4A18AB3BA4003FAF8B /* text@2x.png */; };
 		BB005F5D18AB3BD0003FAF8B /* ISSetWorkoutGoalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB005F5B18AB3BD0003FAF8B /* ISSetWorkoutGoalViewController.m */; };
 		BB005F5E18AB3BD0003FAF8B /* ISSetWorkoutGoalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB005F5C18AB3BD0003FAF8B /* ISSetWorkoutGoalViewController.xib */; };
 		BB0B80C618ACC9E800BCC2E0 /* ISReminderCellViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB0B80C418ACC9E800BCC2E0 /* ISReminderCellViewController.m */; };
@@ -99,7 +102,6 @@
 		BB779DE918AA4186009C2D8C /* radoi.png in Resources */ = {isa = PBXBuildFile; fileRef = BB779DE318AA4186009C2D8C /* radoi.png */; };
 		BB779DEA18AA4186009C2D8C /* line@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = BB779DE418AA4186009C2D8C /* line@1x.png */; };
 		BB779E1C18AA4765009C2D8C /* 02-dashboard edit.png in Resources */ = {isa = PBXBuildFile; fileRef = BB779DED18AA4765009C2D8C /* 02-dashboard edit.png */; };
-		BB779E1D18AA4765009C2D8C /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = BB779DEF18AA4765009C2D8C /* bg.png */; };
 		BB779E1E18AA4765009C2D8C /* black.png in Resources */ = {isa = PBXBuildFile; fileRef = BB779DF018AA4765009C2D8C /* black.png */; };
 		BB779E1F18AA4765009C2D8C /* cal-icn.png in Resources */ = {isa = PBXBuildFile; fileRef = BB779DF118AA4765009C2D8C /* cal-icn.png */; };
 		BB779E2018AA4765009C2D8C /* cal.png in Resources */ = {isa = PBXBuildFile; fileRef = BB779DF218AA4765009C2D8C /* cal.png */; };
@@ -192,6 +194,10 @@
 		1FEC254118B1E8F60053A996 /* ISNewReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISNewReminderViewController.h; sourceTree = "<group>"; };
 		1FEC254218B1E8F60053A996 /* ISNewReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISNewReminderViewController.m; sourceTree = "<group>"; };
 		1FEC254318B1E8F60053A996 /* ISNewReminderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISNewReminderViewController.xib; sourceTree = "<group>"; };
+		1FEC257518B219AC0053A996 /* menu1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu1@2x.png"; sourceTree = "<group>"; };
+		1FEC257718B21A200053A996 /* ISRepeatReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISRepeatReminderViewController.h; sourceTree = "<group>"; };
+		1FEC257818B21A200053A996 /* ISRepeatReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISRepeatReminderViewController.m; sourceTree = "<group>"; };
+		1FEC257918B21A200053A996 /* ISRepeatReminderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISRepeatReminderViewController.xib; sourceTree = "<group>"; };
 		BB005F3A18AB3BA4003FAF8B /* 04-workout goals.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "04-workout goals.jpg"; sourceTree = "<group>"; };
 		BB005F3C18AB3BA4003FAF8B /* back1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back1.png; sourceTree = "<group>"; };
 		BB005F3D18AB3BA4003FAF8B /* radio-sel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "radio-sel.png"; sourceTree = "<group>"; };
@@ -200,13 +206,13 @@
 		BB005F4018AB3BA4003FAF8B /* start-goal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "start-goal.png"; sourceTree = "<group>"; };
 		BB005F4118AB3BA4003FAF8B /* start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = start.png; sourceTree = "<group>"; };
 		BB005F4218AB3BA4003FAF8B /* text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = text.png; sourceTree = "<group>"; };
-		BB005F4418AB3BA4003FAF8B /* back@2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back@2.png"; sourceTree = "<group>"; };
-		BB005F4518AB3BA4003FAF8B /* radio sel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "radio sel.png"; sourceTree = "<group>"; };
-		BB005F4618AB3BA4003FAF8B /* radoi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radoi.png; sourceTree = "<group>"; };
-		BB005F4718AB3BA4003FAF8B /* set.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = set.png; sourceTree = "<group>"; };
-		BB005F4818AB3BA4003FAF8B /* start goal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "start goal.png"; sourceTree = "<group>"; };
-		BB005F4918AB3BA4003FAF8B /* start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = start.png; sourceTree = "<group>"; };
-		BB005F4A18AB3BA4003FAF8B /* text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = text.png; sourceTree = "<group>"; };
+		BB005F4418AB3BA4003FAF8B /* back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back@2x.png"; sourceTree = "<group>"; };
+		BB005F4518AB3BA4003FAF8B /* radio-sel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "radio-sel@2x.png"; sourceTree = "<group>"; };
+		BB005F4618AB3BA4003FAF8B /* radoi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "radoi@2x.png"; sourceTree = "<group>"; };
+		BB005F4718AB3BA4003FAF8B /* set@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "set@2x.png"; sourceTree = "<group>"; };
+		BB005F4818AB3BA4003FAF8B /* start-goal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "start-goal@2x.png"; sourceTree = "<group>"; };
+		BB005F4918AB3BA4003FAF8B /* start@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "start@2x.png"; sourceTree = "<group>"; };
+		BB005F4A18AB3BA4003FAF8B /* text@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "text@2x.png"; sourceTree = "<group>"; };
 		BB005F5A18AB3BD0003FAF8B /* ISSetWorkoutGoalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISSetWorkoutGoalViewController.h; sourceTree = "<group>"; };
 		BB005F5B18AB3BD0003FAF8B /* ISSetWorkoutGoalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISSetWorkoutGoalViewController.m; sourceTree = "<group>"; };
 		BB005F5C18AB3BD0003FAF8B /* ISSetWorkoutGoalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISSetWorkoutGoalViewController.xib; sourceTree = "<group>"; };
@@ -259,7 +265,6 @@
 		BB779DE318AA4186009C2D8C /* radoi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radoi.png; sourceTree = "<group>"; };
 		BB779DE418AA4186009C2D8C /* line@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "line@1x.png"; sourceTree = "<group>"; };
 		BB779DED18AA4765009C2D8C /* 02-dashboard edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "02-dashboard edit.png"; sourceTree = "<group>"; };
-		BB779DEF18AA4765009C2D8C /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
 		BB779DF018AA4765009C2D8C /* black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black.png; sourceTree = "<group>"; };
 		BB779DF118AA4765009C2D8C /* cal-icn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cal-icn.png"; sourceTree = "<group>"; };
 		BB779DF218AA4765009C2D8C /* cal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cal.png; sourceTree = "<group>"; };
@@ -408,13 +413,13 @@
 		BB005F4318AB3BA4003FAF8B /* 2x */ = {
 			isa = PBXGroup;
 			children = (
-				BB005F4418AB3BA4003FAF8B /* back@2.png */,
-				BB005F4518AB3BA4003FAF8B /* radio sel.png */,
-				BB005F4618AB3BA4003FAF8B /* radoi.png */,
-				BB005F4718AB3BA4003FAF8B /* set.png */,
-				BB005F4818AB3BA4003FAF8B /* start goal.png */,
-				BB005F4918AB3BA4003FAF8B /* start.png */,
-				BB005F4A18AB3BA4003FAF8B /* text.png */,
+				BB005F4418AB3BA4003FAF8B /* back@2x.png */,
+				BB005F4518AB3BA4003FAF8B /* radio-sel@2x.png */,
+				BB005F4618AB3BA4003FAF8B /* radoi@2x.png */,
+				BB005F4718AB3BA4003FAF8B /* set@2x.png */,
+				BB005F4818AB3BA4003FAF8B /* start-goal@2x.png */,
+				BB005F4918AB3BA4003FAF8B /* start@2x.png */,
+				BB005F4A18AB3BA4003FAF8B /* text@2x.png */,
 			);
 			path = 2x;
 			sourceTree = "<group>";
@@ -566,6 +571,9 @@
 				1FEC254118B1E8F60053A996 /* ISNewReminderViewController.h */,
 				1FEC254218B1E8F60053A996 /* ISNewReminderViewController.m */,
 				1FEC254318B1E8F60053A996 /* ISNewReminderViewController.xib */,
+				1FEC257718B21A200053A996 /* ISRepeatReminderViewController.h */,
+				1FEC257818B21A200053A996 /* ISRepeatReminderViewController.m */,
+				1FEC257918B21A200053A996 /* ISRepeatReminderViewController.xib */,
 			);
 			name = screens;
 			sourceTree = "<group>";
@@ -659,8 +667,8 @@
 		BB779DEE18AA4765009C2D8C /* 1x */ = {
 			isa = PBXGroup;
 			children = (
+				1FEC257518B219AC0053A996 /* menu1@2x.png */,
 				BB1F96A418AC9A9B0023A174 /* ribbon-bg1.png */,
-				BB779DEF18AA4765009C2D8C /* bg.png */,
 				BB779DF018AA4765009C2D8C /* black.png */,
 				BB779DF118AA4765009C2D8C /* cal-icn.png */,
 				BB779DF218AA4765009C2D8C /* cal.png */,
@@ -797,6 +805,7 @@
 				BB3C66CC18A9EA2800CAA240 /* ISProfileViewController.xib in Resources */,
 				BB779E5218AA518B009C2D8C /* ISMenuViewController.xib in Resources */,
 				1F4E037A18AE115700BAF4D8 /* line.png in Resources */,
+				1FEC257618B219AC0053A996 /* menu1@2x.png in Resources */,
 				BB005F4E18AB3BA4003FAF8B /* radoi.png in Resources */,
 				BB779E2818AA4765009C2D8C /* report.png in Resources */,
 				BB779DE918AA4186009C2D8C /* radoi.png in Resources */,
@@ -809,7 +818,7 @@
 				BB779E2918AA4765009C2D8C /* speed-icn.png in Resources */,
 				BB005F5218AB3BA4003FAF8B /* text.png in Resources */,
 				1F4E037518AE115700BAF4D8 /* refresh.png in Resources */,
-				BB005F5918AB3BA4003FAF8B /* text.png in Resources */,
+				BB005F5918AB3BA4003FAF8B /* text@2x.png in Resources */,
 				BB779E2218AA4765009C2D8C /* hr-icn.png in Resources */,
 				1F4E037718AE115700BAF4D8 /* 09-heart rate monitoring.jpg in Resources */,
 				1F4E037618AE115700BAF4D8 /* selected.png in Resources */,
@@ -828,7 +837,7 @@
 				BB11E4CC18A8CA5900406313 /* mid img.png in Resources */,
 				1F4E037418AE115700BAF4D8 /* line.png in Resources */,
 				BB779E5918AA56F4009C2D8C /* 03-dashboard_slider_edited.jpg in Resources */,
-				BB005F5518AB3BA4003FAF8B /* radoi.png in Resources */,
+				BB005F5518AB3BA4003FAF8B /* radoi@2x.png in Resources */,
 				1F4E038918AE1F3B00BAF4D8 /* disable reminder.png in Resources */,
 				BB0B80DD18ACCA9A00BCC2E0 /* lineReminderCell.png in Resources */,
 				BB1F96A718ACBA6F0023A174 /* helvetica-condensed-thin.ttf in Resources */,
@@ -847,23 +856,24 @@
 				BB779DDA18AA1DED009C2D8C /* comic sans.ttf in Resources */,
 				BB779E2F18AA4765009C2D8C /* time.png in Resources */,
 				BB005F4C18AB3BA4003FAF8B /* back1.png in Resources */,
-				BB005F5618AB3BA4003FAF8B /* set.png in Resources */,
+				BB005F5618AB3BA4003FAF8B /* set@2x.png in Resources */,
 				BB779E2D18AA4765009C2D8C /* steps.png in Resources */,
 				BB779DE718AA4186009C2D8C /* line.png in Resources */,
 				BB005F4B18AB3BA4003FAF8B /* 04-workout goals.jpg in Resources */,
-				BB005F5318AB3BA4003FAF8B /* back@2.png in Resources */,
+				BB005F5318AB3BA4003FAF8B /* back@2x.png in Resources */,
 				BB005F4D18AB3BA4003FAF8B /* radio-sel.png in Resources */,
 				1FEC253F18B1E2850053A996 /* btn_edit_reminder.png in Resources */,
 				BB779E4D18AA4783009C2D8C /* ISDashboardViewController.xib in Resources */,
 				BB779E2A18AA4765009C2D8C /* speed.png in Resources */,
 				BB11E4CE18A8CA5900406313 /* text box bg.png in Resources */,
-				BB005F5718AB3BA4003FAF8B /* start goal.png in Resources */,
+				BB005F5718AB3BA4003FAF8B /* start-goal@2x.png in Resources */,
 				1F4E034B18ADE5B600BAF4D8 /* ISWorkoutRemindersViewController.xib in Resources */,
 				1F4E037B18AE115700BAF4D8 /* textHR.png in Resources */,
-				BB005F5418AB3BA4003FAF8B /* radio sel.png in Resources */,
+				BB005F5418AB3BA4003FAF8B /* radio-sel@2x.png in Resources */,
 				BB1F96A518AC9A9B0023A174 /* ribbon-bg1.png in Resources */,
 				BB11E4CF18A8CA5900406313 /* text.png in Resources */,
 				1F4E035018ADF26900BAF4D8 /* ISReminderTableCell.xib in Resources */,
+				1FEC257B18B21A200053A996 /* ISRepeatReminderViewController.xib in Resources */,
 				1FEC254518B1E8F60053A996 /* ISNewReminderViewController.xib in Resources */,
 				BB0B80DC18ACCA9A00BCC2E0 /* edit.png in Resources */,
 				BB28211718AB658F00ADE985 /* macros.txt in Resources */,
@@ -884,8 +894,7 @@
 				BB779E3218AA4765009C2D8C /* workout-done.png in Resources */,
 				1F4E035F18AE110300BAF4D8 /* ISHRMonitorViewController.xib in Resources */,
 				BB779E1F18AA4765009C2D8C /* cal-icn.png in Resources */,
-				BB005F5818AB3BA4003FAF8B /* start.png in Resources */,
-				BB779E1D18AA4765009C2D8C /* bg.png in Resources */,
+				BB005F5818AB3BA4003FAF8B /* start@2x.png in Resources */,
 				BB0B80C718ACC9E800BCC2E0 /* ISReminderCellViewController.xib in Resources */,
 				1F4E037918AE115700BAF4D8 /* date.png in Resources */,
 				BB0EE33E18A3ADAB00E3EA63 /* Images.xcassets in Resources */,
@@ -925,6 +934,7 @@
 				1F4E038418AE16D800BAF4D8 /* ISBLEConnectionManagerViewController.m in Sources */,
 				BB779E6B18AA5A3E009C2D8C /* MMDrawerController.m in Sources */,
 				BB0EE33818A3ADAB00E3EA63 /* main.m in Sources */,
+				1FEC257A18B21A200053A996 /* ISRepeatReminderViewController.m in Sources */,
 				BB0B80C618ACC9E800BCC2E0 /* ISReminderCellViewController.m in Sources */,
 				1F4E034E18ADF23C00BAF4D8 /* ISReminderCell.m in Sources */,
 				1F4E034A18ADE5B600BAF4D8 /* ISWorkoutRemindersViewController.m in Sources */,
