@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F05309318B1D43300F34E0D /* ISEditReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F05309118B1D43300F34E0D /* ISEditReminderViewController.m */; };
+		1F05309418B1D43300F34E0D /* ISEditReminderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F05309218B1D43300F34E0D /* ISEditReminderViewController.xib */; };
 		1F4E034A18ADE5B600BAF4D8 /* ISWorkoutRemindersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4E034818ADE5B600BAF4D8 /* ISWorkoutRemindersViewController.m */; };
 		1F4E034B18ADE5B600BAF4D8 /* ISWorkoutRemindersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F4E034918ADE5B600BAF4D8 /* ISWorkoutRemindersViewController.xib */; };
 		1F4E034E18ADF23C00BAF4D8 /* ISReminderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4E034D18ADF23C00BAF4D8 /* ISReminderCell.m */; };
@@ -143,6 +145,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F05309018B1D43300F34E0D /* ISEditReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISEditReminderViewController.h; sourceTree = "<group>"; };
+		1F05309118B1D43300F34E0D /* ISEditReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISEditReminderViewController.m; sourceTree = "<group>"; };
+		1F05309218B1D43300F34E0D /* ISEditReminderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISEditReminderViewController.xib; sourceTree = "<group>"; };
 		1F4E034718ADE5B600BAF4D8 /* ISWorkoutRemindersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISWorkoutRemindersViewController.h; sourceTree = "<group>"; };
 		1F4E034818ADE5B600BAF4D8 /* ISWorkoutRemindersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISWorkoutRemindersViewController.m; sourceTree = "<group>"; };
 		1F4E034918ADE5B600BAF4D8 /* ISWorkoutRemindersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISWorkoutRemindersViewController.xib; sourceTree = "<group>"; };
@@ -537,6 +542,9 @@
 				1F4E039218AE332E00BAF4D8 /* ISPathViewController.h */,
 				1F4E039318AE332E00BAF4D8 /* ISPathViewController.m */,
 				1F4E039418AE332E00BAF4D8 /* ISPathViewController.xib */,
+				1F05309018B1D43300F34E0D /* ISEditReminderViewController.h */,
+				1F05309118B1D43300F34E0D /* ISEditReminderViewController.m */,
+				1F05309218B1D43300F34E0D /* ISEditReminderViewController.xib */,
 			);
 			name = screens;
 			sourceTree = "<group>";
@@ -840,6 +848,7 @@
 				1F4E035A18AE10F600BAF4D8 /* ISConnectionManagerTableCell.xib in Resources */,
 				BB0EE33618A3ADAB00E3EA63 /* InfoPlist.strings in Resources */,
 				1F4E038E18AE226200BAF4D8 /* ISConnectionManagerViewController.xib in Resources */,
+				1F05309418B1D43300F34E0D /* ISEditReminderViewController.xib in Resources */,
 				1F4E037018AE115700BAF4D8 /* 08-connection manager.jpg in Resources */,
 				BB005F5E18AB3BD0003FAF8B /* ISSetWorkoutGoalViewController.xib in Resources */,
 				BB779DE618AA4186009C2D8C /* radoi@1x.png in Resources */,
@@ -883,6 +892,7 @@
 				BB779E4C18AA4783009C2D8C /* ISDashboardViewController.m in Sources */,
 				BB3C66CB18A9EA2800CAA240 /* ISProfileViewController.m in Sources */,
 				1F4E038D18AE226200BAF4D8 /* ISConnectionManagerViewController.m in Sources */,
+				1F05309318B1D43300F34E0D /* ISEditReminderViewController.m in Sources */,
 				BB11E4BE18A8C9C400406313 /* ISUserProfileViewController.m in Sources */,
 				BB779E5118AA518B009C2D8C /* ISMenuViewController.m in Sources */,
 				BB0EE33C18A3ADAB00E3EA63 /* ISAppDelegate.m in Sources */,
