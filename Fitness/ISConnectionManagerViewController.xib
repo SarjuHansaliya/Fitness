@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ISConnectionManagerViewController">
+            <connections>
+                <outlet property="devicesTableView" destination="3mD-JJ-Z70" id="uTt-SW-nB5"/>
+                <outlet property="view" destination="1" id="3"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="1">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="eEA-GC-cKN">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RQU-xo-ZNh">
+                    <rect key="frame" x="10" y="10" width="300" height="38"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="device.png" translatesAutoresizingMaskIntoConstraints="NO" id="LrB-SS-QBC">
+                            <rect key="frame" x="0.0" y="0.0" width="300" height="38"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        </imageView>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Discover HR Devices" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aOu-wj-ktV">
+                            <rect key="frame" x="10" y="9" width="170" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                            <color key="textColor" red="0.87450980392156863" green="0.45882352941176469" blue="0.011764705882352941" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="refresh.png" translatesAutoresizingMaskIntoConstraints="NO" id="Xvh-Dn-NSE">
+                            <rect key="frame" x="259" y="7" width="31" height="25"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="31" id="6na-Cz-qBz"/>
+                                <constraint firstAttribute="height" constant="25" id="tN9-DJ-3sE"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="centerY" secondItem="LrB-SS-QBC" secondAttribute="centerY" id="7ga-M6-S2N"/>
+                        <constraint firstAttribute="centerY" secondItem="Xvh-Dn-NSE" secondAttribute="centerY" id="MjD-Rk-aCz"/>
+                        <constraint firstItem="aOu-wj-ktV" firstAttribute="leading" secondItem="RQU-xo-ZNh" secondAttribute="leading" constant="10" id="MoR-r2-tjL"/>
+                        <constraint firstAttribute="height" secondItem="LrB-SS-QBC" secondAttribute="height" id="Qdz-0u-aSZ"/>
+                        <constraint firstAttribute="width" secondItem="LrB-SS-QBC" secondAttribute="width" id="ajv-yP-TW1"/>
+                        <constraint firstAttribute="trailing" secondItem="Xvh-Dn-NSE" secondAttribute="trailing" constant="10" id="fap-wm-mb5"/>
+                        <constraint firstAttribute="centerX" secondItem="LrB-SS-QBC" secondAttribute="centerX" id="oNI-qL-xRJ"/>
+                        <constraint firstAttribute="centerY" secondItem="aOu-wj-ktV" secondAttribute="centerY" id="rYw-bL-oha"/>
+                        <constraint firstAttribute="height" constant="38" id="sVd-fj-p2J"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Available Devices" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vv3-Ye-oYH">
+                    <rect key="frame" x="10" y="63" width="118" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                    <color key="textColor" red="0.87450980389999999" green="0.45882352939999999" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="black line 640.png" translatesAutoresizingMaskIntoConstraints="NO" id="Az0-vN-huw">
+                    <rect key="frame" x="0.0" y="86" width="320" height="1"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="aF1-cT-3r8"/>
+                    </constraints>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3mD-JJ-Z70" userLabel="View Table View">
+                    <rect key="frame" x="0.0" y="87" width="320" height="481"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Az0-vN-huw" secondAttribute="trailing" id="2dg-Jt-6cH"/>
+                <constraint firstItem="eEA-GC-cKN" firstAttribute="top" secondItem="1" secondAttribute="top" id="Eeb-SS-zOK"/>
+                <constraint firstItem="Az0-vN-huw" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="F3H-IN-tpX"/>
+                <constraint firstAttribute="bottom" secondItem="3mD-JJ-Z70" secondAttribute="bottom" id="JDg-D4-pYl"/>
+                <constraint firstItem="Az0-vN-huw" firstAttribute="top" secondItem="vv3-Ye-oYH" secondAttribute="bottom" constant="5" id="LRB-Th-nW2"/>
+                <constraint firstItem="eEA-GC-cKN" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="W8P-f9-KHe"/>
+                <constraint firstItem="RQU-xo-ZNh" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="10" id="aLP-Dt-dXu"/>
+                <constraint firstItem="vv3-Ye-oYH" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="10" id="b25-5F-BvF"/>
+                <constraint firstAttribute="trailing" secondItem="RQU-xo-ZNh" secondAttribute="trailing" constant="10" id="chb-vw-TQP"/>
+                <constraint firstAttribute="trailing" secondItem="3mD-JJ-Z70" secondAttribute="trailing" id="fTA-47-EQt"/>
+                <constraint firstItem="vv3-Ye-oYH" firstAttribute="top" secondItem="RQU-xo-ZNh" secondAttribute="bottom" constant="15" id="jpS-ex-Nyg"/>
+                <constraint firstAttribute="trailing" secondItem="eEA-GC-cKN" secondAttribute="trailing" id="mrP-A9-bOA"/>
+                <constraint firstAttribute="bottom" secondItem="eEA-GC-cKN" secondAttribute="bottom" id="oBq-Ba-2Dt"/>
+                <constraint firstItem="3mD-JJ-Z70" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="sik-Ru-wue"/>
+                <constraint firstItem="3mD-JJ-Z70" firstAttribute="top" secondItem="Az0-vN-huw" secondAttribute="bottom" id="v9y-Kx-k0v"/>
+                <constraint firstItem="RQU-xo-ZNh" firstAttribute="top" secondItem="1" secondAttribute="top" constant="10" id="yoW-ZR-Ep9"/>
+            </constraints>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="bg.png" width="321" height="570"/>
+        <image name="black line 640.png" width="640" height="1"/>
+        <image name="device.png" width="600" height="75"/>
+        <image name="refresh.png" width="62" height="50"/>
+    </resources>
+</document>

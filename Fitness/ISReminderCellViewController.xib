@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ISReminderCellViewController">
+            <connections>
+                <outlet property="backgroundImage" destination="TCl-Ka-4Hs" id="pZt-kF-pUi"/>
+                <outlet property="reminderDaysLabel" destination="3g2-lA-0Dp" id="jkj-1E-xnP"/>
+                <outlet property="reminderSwitch" destination="yb5-YI-OsC" id="i4g-Vm-Csb"/>
+                <outlet property="reminderTimeLabel" destination="sRZ-y3-QnG" id="uMU-AV-ldb"/>
+                <outlet property="view" destination="1" id="3"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="1">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BnW-3O-CK6">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <subviews>
+                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="disable-reminder.png" translatesAutoresizingMaskIntoConstraints="NO" id="TCl-Ka-4Hs">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jI6-xU-met" userLabel="Button Delete">
+                            <rect key="frame" x="14" y="10" width="23" height="23"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="23" id="AoJ-Td-wnr"/>
+                                <constraint firstAttribute="height" constant="23" id="fuY-W3-Sah"/>
+                            </constraints>
+                            <state key="normal" image="delet.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YdL-kG-GGE" userLabel="View Edit">
+                            <rect key="frame" x="10" y="40" width="30" height="15"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EDIT" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvK-fj-MId">
+                                    <rect key="frame" x="4" y="2" width="22" height="12"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="0.87450981139999995" green="0.45882353190000003" blue="0.01176470611" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="centerY" secondItem="hvK-fj-MId" secondAttribute="centerY" id="3Ie-kn-7V8"/>
+                                <constraint firstAttribute="width" constant="30" id="HEv-eN-plG"/>
+                                <constraint firstAttribute="height" constant="15" id="cxB-0t-PCf"/>
+                                <constraint firstAttribute="centerX" secondItem="hvK-fj-MId" secondAttribute="centerX" id="gWc-gs-FWO"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6:30" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sRZ-y3-QnG">
+                            <rect key="frame" x="50" y="10" width="47" height="28"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mon, Tue, Wed, Thu" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3g2-lA-0Dp">
+                            <rect key="frame" x="50" y="43" width="81" height="11"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="9"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yb5-YI-OsC">
+                            <rect key="frame" x="251" y="17" width="51" height="31"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="onTintColor" red="0.87450981139999995" green="0.45882353190000003" blue="0.01176470611" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="reminderSwitchValueChanged:" destination="-1" eventType="valueChanged" id="dOl-0Z-5iQ"/>
+                            </connections>
+                        </switch>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lineReminderCell.png" translatesAutoresizingMaskIntoConstraints="NO" id="aeO-Gh-78a">
+                            <rect key="frame" x="0.0" y="64" width="320" height="1"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="centerY" secondItem="yb5-YI-OsC" secondAttribute="centerY" id="2GI-8x-5I3"/>
+                        <constraint firstItem="sRZ-y3-QnG" firstAttribute="leading" secondItem="BnW-3O-CK6" secondAttribute="leading" constant="50" id="5Xi-h7-d7I"/>
+                        <constraint firstItem="jI6-xU-met" firstAttribute="top" secondItem="BnW-3O-CK6" secondAttribute="top" constant="10" id="8QA-Ot-G78"/>
+                        <constraint firstAttribute="bottom" secondItem="3g2-lA-0Dp" secondAttribute="bottom" constant="11" id="C38-K2-wmc"/>
+                        <constraint firstItem="3g2-lA-0Dp" firstAttribute="leading" secondItem="BnW-3O-CK6" secondAttribute="leading" constant="50" id="H4p-Ov-6Jl"/>
+                        <constraint firstItem="TCl-Ka-4Hs" firstAttribute="top" secondItem="BnW-3O-CK6" secondAttribute="top" id="HPT-ml-t6x"/>
+                        <constraint firstAttribute="centerX" secondItem="aeO-Gh-78a" secondAttribute="centerX" id="Kkk-NA-gja"/>
+                        <constraint firstItem="sRZ-y3-QnG" firstAttribute="top" secondItem="BnW-3O-CK6" secondAttribute="top" constant="10" id="RgB-NK-HUf"/>
+                        <constraint firstAttribute="bottom" secondItem="aeO-Gh-78a" secondAttribute="bottom" id="SyX-8Q-0A8"/>
+                        <constraint firstAttribute="trailing" secondItem="yb5-YI-OsC" secondAttribute="trailing" constant="20" id="TVR-me-ez1"/>
+                        <constraint firstItem="TCl-Ka-4Hs" firstAttribute="leading" secondItem="BnW-3O-CK6" secondAttribute="leading" id="XwG-Bx-ZPW"/>
+                        <constraint firstItem="YdL-kG-GGE" firstAttribute="leading" secondItem="BnW-3O-CK6" secondAttribute="leading" constant="10" id="hpE-FQ-9YV"/>
+                        <constraint firstItem="jI6-xU-met" firstAttribute="leading" secondItem="BnW-3O-CK6" secondAttribute="leading" constant="14" id="lDV-hD-Zoy"/>
+                        <constraint firstAttribute="height" constant="65" id="oF8-lG-Rj9"/>
+                        <constraint firstAttribute="centerX" secondItem="TCl-Ka-4Hs" secondAttribute="centerX" id="rPj-lU-35e"/>
+                        <constraint firstAttribute="width" constant="320" id="sEU-tE-Asg"/>
+                        <constraint firstAttribute="centerY" secondItem="TCl-Ka-4Hs" secondAttribute="centerY" id="sGZ-u9-iRL"/>
+                        <constraint firstAttribute="bottom" secondItem="YdL-kG-GGE" secondAttribute="bottom" constant="10" id="sfx-us-0rG"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="BnW-3O-CK6" firstAttribute="top" secondItem="1" secondAttribute="top" id="JHL-L0-1ZB"/>
+                <constraint firstItem="BnW-3O-CK6" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="Tyo-oc-d2u"/>
+            </constraints>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="delet.png" width="22" height="22"/>
+        <image name="disable-reminder.png" width="320" height="65"/>
+        <image name="lineReminderCell.png" width="320" height="1"/>
+    </resources>
+</document>

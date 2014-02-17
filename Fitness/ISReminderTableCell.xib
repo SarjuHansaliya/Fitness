@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ISReminderCellHandler">
+            <connections>
+                <outlet property="backgroundImage" destination="0gZ-fE-vdi" id="eUQ-pd-8rz"/>
+                <outlet property="reminderDaysLabel" destination="1Da-IX-AhD" id="8ub-mz-QwB"/>
+                <outlet property="reminderSwitch" destination="19K-mr-d2w" id="zRp-jV-Fb3"/>
+                <outlet property="reminderTimeLabel" destination="r0c-mV-kyY" id="xan-32-7Ha"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="gqA-jf-UgR" customClass="ISReminderCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gqA-jf-UgR" id="7Sc-xw-0Ai">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BP5-4D-XaT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="disable-reminder.png" translatesAutoresizingMaskIntoConstraints="NO" id="0gZ-fE-vdi">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Z7-ba-2TC" userLabel="Button Delete">
+                                <rect key="frame" x="14" y="10" width="23" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="23" id="bzL-Lw-zbj"/>
+                                    <constraint firstAttribute="height" constant="23" id="w42-Bi-nty"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" image="delet.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YEM-RM-At2" userLabel="View Edit">
+                                <rect key="frame" x="10" y="39" width="30" height="15"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EDIT" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DZh-YZ-Sd2">
+                                        <rect key="frame" x="4" y="2" width="22" height="12"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.87450981139999995" green="0.45882353190000003" blue="0.01176470611" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerY" secondItem="DZh-YZ-Sd2" secondAttribute="centerY" id="473-FE-t2d"/>
+                                    <constraint firstAttribute="height" constant="15" id="XyT-0M-IMq"/>
+                                    <constraint firstAttribute="width" constant="30" id="o8X-FL-LQ5"/>
+                                    <constraint firstAttribute="centerX" secondItem="DZh-YZ-Sd2" secondAttribute="centerX" id="voB-fB-1uw"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6:30" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r0c-mV-kyY">
+                                <rect key="frame" x="50" y="8" width="47" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mon, Tue, Wed, Thu" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Da-IX-AhD">
+                                <rect key="frame" x="50" y="42" width="81" height="11"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="9"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="19K-mr-d2w">
+                                <rect key="frame" x="251" y="17" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="onTintColor" red="0.87450981139999995" green="0.45882353190000003" blue="0.01176470611" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="reminderSwitchValueChanged:" destination="-1" eventType="valueChanged" id="dG1-V5-Tcx"/>
+                                </connections>
+                            </switch>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lineReminderCell.png" translatesAutoresizingMaskIntoConstraints="NO" id="2qz-AD-Pa2">
+                                <rect key="frame" x="-160" y="63" width="640" height="1"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="19K-mr-d2w" secondAttribute="centerY" id="5Td-Wv-vdB"/>
+                            <constraint firstItem="1Da-IX-AhD" firstAttribute="leading" secondItem="BP5-4D-XaT" secondAttribute="leading" constant="50" id="BL2-AP-1Rz"/>
+                            <constraint firstAttribute="width" constant="320" id="Hcf-Wc-9Gm"/>
+                            <constraint firstItem="7Z7-ba-2TC" firstAttribute="leading" secondItem="BP5-4D-XaT" secondAttribute="leading" constant="14" id="PgW-dl-qUT"/>
+                            <constraint firstAttribute="bottom" secondItem="1Da-IX-AhD" secondAttribute="bottom" constant="11" id="SLv-sk-NPQ"/>
+                            <constraint firstAttribute="centerX" secondItem="2qz-AD-Pa2" secondAttribute="centerX" id="TMp-rL-ty9"/>
+                            <constraint firstItem="r0c-mV-kyY" firstAttribute="top" secondItem="BP5-4D-XaT" secondAttribute="top" constant="8" id="U6S-gj-C4x"/>
+                            <constraint firstItem="0gZ-fE-vdi" firstAttribute="top" secondItem="BP5-4D-XaT" secondAttribute="top" id="Wjc-3H-KfW"/>
+                            <constraint firstItem="r0c-mV-kyY" firstAttribute="leading" secondItem="BP5-4D-XaT" secondAttribute="leading" constant="50" id="ZkJ-eq-P6d"/>
+                            <constraint firstAttribute="bottom" secondItem="2qz-AD-Pa2" secondAttribute="bottom" id="ddJ-pm-7ES"/>
+                            <constraint firstItem="0gZ-fE-vdi" firstAttribute="leading" secondItem="BP5-4D-XaT" secondAttribute="leading" id="gHf-v9-D9q"/>
+                            <constraint firstItem="7Z7-ba-2TC" firstAttribute="top" secondItem="BP5-4D-XaT" secondAttribute="top" constant="10" id="h7X-a3-6K6"/>
+                            <constraint firstAttribute="trailing" secondItem="19K-mr-d2w" secondAttribute="trailing" constant="20" id="oP8-0B-pHd"/>
+                            <constraint firstAttribute="centerX" secondItem="0gZ-fE-vdi" secondAttribute="centerX" id="qEh-sz-GBn"/>
+                            <constraint firstAttribute="bottom" secondItem="YEM-RM-At2" secondAttribute="bottom" constant="10" id="tQb-F0-SZm"/>
+                            <constraint firstAttribute="centerY" secondItem="0gZ-fE-vdi" secondAttribute="centerY" id="wIN-1C-eJB"/>
+                            <constraint firstItem="YEM-RM-At2" firstAttribute="leading" secondItem="BP5-4D-XaT" secondAttribute="leading" constant="10" id="wNL-WY-0Gu"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="BP5-4D-XaT" firstAttribute="leading" secondItem="7Sc-xw-0Ai" secondAttribute="leading" id="G6C-Pb-JWK"/>
+                    <constraint firstAttribute="trailing" secondItem="BP5-4D-XaT" secondAttribute="trailing" id="Wb7-XU-jXF"/>
+                    <constraint firstItem="BP5-4D-XaT" firstAttribute="top" secondItem="7Sc-xw-0Ai" secondAttribute="top" id="sBC-o6-ge4"/>
+                    <constraint firstAttribute="bottom" secondItem="BP5-4D-XaT" secondAttribute="bottom" id="t2V-TR-XBI"/>
+                </constraints>
+            </tableViewCellContentView>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="delet.png" width="44" height="44"/>
+        <image name="disable-reminder.png" width="320" height="65"/>
+        <image name="lineReminderCell.png" width="640" height="1"/>
+    </resources>
+</document>

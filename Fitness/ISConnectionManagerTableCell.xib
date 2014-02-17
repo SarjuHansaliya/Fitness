@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ISBLEDeviceCellHandler">
+            <connections>
+                <outlet property="deviceNameLabel" destination="6Bn-0T-F97" id="h9c-Zg-3DY"/>
+                <outlet property="selectedDeviceImageView" destination="0My-jJ-xSV" id="TZR-ex-EvP"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="w80-Dx-9tH" customClass="ISBLEDeviceCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="32"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="w80-Dx-9tH" id="Dsc-sd-PiB">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="31"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oKd-FV-gw1" userLabel="View Connection Manager Cell">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="31"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wahoo HR Device" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Bn-0T-F97">
+                                <rect key="frame" x="10" y="7" width="122" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <color key="textColor" red="0.32549019610000002" green="0.32549019610000002" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="selected.png" translatesAutoresizingMaskIntoConstraints="NO" id="0My-jJ-xSV">
+                                <rect key="frame" x="299" y="10" width="11" height="11"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="11" id="a8h-06-npN"/>
+                                    <constraint firstAttribute="width" constant="11" id="hBC-bn-tba"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line.png" translatesAutoresizingMaskIntoConstraints="NO" id="WbP-X6-lfj">
+                                <rect key="frame" x="10" y="30" width="310" height="1"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="0LY-hs-SMG"/>
+                                    <constraint firstAttribute="width" constant="310" id="jzo-zm-fNK"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="6Bn-0T-F97" secondAttribute="centerY" id="Dx0-1F-7ng"/>
+                            <constraint firstAttribute="bottom" secondItem="WbP-X6-lfj" secondAttribute="bottom" id="HJD-Zs-tVl"/>
+                            <constraint firstItem="6Bn-0T-F97" firstAttribute="leading" secondItem="oKd-FV-gw1" secondAttribute="leading" constant="10" id="Ljh-nz-ixe"/>
+                            <constraint firstAttribute="trailing" secondItem="0My-jJ-xSV" secondAttribute="trailing" constant="10" id="TwP-m1-owr"/>
+                            <constraint firstAttribute="centerY" secondItem="0My-jJ-xSV" secondAttribute="centerY" id="cx0-4h-c0D"/>
+                            <constraint firstAttribute="trailing" secondItem="WbP-X6-lfj" secondAttribute="trailing" id="wdT-Fk-NPR"/>
+                            <constraint firstAttribute="width" constant="320" id="xrY-JJ-QBi"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="oKd-FV-gw1" firstAttribute="leading" secondItem="Dsc-sd-PiB" secondAttribute="leading" id="DNa-0w-cSz"/>
+                    <constraint firstItem="oKd-FV-gw1" firstAttribute="top" secondItem="Dsc-sd-PiB" secondAttribute="top" id="HmK-y8-hS0"/>
+                    <constraint firstAttribute="bottom" secondItem="oKd-FV-gw1" secondAttribute="bottom" id="Y4X-Fy-Z6u"/>
+                    <constraint firstAttribute="trailing" secondItem="oKd-FV-gw1" secondAttribute="trailing" id="cYG-OE-Xz6"/>
+                    <constraint firstItem="oKd-FV-gw1" firstAttribute="leading" secondItem="Dsc-sd-PiB" secondAttribute="leading" id="lGM-FE-N8h"/>
+                </constraints>
+            </tableViewCellContentView>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="line.png" width="620" height="1"/>
+        <image name="selected.png" width="22" height="22"/>
+    </resources>
+</document>
