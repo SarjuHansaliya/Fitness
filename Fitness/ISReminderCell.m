@@ -66,6 +66,8 @@
     if (self) {
         
         ISReminderCellHandler * outletOwner=[[ISReminderCellHandler alloc]init];
+        
+        
         NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"ISReminderTableCell" owner:outletOwner options:nil];
         self = [topLevelObjects objectAtIndex:0];
         
@@ -73,13 +75,14 @@
         self.backgroundColor=[UIColor clearColor];
         
     }
-
-    
     return self;
 }
+
+
 -(void)setReminderTime:(NSDate *)time reminderOnDays:(NSArray *)days
 {
     [self.outletOwner setReminderTime:time reminderOnDays:days];
+    
 }
 
 

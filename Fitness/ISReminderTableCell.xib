@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ISReminderCellHandler">
             <connections>
                 <outlet property="backgroundImage" destination="0gZ-fE-vdi" id="eUQ-pd-8rz"/>
+                <outlet property="editView" destination="YEM-RM-At2" id="2Lb-8f-6ff"/>
                 <outlet property="reminderDaysLabel" destination="1Da-IX-AhD" id="8ub-mz-QwB"/>
                 <outlet property="reminderSwitch" destination="19K-mr-d2w" id="zRp-jV-Fb3"/>
                 <outlet property="reminderTimeLabel" destination="r0c-mV-kyY" id="xan-32-7Ha"/>

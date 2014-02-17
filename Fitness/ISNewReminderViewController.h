@@ -1,5 +1,5 @@
 //
-//  ISEditReminderViewController.h
+//  ISNewReminderViewController.h
 //  Fitness
 //
 //  Created by ispluser on 2/17/14.
@@ -8,13 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ISEditReminderViewController : UIViewController
+@interface ISNewReminderViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UIView *cancelView;
 @property (weak, nonatomic) IBOutlet UIView *saveView;
+@property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 
 @property (weak, nonatomic) IBOutlet UIView *startView;
-
-@property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 
 @end

@@ -31,7 +31,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-   [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+   [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
     self.wantsFullScreenLayout=YES;
 
     [self setupMenuItemsTouchEvents];

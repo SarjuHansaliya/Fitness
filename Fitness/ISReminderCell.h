@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImage;
 @property (weak, nonatomic) IBOutlet UILabel *reminderTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *reminderDaysLabel;
+@property (weak, nonatomic) IBOutlet UIView *editView;
 
 
 

@@ -8,6 +8,9 @@
 
 #import "ISWorkoutRemindersViewController.h"
 #import "ISReminderCell.h"
+#import "ISEditReminderViewController.h"
+#import "ISNewReminderViewController.h"
+
 
 @interface ISWorkoutRemindersViewController ()
 
@@ -79,7 +82,7 @@
     
     UIButton *addButtonCustom = [UIButton buttonWithType:UIButtonTypeCustom];
     [addButtonCustom setFrame:CGRectMake(0.0f, 0.0f, 25.0f, 25.0f)];
-    [addButtonCustom addTarget:self action:@selector(addNewEvent:) forControlEvents:UIControlEventTouchUpInside];
+    [addButtonCustom addTarget:self action:@selector(addNewReminder:) forControlEvents:UIControlEventTouchUpInside];
     [addButtonCustom setImage:[UIImage imageNamed:@"new.png"] forState:UIControlStateNormal];
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithCustomView:addButtonCustom];
     
@@ -89,14 +92,30 @@
     
     
 }
--(void)addNewEvent:(id)sender
+-(void)addNewReminder:(id)sender
 {
-   
+    ISNewReminderViewController *newReminder=[[ISNewReminderViewController alloc]initWithNibName:nil bundle:nil];
+    newReminder.wantsFullScreenLayout = YES;
+    
+    [self presentViewController:newReminder animated:YES completion:nil];
+
 }
 -(void)goBack:(id)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+
+-(void)editReminder:(id)sender
+{
+    
+    ISEditReminderViewController *edit=[[ISEditReminderViewController alloc]initWithNibName:nil bundle:nil];
+    edit.wantsFullScreenLayout = YES;
+   
+    [self presentViewController:edit animated:YES completion:nil];
+    
+}
+
 
 
 //--------------------------------handling table view controller-------------------
@@ -120,10 +139,16 @@
 {
     static NSString *CellIdentifier = @"ReminderCell";
     ISReminderCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    UITapGestureRecognizer *tapOnEdit = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(editReminder:)];
+    tapOnEdit.numberOfTapsRequired =1;
+
+    
     if (cell == nil) {
         
         cell = [[ISReminderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier ];
-               
+        
+        [cell.outletOwner.editView addGestureRecognizer:tapOnEdit];
+        
        //cell = [[ISReminderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier ];
         
         
