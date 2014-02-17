@@ -23,23 +23,33 @@
                         <constraint firstAttribute="width" constant="320" id="Gbt-bC-Huu"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Edit Reminder" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0QS-SC-yck">
-                    <rect key="frame" x="107" y="273" width="105" height="23"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit Reminder" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0QS-SC-yck">
+                    <rect key="frame" x="96" y="33" width="127" height="23"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="20"/>
                     <color key="textColor" red="0.87450981139999995" green="0.45882353190000003" blue="0.01176470611" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="bIU-gj-tf5">
-                    <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="bIU-gj-tf5">
+                    <rect key="frame" x="0.0" y="64" width="321" height="570"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wyB-0Z-iB3">
+                    <rect key="frame" x="137" y="269" width="46" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Cancel">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstAttribute="centerX" secondItem="0QS-SC-yck" secondAttribute="centerX" id="E4P-sQ-qWH"/>
                 <constraint firstItem="elB-Ul-oIK" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="XyN-ew-g4K"/>
                 <constraint firstItem="elB-Ul-oIK" firstAttribute="top" secondItem="1" secondAttribute="top" id="YEh-yn-VN8"/>
                 <constraint firstItem="bIU-gj-tf5" firstAttribute="top" secondItem="elB-Ul-oIK" secondAttribute="bottom" id="g31-a7-K3b"/>
+                <constraint firstItem="elB-Ul-oIK" firstAttribute="centerY" secondItem="0QS-SC-yck" secondAttribute="centerY" constant="-12" id="kvw-en-PBH"/>
+                <constraint firstItem="bIU-gj-tf5" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="nWv-nG-mLe"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
