@@ -39,11 +39,14 @@
     if (self.reminderSwitch.on) {
         self.reminderTimeLabel.textColor=[UIColor blackColor];
         self.reminderDaysLabel.textColor=[UIColor blackColor];
+        self.reminderLabel.textColor=[UIColor blackColor];
     }
     else
     {
         self.reminderTimeLabel.textColor=color535353;
         self.reminderDaysLabel.textColor=color535353;
+        self.reminderLabel.textColor=color535353;
+        
         
     }
     

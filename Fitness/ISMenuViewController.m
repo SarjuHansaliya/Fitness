@@ -11,6 +11,7 @@
 #import "ISSetWorkoutGoalViewController.h"
 #import "ISHRMonitorViewController.h"
 #import "ISConnectionManagerViewController.h"
+#import "ISUserProfileViewController.h"
 #import "macros.h"
 
 @interface ISMenuViewController ()
@@ -52,6 +53,11 @@
     tapOnConnectionManagerView.numberOfTapsRequired=1;
     [self.deviceConnectionManagerView addGestureRecognizer:tapOnConnectionManagerView];
     
+    
+    UITapGestureRecognizer *tapOnUserProfileView = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(displayUserProfile:)];
+    tapOnUserProfileView.numberOfTapsRequired=1;
+    [self.userProfileView addGestureRecognizer:tapOnUserProfileView];
+    
 }
 -(void) displayConnectionManager:(id)sender
 {
@@ -71,6 +77,15 @@
     [[(ISAppDelegate *)[[UIApplication sharedApplication]delegate] drawerController] toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
     [(UINavigationController*)[(ISAppDelegate *)[[UIApplication sharedApplication]delegate] drawerController].centerViewController pushViewController:[[ISSetWorkoutGoalViewController alloc] initWithNibName:nil bundle:nil] animated:YES];
 }
+-(void) displayUserProfile:(id)sender
+{
+    [[(ISAppDelegate *)[[UIApplication sharedApplication]delegate] drawerController] toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
+    ISUserProfileViewController *userProfile=[[ISUserProfileViewController alloc]initWithNibName:nil bundle:nil];
+    userProfile.wantsFullScreenLayout = YES;
+    
+    [self presentViewController:userProfile animated:YES completion:nil];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
