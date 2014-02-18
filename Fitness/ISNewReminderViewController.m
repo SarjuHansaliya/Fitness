@@ -97,7 +97,7 @@
     rightLable.text=@"Save";
     rightLable.font=[UIFont fontWithName:@"Helvetica Neue" size:12.0];
     rightLable.textColor= [UIColor colorWithHue:31.0/360.0 saturation:99.0/100.0 brightness:87.0/100.0 alpha:1];
-    
+        rightLable.textAlignment=NSTextAlignmentRight;
     [rightView addSubview:rightLable];
     
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithCustomView:rightView];
@@ -160,7 +160,7 @@
                         options: UIViewAnimationOptionCurveEaseIn
                      animations:^{
                          self.datePicker.alpha = 1.0 - self.datePicker.alpha;
-                         self.datePicker.frame = CGRectMake(0, 290, 320, 216);
+                         //self.datePicker.frame = CGRectMake(0, 290, 320, 216);
                          
                      }
                      completion:nil];

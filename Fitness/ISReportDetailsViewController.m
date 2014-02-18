@@ -1,19 +1,21 @@
 //
-//  ISHRMonitorViewController.m
+//  ISReportDetailsViewController.m
 //  Fitness
 //
-//  Created by ispluser on 2/14/14.
+//  Created by ispluser on 2/18/14.
 //  Copyright (c) 2014 ISC. All rights reserved.
 //
 
-#import "ISHRMonitorViewController.h"
+#import "ISReportDetailsViewController.h"
+#import "ISPathViewController.h"
+#import "ISAppDelegate.h"
 #import "macros.h"
 
-@interface ISHRMonitorViewController ()
+@interface ISReportDetailsViewController ()
 
 @end
 
-@implementation ISHRMonitorViewController
+@implementation ISReportDetailsViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -24,21 +26,14 @@
     return self;
 }
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setupMenuItemsTouchEvents];
     [self setupNavigationBar];
     // Do any additional setup after loading the view from its nib.
 }
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
-//--------------------------------setting up navigation bar--------------------------------------
 
 -(void)setupNavigationBar
 {
@@ -48,16 +43,16 @@
     
     self.navigationController.navigationBar.translucent=NO;
     
-    
     UILabel *titleLable=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 27)];
     
     titleLable.backgroundColor=[UIColor clearColor];
-    titleLable.text=@"Heart Rate Monitoring";
-    titleLable.font=[UIFont fontWithName:@"HelveticaWorld-Regular" size:20.0];
+    titleLable.text=@"Workout Details";
+    titleLable.font=[UIFont fontWithName:@"Arial" size:20.0];
     titleLable.textColor= [UIColor colorWithHue:31.0/360.0 saturation:99.0/100.0 brightness:87.0/100.0 alpha:1];
     
     self.navigationItem.titleView=titleLable;
     self.navigationItem.titleView.backgroundColor=[UIColor clearColor];
+    
     float xSpace=SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")?-10.0f:-0.0f;
     
     
@@ -72,8 +67,12 @@
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:backView];
     
     
+    
+    
     // [backButton setTintColor: [UIColor colorWithHue:31.0/360.0 saturation:99.0/100.0 brightness:87.0/100.0 alpha:1]];
     [self.navigationItem setLeftBarButtonItem:backButton];
+    
+    
     
 }
 
@@ -81,31 +80,37 @@
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
-//------------------------------------------------------------------------------------------------
 
-- (IBAction)buttonToDateClicked:(id)sender {
+
+//----------------------------handling touch events on items---------------
+-(void)setupMenuItemsTouchEvents
+{
+    UITapGestureRecognizer *tapOnMapView = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(displayPathOnMap:)] ;
+    tapOnMapView.numberOfTapsRequired=1;
+    [self.mapPathView addGestureRecognizer:tapOnMapView];
     
-    [UIView animateWithDuration:0.2
-                          delay:0.0
-                        options: UIViewAnimationOptionCurveEaseIn
-                     animations:^{
-                         self.datePicker.alpha = 1.0 - self.datePicker.alpha;
-                         // self.datePicker.frame = CGRectMake(0, 290, 320, 216);
-                         
-                     }
-                     completion:nil];
+    UITapGestureRecognizer *tapOnDeleteView = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(deleteReport:)] ;
+    tapOnDeleteView.numberOfTapsRequired=1;
+    [self.deleteReportView addGestureRecognizer:tapOnDeleteView];
+    
+   
+    
+    
+}
+-(void) displayPathOnMap:(id)sender
+{
+    
+    [(UINavigationController*)[(ISAppDelegate *)[[UIApplication sharedApplication]delegate] drawerController].centerViewController pushViewController:[[ISPathViewController alloc] initWithNibName:nil bundle:nil] animated:YES];
+}
+-(void) deleteReport:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (IBAction)buttonFromDateClicked:(id)sender {
-    
-    [UIView animateWithDuration:0.2
-                          delay:0.0
-                        options: UIViewAnimationOptionCurveEaseIn
-                     animations:^{
-                         self.datePicker.alpha = 1.0 - self.datePicker.alpha;
-                         // self.datePicker.frame = CGRectMake(0, 290, 320, 216);
-                         
-                     }
-                     completion:nil];
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
+
 @end

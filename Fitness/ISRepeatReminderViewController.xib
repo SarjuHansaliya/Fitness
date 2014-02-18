@@ -20,7 +20,7 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nyn-0W-S0V" userLabel="View Never">
-                    <rect key="frame" x="0.0" y="50" width="320" height="45"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="45"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="selected.png" translatesAutoresizingMaskIntoConstraints="NO" id="1BC-Cc-Fwk">
@@ -31,7 +31,7 @@
                                 <constraint firstAttribute="width" constant="11" id="WR9-sX-4Zj"/>
                             </constraints>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="black line 640.png" translatesAutoresizingMaskIntoConstraints="NO" id="giA-8x-vM4">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line.png" translatesAutoresizingMaskIntoConstraints="NO" id="giA-8x-vM4">
                             <rect key="frame" x="10" y="44" width="310" height="1"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <constraints>
@@ -57,10 +57,10 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sz8-7l-2dD" userLabel="View Every day">
-                    <rect key="frame" x="0.0" y="95" width="320" height="45"/>
+                    <rect key="frame" x="0.0" y="45" width="320" height="45"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="black line 640.png" translatesAutoresizingMaskIntoConstraints="NO" id="7Fh-wQ-7Pp">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line.png" translatesAutoresizingMaskIntoConstraints="NO" id="7Fh-wQ-7Pp">
                             <rect key="frame" x="10" y="44" width="310" height="1"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <constraints>
@@ -94,10 +94,10 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Km3-8z-7La" userLabel="View Every Week">
-                    <rect key="frame" x="0.0" y="140" width="320" height="45"/>
+                    <rect key="frame" x="0.0" y="90" width="320" height="45"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="black line 640.png" translatesAutoresizingMaskIntoConstraints="NO" id="fAC-Q7-MSy">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line.png" translatesAutoresizingMaskIntoConstraints="NO" id="fAC-Q7-MSy">
                             <rect key="frame" x="10" y="44" width="310" height="1"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <constraints>
@@ -131,10 +131,10 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="har-dg-TCg" userLabel="View Every 2 Week">
-                    <rect key="frame" x="0.0" y="185" width="320" height="45"/>
+                    <rect key="frame" x="0.0" y="135" width="320" height="45"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="black line 640.png" translatesAutoresizingMaskIntoConstraints="NO" id="tfA-Dj-hse">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line.png" translatesAutoresizingMaskIntoConstraints="NO" id="tfA-Dj-hse">
                             <rect key="frame" x="10" y="44" width="310" height="1"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <constraints>
@@ -168,10 +168,10 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MZx-bU-QjX" userLabel="View Every Month">
-                    <rect key="frame" x="0.0" y="230" width="320" height="45"/>
+                    <rect key="frame" x="0.0" y="180" width="320" height="45"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="black line 640.png" translatesAutoresizingMaskIntoConstraints="NO" id="FGs-87-iGw">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line.png" translatesAutoresizingMaskIntoConstraints="NO" id="FGs-87-iGw">
                             <rect key="frame" x="10" y="44" width="310" height="1"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <constraints>
@@ -205,10 +205,10 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="krl-BV-hzt" userLabel="View Every Year">
-                    <rect key="frame" x="0.0" y="275" width="320" height="45"/>
+                    <rect key="frame" x="0.0" y="225" width="320" height="45"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="black line 640.png" translatesAutoresizingMaskIntoConstraints="NO" id="w3q-Fs-qcM">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line.png" translatesAutoresizingMaskIntoConstraints="NO" id="w3q-Fs-qcM">
                             <rect key="frame" x="10" y="44" width="310" height="1"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <constraints>
@@ -271,7 +271,7 @@
                 <constraint firstItem="har-dg-TCg" firstAttribute="centerY" secondItem="fNE-qz-neS" secondAttribute="centerY" id="wvo-Qi-6er"/>
                 <constraint firstItem="ixw-gk-OB9" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="xtz-9a-Xa1"/>
                 <constraint firstItem="krl-BV-hzt" firstAttribute="top" secondItem="MZx-bU-QjX" secondAttribute="bottom" id="yNP-7W-Wpy"/>
-                <constraint firstItem="Nyn-0W-S0V" firstAttribute="top" secondItem="1" secondAttribute="top" constant="50" id="zPu-xd-PG7"/>
+                <constraint firstItem="Nyn-0W-S0V" firstAttribute="top" secondItem="1" secondAttribute="top" id="zPu-xd-PG7"/>
                 <constraint firstItem="sz8-7l-2dD" firstAttribute="top" secondItem="Nyn-0W-S0V" secondAttribute="bottom" id="zdr-3g-eqF"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
@@ -280,7 +280,7 @@
     </objects>
     <resources>
         <image name="bg.png" width="641" height="1138"/>
-        <image name="black line 640.png" width="640" height="1"/>
+        <image name="line.png" width="620" height="1"/>
         <image name="selected.png" width="22" height="22"/>
     </resources>
 </document>

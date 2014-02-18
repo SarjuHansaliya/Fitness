@@ -11,6 +11,7 @@
 #import "macros.h"
 #import "MMDrawerBarButtonItem.h"
 #import "ISPathViewController.h"
+#import "ISReportsViewController.h"
 
 @interface ISDashboardViewController ()
 
@@ -107,6 +108,7 @@
     tapOnStartWorkOutView.numberOfTapsRequired=1;
     [self.startWorkoutView addGestureRecognizer:tapOnStartWorkOutView];
     
+    
 }
 -(void) displayPathOnMap:(id)sender
 {
@@ -115,7 +117,7 @@
 }
 -(void) displayReport:(id)sender
 {
-    
+    [(UINavigationController*)[(ISAppDelegate *)[[UIApplication sharedApplication]delegate] drawerController].centerViewController pushViewController:[[ISReportsViewController alloc] initWithNibName:nil bundle:nil] animated:YES];
 }
 -(void) workoutButtonClicked:(id)sender
 {

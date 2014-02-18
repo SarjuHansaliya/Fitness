@@ -7,6 +7,7 @@
 //
 
 #import "ISAlertReminderViewController.h"
+#import "macros.h"
 
 @interface ISAlertReminderViewController ()
 
@@ -57,12 +58,20 @@
     self.navigationItem.titleView=titleLable;
     self.navigationItem.titleView.backgroundColor=[UIColor clearColor];
     
+    float xSpace=SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")?-10.0f:-0.0f;
+    
+    
+    UIView *backView =[[UIView alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
+    [backView setBackgroundColor:[UIColor clearColor]];
     
     UIButton *backButtonCustom = [UIButton buttonWithType:UIButtonTypeCustom];
-    [backButtonCustom setFrame:CGRectMake(0.0f, 0.0f, 25.0f, 25.0f)];
+    [backButtonCustom setFrame:CGRectMake(xSpace, 3.0f, 25.0f, 25.0f)];
     [backButtonCustom addTarget:self action:@selector(goBack:) forControlEvents:UIControlEventTouchUpInside];
     [backButtonCustom setImage:[UIImage imageNamed:@"back.png"] forState:UIControlStateNormal];
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:backButtonCustom];
+    [backView addSubview:backButtonCustom];
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:backView];
+    
+
     
     
     // [backButton setTintColor: [UIColor colorWithHue:31.0/360.0 saturation:99.0/100.0 brightness:87.0/100.0 alpha:1]];

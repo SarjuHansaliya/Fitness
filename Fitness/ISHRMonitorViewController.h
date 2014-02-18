@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface ISHRMonitorViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIButton *buttonFromDate;
+- (IBAction)buttonToDateClicked:(id)sender;
+- (IBAction)buttonFromDateClicked:(id)sender;
+@property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 
 @end

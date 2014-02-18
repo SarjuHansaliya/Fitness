@@ -32,7 +32,8 @@
 
 
 @property ISReminderCellHandler *outletOwner;
--(void)setReminderTime:(NSDate*)time reminderOnDays:(NSArray *)days;
+-(void)setReminderTime:(NSDate *)time reminderOnDays:(NSArray *)days viewController:(UIViewController*)vc;
+
 
 @end
 

@@ -177,7 +177,7 @@
         </view>
     </objects>
     <resources>
-        <image name="bg.png" width="321" height="570"/>
+        <image name="bg.png" width="641" height="1138"/>
         <image name="head-bg.png" width="320" height="65"/>
         <image name="line.png" width="620" height="1"/>
         <image name="orange.png" width="12" height="21"/>

@@ -7,6 +7,7 @@
 //
 
 #import "ISReminderCell.h"
+#import "ISEditReminderViewController.h"
 
 //---------------implementing helper class for handling cell events---------
 
@@ -49,8 +50,6 @@
     
 }
 
-
-
 @end
 
 
@@ -58,6 +57,9 @@
 
 
 @implementation ISReminderCell
+{
+   __weak UIViewController  *parentVC;
+}
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 
@@ -73,15 +75,31 @@
         
         self.outletOwner=outletOwner;
         self.backgroundColor=[UIColor clearColor];
+        UITapGestureRecognizer *tapOnEditView=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(editReminder:)];
+        tapOnEditView.numberOfTapsRequired=1;
+        [self.outletOwner.editView addGestureRecognizer:tapOnEditView];
+        
         
     }
     return self;
 }
+-(void)editReminder:(id)sender
+{
+    
+    ISEditReminderViewController *edit=[[ISEditReminderViewController alloc]initWithNibName:nil bundle:nil];
+    edit.wantsFullScreenLayout = YES;
+    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:edit];
+    
+     [parentVC presentViewController:nav animated:YES completion:nil];
+    
+}
 
 
--(void)setReminderTime:(NSDate *)time reminderOnDays:(NSArray *)days
+
+-(void)setReminderTime:(NSDate *)time reminderOnDays:(NSArray *)days viewController:(UIViewController*)vc
 {
     [self.outletOwner setReminderTime:time reminderOnDays:days];
+    parentVC=vc;
     
 }
 

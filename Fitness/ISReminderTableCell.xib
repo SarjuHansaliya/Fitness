@@ -119,7 +119,7 @@
     </objects>
     <resources>
         <image name="delet.png" width="44" height="44"/>
-        <image name="disable-reminder.png" width="320" height="65"/>
+        <image name="disable-reminder.png" width="22" height="22"/>
         <image name="lineReminderCell.png" width="640" height="1"/>
     </resources>
 </document>

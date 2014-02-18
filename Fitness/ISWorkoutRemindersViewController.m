@@ -10,6 +10,7 @@
 #import "ISReminderCell.h"
 #import "ISEditReminderViewController.h"
 #import "ISNewReminderViewController.h"
+#import "macros.h"
 
 
 @interface ISWorkoutRemindersViewController ()
@@ -72,13 +73,19 @@
     
     self.navigationItem.titleView=titleLable;
     self.navigationItem.titleView.backgroundColor=[UIColor clearColor];
+    float xSpace=SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")?-10.0f:-0.0f;
     
+    
+    UIView *backView =[[UIView alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
+    [backView setBackgroundColor:[UIColor clearColor]];
     
     UIButton *backButtonCustom = [UIButton buttonWithType:UIButtonTypeCustom];
-    [backButtonCustom setFrame:CGRectMake(0.0f, 0.0f, 25.0f, 25.0f)];
+    [backButtonCustom setFrame:CGRectMake(xSpace, 3.0f, 25.0f, 25.0f)];
     [backButtonCustom addTarget:self action:@selector(goBack:) forControlEvents:UIControlEventTouchUpInside];
     [backButtonCustom setImage:[UIImage imageNamed:@"back.png"] forState:UIControlStateNormal];
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:backButtonCustom];
+    [backView addSubview:backButtonCustom];
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:backView];
+    
     
     UIButton *addButtonCustom = [UIButton buttonWithType:UIButtonTypeCustom];
     [addButtonCustom setFrame:CGRectMake(0.0f, 0.0f, 25.0f, 25.0f)];
@@ -107,15 +114,7 @@
 }
 
 
--(void)editReminder:(id)sender
-{
-    
-    ISEditReminderViewController *edit=[[ISEditReminderViewController alloc]initWithNibName:nil bundle:nil];
-    edit.wantsFullScreenLayout = YES;
-    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:edit];
-    [self presentViewController:nav animated:YES completion:nil];
-    
-}
+
 
 
 
@@ -140,21 +139,14 @@
 {
     static NSString *CellIdentifier = @"ReminderCell";
     ISReminderCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    UITapGestureRecognizer *tapOnEdit = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(editReminder:)];
-    tapOnEdit.numberOfTapsRequired =1;
-
     
     if (cell == nil) {
         
         cell = [[ISReminderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier ];
         
-        [cell.outletOwner.editView addGestureRecognizer:tapOnEdit];
-        
-       //cell = [[ISReminderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier ];
-        
-        
+               
     }
-    [cell setReminderTime:[dateArray objectAtIndex:indexPath.row] reminderOnDays:[daysArray objectAtIndex:indexPath.row]];
+    [cell setReminderTime:[dateArray objectAtIndex:indexPath.row] reminderOnDays:[daysArray objectAtIndex:indexPath.row] viewController:self];
     
     
     

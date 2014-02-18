@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		1F05309318B1D43300F34E0D /* ISEditReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F05309118B1D43300F34E0D /* ISEditReminderViewController.m */; };
 		1F05309418B1D43300F34E0D /* ISEditReminderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F05309218B1D43300F34E0D /* ISEditReminderViewController.xib */; };
+		1F19312418B33DFD005BB31C /* ISReportDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F19312218B33DFD005BB31C /* ISReportDetailsViewController.m */; };
+		1F19312518B33DFD005BB31C /* ISReportDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F19312318B33DFD005BB31C /* ISReportDetailsViewController.xib */; };
+		1F19312718B33FF8005BB31C /* ISReportDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F19312618B33FF8005BB31C /* ISReportDetailsCell.xib */; };
+		1F19312A18B3406C005BB31C /* ISReportDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F19312918B3406C005BB31C /* ISReportDetailCell.m */; };
+		1F19312D18B34735005BB31C /* ISReportsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F19312C18B34735005BB31C /* ISReportsViewController.m */; };
 		1F4E034A18ADE5B600BAF4D8 /* ISWorkoutRemindersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4E034818ADE5B600BAF4D8 /* ISWorkoutRemindersViewController.m */; };
 		1F4E034B18ADE5B600BAF4D8 /* ISWorkoutRemindersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F4E034918ADE5B600BAF4D8 /* ISWorkoutRemindersViewController.xib */; };
 		1F4E034E18ADF23C00BAF4D8 /* ISReminderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4E034D18ADF23C00BAF4D8 /* ISReminderCell.m */; };
@@ -156,6 +161,14 @@
 		1F05309018B1D43300F34E0D /* ISEditReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISEditReminderViewController.h; sourceTree = "<group>"; };
 		1F05309118B1D43300F34E0D /* ISEditReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISEditReminderViewController.m; sourceTree = "<group>"; };
 		1F05309218B1D43300F34E0D /* ISEditReminderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISEditReminderViewController.xib; sourceTree = "<group>"; };
+		1F19312118B33DFD005BB31C /* ISReportDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISReportDetailsViewController.h; sourceTree = "<group>"; };
+		1F19312218B33DFD005BB31C /* ISReportDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISReportDetailsViewController.m; sourceTree = "<group>"; };
+		1F19312318B33DFD005BB31C /* ISReportDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISReportDetailsViewController.xib; sourceTree = "<group>"; };
+		1F19312618B33FF8005BB31C /* ISReportDetailsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISReportDetailsCell.xib; sourceTree = "<group>"; };
+		1F19312818B3406C005BB31C /* ISReportDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISReportDetailCell.h; sourceTree = "<group>"; };
+		1F19312918B3406C005BB31C /* ISReportDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISReportDetailCell.m; sourceTree = "<group>"; };
+		1F19312B18B34735005BB31C /* ISReportsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISReportsViewController.h; sourceTree = "<group>"; };
+		1F19312C18B34735005BB31C /* ISReportsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISReportsViewController.m; sourceTree = "<group>"; };
 		1F4E034718ADE5B600BAF4D8 /* ISWorkoutRemindersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISWorkoutRemindersViewController.h; sourceTree = "<group>"; };
 		1F4E034818ADE5B600BAF4D8 /* ISWorkoutRemindersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISWorkoutRemindersViewController.m; sourceTree = "<group>"; };
 		1F4E034918ADE5B600BAF4D8 /* ISWorkoutRemindersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISWorkoutRemindersViewController.xib; sourceTree = "<group>"; };
@@ -441,6 +454,9 @@
 				1F4E037E18AE137F00BAF4D8 /* ISBLEDeviceCell.h */,
 				1F4E037F18AE137F00BAF4D8 /* ISBLEDeviceCell.m */,
 				1F4E035718AE10F600BAF4D8 /* ISConnectionManagerTableCell.xib */,
+				1F19312618B33FF8005BB31C /* ISReportDetailsCell.xib */,
+				1F19312818B3406C005BB31C /* ISReportDetailCell.h */,
+				1F19312918B3406C005BB31C /* ISReportDetailCell.m */,
 			);
 			name = "sub screen";
 			sourceTree = "<group>";
@@ -582,6 +598,11 @@
 				1FEC257C18B2364B0053A996 /* ISAlertReminderViewController.h */,
 				1FEC257D18B2364B0053A996 /* ISAlertReminderViewController.m */,
 				1FEC257E18B2364B0053A996 /* ISAlertReminderViewController.xib */,
+				1F19312118B33DFD005BB31C /* ISReportDetailsViewController.h */,
+				1F19312218B33DFD005BB31C /* ISReportDetailsViewController.m */,
+				1F19312318B33DFD005BB31C /* ISReportDetailsViewController.xib */,
+				1F19312B18B34735005BB31C /* ISReportsViewController.h */,
+				1F19312C18B34735005BB31C /* ISReportsViewController.m */,
 			);
 			name = screens;
 			sourceTree = "<group>";
@@ -813,6 +834,7 @@
 				BB3C66CC18A9EA2800CAA240 /* ISProfileViewController.xib in Resources */,
 				BB779E5218AA518B009C2D8C /* ISMenuViewController.xib in Resources */,
 				1F4E037A18AE115700BAF4D8 /* line.png in Resources */,
+				1F19312518B33DFD005BB31C /* ISReportDetailsViewController.xib in Resources */,
 				1FEC257618B219AC0053A996 /* menu1@2x.png in Resources */,
 				BB005F4E18AB3BA4003FAF8B /* radoi.png in Resources */,
 				BB779E2818AA4765009C2D8C /* report.png in Resources */,
@@ -883,6 +905,7 @@
 				BB11E4CF18A8CA5900406313 /* text.png in Resources */,
 				1F4E035018ADF26900BAF4D8 /* ISReminderTableCell.xib in Resources */,
 				1FEC257B18B21A200053A996 /* ISRepeatReminderViewController.xib in Resources */,
+				1F19312718B33FF8005BB31C /* ISReportDetailsCell.xib in Resources */,
 				1FEC254518B1E8F60053A996 /* ISNewReminderViewController.xib in Resources */,
 				BB0B80DC18ACCA9A00BCC2E0 /* edit.png in Resources */,
 				BB28211718AB658F00ADE985 /* macros.h in Resources */,
@@ -935,6 +958,7 @@
 				BB779E4C18AA4783009C2D8C /* ISDashboardViewController.m in Sources */,
 				1FEC254418B1E8F60053A996 /* ISNewReminderViewController.m in Sources */,
 				BB3C66CB18A9EA2800CAA240 /* ISProfileViewController.m in Sources */,
+				1F19312D18B34735005BB31C /* ISReportsViewController.m in Sources */,
 				1F4E038D18AE226200BAF4D8 /* ISConnectionManagerViewController.m in Sources */,
 				1F05309318B1D43300F34E0D /* ISEditReminderViewController.m in Sources */,
 				BB11E4BE18A8C9C400406313 /* ISUserProfileViewController.m in Sources */,
@@ -944,6 +968,8 @@
 				1F4E038418AE16D800BAF4D8 /* ISBLEConnectionManagerViewController.m in Sources */,
 				BB779E6B18AA5A3E009C2D8C /* MMDrawerController.m in Sources */,
 				BB0EE33818A3ADAB00E3EA63 /* main.m in Sources */,
+				1F19312418B33DFD005BB31C /* ISReportDetailsViewController.m in Sources */,
+				1F19312A18B3406C005BB31C /* ISReportDetailCell.m in Sources */,
 				1FEC257A18B21A200053A996 /* ISRepeatReminderViewController.m in Sources */,
 				BB0B80C618ACC9E800BCC2E0 /* ISReminderCellViewController.m in Sources */,
 				1F4E034E18ADF23C00BAF4D8 /* ISReminderCell.m in Sources */,
