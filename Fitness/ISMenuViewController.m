@@ -11,7 +11,7 @@
 #import "ISSetWorkoutGoalViewController.h"
 #import "ISHRMonitorViewController.h"
 #import "ISConnectionManagerViewController.h"
-#import "ISUserProfileViewController.h"
+#import "ISProfileViewController.h"
 #import "macros.h"
 
 @interface ISMenuViewController ()
@@ -80,7 +80,7 @@
 -(void) displayUserProfile:(id)sender
 {
     [[(ISAppDelegate *)[[UIApplication sharedApplication]delegate] drawerController] toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
-    ISUserProfileViewController *userProfile=[[ISUserProfileViewController alloc]initWithNibName:nil bundle:nil];
+    ISProfileViewController *userProfile=[[ISProfileViewController alloc]initWithNibName:nil bundle:nil];
     userProfile.wantsFullScreenLayout = YES;
     
     [self presentViewController:userProfile animated:YES completion:nil];
