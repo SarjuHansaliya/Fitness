@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ISConnectionManagerViewController">
@@ -35,22 +35,25 @@
                             <color key="textColor" red="0.87450980392156863" green="0.45882352941176469" blue="0.011764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="refresh.png" translatesAutoresizingMaskIntoConstraints="NO" id="Xvh-Dn-NSE">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NE2-vI-VmP">
                             <rect key="frame" x="259" y="7" width="31" height="25"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="31" id="6na-Cz-qBz"/>
-                                <constraint firstAttribute="height" constant="25" id="tN9-DJ-3sE"/>
+                                <constraint firstAttribute="height" constant="25" id="XD3-2M-koR"/>
+                                <constraint firstAttribute="width" constant="31" id="yFm-lF-Tly"/>
                             </constraints>
-                        </imageView>
+                            <state key="normal" image="refresh.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
                     </subviews>
                     <constraints>
+                        <constraint firstAttribute="trailing" secondItem="NE2-vI-VmP" secondAttribute="trailing" constant="10" id="5hd-0X-rRQ"/>
                         <constraint firstAttribute="centerY" secondItem="LrB-SS-QBC" secondAttribute="centerY" id="7ga-M6-S2N"/>
-                        <constraint firstAttribute="centerY" secondItem="Xvh-Dn-NSE" secondAttribute="centerY" id="MjD-Rk-aCz"/>
+                        <constraint firstAttribute="centerY" secondItem="NE2-vI-VmP" secondAttribute="centerY" id="L0z-hd-tp3"/>
                         <constraint firstItem="aOu-wj-ktV" firstAttribute="leading" secondItem="RQU-xo-ZNh" secondAttribute="leading" constant="10" id="MoR-r2-tjL"/>
                         <constraint firstAttribute="height" secondItem="LrB-SS-QBC" secondAttribute="height" id="Qdz-0u-aSZ"/>
                         <constraint firstAttribute="width" secondItem="LrB-SS-QBC" secondAttribute="width" id="ajv-yP-TW1"/>
-                        <constraint firstAttribute="trailing" secondItem="Xvh-Dn-NSE" secondAttribute="trailing" constant="10" id="fap-wm-mb5"/>
                         <constraint firstAttribute="centerX" secondItem="LrB-SS-QBC" secondAttribute="centerX" id="oNI-qL-xRJ"/>
                         <constraint firstAttribute="centerY" secondItem="aOu-wj-ktV" secondAttribute="centerY" id="rYw-bL-oha"/>
                         <constraint firstAttribute="height" constant="38" id="sVd-fj-p2J"/>

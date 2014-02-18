@@ -144,6 +144,24 @@
     
 }
 
+- (IBAction)saveUserData:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)viewDOBPicker:(id)sender {
+    
+    
+    [UIView animateWithDuration:0.2
+                          delay:0.0
+                        options: UIViewAnimationOptionCurveEaseIn
+                     animations:^{
+                         self.datePicker.alpha = 1.0 - self.datePicker.alpha;
+                         // self.datePicker.frame = CGRectMake(0, 290, 320, 216);
+                         
+                     }
+                     completion:nil];
+}
+
 
 @end
 

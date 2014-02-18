@@ -16,5 +16,8 @@
 - (IBAction)caloriesRBClicked:(id)sender;
 - (IBAction)milesRBClicked:(id)sender;
 @property (weak, nonatomic) IBOutlet UIView *openRemindersView;
+@property (weak, nonatomic) IBOutlet UITextField *milesTextField;
+@property (weak, nonatomic) IBOutlet UITextField *caloriesTextField;
+@property (weak, nonatomic) IBOutlet UITextField *durationTextField;
 
 @end

@@ -14,9 +14,13 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *maleRB;
 @property (weak, nonatomic) IBOutlet UIButton *femaleRB;
+@property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
+
 - (IBAction)maleRBClicked:(id)sender;
 - (IBAction)femaleRBClicked:(id)sender;
 
+- (IBAction)saveUserData:(id)sender;
+- (IBAction)viewDOBPicker:(id)sender;
 
 @end
 

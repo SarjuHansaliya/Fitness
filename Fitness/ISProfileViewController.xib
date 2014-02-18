@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ISProfileViewController">
             <connections>
                 <outlet property="contentScrollView" destination="qG4-v9-yOT" id="Lae-r6-G8B"/>
+                <outlet property="datePicker" destination="q38-ea-Bsr" id="Jnn-Q1-sJH"/>
                 <outlet property="femaleRB" destination="avd-04-9tU" id="RuK-Li-Ae6"/>
                 <outlet property="maleRB" destination="5AX-eO-4oi" id="fo0-dq-cg1"/>
                 <outlet property="view" destination="1" id="3"/>
@@ -73,9 +74,10 @@
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" background="text.png" disabledBackground="text.png" translatesAutoresizingMaskIntoConstraints="NO" id="AVA-86-zlq">
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AVA-86-zlq">
                                             <rect key="frame" x="85" y="11" width="200" height="22"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="200" id="0Ob-td-fzg"/>
                                                 <constraint firstAttribute="height" constant="22" id="pl5-Sm-GIx"/>
@@ -117,9 +119,10 @@
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" background="text.png" disabledBackground="text.png" translatesAutoresizingMaskIntoConstraints="NO" id="xWm-Eb-iTo">
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xWm-Eb-iTo">
                                             <rect key="frame" x="85" y="11" width="170" height="22"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="22" id="fhA-3t-fWO"/>
                                                 <constraint firstAttribute="width" constant="170" id="lLP-2K-IaG"/>
@@ -140,6 +143,9 @@
                                                     <state key="normal" image="date btn.png">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="viewDOBPicker:" destination="-1" eventType="touchUpInside" id="AAG-B3-1ES"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -262,9 +268,10 @@
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" background="text.png" disabledBackground="text.png" translatesAutoresizingMaskIntoConstraints="NO" id="gbI-Ex-hBA">
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gbI-Ex-hBA">
                                             <rect key="frame" x="85" y="11" width="200" height="22"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="22" id="IlT-e5-WZj"/>
                                                 <constraint firstAttribute="width" constant="200" id="ZUM-Ak-DHZ"/>
@@ -304,9 +311,10 @@
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" background="text.png" disabledBackground="text.png" translatesAutoresizingMaskIntoConstraints="NO" id="gRc-RB-g3x">
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gRc-RB-g3x">
                                             <rect key="frame" x="85" y="11" width="200" height="22"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="200" id="rSL-gu-VDa"/>
                                                 <constraint firstAttribute="height" constant="22" id="wFJ-Js-4ox"/>
@@ -405,9 +413,12 @@
                                 <constraint firstAttribute="width" constant="100" id="us4-UN-1wz"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
-                            <state key="normal" title="Register" backgroundImage="register btn.png">
+                            <state key="normal" title="Save" backgroundImage="register btn.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="saveUserData:" destination="-1" eventType="touchUpInside" id="d9R-fU-j1F"/>
+                            </connections>
                         </button>
                     </subviews>
                     <constraints>
@@ -419,6 +430,34 @@
                         <constraint firstAttribute="bottom" secondItem="Ith-aI-SfP" secondAttribute="bottom" id="hf5-cQ-Cd4"/>
                     </constraints>
                 </scrollView>
+                <datePicker alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="q38-ea-Bsr">
+                    <rect key="frame" x="0.0" y="406" width="320" height="162"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <date key="date" timeIntervalSinceReferenceDate="414422677.72239298">
+                        <!--2014-02-18 13:24:37 +0000-->
+                    </date>
+                    <timeZone key="timeZone" name="America/Los_Angeles">
+                        <mutableData key="data">
+VFppZgAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAC5AAAABAAAABCepkign7sVkKCGKqChmveQ
+y4kaoNIj9HDSYSYQ1v50INiArZDa/tGg28CQENzes6DdqayQ3r6VoN+JjpDgnneg4WlwkOJ+WaDjSVKQ
+5F47oOUpNJDmR1gg5xJREOgnOiDo8jMQ6gccIOrSFRDr5v4g7LH3EO3G4CDukdkQ76/8oPBxuxDxj96g
+8n/BkPNvwKD0X6OQ9U+ioPY/hZD3L4Sg+CiiEPkPZqD6CIQQ+viDIPvoZhD82GUg/chIEP64RyD/qCoQ
+AJgpIAGIDBACeAsgA3EokARhJ6AFUQqQBkEJoAcw7JAHjUOgCRDOkAmtvyAK8LCQC+CvoAzZzRANwJGg
+DrmvEA+priAQmZEQEYmQIBJ5cxATaXIgFFlVEBVJVCAWOTcQFyk2IBgiU5AZCRggGgI1kBryNKAb4heQ
+HNIWoB3B+ZAesfigH6HbkCB2KyAhgb2QIlYNICNq2hAkNe8gJUq8ECYV0SAnKp4QJ/7toCkKgBAp3s+g
+KupiECu+saAs036QLZ6ToC6zYJAvfnWgMJNCkDFnkiAycySQM0d0IDRTBpA1J1YgNjLokDcHOCA4HAUQ
+OOcaIDn75xA6xvwgO9vJEDywGKA9u6sQPo/6oD+bjRBAb9ygQYSpkEJPvqBDZIuQRC+goEVEbZBF89Mg
+Ry2KEEfTtSBJDWwQSbOXIErtThBLnLOgTNZqkE18laBOtkyQT1x3oFCWLpBRPFmgUnYQkFMcO6BUVfKQ
+VPwdoFY11JBW5TogWB7xEFjFHCBZ/tMQWqT+IFvetRBchOAgXb6XEF5kwiBfnnkQYE3eoGGHlZBiLcCg
+Y2d3kGQNoqBlR1mQZe2EoGcnO5BnzWagaQcdkGmtSKBq5v+Qa5ZlIGzQHBBtdkcgbq/+EG9WKSBwj+AQ
+cTYLIHJvwhBzFe0gdE+kEHT/CaB2OMCQdt7roHgYopB4vs2gefiEkHqer6B72GaQfH6RoH24SJB+XnOg
+f5gqkAABAAECAwEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
+AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
+AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
+AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
+</mutableData>
+                    </timeZone>
+                </datePicker>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -431,7 +470,10 @@
                 <constraint firstItem="Qy8-VP-xjh" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="KjD-G6-sYM"/>
                 <constraint firstItem="Bh5-Ov-XIA" firstAttribute="top" secondItem="Rne-hZ-bPa" secondAttribute="bottom" id="Kwm-zs-EgK"/>
                 <constraint firstAttribute="centerX" secondItem="euW-MX-hNF" secondAttribute="centerX" id="L4Q-SV-i1d"/>
+                <constraint firstItem="q38-ea-Bsr" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="LJQ-hF-Cjt"/>
                 <constraint firstAttribute="bottom" secondItem="Bh5-Ov-XIA" secondAttribute="bottom" id="WV1-fz-ylU"/>
+                <constraint firstAttribute="trailing" secondItem="q38-ea-Bsr" secondAttribute="trailing" id="c0u-P7-MuN"/>
+                <constraint firstAttribute="bottom" secondItem="q38-ea-Bsr" secondAttribute="bottom" id="cDu-lv-uPQ"/>
                 <constraint firstItem="Rne-hZ-bPa" firstAttribute="top" secondItem="1" secondAttribute="top" id="erJ-Rt-5On"/>
                 <constraint firstItem="Rne-hZ-bPa" firstAttribute="centerY" secondItem="euW-MX-hNF" secondAttribute="centerY" constant="-12" id="n4K-a4-7mf"/>
                 <constraint firstItem="Qy8-VP-xjh" firstAttribute="top" secondItem="Rne-hZ-bPa" secondAttribute="bottom" id="nV3-0O-lp7"/>
@@ -449,6 +491,5 @@
         <image name="radoi.png" width="15" height="15"/>
         <image name="register btn.png" width="200" height="70"/>
         <image name="text box bg.png" width="600" height="550"/>
-        <image name="text.png" width="400" height="45"/>
     </resources>
 </document>

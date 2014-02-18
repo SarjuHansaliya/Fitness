@@ -133,6 +133,13 @@
     self.milesRB.selected=NO;
     self.caloriesRB.selected=NO;
     self.durationRB.selected=NO;
+    [self clearText];
+}
+-(void)clearText
+{
+    self.milesTextField.text=@"";
+    self.caloriesTextField.text=@"";
+    self.durationTextField.text=@"";
 }
 
 
@@ -145,6 +152,7 @@
         
         [self clearGoalType];
         self.durationRB.selected=YES;
+        [self.durationTextField becomeFirstResponder];
     }
 
 }
@@ -155,6 +163,7 @@
         
         [self clearGoalType];
         self.caloriesRB.selected=YES;
+        [self.caloriesTextField becomeFirstResponder];
     }
 }
 
@@ -164,6 +173,7 @@
         
         [self clearGoalType];
         self.milesRB.selected=YES;
+        [self.milesTextField becomeFirstResponder];
     }
 }
 @end

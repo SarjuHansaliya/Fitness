@@ -36,10 +36,11 @@
     
     self.backgroundImage.hidden=self.reminderSwitch.on;
     UIColor *color535353=[UIColor colorWithRed:83.0/255.0 green:83.0/253.0 blue:83.0/253.0 alpha:1];
+    UIColor *colordf7503=[UIColor colorWithRed:223.0/255.0 green:117.0/253.0 blue:3.0/253.0 alpha:1];
     if (self.reminderSwitch.on) {
         self.reminderTimeLabel.textColor=[UIColor blackColor];
         self.reminderDaysLabel.textColor=[UIColor blackColor];
-        self.reminderLabel.textColor=[UIColor blackColor];
+        self.reminderLabel.textColor= colordf7503;
     }
     else
     {

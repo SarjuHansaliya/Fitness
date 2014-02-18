@@ -66,7 +66,7 @@
     
     self.navigationController.navigationBar.translucent=NO;
     
-    UILabel *titleLable=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 22)];
+    UILabel *titleLable=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 25)];
     
     titleLable.backgroundColor=[UIColor clearColor];
     titleLable.text=@"Workout Reports";
