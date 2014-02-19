@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ISNewReminderViewController">
             <connections>
                 <outlet property="alertView" destination="urb-mB-Aky" id="W6S-OC-bwf"/>
                 <outlet property="datePicker" destination="e8u-iF-w50" id="OgA-I0-5OZ"/>
+                <outlet property="dateTextLabel" destination="YZP-tf-NKf" id="EmW-bs-PDL"/>
                 <outlet property="repeatView" destination="Shr-9a-awN" id="81a-zk-Joh"/>
                 <outlet property="startView" destination="A8k-Kb-790" id="i55-20-WJ3"/>
+                <outlet property="timeTextLabel" destination="7XC-pM-xZo" id="B8K-a2-jvA"/>
                 <outlet property="view" destination="JOy-NJ-sqr" id="MuT-IE-cNo"/>
             </connections>
         </placeholder>
@@ -233,6 +235,9 @@ AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
 </data>
                     </timeZone>
+                    <connections>
+                        <action selector="datePickerValueChanged:" destination="-1" eventType="valueChanged" id="jU3-o1-DRJ"/>
+                    </connections>
                 </datePicker>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

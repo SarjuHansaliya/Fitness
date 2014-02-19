@@ -18,7 +18,6 @@
 @end
 
 @implementation ISReportsViewController
-
 {
     // dummy data, just for checking screen--------------------------
     NSMutableArray *dateArray;
@@ -80,7 +79,9 @@
     
     UIView *backView =[[UIView alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
     [backView setBackgroundColor:[UIColor clearColor]];
-    
+    UITapGestureRecognizer *tapBack=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(goBack:)];
+    tapBack.numberOfTapsRequired=1;
+    [backView addGestureRecognizer:tapBack];
     UIButton *backButtonCustom = [UIButton buttonWithType:UIButtonTypeCustom];
     [backButtonCustom setFrame:CGRectMake(xSpace, 3.0f, 25.0f, 25.0f)];
     [backButtonCustom addTarget:self action:@selector(goBack:) forControlEvents:UIControlEventTouchUpInside];

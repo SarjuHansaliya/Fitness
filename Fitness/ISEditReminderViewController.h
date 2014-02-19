@@ -16,4 +16,8 @@
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (weak, nonatomic) IBOutlet UIView *repeatView;
 
+@property (weak, nonatomic) IBOutlet UILabel *dateTextLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeTextLabel;
+- (IBAction)datePickerValueChanged:(id)sender;
+
 @end

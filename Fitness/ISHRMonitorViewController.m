@@ -28,6 +28,16 @@
 {
     [super viewDidLoad];
     [self setupNavigationBar];
+    
+    
+    self.fromDateTextField.inputView = self.datePicker;
+    self.fromDateTextField.inputAccessoryView=self.accessoryView;
+    
+    
+    self.toDateTextField.inputView=self.datePicker;
+    self.toDateTextField.inputAccessoryView=self.accessoryView;
+    
+    
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -63,7 +73,9 @@
     
     UIView *backView =[[UIView alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
     [backView setBackgroundColor:[UIColor clearColor]];
-    
+    UITapGestureRecognizer *tapBack=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(goBack:)];
+    tapBack.numberOfTapsRequired=1;
+    [backView addGestureRecognizer:tapBack];
     UIButton *backButtonCustom = [UIButton buttonWithType:UIButtonTypeCustom];
     [backButtonCustom setFrame:CGRectMake(xSpace, 3.0f, 25.0f, 25.0f)];
     [backButtonCustom addTarget:self action:@selector(goBack:) forControlEvents:UIControlEventTouchUpInside];
@@ -84,28 +96,36 @@
 //------------------------------------------------------------------------------------------------
 
 - (IBAction)buttonToDateClicked:(id)sender {
+
+    [self.toDateTextField becomeFirstResponder];
     
-    [UIView animateWithDuration:0.2
-                          delay:0.0
-                        options: UIViewAnimationOptionCurveEaseIn
-                     animations:^{
-                         self.datePicker.alpha = 1.0 - self.datePicker.alpha;
-                         // self.datePicker.frame = CGRectMake(0, 290, 320, 216);
-                         
-                     }
-                     completion:nil];
 }
 
 - (IBAction)buttonFromDateClicked:(id)sender {
+    [self.fromDateTextField becomeFirstResponder];
     
-    [UIView animateWithDuration:0.2
-                          delay:0.0
-                        options: UIViewAnimationOptionCurveEaseIn
-                     animations:^{
-                         self.datePicker.alpha = 1.0 - self.datePicker.alpha;
-                         // self.datePicker.frame = CGRectMake(0, 290, 320, 216);
-                         
-                     }
-                     completion:nil];
+}
+- (IBAction)doneEditing:(id)sender {
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"HH:mm dd/MMM"];
+    
+    if([self.toDateTextField isFirstResponder])
+    {
+        self.toDateTextField.text = [formatter stringFromDate: self.datePicker.date];
+        [self.toDateTextField resignFirstResponder];
+
+        
+    }
+    else if ([self.fromDateTextField isFirstResponder])
+    {
+        self.fromDateTextField.text = [formatter stringFromDate: self.datePicker.date];
+        [self.fromDateTextField resignFirstResponder];
+
+        
+    }
+    
+    
+    
 }
 @end

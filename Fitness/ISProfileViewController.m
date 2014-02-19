@@ -34,6 +34,11 @@
     [super viewDidLoad];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
     self.wantsFullScreenLayout=YES;
+    
+    self.dobTextField.inputView = self.datePicker;
+    self.dobTextField.inputAccessoryView = self.accessoryView;
+    
+    
     [self setupGenderRB];
     
        // Do any additional setup after loading the view from its nib.
@@ -151,15 +156,16 @@
 - (IBAction)viewDOBPicker:(id)sender {
     
     
-    [UIView animateWithDuration:0.2
-                          delay:0.0
-                        options: UIViewAnimationOptionCurveEaseIn
-                     animations:^{
-                         self.datePicker.alpha = 1.0 - self.datePicker.alpha;
-                         // self.datePicker.frame = CGRectMake(0, 290, 320, 216);
-                         
-                     }
-                     completion:nil];
+    [self.dobTextField becomeFirstResponder];
+}
+
+- (IBAction)doneEditing:(id)sender {
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"dd MMM yy"];
+    
+    self.dobTextField.text = [formatter stringFromDate: self.datePicker.date];
+    [self.dobTextField resignFirstResponder];
 }
 
 

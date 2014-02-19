@@ -7,8 +7,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ISProfileViewController">
             <connections>
+                <outlet property="accessoryView" destination="qYD-he-snr" id="kbv-n5-EGl"/>
                 <outlet property="contentScrollView" destination="qG4-v9-yOT" id="Lae-r6-G8B"/>
-                <outlet property="datePicker" destination="q38-ea-Bsr" id="Jnn-Q1-sJH"/>
+                <outlet property="datePicker" destination="hab-76-3nC" id="lXJ-RL-DSH"/>
+                <outlet property="dobTextField" destination="xWm-Eb-iTo" id="u4z-FG-XVf"/>
                 <outlet property="femaleRB" destination="avd-04-9tU" id="RuK-Li-Ae6"/>
                 <outlet property="maleRB" destination="5AX-eO-4oi" id="fo0-dq-cg1"/>
                 <outlet property="view" destination="1" id="3"/>
@@ -138,7 +140,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ndt-ZH-Ktd">
-                                                    <rect key="frame" x="8" y="4" width="14" height="14"/>
+                                                    <rect key="frame" x="4" y="2" width="22" height="18"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="date btn.png">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -151,11 +153,11 @@
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="30" id="JL1-bQ-2MA"/>
-                                                <constraint firstItem="Ndt-ZH-Ktd" firstAttribute="top" secondItem="pOv-ny-aVk" secondAttribute="top" constant="4" id="MVP-p0-fHH"/>
-                                                <constraint firstItem="Ndt-ZH-Ktd" firstAttribute="leading" secondItem="pOv-ny-aVk" secondAttribute="leading" constant="8" id="Uq5-eS-tlU"/>
+                                                <constraint firstItem="Ndt-ZH-Ktd" firstAttribute="top" secondItem="pOv-ny-aVk" secondAttribute="top" constant="2" id="MVP-p0-fHH"/>
+                                                <constraint firstItem="Ndt-ZH-Ktd" firstAttribute="leading" secondItem="pOv-ny-aVk" secondAttribute="leading" constant="4" id="Uq5-eS-tlU"/>
                                                 <constraint firstAttribute="height" constant="22" id="heM-sL-JgQ"/>
-                                                <constraint firstAttribute="bottom" secondItem="Ndt-ZH-Ktd" secondAttribute="bottom" constant="4" id="qzh-ED-g3x"/>
-                                                <constraint firstAttribute="trailing" secondItem="Ndt-ZH-Ktd" secondAttribute="trailing" constant="8" id="tWA-u7-S2a"/>
+                                                <constraint firstAttribute="bottom" secondItem="Ndt-ZH-Ktd" secondAttribute="bottom" constant="2" id="qzh-ED-g3x"/>
+                                                <constraint firstAttribute="trailing" secondItem="Ndt-ZH-Ktd" secondAttribute="trailing" constant="4" id="tWA-u7-S2a"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r1I-dc-9M4">
@@ -430,14 +432,47 @@
                         <constraint firstAttribute="bottom" secondItem="Ith-aI-SfP" secondAttribute="bottom" id="hf5-cQ-Cd4"/>
                     </constraints>
                 </scrollView>
-                <datePicker alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="q38-ea-Bsr">
-                    <rect key="frame" x="0.0" y="406" width="320" height="162"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <date key="date" timeIntervalSinceReferenceDate="414422677.72239298">
-                        <!--2014-02-18 13:24:37 +0000-->
-                    </date>
-                    <timeZone key="timeZone" name="America/Los_Angeles">
-                        <mutableData key="data">
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="qG4-v9-yOT" firstAttribute="bottom" secondItem="Bh5-Ov-XIA" secondAttribute="bottom" id="1Al-dx-nRR"/>
+                <constraint firstItem="Rne-hZ-bPa" firstAttribute="width" secondItem="Bh5-Ov-XIA" secondAttribute="width" id="1MS-hS-bHN"/>
+                <constraint firstItem="Rne-hZ-bPa" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="2ir-ml-Xrh"/>
+                <constraint firstAttribute="centerX" secondItem="qG4-v9-yOT" secondAttribute="centerX" id="2uH-oF-LYv"/>
+                <constraint firstItem="qG4-v9-yOT" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="8H3-Fq-8Va"/>
+                <constraint firstItem="Bh5-Ov-XIA" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="G1l-W2-zdL"/>
+                <constraint firstItem="Qy8-VP-xjh" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="KjD-G6-sYM"/>
+                <constraint firstItem="Bh5-Ov-XIA" firstAttribute="top" secondItem="Rne-hZ-bPa" secondAttribute="bottom" id="Kwm-zs-EgK"/>
+                <constraint firstAttribute="centerX" secondItem="euW-MX-hNF" secondAttribute="centerX" id="L4Q-SV-i1d"/>
+                <constraint firstAttribute="bottom" secondItem="Bh5-Ov-XIA" secondAttribute="bottom" id="WV1-fz-ylU"/>
+                <constraint firstItem="Rne-hZ-bPa" firstAttribute="top" secondItem="1" secondAttribute="top" id="erJ-Rt-5On"/>
+                <constraint firstItem="Rne-hZ-bPa" firstAttribute="centerY" secondItem="euW-MX-hNF" secondAttribute="centerY" constant="-12" id="n4K-a4-7mf"/>
+                <constraint firstItem="Qy8-VP-xjh" firstAttribute="top" secondItem="Rne-hZ-bPa" secondAttribute="bottom" id="nV3-0O-lp7"/>
+                <constraint firstItem="qG4-v9-yOT" firstAttribute="top" secondItem="Qy8-VP-xjh" secondAttribute="bottom" id="u3B-dF-SIA"/>
+            </constraints>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
+        <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="qYD-he-snr">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+            <items>
+                <barButtonItem title="Done" id="ZFp-km-Lfe">
+                    <color key="tintColor" red="0.87450981139999995" green="0.45882353190000003" blue="0.01176470611" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <action selector="doneEditing:" destination="-1" id="TOL-SW-uaI"/>
+                    </connections>
+                </barButtonItem>
+            </items>
+        </toolbar>
+        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" id="hab-76-3nC">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+            <date key="date" timeIntervalSinceReferenceDate="414485653.09377199">
+                <!--2014-02-19 06:54:13 +0000-->
+            </date>
+            <timeZone key="timeZone" name="America/Los_Angeles">
+                <mutableData key="data">
 VFppZgAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAC5AAAABAAAABCepkign7sVkKCGKqChmveQ
 y4kaoNIj9HDSYSYQ1v50INiArZDa/tGg28CQENzes6DdqayQ3r6VoN+JjpDgnneg4WlwkOJ+WaDjSVKQ
 5F47oOUpNJDmR1gg5xJREOgnOiDo8jMQ6gccIOrSFRDr5v4g7LH3EO3G4CDukdkQ76/8oPBxuxDxj96g
@@ -456,32 +491,8 @@ AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
 </mutableData>
-                    </timeZone>
-                </datePicker>
-            </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <constraints>
-                <constraint firstItem="qG4-v9-yOT" firstAttribute="bottom" secondItem="Bh5-Ov-XIA" secondAttribute="bottom" id="1Al-dx-nRR"/>
-                <constraint firstItem="Rne-hZ-bPa" firstAttribute="width" secondItem="Bh5-Ov-XIA" secondAttribute="width" id="1MS-hS-bHN"/>
-                <constraint firstItem="Rne-hZ-bPa" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="2ir-ml-Xrh"/>
-                <constraint firstAttribute="centerX" secondItem="qG4-v9-yOT" secondAttribute="centerX" id="2uH-oF-LYv"/>
-                <constraint firstItem="qG4-v9-yOT" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="8H3-Fq-8Va"/>
-                <constraint firstItem="Bh5-Ov-XIA" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="G1l-W2-zdL"/>
-                <constraint firstItem="Qy8-VP-xjh" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="KjD-G6-sYM"/>
-                <constraint firstItem="Bh5-Ov-XIA" firstAttribute="top" secondItem="Rne-hZ-bPa" secondAttribute="bottom" id="Kwm-zs-EgK"/>
-                <constraint firstAttribute="centerX" secondItem="euW-MX-hNF" secondAttribute="centerX" id="L4Q-SV-i1d"/>
-                <constraint firstItem="q38-ea-Bsr" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="LJQ-hF-Cjt"/>
-                <constraint firstAttribute="bottom" secondItem="Bh5-Ov-XIA" secondAttribute="bottom" id="WV1-fz-ylU"/>
-                <constraint firstAttribute="trailing" secondItem="q38-ea-Bsr" secondAttribute="trailing" id="c0u-P7-MuN"/>
-                <constraint firstAttribute="bottom" secondItem="q38-ea-Bsr" secondAttribute="bottom" id="cDu-lv-uPQ"/>
-                <constraint firstItem="Rne-hZ-bPa" firstAttribute="top" secondItem="1" secondAttribute="top" id="erJ-Rt-5On"/>
-                <constraint firstItem="Rne-hZ-bPa" firstAttribute="centerY" secondItem="euW-MX-hNF" secondAttribute="centerY" constant="-12" id="n4K-a4-7mf"/>
-                <constraint firstItem="Qy8-VP-xjh" firstAttribute="top" secondItem="Rne-hZ-bPa" secondAttribute="bottom" id="nV3-0O-lp7"/>
-                <constraint firstItem="qG4-v9-yOT" firstAttribute="top" secondItem="Qy8-VP-xjh" secondAttribute="bottom" id="u3B-dF-SIA"/>
-            </constraints>
-            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-        </view>
+            </timeZone>
+        </datePicker>
     </objects>
     <resources>
         <image name="bg.png" width="641" height="1138"/>

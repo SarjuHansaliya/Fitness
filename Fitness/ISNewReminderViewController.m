@@ -31,6 +31,18 @@
     [super viewDidLoad];
     [self setupNavigationBar];
     [self setupGestureRecognizer];
+    
+    
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"MMM dd , yyyy"];
+    
+    self.dateTextLabel.text = [formatter stringFromDate:[NSDate date]];
+    
+    [formatter setDateFormat:@"hh:mm a"];
+    self.timeTextLabel.text = [formatter stringFromDate:[NSDate date]];
+    
+    
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -185,4 +197,17 @@
 }
 
 
+- (IBAction)datePickerValueChanged:(id)sender {
+    
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"MMM dd , yyyy"];
+    
+    self.dateTextLabel.text = [formatter stringFromDate:self.datePicker.date];
+    
+    [formatter setDateFormat:@"hh:mm a"];
+    self.timeTextLabel.text = [formatter stringFromDate:self.datePicker.date];
+    
+    
+}
 @end

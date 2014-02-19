@@ -14,4 +14,15 @@
 - (IBAction)buttonFromDateClicked:(id)sender;
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 
+
+@property (weak, nonatomic) IBOutlet UITextField *fromDateTextField;
+
+@property (weak, nonatomic) IBOutlet UITextField *toDateTextField;
+@property (strong, nonatomic) IBOutlet UIToolbar *accessoryView;
+
+
+- (IBAction)doneEditing:(id)sender;
+
+
+
 @end
