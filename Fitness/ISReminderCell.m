@@ -17,6 +17,7 @@
 
 //---------------------------setting label values--------------------
 
+
 -(void)setReminderTime:(NSDate*)time reminderOnDays:(NSArray *)days
 {
     NSDateFormatter *formatter=[[NSDateFormatter alloc]init];
@@ -83,6 +84,7 @@
         tapOnEditView.numberOfTapsRequired=1;
         [self.outletOwner.editView addGestureRecognizer:tapOnEditView];
         
+        [self.outletOwner.deleteButton addTarget:self action:@selector(deleteButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
         
     }
     return self;
@@ -95,6 +97,16 @@
     UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:edit];
     
      [parentVC presentViewController:nav animated:YES completion:nil];
+    
+}
+-(void)deleteButtonClicked:(id)sender
+{
+    if([self.delegate respondsToSelector:@selector(deleteButtonClickedInCell:)])
+    {
+        [self.delegate deleteButtonClickedInCell:self];
+
+    }
+    
     
 }
 

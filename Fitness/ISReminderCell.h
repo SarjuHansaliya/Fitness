@@ -11,7 +11,11 @@
 
 //-----------------defining helper class for handling cell events---------
 
+@protocol ISReminderCellDelegate <NSObject>
 
+-(void)deleteButtonClickedInCell:(id)sender;
+
+@end
 
 @interface ISReminderCellHandler : NSObject
 
@@ -23,6 +27,7 @@
 @property (weak, nonatomic) IBOutlet UIView *editView;
 
 
+@property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 
 -(void)setReminderTime:(NSDate*)time reminderOnDays:(NSArray *)days;
 - (IBAction)reminderSwitchValueChanged:(id)sender;
@@ -38,7 +43,7 @@
 @property ISReminderCellHandler *outletOwner;
 -(void)setReminderTime:(NSDate *)time reminderOnDays:(NSArray *)days viewController:(UIViewController*)vc;
 
-
+@property (nonatomic,weak) id delegate;
 @end
 
 

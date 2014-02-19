@@ -142,7 +142,7 @@
     if (cell == nil) {
         
         cell = [[ISReminderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier ];
-        
+        cell.delegate=self;
                
     }
     [cell setReminderTime:[dateArray objectAtIndex:indexPath.row] reminderOnDays:[daysArray objectAtIndex:indexPath.row] viewController:self];
@@ -191,7 +191,17 @@
 }
 */
 
-
+-(void)deleteButtonClickedInCell:(id)sender
+{
+    NSLog(@"%ld",(long)[[self.tableView indexPathForCell:sender]row]);
+    NSIndexPath *indepath = [self.tableView indexPathForCell:sender];
+    
+    [dateArray removeObjectAtIndex:indepath.row];
+    [daysArray removeObjectAtIndex:indepath.row];
+    
+    [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indepath]
+                          withRowAnimation:UITableViewRowAnimationFade];
+}
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];

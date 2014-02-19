@@ -12,5 +12,5 @@
 #import "ISNewReminderViewController.h"
 #import "macros.h"
 
-@interface ISWorkoutRemindersViewController : UITableViewController
+@interface ISWorkoutRemindersViewController : UITableViewController<ISReminderCellDelegate>
 @end

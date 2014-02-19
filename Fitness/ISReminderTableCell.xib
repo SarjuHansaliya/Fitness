@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ISReminderCellHandler">
             <connections>
                 <outlet property="backgroundImage" destination="0gZ-fE-vdi" id="eUQ-pd-8rz"/>
+                <outlet property="deleteButton" destination="7Z7-ba-2TC" id="NJc-9l-ahb"/>
                 <outlet property="editView" destination="YEM-RM-At2" id="2Lb-8f-6ff"/>
                 <outlet property="reminderDaysLabel" destination="1Da-IX-AhD" id="8ub-mz-QwB"/>
                 <outlet property="reminderLabel" destination="V5v-Sz-fB3" id="aaS-a1-J0k"/>
@@ -42,9 +43,6 @@
                                 <state key="normal" image="delet.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <action selector="deleteClicked:" destination="-1" eventType="touchUpInside" id="OHU-g7-8pl"/>
-                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YEM-RM-At2" userLabel="View Edit">
                                 <rect key="frame" x="10" y="39" width="30" height="15"/>
