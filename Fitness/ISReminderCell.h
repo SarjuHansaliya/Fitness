@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+
 //-----------------defining helper class for handling cell events---------
 
 
 
 @interface ISReminderCellHandler : NSObject
+
 @property (weak, nonatomic) IBOutlet UISwitch *reminderSwitch;
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImage;
 @property (weak, nonatomic) IBOutlet UILabel *reminderTimeLabel;
@@ -24,6 +26,7 @@
 
 -(void)setReminderTime:(NSDate*)time reminderOnDays:(NSArray *)days;
 - (IBAction)reminderSwitchValueChanged:(id)sender;
+
 
 @end
 

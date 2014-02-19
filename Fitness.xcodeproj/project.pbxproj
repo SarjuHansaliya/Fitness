@@ -143,6 +143,10 @@
 		BB779E6C18AA5A3E009C2D8C /* MMDrawerVisualState.m in Sources */ = {isa = PBXBuildFile; fileRef = BB779E6518AA5A3E009C2D8C /* MMDrawerVisualState.m */; };
 		BB779E6D18AA5A3E009C2D8C /* MMExampleDrawerVisualStateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BB779E6718AA5A3E009C2D8C /* MMExampleDrawerVisualStateManager.m */; };
 		BB779E6E18AA5A3E009C2D8C /* UIViewController+MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB779E6918AA5A3E009C2D8C /* UIViewController+MMDrawerController.m */; };
+		BBD4207D18B4BFD00094F958 /* ISRepeatReminderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBD4207C18B4BFD00094F958 /* ISRepeatReminderCell.xib */; };
+		BBD4208018B4C0920094F958 /* ISRepeatReminderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BBD4207F18B4C0920094F958 /* ISRepeatReminderCell.m */; };
+		BBD4208318B4C1710094F958 /* ISReminderRepeatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBD4208218B4C1710094F958 /* ISReminderRepeatViewController.m */; };
+		BBD4208618B4CE5C0094F958 /* ISReminderAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBD4208518B4CE5C0094F958 /* ISReminderAlertViewController.m */; };
 		BBFEA65B18AA08CB00EDC8A7 /* helvetica-neue-lt-com-55-roman.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BBFEA65A18AA08CB00EDC8A7 /* helvetica-neue-lt-com-55-roman.ttf */; };
 /* End PBXBuildFile section */
 
@@ -324,6 +328,13 @@
 		BB779E6718AA5A3E009C2D8C /* MMExampleDrawerVisualStateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMExampleDrawerVisualStateManager.m; sourceTree = "<group>"; };
 		BB779E6818AA5A3E009C2D8C /* UIViewController+MMDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MMDrawerController.h"; sourceTree = "<group>"; };
 		BB779E6918AA5A3E009C2D8C /* UIViewController+MMDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MMDrawerController.m"; sourceTree = "<group>"; };
+		BBD4207C18B4BFD00094F958 /* ISRepeatReminderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISRepeatReminderCell.xib; sourceTree = "<group>"; };
+		BBD4207E18B4C0920094F958 /* ISRepeatReminderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISRepeatReminderCell.h; sourceTree = "<group>"; };
+		BBD4207F18B4C0920094F958 /* ISRepeatReminderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISRepeatReminderCell.m; sourceTree = "<group>"; };
+		BBD4208118B4C1710094F958 /* ISReminderRepeatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISReminderRepeatViewController.h; sourceTree = "<group>"; };
+		BBD4208218B4C1710094F958 /* ISReminderRepeatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISReminderRepeatViewController.m; sourceTree = "<group>"; };
+		BBD4208418B4CE5C0094F958 /* ISReminderAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISReminderAlertViewController.h; sourceTree = "<group>"; };
+		BBD4208518B4CE5C0094F958 /* ISReminderAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISReminderAlertViewController.m; sourceTree = "<group>"; };
 		BBFEA65A18AA08CB00EDC8A7 /* helvetica-neue-lt-com-55-roman.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "helvetica-neue-lt-com-55-roman.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -454,6 +465,9 @@
 				1F19312618B33FF8005BB31C /* ISReportDetailsCell.xib */,
 				1F19312818B3406C005BB31C /* ISReportDetailCell.h */,
 				1F19312918B3406C005BB31C /* ISReportDetailCell.m */,
+				BBD4207C18B4BFD00094F958 /* ISRepeatReminderCell.xib */,
+				BBD4207E18B4C0920094F958 /* ISRepeatReminderCell.h */,
+				BBD4207F18B4C0920094F958 /* ISRepeatReminderCell.m */,
 			);
 			name = "sub screen";
 			sourceTree = "<group>";
@@ -589,17 +603,15 @@
 				1FEC254118B1E8F60053A996 /* ISNewReminderViewController.h */,
 				1FEC254218B1E8F60053A996 /* ISNewReminderViewController.m */,
 				1FEC254318B1E8F60053A996 /* ISNewReminderViewController.xib */,
-				1FEC257718B21A200053A996 /* ISRepeatReminderViewController.h */,
-				1FEC257818B21A200053A996 /* ISRepeatReminderViewController.m */,
-				1FEC257918B21A200053A996 /* ISRepeatReminderViewController.xib */,
-				1FEC257C18B2364B0053A996 /* ISAlertReminderViewController.h */,
-				1FEC257D18B2364B0053A996 /* ISAlertReminderViewController.m */,
-				1FEC257E18B2364B0053A996 /* ISAlertReminderViewController.xib */,
 				1F19312118B33DFD005BB31C /* ISReportDetailsViewController.h */,
 				1F19312218B33DFD005BB31C /* ISReportDetailsViewController.m */,
 				1F19312318B33DFD005BB31C /* ISReportDetailsViewController.xib */,
 				1F19312B18B34735005BB31C /* ISReportsViewController.h */,
 				1F19312C18B34735005BB31C /* ISReportsViewController.m */,
+				BBD4208118B4C1710094F958 /* ISReminderRepeatViewController.h */,
+				BBD4208218B4C1710094F958 /* ISReminderRepeatViewController.m */,
+				BBD4208418B4CE5C0094F958 /* ISReminderAlertViewController.h */,
+				BBD4208518B4CE5C0094F958 /* ISReminderAlertViewController.m */,
 			);
 			name = screens;
 			sourceTree = "<group>";
@@ -671,6 +683,12 @@
 		BB779DEB18AA4298009C2D8C /* Unused */ = {
 			isa = PBXGroup;
 			children = (
+				1FEC257718B21A200053A996 /* ISRepeatReminderViewController.h */,
+				1FEC257818B21A200053A996 /* ISRepeatReminderViewController.m */,
+				1FEC257918B21A200053A996 /* ISRepeatReminderViewController.xib */,
+				1FEC257C18B2364B0053A996 /* ISAlertReminderViewController.h */,
+				1FEC257D18B2364B0053A996 /* ISAlertReminderViewController.m */,
+				1FEC257E18B2364B0053A996 /* ISAlertReminderViewController.xib */,
 				BB0B80C318ACC9E800BCC2E0 /* ISReminderCellViewController.h */,
 				BB0B80C418ACC9E800BCC2E0 /* ISReminderCellViewController.m */,
 				BB0B80C518ACC9E800BCC2E0 /* ISReminderCellViewController.xib */,
@@ -881,6 +899,7 @@
 				BB11E4D218A8CD3D00406313 /* helvetica-world.ttf in Resources */,
 				BB779E3118AA4765009C2D8C /* workout-done-icn.png in Resources */,
 				BB779DDA18AA1DED009C2D8C /* comic sans.ttf in Resources */,
+				BBD4207D18B4BFD00094F958 /* ISRepeatReminderCell.xib in Resources */,
 				BB779E2F18AA4765009C2D8C /* time.png in Resources */,
 				BB005F4C18AB3BA4003FAF8B /* back1.png in Resources */,
 				BB005F5618AB3BA4003FAF8B /* set@2x.png in Resources */,
@@ -948,6 +967,8 @@
 				1F4E035E18AE110300BAF4D8 /* ISHRMonitorViewController.m in Sources */,
 				BB779DDE18AA3463009C2D8C /* UIFont+Replacement.m in Sources */,
 				BB779E6A18AA5A3E009C2D8C /* MMDrawerBarButtonItem.m in Sources */,
+				BBD4208318B4C1710094F958 /* ISReminderRepeatViewController.m in Sources */,
+				BBD4208618B4CE5C0094F958 /* ISReminderAlertViewController.m in Sources */,
 				BB005F5D18AB3BD0003FAF8B /* ISSetWorkoutGoalViewController.m in Sources */,
 				1F4E039518AE332E00BAF4D8 /* ISPathViewController.m in Sources */,
 				BB779E6E18AA5A3E009C2D8C /* UIViewController+MMDrawerController.m in Sources */,
@@ -969,6 +990,7 @@
 				1FEC257A18B21A200053A996 /* ISRepeatReminderViewController.m in Sources */,
 				BB0B80C618ACC9E800BCC2E0 /* ISReminderCellViewController.m in Sources */,
 				1F4E034E18ADF23C00BAF4D8 /* ISReminderCell.m in Sources */,
+				BBD4208018B4C0920094F958 /* ISRepeatReminderCell.m in Sources */,
 				1F4E034A18ADE5B600BAF4D8 /* ISWorkoutRemindersViewController.m in Sources */,
 				BB779E6D18AA5A3E009C2D8C /* MMExampleDrawerVisualStateManager.m in Sources */,
 				1F4E038018AE138000BAF4D8 /* ISBLEDeviceCell.m in Sources */,

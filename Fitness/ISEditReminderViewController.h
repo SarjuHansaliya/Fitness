@@ -7,6 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ISReminderRepeatViewController.h"
+#import "macros.h"
+
+#import "ISReminderAlertViewController.h"
+
 
 @interface ISEditReminderViewController : UIViewController
 
@@ -18,6 +23,19 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *dateTextLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeTextLabel;
+
+@property (weak, nonatomic) IBOutlet UIView *doneButtonView;
+@property (weak, nonatomic) IBOutlet UILabel *repeatLabel;
+@property (weak, nonatomic) IBOutlet UILabel *alertLabel;
+
+
+
 - (IBAction)datePickerValueChanged:(id)sender;
+
+- (IBAction)doneButtonClicked:(id)sender;
+
+
+@property (nonatomic) ISReminderRepeatViewController *repeatController;
+@property (nonatomic) ISReminderAlertViewController *alertController;
 
 @end

@@ -7,9 +7,6 @@
 //
 
 #import "ISEditReminderViewController.h"
-#import "ISRepeatReminderViewController.h"
-#import "macros.h"
-#import "ISAlertReminderViewController.h"
 
 @interface ISEditReminderViewController ()
 
@@ -23,6 +20,7 @@
     if (self) {
         // Custom initialization
         
+        
     }
     return self;
 }
@@ -34,6 +32,8 @@
     [self setupNavigationBar];
     
     
+    self.repeatController = [[ISReminderRepeatViewController alloc]initWithStyle:UITableViewStylePlain];
+    self.alertController = [[ISReminderAlertViewController alloc]initWithStyle:UITableViewStylePlain];
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
     [formatter setDateFormat:@"MMM dd , yyyy"];
@@ -44,10 +44,17 @@
     self.timeTextLabel.text = [formatter stringFromDate:[NSDate date]];
     
     
+    
    
     // Do any additional setup after loading the view from its nib.
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    self.repeatLabel.text = self.repeatController.label;
+    self.alertLabel.text = self.alertController.label;
+
+}
 
 //--------------------------------setting up navigation bar--------------------------------------
 
@@ -166,7 +173,7 @@
 -(void)repeatClicked:(id)sender
 {
     
-    [self.navigationController pushViewController:[[ISRepeatReminderViewController alloc]initWithNibName:nil bundle:nil ] animated:YES ];
+    [self.navigationController pushViewController:self.repeatController animated:YES ];
 }
 
 -(void)startClicked:(id)sender
@@ -178,14 +185,17 @@
                          self.datePicker.alpha = 1.0 - self.datePicker.alpha;
                         // self.datePicker.frame = CGRectMake(0, 290, 320, 216);
                          
-                     }
-                     completion:nil];
+                }
+                     completion:^(BOOL com){
+                         self.doneButtonView.alpha= 1.0 - self.doneButtonView.alpha;
+                     }];
+    
    
 }
 -(void)alertClicked:(id)sender
 {
     
-    [self.navigationController pushViewController:[[ISAlertReminderViewController alloc]initWithNibName:nil bundle:nil ] animated:YES ];
+    [self.navigationController pushViewController:self.alertController animated:YES ];
 }
 
 
@@ -204,6 +214,13 @@
     [formatter setDateFormat:@"hh:mm a"];
     self.timeTextLabel.text = [formatter stringFromDate:self.datePicker.date];
     
+    
+}
+
+- (IBAction)doneButtonClicked:(id)sender {
+    
+    self.datePicker.alpha=0.0;
+    self.doneButtonView.alpha=0.0;
     
 }
 

@@ -28,14 +28,9 @@
 {
     [super viewDidLoad];
     [self setupNavigationBar];
+    [self setupTextFields];
     
-    
-    self.fromDateTextField.inputView = self.datePicker;
-    self.fromDateTextField.inputAccessoryView=self.accessoryView;
-    
-    
-    self.toDateTextField.inputView=self.datePicker;
-    self.toDateTextField.inputAccessoryView=self.accessoryView;
+   
     
     
     // Do any additional setup after loading the view from its nib.
@@ -47,7 +42,42 @@
     // Dispose of any resources that can be recreated.
 }
 
+//--------------------------------setting up textfields--------------------------------------
 
+-(void)setupTextFields
+{
+    
+    
+    UIView *fromView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 20, 15)];
+    
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 15 , 15)];
+    [btn addTarget:self action:@selector(buttonFromDateClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [btn setImage:[UIImage imageNamed:@"date.png"] forState:UIControlStateNormal];
+    
+    [fromView addSubview:btn];
+    
+    self.fromDateTextField.inputView = self.datePicker;
+    self.fromDateTextField.inputAccessoryView=self.accessoryView;
+    self.fromDateTextField.rightView = fromView;
+    self.fromDateTextField.rightViewMode=UITextFieldViewModeAlways;
+
+    
+    
+    UIView *toView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 20, 15)];
+   
+    UIButton *btn1 = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 15 , 15)];
+    [btn1 addTarget:self action:@selector(buttonToDateClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [btn1 setImage:[UIImage imageNamed:@"date.png"] forState:UIControlStateNormal];
+    
+    [toView addSubview:btn1];
+    
+    self.toDateTextField.inputView=self.datePicker;
+    self.toDateTextField.inputAccessoryView=self.accessoryView;
+    self.toDateTextField.rightView = toView;
+    self.toDateTextField.rightViewMode=UITextFieldViewModeAlways;
+
+    
+}
 //--------------------------------setting up navigation bar--------------------------------------
 
 -(void)setupNavigationBar
@@ -108,7 +138,7 @@
 - (IBAction)doneEditing:(id)sender {
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
-    [formatter setDateFormat:@"HH:mm dd/MMM"];
+    [formatter setDateFormat:@"HH:mm dd/MM/yy"];
     
     if([self.toDateTextField isFirstResponder])
     {
@@ -128,4 +158,5 @@
     
     
 }
+
 @end

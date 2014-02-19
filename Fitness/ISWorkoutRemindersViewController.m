@@ -7,10 +7,7 @@
 //
 
 #import "ISWorkoutRemindersViewController.h"
-#import "ISReminderCell.h"
-#import "ISEditReminderViewController.h"
-#import "ISNewReminderViewController.h"
-#import "macros.h"
+
 
 
 @interface ISWorkoutRemindersViewController ()
@@ -45,7 +42,7 @@
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg.png"]];
     
     self.tableView.backgroundView = imageView;
-    
+    [self.tableView registerNib:[UINib nibWithNibName:@"ISReminderTableCell" bundle:nil] forCellReuseIdentifier:@"Cell"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -200,7 +197,6 @@
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
  
-
 
 
 

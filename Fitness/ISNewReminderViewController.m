@@ -8,8 +8,7 @@
 
 #import "ISNewReminderViewController.h"
 #import "macros.h"
-#import "ISRepeatReminderViewController.h"
-#import "ISAlertReminderViewController.h"
+
 
 @interface ISNewReminderViewController ()
 
@@ -32,6 +31,9 @@
     [self setupNavigationBar];
     [self setupGestureRecognizer];
     
+    self.repeatController = [[ISReminderRepeatViewController alloc]initWithStyle:UITableViewStylePlain];
+    self.alertController = [[ISReminderAlertViewController alloc]initWithStyle:UITableViewStylePlain];
+
     
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
@@ -46,7 +48,12 @@
     // Do any additional setup after loading the view from its nib.
 }
 
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    self.repeatLabel.text = self.repeatController.label;
+    self.alertLabel.text = self.alertController.label;
+    
+}
 //--------------------------------setting up navigation bar--------------------------------------
 
 
@@ -175,20 +182,21 @@
                          //self.datePicker.frame = CGRectMake(0, 290, 320, 216);
                          
                      }
-                     completion:nil];
+                     completion:^(BOOL com){
+                         self.doneButtonView.alpha= 1.0 - self.doneButtonView.alpha;
+                     }];
     
     
 }
 -(void)repeatClicked:(id)sender
 {
     
-    [self.navigationController pushViewController:[[ISRepeatReminderViewController alloc]initWithNibName:nil bundle:nil ] animated:YES ];
+    [self.navigationController pushViewController:self.repeatController animated:YES ];
 }
 -(void)alertClicked:(id)sender
 {
     
-    [self.navigationController pushViewController:[[ISAlertReminderViewController alloc]initWithNibName:nil bundle:nil ] animated:YES ];
-}
+    [self.navigationController pushViewController:self.alertController animated:YES ];}
 
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -210,4 +218,13 @@
     
     
 }
+
+- (IBAction)doneButtonClicked:(id)sender {
+    
+    self.datePicker.alpha=0.0;
+    self.doneButtonView.alpha=0.0;
+    
+}
+
+
 @end
