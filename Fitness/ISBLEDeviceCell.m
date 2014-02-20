@@ -8,14 +8,6 @@
 
 #import "ISBLEDeviceCell.h"
 
-//---------------implementing helper class for handling cell events---------
-
-
-@implementation ISBLEDeviceCellHandler
-
-
-@end
-
 
 @implementation ISBLEDeviceCell
 
@@ -23,10 +15,10 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        ISBLEDeviceCellHandler * outletOwner=[[ISBLEDeviceCellHandler alloc]init];
-        NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"ISConnectionManagerTableCell" owner:outletOwner options:nil];
+       
+        NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"ISConnectionManagerTableCell" owner:self options:nil];
         self = [topLevelObjects objectAtIndex:0];
-        self.outletOwner=outletOwner;
+        
         self.backgroundColor=[UIColor clearColor];
     }
     return self;
@@ -34,11 +26,11 @@
 
 -(void)setDeviceLabelText:(NSString *)deviceName
 {
-    self.outletOwner.deviceNameLabel.text=deviceName;
+    self.deviceNameLabel.text=deviceName;
 }
 -(void)setSelectedDeviceImageHidden:(BOOL)b
 {
-    self.outletOwner.selectedDeviceImageView.hidden=b;
+    self.selectedDeviceImageView.hidden=b;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

@@ -46,13 +46,19 @@
 }
 
 
+-(ISBluetooth *)getBluetoothManager
+{
+    if (self.bluetoothManager==nil) {
+        self.bluetoothManager=[[ISBluetooth alloc]init];
+        
+    }
+    
+    return self.bluetoothManager;
+}
+
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-//    // Override point for customization after application launch.]
-//    [self.window setRootViewController:[[ISProfileViewController alloc]initWithNibName:nil bundle:nil ]];
-    
-    
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

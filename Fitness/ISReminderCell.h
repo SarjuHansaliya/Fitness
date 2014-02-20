@@ -9,41 +9,22 @@
 #import <UIKit/UIKit.h>
 
 
-//-----------------defining helper class for handling cell events---------
 
-@protocol ISReminderCellDelegate <NSObject>
+@interface ISReminderCell : UITableViewCell
 
--(void)deleteButtonClickedInCell:(id)sender;
-
-@end
-
-@interface ISReminderCellHandler : NSObject
+@property (weak, nonatomic) IBOutlet UIImageView *reminderSelImage;
 
 @property (weak, nonatomic) IBOutlet UISwitch *reminderSwitch;
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImage;
 @property (weak, nonatomic) IBOutlet UILabel *reminderTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *reminderDaysLabel;
 @property (weak, nonatomic) IBOutlet UILabel *reminderLabel;
-@property (weak, nonatomic) IBOutlet UIView *editView;
 
 
-@property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 
--(void)setReminderTime:(NSDate*)time reminderOnDays:(NSArray *)days;
 - (IBAction)reminderSwitchValueChanged:(id)sender;
+-(void)setReminderTime:(NSDate *)time reminderOnDays:(NSArray *)days;
 
-
-@end
-
-
-
-@interface ISReminderCell : UITableViewCell
-
-
-@property ISReminderCellHandler *outletOwner;
--(void)setReminderTime:(NSDate *)time reminderOnDays:(NSArray *)days viewController:(UIViewController*)vc;
-
-@property (nonatomic,weak) id delegate;
 @end
 
 

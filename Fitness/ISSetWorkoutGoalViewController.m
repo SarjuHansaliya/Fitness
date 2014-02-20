@@ -7,7 +7,7 @@
 //
 
 #import "ISSetWorkoutGoalViewController.h"
-#import "ISWorkoutRemindersViewController.h"
+#import "ISWorkoutReminderController.h"
 #import "ISAppDelegate.h"
 #import "macros.h"
 
@@ -48,7 +48,7 @@
 -(void) displayReminders:(id)sender
 {
 
-    [(UINavigationController*)[(ISAppDelegate *)[[UIApplication sharedApplication]delegate] drawerController].centerViewController pushViewController:[[ISWorkoutRemindersViewController alloc] initWithNibName:nil bundle:nil] animated:YES];
+    [(UINavigationController*)[(ISAppDelegate *)[[UIApplication sharedApplication]delegate] drawerController].centerViewController pushViewController:[[ISWorkoutReminderController alloc] initWithNibName:nil bundle:nil] animated:YES];
 }
 - (void)didReceiveMemoryWarning
 {

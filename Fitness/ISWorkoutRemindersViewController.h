@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "ISReminderCell.h"
-#import "ISEditReminderViewController.h"
-#import "ISNewReminderViewController.h"
+
 #import "macros.h"
 
-@interface ISWorkoutRemindersViewController : UITableViewController<ISReminderCellDelegate>
+@interface ISWorkoutRemindersViewController : UITableViewController
+
+@property  NSIndexPath *selectedReminderIndex;
+
+-(void)deleteCell;
+
 @end

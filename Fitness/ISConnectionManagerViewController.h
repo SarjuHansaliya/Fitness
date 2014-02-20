@@ -8,8 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import "ISBLEConnectionManagerViewController.h"
+#import "ISAppDelegate.h"
 
-@interface ISConnectionManagerViewController : UIViewController
+
+@interface ISConnectionManagerViewController : UIViewController 
+
 @property (weak, nonatomic) IBOutlet UIView *devicesTableView;
+- (IBAction)discoverDevices:(id)sender;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *scanningActivityIndicator;
 @property ISBLEConnectionManagerViewController *tableViewController;
+
+@property (weak, nonatomic) IBOutlet UIButton *scanButton;
+
+
 @end

@@ -28,21 +28,27 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setupNavigationBar];
     [self setupGestureRecognizer];
+    [self setupNavigationBar];
+    
     
     self.repeatController = [[ISReminderRepeatViewController alloc]initWithStyle:UITableViewStylePlain];
     self.alertController = [[ISReminderAlertViewController alloc]initWithStyle:UITableViewStylePlain];
-
     
+    self.toDateTextField.inputView=self.datePicker;
+    self.toDateTextField.inputAccessoryView=self.accessoryView;
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
-    [formatter setDateFormat:@"MMM dd , yyyy"];
+    [formatter setDateFormat:@"MMM dd , yyyy\t   hh:mm a"];
     
-    self.dateTextLabel.text = [formatter stringFromDate:[NSDate date]];
+    self.toDateTextField.text=[formatter stringFromDate:[NSDate date]];
     
-    [formatter setDateFormat:@"hh:mm a"];
-    self.timeTextLabel.text = [formatter stringFromDate:[NSDate date]];
+    
+    
+    
+    
+    
+    
     
     
     // Do any additional setup after loading the view from its nib.
@@ -54,6 +60,7 @@
     self.alertLabel.text = self.alertController.label;
     
 }
+
 //--------------------------------setting up navigation bar--------------------------------------
 
 
@@ -77,7 +84,7 @@
     UILabel *titleLable=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 25)];
     
     titleLable.backgroundColor=[UIColor clearColor];
-    titleLable.text=@"New Reminder";
+    titleLable.text=@"Edit Reminder";
     titleLable.font=[UIFont fontWithName:@"Arial" size:20.0];
     titleLable.textColor= [UIColor colorWithHue:31.0/360.0 saturation:99.0/100.0 brightness:87.0/100.0 alpha:1];
     
@@ -116,7 +123,8 @@
     rightLable.text=@"Save";
     rightLable.font=[UIFont fontWithName:@"Helvetica Neue" size:12.0];
     rightLable.textColor= [UIColor colorWithHue:31.0/360.0 saturation:99.0/100.0 brightness:87.0/100.0 alpha:1];
-        rightLable.textAlignment=NSTextAlignmentRight;
+    rightLable.textAlignment=NSTextAlignmentRight;
+    
     [rightView addSubview:rightLable];
     
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithCustomView:rightView];
@@ -126,16 +134,13 @@
 }
 
 
-//--------------------------setting up gesture recognizer----------------------------
 
+//--------------------------setting up gesture recognizer----------------------------
 
 -(void)setupGestureRecognizer
 {
     
     
-    UITapGestureRecognizer *tapOnStart = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(startClicked:)];
-    tapOnStart.numberOfTapsRequired=1;
-    [self.startView addGestureRecognizer:tapOnStart];
     
     UITapGestureRecognizer *tapOnRepeat = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(repeatClicked:)];
     tapOnRepeat.numberOfTapsRequired=1;
@@ -144,10 +149,7 @@
     UITapGestureRecognizer *tapOnAlert = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(alertClicked:)];
     tapOnAlert.numberOfTapsRequired=1;
     [self.alertView addGestureRecognizer:tapOnAlert];
-    
 }
-
-
 
 
 - (void)didReceiveMemoryWarning
@@ -155,8 +157,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
 
 
 
@@ -172,57 +172,33 @@
 {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
--(void)startClicked:(id)sender
-{
-    [UIView animateWithDuration:0.2
-                          delay:0.0
-                        options: UIViewAnimationOptionCurveEaseIn
-                     animations:^{
-                         self.datePicker.alpha = 1.0 - self.datePicker.alpha;
-                         //self.datePicker.frame = CGRectMake(0, 290, 320, 216);
-                         
-                     }
-                     completion:^(BOOL com){
-                         self.doneButtonView.alpha= 1.0 - self.doneButtonView.alpha;
-                     }];
-    
-    
-}
 -(void)repeatClicked:(id)sender
 {
     
     [self.navigationController pushViewController:self.repeatController animated:YES ];
 }
+
 -(void)alertClicked:(id)sender
 {
     
-    [self.navigationController pushViewController:self.alertController animated:YES ];}
+    [self.navigationController pushViewController:self.alertController animated:YES ];
+}
 
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-       
+    
     [self.view endEditing:YES];
 }
 
-
-- (IBAction)datePickerValueChanged:(id)sender {
-    
-    
+- (IBAction)doneEditing:(id)sender{
     NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
-    [formatter setDateFormat:@"MMM dd , yyyy"];
-    
-    self.dateTextLabel.text = [formatter stringFromDate:self.datePicker.date];
-    
-    [formatter setDateFormat:@"hh:mm a"];
-    self.timeTextLabel.text = [formatter stringFromDate:self.datePicker.date];
+    [formatter setDateFormat:@"MMM dd , yyyy\t   hh:mm a"];
     
     
-}
-
-- (IBAction)doneButtonClicked:(id)sender {
+    self.toDateTextField.text = [formatter stringFromDate: self.datePicker.date];
+    [self.toDateTextField resignFirstResponder];
     
-    self.datePicker.alpha=0.0;
-    self.doneButtonView.alpha=0.0;
+    
     
 }
 

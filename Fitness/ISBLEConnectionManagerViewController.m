@@ -8,6 +8,8 @@
 
 #import "ISBLEConnectionManagerViewController.h"
 #import "ISBLEDeviceCell.h"
+#import "ISConnectionManagerViewController.h"
+#import "macros.h"
 
 @interface ISBLEConnectionManagerViewController ()
 
@@ -17,7 +19,7 @@
 {
     // dummy data, just for checking screen--------------------------
     NSMutableArray *deviceNameArray;
-    
+    NSIndexPath *selectedDeviceIndexPath;
     //remove before original implementation---------------------------
     
 }
@@ -27,6 +29,7 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
+        
     }
     return self;
 }
@@ -37,7 +40,10 @@
     [self fillDummyReminderData]; //remove this
     self.tableView.separatorColor=[UIColor clearColor];
     self.tableView.backgroundColor=[UIColor clearColor];
-        
+    //bluetooth Manager initialization
+    self.bluetoothManager=[(ISAppDelegate*)[[UIApplication sharedApplication] delegate] getBluetoothManager];
+    [self.bluetoothManager setDelegate:self];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -58,7 +64,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 
-    return [deviceNameArray count];
+    return [self.bluetoothManager.peripherals count];
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -71,60 +77,115 @@
     if (cell == nil) {
         cell = [[ISBLEDeviceCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    [cell setDeviceLabelText:[deviceNameArray objectAtIndex:indexPath.row]];
     
-    if (indexPath.row==1) {
+    
+    CBPeripheral *p=(CBPeripheral*)[self.bluetoothManager.peripherals objectAtIndex:indexPath.row];
+    [cell setDeviceLabelText:p.name];
+
+    NSUUID *u1,*u2;
+    BOOL isSame=NO;
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        
+        u1=self.bluetoothManager.connectedPeripheral.identifier;
+        u2=p.identifier;
+        
+        if ([u1 isEqual:u2]) {
+            isSame=YES;
+        }
+    }
+    else
+    {
+        isSame=[p isConnected];
+    }
+    if(isSame)
+    {
         [cell setSelectedDeviceImageHidden:NO];
     }
+    else
+    {
+        [cell setSelectedDeviceImageHidden:YES];
+    }
+
     
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self.tableView deselectRowAtIndexPath:indexPath animated:NO ];
+    ISBLEDeviceCell *newSelectedCell =(ISBLEDeviceCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+    
+    CBPeripheral *p=(CBPeripheral*)[self.bluetoothManager.peripherals objectAtIndex:indexPath.row];
+    NSUUID *u1,*u2;
+    BOOL isSame=NO;
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        
+        u1=self.bluetoothManager.connectedPeripheral.identifier;
+        u2=p.identifier;
+        
+        if ([u1 isEqual:u2]) {
+            isSame=YES;
+        }
+    }
+    else
+    {
+        isSame=[p isConnected];
+    }
+    if(isSame)
+    {
+        [newSelectedCell setSelectedDeviceImageHidden:NO];
+    }
+    else
+    {
+        
+        [self.bluetoothManager connectPeripheral:[self.bluetoothManager.peripherals objectAtIndex:indexPath.row] options:nil];
+    }
+
+    
+    
+    
     
 }
- 
+//--------------------------------handling Bluetooth events---------------------------------
+
+-(void)centralManagerDidStartedWithSuccess:(BOOL)b  errorMessage:(NSString*)str
+{
+    if (!b) {
+        UIAlertView *error=[[UIAlertView alloc]initWithTitle:@"Error" message:str delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [error show];
+    }
+}
+
+-(void)didDiscoverPeripheral:(CBPeripheral *)peripheral
+{
+    [self.tableView reloadData];
+    
+}
+
+-(void)didConnectPeripheral
+{
+    [self.tableView reloadData];
+}
+
+-(void)didStopScanning
+{
+    
+    if(self.bluetoothManager.isScanning==YES)
+    {
+        [(ISConnectionManagerViewController*)self.parentController  scanButton].hidden=YES;
+        [(ISConnectionManagerViewController*)self.parentController  scanningActivityIndicator].alpha=1.0;
+        [[(ISConnectionManagerViewController*)self.parentController  scanningActivityIndicator] startAnimating];
+    }
+    else
+    {
+        [(ISConnectionManagerViewController*)self.parentController  scanButton].hidden=NO;
+        [(ISConnectionManagerViewController*)self.parentController  scanningActivityIndicator].alpha=0.0;
+        [[(ISConnectionManagerViewController*)self.parentController  scanningActivityIndicator] stopAnimating];
+    }
+}
+
+
 
 //-------------------------filling dummy Data-------------------------
 -(void)fillDummyReminderData

@@ -8,22 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-//-----------------defining helper class for handling cell events---------
-
-
-
-@interface ISBLEDeviceCellHandler : NSObject
-@property (weak, nonatomic) IBOutlet UILabel *deviceNameLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *selectedDeviceImageView;
-
-
-
-@end
 
 
 @interface ISBLEDeviceCell : UITableViewCell
 
-@property ISBLEDeviceCellHandler *outletOwner;
+
+@property (weak, nonatomic) IBOutlet UILabel *deviceNameLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *selectedDeviceImageView;
+
 
 -(void)setDeviceLabelText:(NSString *)deviceName;
 -(void)setSelectedDeviceImageHidden:(BOOL)b;

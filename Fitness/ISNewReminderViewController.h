@@ -12,23 +12,26 @@
 
 @interface ISNewReminderViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UIView *cancelView;
-@property (weak, nonatomic) IBOutlet UIView *saveView;
-@property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
-
 @property (weak, nonatomic) IBOutlet UIView *startView;
-@property (weak, nonatomic) IBOutlet UIView *repeatView;
 @property (weak, nonatomic) IBOutlet UIView *alertView;
-@property (weak, nonatomic) IBOutlet UILabel *dateTextLabel;
-@property (weak, nonatomic) IBOutlet UILabel *timeTextLabel;
 
-@property (weak, nonatomic) IBOutlet UIView *doneButtonView;
+@property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
+@property (weak, nonatomic) IBOutlet UIView *repeatView;
+
+
 @property (weak, nonatomic) IBOutlet UILabel *repeatLabel;
 @property (weak, nonatomic) IBOutlet UILabel *alertLabel;
 
 
-- (IBAction)datePickerValueChanged:(id)sender;
-- (IBAction)doneButtonClicked:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextField *toDateTextField;
+@property (strong, nonatomic) IBOutlet UIToolbar *accessoryView;
+
+
+- (IBAction)doneEditing:(id)sender;
+
+
+
+
 
 @property (nonatomic) ISReminderRepeatViewController *repeatController;
 @property (nonatomic) ISReminderAlertViewController *alertController;

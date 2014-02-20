@@ -8,20 +8,6 @@
 
 #import "ISRepeatReminderCell.h"
 
-@implementation ISRepeatReminderCellHandler
-
-
--(void)setLabel:(NSString *)text isSelected:(BOOL )isSelected
-{
-    [self.label setText:text];
-    [self.selectedImage setHidden:!isSelected];
-}
-
-
-@end
-
-
-
 @implementation ISRepeatReminderCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -29,13 +15,12 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         
-        ISRepeatReminderCellHandler * outletOwner=[[ISRepeatReminderCellHandler alloc]init];
         
         
-        NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"ISRepeatReminderCell" owner:outletOwner options:nil];
+        
+        NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"ISRepeatReminderCell" owner:self options:nil];
         self = [topLevelObjects objectAtIndex:0];
         
-        self.outletOwner=outletOwner;
         self.backgroundColor=[UIColor clearColor];
         
     }
@@ -44,8 +29,10 @@
 
 -(void)setLabel:(NSString *)text isSelected:(BOOL )isSelected
 {
-    [self.outletOwner setLabel:text isSelected:isSelected];
+    [self.label setText:text];
+    [self.selectedImage setHidden:!isSelected];
 }
+
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {

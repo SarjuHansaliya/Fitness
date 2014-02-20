@@ -9,16 +9,39 @@
 #import "ISReminderCell.h"
 #import "ISEditReminderViewController.h"
 
-//---------------implementing helper class for handling cell events---------
 
 
-@implementation ISReminderCellHandler
+
+@implementation ISReminderCell
+
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+
+{
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        
+        
+        
+        NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"ISReminderTableCell" owner:self options:nil];
+        self = [topLevelObjects objectAtIndex:0];
+        
+        self.backgroundColor=[UIColor clearColor];
+        
+        
+       
+        
+    }
+    return self;
+}
+
 
 
 //---------------------------setting label values--------------------
 
 
--(void)setReminderTime:(NSDate*)time reminderOnDays:(NSArray *)days
+
+
+-(void)setReminderTime:(NSDate *)time reminderOnDays:(NSArray *)days
 {
     NSDateFormatter *formatter=[[NSDateFormatter alloc]init];
     formatter.dateFormat=@"hh:mm a";
@@ -30,7 +53,17 @@
         //[ms appendString:@", "];
     }
     self.reminderDaysLabel.text=ms;
+        
 }
+
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated
+{
+    [super setSelected:selected animated:animated];
+
+    // Configure the view for the selected state
+}
+
 //-------------------------------reminder on/off handling--------------------
 
 - (IBAction)reminderSwitchValueChanged:(id)sender {
@@ -51,83 +84,8 @@
         
         
     }
-   
-}
-
-
-@end
-
-
-
-
-
-@implementation ISReminderCell
-{
-   __weak UIViewController  *parentVC;
-}
-
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-
-{
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        
-        ISReminderCellHandler * outletOwner=[[ISReminderCellHandler alloc]init];
-        
-        
-        NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"ISReminderTableCell" owner:outletOwner options:nil];
-        self = [topLevelObjects objectAtIndex:0];
-        
-        self.outletOwner=outletOwner;
-        self.backgroundColor=[UIColor clearColor];
-        UITapGestureRecognizer *tapOnEditView=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(editReminder:)];
-        tapOnEditView.numberOfTapsRequired=1;
-        [self.outletOwner.editView addGestureRecognizer:tapOnEditView];
-        
-        [self.outletOwner.deleteButton addTarget:self action:@selector(deleteButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-        
-    }
-    return self;
-}
--(void)editReminder:(id)sender
-{
-    
-    ISEditReminderViewController *edit=[[ISEditReminderViewController alloc]initWithNibName:nil bundle:nil];
-    edit.wantsFullScreenLayout = YES;
-    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:edit];
-    
-     [parentVC presentViewController:nav animated:YES completion:nil];
     
 }
--(void)deleteButtonClicked:(id)sender
-{
-    if([self.delegate respondsToSelector:@selector(deleteButtonClickedInCell:)])
-    {
-        [self.delegate deleteButtonClickedInCell:self];
-
-    }
-    
-    
-}
-
-
-
--(void)setReminderTime:(NSDate *)time reminderOnDays:(NSArray *)days viewController:(UIViewController*)vc
-{
-    [self.outletOwner setReminderTime:time reminderOnDays:days];
-    parentVC=vc;
-    
-}
-
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
-
-
 
 
 @end

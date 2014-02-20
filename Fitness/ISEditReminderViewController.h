@@ -21,18 +21,19 @@
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (weak, nonatomic) IBOutlet UIView *repeatView;
 
-@property (weak, nonatomic) IBOutlet UILabel *dateTextLabel;
-@property (weak, nonatomic) IBOutlet UILabel *timeTextLabel;
 
-@property (weak, nonatomic) IBOutlet UIView *doneButtonView;
 @property (weak, nonatomic) IBOutlet UILabel *repeatLabel;
 @property (weak, nonatomic) IBOutlet UILabel *alertLabel;
 
 
+@property (weak, nonatomic) IBOutlet UITextField *toDateTextField;
+@property (strong, nonatomic) IBOutlet UIToolbar *accessoryView;
 
-- (IBAction)datePickerValueChanged:(id)sender;
 
-- (IBAction)doneButtonClicked:(id)sender;
+- (IBAction)doneEditing:(id)sender;
+
+
+
 
 
 @property (nonatomic) ISReminderRepeatViewController *repeatController;

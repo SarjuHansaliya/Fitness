@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ISAppDelegate.h"
 
-@interface ISBLEConnectionManagerViewController : UITableViewController
+
+
+@interface ISBLEConnectionManagerViewController : UITableViewController<ISBluetoothDelegate>
+
+
+@property ISBluetooth *bluetoothManager;
+@property (weak) id parentController;
+
 
 @end

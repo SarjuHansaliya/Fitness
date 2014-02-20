@@ -9,27 +9,13 @@
 #import <UIKit/UIKit.h>
 
 
-//-----------------defining helper class for handling cell events---------
 
-
-
-@interface ISRepeatReminderCellHandler : NSObject
+@interface ISRepeatReminderCell : UITableViewCell
 
 
 @property (weak, nonatomic) IBOutlet UILabel *label;
 
 @property (weak, nonatomic) IBOutlet UIImageView *selectedImage;
-
--(void)setLabel:(NSString *)text isSelected:(BOOL )isSelected;
-
-
-
-@end
-
-
-@interface ISRepeatReminderCell : UITableViewCell
-
-@property ISRepeatReminderCellHandler *outletOwner;
 
 -(void)setLabel:(NSString *)text isSelected:(BOOL )isSelected;
 

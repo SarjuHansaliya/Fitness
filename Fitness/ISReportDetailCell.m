@@ -7,11 +7,24 @@
 //
 
 #import "ISReportDetailCell.h"
-//---------------implementing helper class for handling cell events---------
 
+@implementation ISReportDetailCell
 
-@implementation ISReportDetailCellHandler
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 
+{
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        
+        
+        
+        NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"ISReportDetailsCell" owner:self options:nil];
+        self = [topLevelObjects objectAtIndex:0];
+        self.backgroundColor=[UIColor clearColor];
+        
+    }
+    return self;
+}
 
 //---------------------------setting label values--------------------
 
@@ -23,42 +36,6 @@
     self.goalTypeLabel.text=goalType;
     self.goalValueLabel.text=goalValue;
 }
-
-
-@end
-
-
-
-
-
-@implementation ISReportDetailCell
-
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-
-{
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        
-        ISReportDetailCellHandler * outletOwner=[[ISReportDetailCellHandler alloc]init];
-        
-        
-        NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"ISReportDetailsCell" owner:outletOwner options:nil];
-        self = [topLevelObjects objectAtIndex:0];
-        
-        self.outletOwner=outletOwner;
-        self.backgroundColor=[UIColor clearColor];
-        
-    }
-    return self;
-}
-
-
--(void)setGoalTypeLabel:(NSString *)goalType workoutDateLabel:(NSDate *)date goalValueLabel:(NSString *)goalValue
-{
-    [self.outletOwner setGoalTypeLabel:goalType workoutDateLabel:date goalValueLabel:goalValue];
-    
-}
-
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {

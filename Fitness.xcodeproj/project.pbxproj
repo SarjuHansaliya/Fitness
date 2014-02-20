@@ -15,7 +15,6 @@
 		1F19312A18B3406C005BB31C /* ISReportDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F19312918B3406C005BB31C /* ISReportDetailCell.m */; };
 		1F19312D18B34735005BB31C /* ISReportsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F19312C18B34735005BB31C /* ISReportsViewController.m */; };
 		1F4E034A18ADE5B600BAF4D8 /* ISWorkoutRemindersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4E034818ADE5B600BAF4D8 /* ISWorkoutRemindersViewController.m */; };
-		1F4E034B18ADE5B600BAF4D8 /* ISWorkoutRemindersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F4E034918ADE5B600BAF4D8 /* ISWorkoutRemindersViewController.xib */; };
 		1F4E034E18ADF23C00BAF4D8 /* ISReminderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4E034D18ADF23C00BAF4D8 /* ISReminderCell.m */; };
 		1F4E035018ADF26900BAF4D8 /* ISReminderTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F4E034F18ADF26900BAF4D8 /* ISReminderTableCell.xib */; };
 		1F4E035A18AE10F600BAF4D8 /* ISConnectionManagerTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F4E035718AE10F600BAF4D8 /* ISConnectionManagerTableCell.xib */; };
@@ -69,8 +68,6 @@
 		BB005F5E18AB3BD0003FAF8B /* ISSetWorkoutGoalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB005F5C18AB3BD0003FAF8B /* ISSetWorkoutGoalViewController.xib */; };
 		BB0B80C618ACC9E800BCC2E0 /* ISReminderCellViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB0B80C418ACC9E800BCC2E0 /* ISReminderCellViewController.m */; };
 		BB0B80C718ACC9E800BCC2E0 /* ISReminderCellViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB0B80C518ACC9E800BCC2E0 /* ISReminderCellViewController.xib */; };
-		BB0B80DA18ACCA9A00BCC2E0 /* delet.png in Resources */ = {isa = PBXBuildFile; fileRef = BB0B80CC18ACCA9A00BCC2E0 /* delet.png */; };
-		BB0B80DC18ACCA9A00BCC2E0 /* edit.png in Resources */ = {isa = PBXBuildFile; fileRef = BB0B80CE18ACCA9A00BCC2E0 /* edit.png */; };
 		BB0B80DD18ACCA9A00BCC2E0 /* lineReminderCell.png in Resources */ = {isa = PBXBuildFile; fileRef = BB0B80CF18ACCA9A00BCC2E0 /* lineReminderCell.png */; };
 		BB0EE32C18A3ADAB00E3EA63 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB0EE32B18A3ADAB00E3EA63 /* Foundation.framework */; };
 		BB0EE32E18A3ADAB00E3EA63 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB0EE32D18A3ADAB00E3EA63 /* CoreGraphics.framework */; };
@@ -84,6 +81,13 @@
 		BB0EE34718A3ADAB00E3EA63 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB0EE32F18A3ADAB00E3EA63 /* UIKit.framework */; };
 		BB0EE34F18A3ADAB00E3EA63 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BB0EE34D18A3ADAB00E3EA63 /* InfoPlist.strings */; };
 		BB0EE35118A3ADAB00E3EA63 /* FitnessTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BB0EE35018A3ADAB00E3EA63 /* FitnessTests.m */; };
+		BB1194FD18B5D6D300D05A97 /* selRem.png in Resources */ = {isa = PBXBuildFile; fileRef = BB1194FA18B5D6D300D05A97 /* selRem.png */; };
+		BB1194FE18B5D6D400D05A97 /* deleteRem.png in Resources */ = {isa = PBXBuildFile; fileRef = BB1194FB18B5D6D300D05A97 /* deleteRem.png */; };
+		BB1194FF18B5D6D400D05A97 /* editRem.png in Resources */ = {isa = PBXBuildFile; fileRef = BB1194FC18B5D6D300D05A97 /* editRem.png */; };
+		BB11950318B5D87F00D05A97 /* ISWorkoutReminderController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB11950118B5D87F00D05A97 /* ISWorkoutReminderController.m */; };
+		BB11950418B5D87F00D05A97 /* ISWorkoutReminderController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB11950218B5D87F00D05A97 /* ISWorkoutReminderController.xib */; };
+		BB11950818B5EFBE00D05A97 /* ISBluetooth.m in Sources */ = {isa = PBXBuildFile; fileRef = BB11950718B5EFBE00D05A97 /* ISBluetooth.m */; };
+		BB11950A18B5F16B00D05A97 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB11950918B5F16B00D05A97 /* CoreBluetooth.framework */; };
 		BB11E4BE18A8C9C400406313 /* ISUserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB11E4BC18A8C9C400406313 /* ISUserProfileViewController.m */; };
 		BB11E4BF18A8C9C400406313 /* ISUserProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB11E4BD18A8C9C400406313 /* ISUserProfileViewController.xib */; };
 		BB11E4C918A8CA5900406313 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = BB11E4C218A8CA5900406313 /* bg.png */; };
@@ -174,7 +178,6 @@
 		1F19312C18B34735005BB31C /* ISReportsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISReportsViewController.m; sourceTree = "<group>"; };
 		1F4E034718ADE5B600BAF4D8 /* ISWorkoutRemindersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISWorkoutRemindersViewController.h; sourceTree = "<group>"; };
 		1F4E034818ADE5B600BAF4D8 /* ISWorkoutRemindersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISWorkoutRemindersViewController.m; sourceTree = "<group>"; };
-		1F4E034918ADE5B600BAF4D8 /* ISWorkoutRemindersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISWorkoutRemindersViewController.xib; sourceTree = "<group>"; };
 		1F4E034C18ADF23C00BAF4D8 /* ISReminderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISReminderCell.h; sourceTree = "<group>"; };
 		1F4E034D18ADF23C00BAF4D8 /* ISReminderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISReminderCell.m; sourceTree = "<group>"; };
 		1F4E034F18ADF26900BAF4D8 /* ISReminderTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISReminderTableCell.xib; sourceTree = "<group>"; };
@@ -239,8 +242,6 @@
 		BB0B80C318ACC9E800BCC2E0 /* ISReminderCellViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISReminderCellViewController.h; sourceTree = "<group>"; };
 		BB0B80C418ACC9E800BCC2E0 /* ISReminderCellViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISReminderCellViewController.m; sourceTree = "<group>"; };
 		BB0B80C518ACC9E800BCC2E0 /* ISReminderCellViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISReminderCellViewController.xib; sourceTree = "<group>"; };
-		BB0B80CC18ACCA9A00BCC2E0 /* delet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delet.png; sourceTree = "<group>"; };
-		BB0B80CE18ACCA9A00BCC2E0 /* edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edit.png; sourceTree = "<group>"; };
 		BB0B80CF18ACCA9A00BCC2E0 /* lineReminderCell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lineReminderCell.png; sourceTree = "<group>"; };
 		BB0EE32818A3ADAB00E3EA63 /* Fitness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fitness.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB0EE32B18A3ADAB00E3EA63 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -258,6 +259,15 @@
 		BB0EE34C18A3ADAB00E3EA63 /* FitnessTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FitnessTests-Info.plist"; sourceTree = "<group>"; };
 		BB0EE34E18A3ADAB00E3EA63 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BB0EE35018A3ADAB00E3EA63 /* FitnessTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FitnessTests.m; sourceTree = "<group>"; };
+		BB1194FA18B5D6D300D05A97 /* selRem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selRem.png; sourceTree = "<group>"; };
+		BB1194FB18B5D6D300D05A97 /* deleteRem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = deleteRem.png; sourceTree = "<group>"; };
+		BB1194FC18B5D6D300D05A97 /* editRem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = editRem.png; sourceTree = "<group>"; };
+		BB11950018B5D87F00D05A97 /* ISWorkoutReminderController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISWorkoutReminderController.h; sourceTree = "<group>"; };
+		BB11950118B5D87F00D05A97 /* ISWorkoutReminderController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISWorkoutReminderController.m; sourceTree = "<group>"; };
+		BB11950218B5D87F00D05A97 /* ISWorkoutReminderController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISWorkoutReminderController.xib; sourceTree = "<group>"; };
+		BB11950618B5EFBE00D05A97 /* ISBluetooth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISBluetooth.h; sourceTree = "<group>"; };
+		BB11950718B5EFBE00D05A97 /* ISBluetooth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISBluetooth.m; sourceTree = "<group>"; };
+		BB11950918B5F16B00D05A97 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		BB11E4BB18A8C9C400406313 /* ISUserProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISUserProfileViewController.h; sourceTree = "<group>"; };
 		BB11E4BC18A8C9C400406313 /* ISUserProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISUserProfileViewController.m; sourceTree = "<group>"; };
 		BB11E4BD18A8C9C400406313 /* ISUserProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISUserProfileViewController.xib; sourceTree = "<group>"; };
@@ -343,6 +353,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB11950A18B5F16B00D05A97 /* CoreBluetooth.framework in Frameworks */,
 				1F4E039818AE35D300BAF4D8 /* MapKit.framework in Frameworks */,
 				BB0EE32E18A3ADAB00E3EA63 /* CoreGraphics.framework in Frameworks */,
 				BB0EE33018A3ADAB00E3EA63 /* UIKit.framework in Frameworks */,
@@ -453,6 +464,8 @@
 		BB0B80C218ACC9A400BCC2E0 /* sub screen */ = {
 			isa = PBXGroup;
 			children = (
+				1F4E034718ADE5B600BAF4D8 /* ISWorkoutRemindersViewController.h */,
+				1F4E034818ADE5B600BAF4D8 /* ISWorkoutRemindersViewController.m */,
 				1F4E038118AE16D800BAF4D8 /* ISBLEConnectionManagerViewController.h */,
 				1F4E038218AE16D800BAF4D8 /* ISBLEConnectionManagerViewController.m */,
 				1F4E038318AE16D800BAF4D8 /* ISBLEConnectionManagerViewController.xib */,
@@ -483,10 +496,11 @@
 		BB0B80CA18ACCA9A00BCC2E0 /* 1x */ = {
 			isa = PBXGroup;
 			children = (
+				BB1194FA18B5D6D300D05A97 /* selRem.png */,
+				BB1194FB18B5D6D300D05A97 /* deleteRem.png */,
+				BB1194FC18B5D6D300D05A97 /* editRem.png */,
 				1F4E038818AE1F3B00BAF4D8 /* disable reminder.png */,
 				1F4E037C18AE130100BAF4D8 /* new@2x.png */,
-				BB0B80CC18ACCA9A00BCC2E0 /* delet.png */,
-				BB0B80CE18ACCA9A00BCC2E0 /* edit.png */,
 				BB0B80CF18ACCA9A00BCC2E0 /* lineReminderCell.png */,
 			);
 			path = 1x;
@@ -514,6 +528,7 @@
 		BB0EE32A18A3ADAB00E3EA63 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BB11950918B5F16B00D05A97 /* CoreBluetooth.framework */,
 				1F4E039718AE35D300BAF4D8 /* MapKit.framework */,
 				BB0EE32B18A3ADAB00E3EA63 /* Foundation.framework */,
 				BB0EE32D18A3ADAB00E3EA63 /* CoreGraphics.framework */,
@@ -526,6 +541,7 @@
 		BB0EE33118A3ADAB00E3EA63 /* Fitness */ = {
 			isa = PBXGroup;
 			children = (
+				BB11950518B5EFBE00D05A97 /* bluetooth api */,
 				BB28211518AB657000ADE985 /* included files */,
 				BB779E5E18AA5A3E009C2D8C /* MMDrawerController */,
 				BB779DEB18AA4298009C2D8C /* Unused */,
@@ -569,6 +585,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		BB11950518B5EFBE00D05A97 /* bluetooth api */ = {
+			isa = PBXGroup;
+			children = (
+				BB11950618B5EFBE00D05A97 /* ISBluetooth.h */,
+				BB11950718B5EFBE00D05A97 /* ISBluetooth.m */,
+			);
+			path = "bluetooth api";
+			sourceTree = "<group>";
+		};
 		BB11E4BA18A8C96F00406313 /* screens */ = {
 			isa = PBXGroup;
 			children = (
@@ -588,9 +613,6 @@
 				BB005F5A18AB3BD0003FAF8B /* ISSetWorkoutGoalViewController.h */,
 				BB005F5B18AB3BD0003FAF8B /* ISSetWorkoutGoalViewController.m */,
 				BB005F5C18AB3BD0003FAF8B /* ISSetWorkoutGoalViewController.xib */,
-				1F4E034718ADE5B600BAF4D8 /* ISWorkoutRemindersViewController.h */,
-				1F4E034818ADE5B600BAF4D8 /* ISWorkoutRemindersViewController.m */,
-				1F4E034918ADE5B600BAF4D8 /* ISWorkoutRemindersViewController.xib */,
 				1F4E038A18AE226200BAF4D8 /* ISConnectionManagerViewController.h */,
 				1F4E038B18AE226200BAF4D8 /* ISConnectionManagerViewController.m */,
 				1F4E038C18AE226200BAF4D8 /* ISConnectionManagerViewController.xib */,
@@ -612,6 +634,9 @@
 				BBD4208218B4C1710094F958 /* ISReminderRepeatViewController.m */,
 				BBD4208418B4CE5C0094F958 /* ISReminderAlertViewController.h */,
 				BBD4208518B4CE5C0094F958 /* ISReminderAlertViewController.m */,
+				BB11950018B5D87F00D05A97 /* ISWorkoutReminderController.h */,
+				BB11950118B5D87F00D05A97 /* ISWorkoutReminderController.m */,
+				BB11950218B5D87F00D05A97 /* ISWorkoutReminderController.xib */,
 			);
 			name = screens;
 			sourceTree = "<group>";
@@ -858,7 +883,6 @@
 				BB779E2718AA4765009C2D8C /* path-on-map.png in Resources */,
 				BB779E2018AA4765009C2D8C /* cal.png in Resources */,
 				1FEC254018B1E2850053A996 /* line_edit_reminder.png in Resources */,
-				BB0B80DA18ACCA9A00BCC2E0 /* delet.png in Resources */,
 				BB779E1E18AA4765009C2D8C /* black.png in Resources */,
 				BB779E2918AA4765009C2D8C /* speed-icn.png in Resources */,
 				1F4E037518AE115700BAF4D8 /* refresh.png in Resources */,
@@ -868,6 +892,7 @@
 				1F4E037618AE115700BAF4D8 /* selected.png in Resources */,
 				BB779E3018AA4765009C2D8C /* white.png in Resources */,
 				BB779E2B18AA4765009C2D8C /* start.png in Resources */,
+				BB1194FF18B5D6D400D05A97 /* editRem.png in Resources */,
 				BB11E4CA18A8CA5900406313 /* date btn.png in Resources */,
 				BB779E2318AA4765009C2D8C /* hr.png in Resources */,
 				BB779DEA18AA4186009C2D8C /* line@1x.png in Resources */,
@@ -879,6 +904,7 @@
 				BB779E2118AA4765009C2D8C /* head-bg.png in Resources */,
 				BB11E4BF18A8C9C400406313 /* ISUserProfileViewController.xib in Resources */,
 				BB779E5C18AA56F4009C2D8C /* orange.png in Resources */,
+				BB1194FE18B5D6D400D05A97 /* deleteRem.png in Resources */,
 				BB11E4CC18A8CA5900406313 /* mid img.png in Resources */,
 				1F4E037418AE115700BAF4D8 /* line.png in Resources */,
 				BB779E5918AA56F4009C2D8C /* 03-dashboard_slider_edited.jpg in Resources */,
@@ -886,6 +912,7 @@
 				1F4E038918AE1F3B00BAF4D8 /* disable reminder.png in Resources */,
 				BB0B80DD18ACCA9A00BCC2E0 /* lineReminderCell.png in Resources */,
 				BB1F96A718ACBA6F0023A174 /* helvetica-condensed-thin.ttf in Resources */,
+				BB11950418B5D87F00D05A97 /* ISWorkoutReminderController.xib in Resources */,
 				BB779DE818AA4186009C2D8C /* radio-sel.png in Resources */,
 				BBFEA65B18AA08CB00EDC8A7 /* helvetica-neue-lt-com-55-roman.ttf in Resources */,
 				BB11E4CD18A8CA5900406313 /* register btn.png in Resources */,
@@ -895,6 +922,7 @@
 				BB779E2C18AA4765009C2D8C /* steps-icn.png in Resources */,
 				BB005F5118AB3BA4003FAF8B /* start.png in Resources */,
 				1F4E038518AE16D800BAF4D8 /* ISBLEConnectionManagerViewController.xib in Resources */,
+				BB1194FD18B5D6D300D05A97 /* selRem.png in Resources */,
 				BB779E2E18AA4765009C2D8C /* time-icn.png in Resources */,
 				BB11E4D218A8CD3D00406313 /* helvetica-world.ttf in Resources */,
 				BB779E3118AA4765009C2D8C /* workout-done-icn.png in Resources */,
@@ -913,7 +941,6 @@
 				BB779E2A18AA4765009C2D8C /* speed.png in Resources */,
 				BB11E4CE18A8CA5900406313 /* text box bg.png in Resources */,
 				BB005F5718AB3BA4003FAF8B /* start-goal@2x.png in Resources */,
-				1F4E034B18ADE5B600BAF4D8 /* ISWorkoutRemindersViewController.xib in Resources */,
 				1F4E037B18AE115700BAF4D8 /* textHR.png in Resources */,
 				BB005F5418AB3BA4003FAF8B /* radio-sel@2x.png in Resources */,
 				BB1F96A518AC9A9B0023A174 /* ribbon-bg1.png in Resources */,
@@ -922,7 +949,6 @@
 				1FEC257B18B21A200053A996 /* ISRepeatReminderViewController.xib in Resources */,
 				1F19312718B33FF8005BB31C /* ISReportDetailsCell.xib in Resources */,
 				1FEC254518B1E8F60053A996 /* ISNewReminderViewController.xib in Resources */,
-				BB0B80DC18ACCA9A00BCC2E0 /* edit.png in Resources */,
 				BB28211718AB658F00ADE985 /* macros.h in Resources */,
 				BB779E1C18AA4765009C2D8C /* 02-dashboard edit.png in Resources */,
 				BB005F4F18AB3BA4003FAF8B /* set.png in Resources */,
@@ -967,11 +993,13 @@
 				1F4E035E18AE110300BAF4D8 /* ISHRMonitorViewController.m in Sources */,
 				BB779DDE18AA3463009C2D8C /* UIFont+Replacement.m in Sources */,
 				BB779E6A18AA5A3E009C2D8C /* MMDrawerBarButtonItem.m in Sources */,
+				BB11950818B5EFBE00D05A97 /* ISBluetooth.m in Sources */,
 				BBD4208318B4C1710094F958 /* ISReminderRepeatViewController.m in Sources */,
 				BBD4208618B4CE5C0094F958 /* ISReminderAlertViewController.m in Sources */,
 				BB005F5D18AB3BD0003FAF8B /* ISSetWorkoutGoalViewController.m in Sources */,
 				1F4E039518AE332E00BAF4D8 /* ISPathViewController.m in Sources */,
 				BB779E6E18AA5A3E009C2D8C /* UIViewController+MMDrawerController.m in Sources */,
+				BB11950318B5D87F00D05A97 /* ISWorkoutReminderController.m in Sources */,
 				BB779E4C18AA4783009C2D8C /* ISDashboardViewController.m in Sources */,
 				1FEC254418B1E8F60053A996 /* ISNewReminderViewController.m in Sources */,
 				BB3C66CB18A9EA2800CAA240 /* ISProfileViewController.m in Sources */,

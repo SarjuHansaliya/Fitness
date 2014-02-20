@@ -35,13 +35,18 @@
     self.repeatController = [[ISReminderRepeatViewController alloc]initWithStyle:UITableViewStylePlain];
     self.alertController = [[ISReminderAlertViewController alloc]initWithStyle:UITableViewStylePlain];
     
+    self.toDateTextField.inputView=self.datePicker;
+    self.toDateTextField.inputAccessoryView=self.accessoryView;
+    
     NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
-    [formatter setDateFormat:@"MMM dd , yyyy"];
+    [formatter setDateFormat:@"MMM dd , yyyy\t   hh:mm a"];
     
-    self.dateTextLabel.text = [formatter stringFromDate:[NSDate date]];
+    self.toDateTextField.text=[formatter stringFromDate:[NSDate date]];
     
-    [formatter setDateFormat:@"hh:mm a"];
-    self.timeTextLabel.text = [formatter stringFromDate:[NSDate date]];
+    
+   
+    
+    
     
     
     
@@ -135,10 +140,7 @@
 -(void)setupGestureRecognizer
 {
     
-    
-    UITapGestureRecognizer *tapOnStart = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(startClicked:)];
-    tapOnStart.numberOfTapsRequired=1;
-    [self.startView addGestureRecognizer:tapOnStart];
+
     
     UITapGestureRecognizer *tapOnRepeat = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(repeatClicked:)];
     tapOnRepeat.numberOfTapsRequired=1;
@@ -176,22 +178,6 @@
     [self.navigationController pushViewController:self.repeatController animated:YES ];
 }
 
--(void)startClicked:(id)sender
-{
-    [UIView animateWithDuration:0.2
-                          delay:0.0
-                        options: UIViewAnimationOptionCurveEaseIn
-                     animations:^{
-                         self.datePicker.alpha = 1.0 - self.datePicker.alpha;
-                        // self.datePicker.frame = CGRectMake(0, 290, 320, 216);
-                         
-                }
-                     completion:^(BOOL com){
-                         self.doneButtonView.alpha= 1.0 - self.doneButtonView.alpha;
-                     }];
-    
-   
-}
 -(void)alertClicked:(id)sender
 {
     
@@ -203,24 +189,16 @@
    
     [self.view endEditing:YES];
 }
-- (IBAction)datePickerValueChanged:(id)sender {
-    
-    
-    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
-    [formatter setDateFormat:@"MMM dd , yyyy"];
-    
-    self.dateTextLabel.text = [formatter stringFromDate:self.datePicker.date];
-    
-    [formatter setDateFormat:@"hh:mm a"];
-    self.timeTextLabel.text = [formatter stringFromDate:self.datePicker.date];
-    
-    
-}
 
-- (IBAction)doneButtonClicked:(id)sender {
+- (IBAction)doneEditing:(id)sender{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+   [formatter setDateFormat:@"MMM dd , yyyy\t   hh:mm a"];
     
-    self.datePicker.alpha=0.0;
-    self.doneButtonView.alpha=0.0;
+   
+        self.toDateTextField.text = [formatter stringFromDate: self.datePicker.date];
+        [self.toDateTextField resignFirstResponder];
+        
+   
     
 }
 

@@ -19,6 +19,7 @@
     // dummy data, just for checking screen--------------------------
     NSMutableArray *dateArray;
     NSMutableArray *daysArray;
+   
     
     //remove before original implementation---------------------------
     
@@ -36,80 +37,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setupNavigationBar];
     [self fillDummyReminderData]; //remove this
     self.tableView.separatorColor=[UIColor clearColor];
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg.png"]];
-    
-    self.tableView.backgroundView = imageView;
-    [self.tableView registerNib:[UINib nibWithNibName:@"ISReminderTableCell" bundle:nil] forCellReuseIdentifier:@"Cell"];
+    self.tableView.backgroundColor=[UIColor clearColor];
+   
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-//--------------------------------setting up navigation bar--------------------------------------
-
--(void)setupNavigationBar
-{
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
-    self.wantsFullScreenLayout=YES;
-    
-    
-    self.navigationController.navigationBar.translucent=NO;
-    
-    UILabel *titleLable=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 19)];
-    
-    titleLable.backgroundColor=[UIColor clearColor];
-    titleLable.text=@"Workout Reminder";
-    titleLable.font=[UIFont fontWithName:@"Arial" size:20.0];
-    titleLable.textColor= [UIColor colorWithHue:31.0/360.0 saturation:99.0/100.0 brightness:87.0/100.0 alpha:1];
-    
-    self.navigationItem.titleView=titleLable;
-    self.navigationItem.titleView.backgroundColor=[UIColor clearColor];
-    float xSpace=SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")?-10.0f:-0.0f;
-    
-    
-    UIView *backView =[[UIView alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
-    [backView setBackgroundColor:[UIColor clearColor]];
-    UITapGestureRecognizer *tapBack=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(goBack:)];
-    tapBack.numberOfTapsRequired=1;
-    [backView addGestureRecognizer:tapBack];
-    UIButton *backButtonCustom = [UIButton buttonWithType:UIButtonTypeCustom];
-    [backButtonCustom setFrame:CGRectMake(xSpace, 3.0f, 25.0f, 25.0f)];
-    [backButtonCustom addTarget:self action:@selector(goBack:) forControlEvents:UIControlEventTouchUpInside];
-    [backButtonCustom setImage:[UIImage imageNamed:@"back.png"] forState:UIControlStateNormal];
-    [backView addSubview:backButtonCustom];
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:backView];
-    
-    
-    UIButton *addButtonCustom = [UIButton buttonWithType:UIButtonTypeCustom];
-    [addButtonCustom setFrame:CGRectMake(0.0f, 0.0f, 25.0f, 25.0f)];
-    [addButtonCustom addTarget:self action:@selector(addNewReminder:) forControlEvents:UIControlEventTouchUpInside];
-    [addButtonCustom setImage:[UIImage imageNamed:@"new.png"] forState:UIControlStateNormal];
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithCustomView:addButtonCustom];
-    
-    // [backButton setTintColor: [UIColor colorWithHue:31.0/360.0 saturation:99.0/100.0 brightness:87.0/100.0 alpha:1]];
-    [self.navigationItem setLeftBarButtonItem:backButton];
-    [self.navigationItem setRightBarButtonItem:addButton];
-    
-    
-}
--(void)addNewReminder:(id)sender
-{
-    ISNewReminderViewController *newReminder=[[ISNewReminderViewController alloc]initWithNibName:nil bundle:nil];
-    newReminder.wantsFullScreenLayout = YES;
-    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:newReminder];
-
-    [self presentViewController:nav animated:YES completion:nil];
-
-}
--(void)goBack:(id)sender
-{
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 
@@ -142,10 +79,10 @@
     if (cell == nil) {
         
         cell = [[ISReminderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier ];
-        cell.delegate=self;
+        
                
     }
-    [cell setReminderTime:[dateArray objectAtIndex:indexPath.row] reminderOnDays:[daysArray objectAtIndex:indexPath.row] viewController:self];
+    [cell setReminderTime:[dateArray objectAtIndex:indexPath.row] reminderOnDays:[daysArray objectAtIndex:indexPath.row] ];
     
     
     
@@ -191,22 +128,32 @@
 }
 */
 
--(void)deleteButtonClickedInCell:(id)sender
-{
-    NSLog(@"%ld",(long)[[self.tableView indexPathForCell:sender]row]);
-    NSIndexPath *indepath = [self.tableView indexPathForCell:sender];
-    
-    [dateArray removeObjectAtIndex:indepath.row];
-    [daysArray removeObjectAtIndex:indepath.row];
-    
-    [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indepath]
-                          withRowAnimation:UITableViewRowAnimationFade];
-}
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+           ISReminderCell *prevSelectedCell=(ISReminderCell *)[self.tableView cellForRowAtIndexPath:self.selectedReminderIndex];
+        ISReminderCell *newSelectedCell=(ISReminderCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+        
+        prevSelectedCell.reminderSelImage.hidden=YES;
+        newSelectedCell.reminderSelImage.hidden=NO;
+        
+        self.selectedReminderIndex=indexPath;
+        
+
+    
+    
 }
- 
+
+-(void)deleteCell
+{
+    [dateArray removeObjectAtIndex:self.selectedReminderIndex.row];
+    [daysArray removeObjectAtIndex:self.selectedReminderIndex.row];
+    
+    [self.tableView deleteRowsAtIndexPaths:@[self.selectedReminderIndex] withRowAnimation:UITableViewRowAnimationFade];
+    
+    
+}
 
 
 

@@ -48,7 +48,7 @@
 {
     
     
-    UIView *fromView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 20, 15)];
+    UIView *fromView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 18, 16)];
     
     UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 15 , 15)];
     [btn addTarget:self action:@selector(buttonFromDateClicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -63,7 +63,7 @@
 
     
     
-    UIView *toView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 20, 15)];
+    UIView *toView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 18, 16)];
    
     UIButton *btn1 = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 15 , 15)];
     [btn1 addTarget:self action:@selector(buttonToDateClicked:) forControlEvents:UIControlEventTouchUpInside];

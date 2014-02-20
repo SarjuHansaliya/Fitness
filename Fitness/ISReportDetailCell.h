@@ -7,25 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-//-----------------defining helper class for handling cell events---------
 
 
 
-@interface ISReportDetailCellHandler : NSObject
+@interface ISReportDetailCell : UITableViewCell
+
 @property (weak, nonatomic) IBOutlet UILabel *goalTypeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *workoutDateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *goalValueLabel;
 
 
-
--(void)setGoalTypeLabel:(NSString *)goalType workoutDateLabel:(NSDate *)date goalValueLabel:(NSString *)goalValue;
-
-@end
-
-
-@interface ISReportDetailCell : UITableViewCell
-
-@property ISReportDetailCellHandler *outletOwner;
 
 -(void)setGoalTypeLabel:(NSString *)goalType workoutDateLabel:(NSDate *)date goalValueLabel:(NSString *)goalValue;
 
