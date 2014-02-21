@@ -12,6 +12,7 @@
 #import "ISDashboardViewController.h"
 #import "MMExampleDrawerVisualStateManager.h"
 
+
 @implementation ISAppDelegate
 
 - (BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -39,10 +40,21 @@
     
     [self.drawerController setShowsShadow:NO];
     [self.drawerController setMaximumLeftDrawerWidth:275.0];
-    
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    [self.window setRootViewController:self.drawerController];
     [self getBluetoothManager];
+    self.dbManager=[ISDBManager getSharedInstance];
+    self.woHandler=[ISWorkOutHandler getSharedInstance];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    if (![self.woHandler isUserProfileSet]) {
+        ISProfileViewController *userProfile=[[ISProfileViewController alloc]initWithNibName:nil bundle:nil];
+        userProfile.wantsFullScreenLayout = YES;
+        [self.window setRootViewController:userProfile];
+    }
+    else
+    {
+        [self.window setRootViewController:self.drawerController];
+    }
+    
     return YES;
 }
 

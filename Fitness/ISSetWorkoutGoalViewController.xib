@@ -11,6 +11,7 @@
                 <outlet property="caloriesTextField" destination="3Qh-nf-FGA" id="OYX-jG-SuW"/>
                 <outlet property="durationRB" destination="EDq-US-srl" id="q1W-8b-v2V"/>
                 <outlet property="durationTextField" destination="39q-YM-re6" id="j4U-PQ-DJe"/>
+                <outlet property="enableWOGoal" destination="JrA-fx-cT3" id="sP4-V9-W5v"/>
                 <outlet property="milesRB" destination="fQ2-ec-RvV" id="0Z3-6F-0xk"/>
                 <outlet property="milesTextField" destination="yKX-M4-Am7" id="tyc-Ag-t4g"/>
                 <outlet property="openRemindersView" destination="scI-Sy-b3W" id="euD-lp-PsT"/>
@@ -80,7 +81,7 @@
                             <color key="textColor" red="0.25098039220000001" green="0.25098039220000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yKX-M4-Am7">
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="0.00 mile" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yKX-M4-Am7">
                             <rect key="frame" x="120" y="0.0" width="150" height="25"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
@@ -93,7 +94,7 @@
                                 <action selector="milesTFClicked:" destination="-1" eventType="editingDidBegin" id="hMg-do-Uyk"/>
                             </connections>
                         </textField>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Qh-nf-FGA">
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="0.0 kcal" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Qh-nf-FGA">
                             <rect key="frame" x="120" y="54" width="150" height="25"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
@@ -106,7 +107,7 @@
                                 <action selector="caloriesTFClicked:" destination="-1" eventType="editingDidBegin" id="s83-GC-j8q"/>
                             </connections>
                         </textField>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="39q-YM-re6">
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="0 min" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="39q-YM-re6">
                             <rect key="frame" x="120" y="108" width="150" height="25"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
@@ -114,7 +115,7 @@
                                 <constraint firstAttribute="width" constant="150" id="r35-EK-DlP"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             <connections>
                                 <action selector="durationTFClicked:" destination="-1" eventType="editingDidBegin" id="bDe-Gr-rTY"/>
                             </connections>
@@ -184,34 +185,6 @@
                         <constraint firstItem="ohv-Uf-XG6" firstAttribute="centerY" secondItem="3Qh-nf-FGA" secondAttribute="centerY" id="okg-E7-wtt"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N37-H9-GW5" userLabel="View Set">
-                    <rect key="frame" x="123" y="230" width="75" height="38"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="set.png" translatesAutoresizingMaskIntoConstraints="NO" id="qxf-k9-RTP">
-                            <rect key="frame" x="0.0" y="0.0" width="75" height="38"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ni-QS-WoE">
-                            <rect key="frame" x="24" y="9" width="27" height="21"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="75" id="1jm-59-aQJ"/>
-                        <constraint firstItem="qxf-k9-RTP" firstAttribute="leading" secondItem="N37-H9-GW5" secondAttribute="leading" id="6Vj-5a-JAK"/>
-                        <constraint firstAttribute="width" secondItem="qxf-k9-RTP" secondAttribute="width" id="C69-Z2-LPE"/>
-                        <constraint firstItem="qxf-k9-RTP" firstAttribute="top" secondItem="N37-H9-GW5" secondAttribute="top" id="I92-Rv-2nG"/>
-                        <constraint firstAttribute="height" constant="38" id="IOM-10-AAg"/>
-                        <constraint firstAttribute="height" secondItem="qxf-k9-RTP" secondAttribute="height" id="Mtc-LF-SfU"/>
-                        <constraint firstAttribute="centerX" secondItem="7Ni-QS-WoE" secondAttribute="centerX" id="aB4-Sg-yHB"/>
-                        <constraint firstAttribute="centerY" secondItem="7Ni-QS-WoE" secondAttribute="centerY" id="lDc-1j-elZ"/>
-                    </constraints>
-                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JrA-fx-cT3" userLabel="View Start">
                     <rect key="frame" x="10" y="470" width="145" height="88"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -220,7 +193,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="145" height="88"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start WorkOut" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="85" translatesAutoresizingMaskIntoConstraints="NO" id="q37-4w-X3q">
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="9" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable WO Goal" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="85" translatesAutoresizingMaskIntoConstraints="NO" id="q37-4w-X3q">
                             <rect key="frame" x="30" y="23" width="85" height="42"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
@@ -243,6 +216,20 @@
                         <constraint firstAttribute="height" secondItem="RFZ-fH-HGT" secondAttribute="height" id="oBG-Oy-24D"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="reI-yS-cNn">
+                    <rect key="frame" x="123" y="240" width="75" height="38"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="38" id="4ff-kR-BVj"/>
+                        <constraint firstAttribute="width" constant="75" id="smd-X2-8xN"/>
+                    </constraints>
+                    <state key="normal" title="Set" backgroundImage="set.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="setNewWOGoal:" destination="-1" eventType="touchUpInside" id="dbr-p1-MCs"/>
+                    </connections>
+                </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="scI-Sy-b3W" userLabel="View Reminder">
                     <rect key="frame" x="165" y="470" width="145" height="88"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -286,14 +273,14 @@
                 <constraint firstAttribute="bottom" secondItem="iTy-F4-8aE" secondAttribute="bottom" id="J7V-5X-w4m"/>
                 <constraint firstAttribute="trailing" secondItem="GX3-VA-adF" secondAttribute="trailing" constant="10" id="MNj-9z-d75"/>
                 <constraint firstAttribute="bottom" secondItem="scI-Sy-b3W" secondAttribute="bottom" constant="10" id="Vu4-BE-0NJ"/>
-                <constraint firstAttribute="centerX" secondItem="N37-H9-GW5" secondAttribute="centerX" id="Xmc-x8-Pyv"/>
+                <constraint firstItem="reI-yS-cNn" firstAttribute="top" secondItem="FVf-uY-UDJ" secondAttribute="bottom" constant="35" id="WYr-Kw-MPG"/>
+                <constraint firstAttribute="centerX" secondItem="reI-yS-cNn" secondAttribute="centerX" id="dgk-5g-rRs"/>
                 <constraint firstItem="GX3-VA-adF" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="10" id="j13-th-ZvE"/>
                 <constraint firstAttribute="centerX" secondItem="iTy-F4-8aE" secondAttribute="centerX" id="j92-Nw-E1s"/>
                 <constraint firstAttribute="trailing" secondItem="scI-Sy-b3W" secondAttribute="trailing" constant="10" id="kg5-Lx-gR0"/>
                 <constraint firstItem="FVf-uY-UDJ" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="25" id="u2h-fX-Id1"/>
                 <constraint firstItem="GX3-VA-adF" firstAttribute="top" secondItem="1" secondAttribute="top" constant="10" id="uRE-AT-bO3"/>
                 <constraint firstItem="JrA-fx-cT3" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="1" secondAttribute="leading" constant="10" id="vr8-wg-zfL"/>
-                <constraint firstItem="N37-H9-GW5" firstAttribute="top" secondItem="FVf-uY-UDJ" secondAttribute="top" constant="158" id="xht-HM-SlF"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>

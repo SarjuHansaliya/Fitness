@@ -10,6 +10,11 @@
 #import "ISWorkoutReminderController.h"
 #import "ISAppDelegate.h"
 #import "macros.h"
+#import "ILAlertView.h"
+
+#define MILES 1
+#define CALORIES 2
+#define DURATION 3
 
 @interface ISSetWorkoutGoalViewController ()
 
@@ -21,7 +26,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        self.woGoal=[[(ISAppDelegate *)[[UIApplication sharedApplication]delegate] woHandler] woGoal];
     }
     return self;
 }
@@ -32,18 +37,56 @@
     [self setupGoalsRB];
     [self setupNavigationBar];
     [self setupViewWorkoutGoalsClickEvent];
-    
-    
-   // self.navigationController.navigationBarHidden=YES;
-    // Do any additional setup after loading the view from its nib.
+    [self fillGoalTextField];
+}
+
+-(void)fillGoalTextField
+{
+    if (self.woGoal.goalType!=0) {
+        switch (self.woGoal.goalType) {
+            case MILES:
+                [self milesTFClicked:nil];
+                self.milesTextField.text=[NSString stringWithFormat:@"%.2f",[self.woGoal.goalValue doubleValue]];
+                break;
+                
+            case CALORIES:
+                [self caloriesTFClicked:nil];
+                self.caloriesTextField.text=[NSString stringWithFormat:@"%.1f",[self.woGoal.goalValue doubleValue]];
+                break;
+            case DURATION:
+                [self durationTFClicked:nil];
+                self.durationTextField.text=[NSString stringWithFormat:@"%.0f",[self.woGoal.goalValue doubleValue]];
+                break;
+        }
+    }
 }
 
 //---------------------------------------setup onclick events---------------------
 -(void)setupViewWorkoutGoalsClickEvent
 {
-    UITapGestureRecognizer *tapOnView = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(displayReminders:)] ;
-    tapOnView.numberOfTapsRequired=1;
-    [self.openRemindersView addGestureRecognizer:tapOnView];
+    UITapGestureRecognizer *tapOnRemView = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(displayReminders:)] ;
+    tapOnRemView.numberOfTapsRequired=1;
+    [self.openRemindersView addGestureRecognizer:tapOnRemView];
+    
+    UITapGestureRecognizer *tapOnWOView = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(toggleWOGoal:)] ;
+    tapOnWOView.numberOfTapsRequired=1;
+    [self.enableWOGoal addGestureRecognizer:tapOnWOView];
+    
+}
+-(void)toggleWOGoal:(id)sender
+{
+    UILabel *lbl=(UILabel*)[self.enableWOGoal viewWithTag:9];
+    
+    if ([lbl.text isEqualToString:@"Enable WO Goal"]) {
+        lbl.text=@"Disable WO Goal";
+        [[(ISAppDelegate *)[[UIApplication sharedApplication]delegate] woHandler] setIsWOGoalEnable:YES];
+    }
+    else
+    {
+        lbl.text=@"Enable WO Goal";
+        [[(ISAppDelegate *)[[UIApplication sharedApplication]delegate] woHandler] setIsWOGoalEnable:NO];
+    }
+    
 }
 -(void) displayReminders:(id)sender
 {
@@ -165,6 +208,7 @@
      [self.milesRB setSelected:YES];
 }
 
+
 - (IBAction)durationRBClicked:(id)sender {
     
     if (!self.durationRB.selected) {
@@ -196,4 +240,52 @@
         [self.milesTextField becomeFirstResponder];
     }
 }
+- (IBAction)setNewWOGoal:(id)sender {
+    
+    if (self.milesRB.selected) {
+        self.woGoal.goalType=MILES;
+        NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
+        [f setNumberStyle:NSNumberFormatterDecimalStyle];
+        self.woGoal.goalValue=[f numberFromString:self.milesTextField.text];
+        if ([self.woGoal.goalValue doubleValue]==0.0) {
+            [ILAlertView showWithTitle:@"Error" message:@"Enter Proper Data" closeButtonTitle:@"OK" secondButtonTitle:nil tappedSecondButton:nil];
+            [self.milesTextField becomeFirstResponder];
+            return;
+        }
+        
+    }
+    else if (self.caloriesRB.selected)
+    {
+        self.woGoal.goalType=CALORIES;
+        NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
+        [f setNumberStyle:NSNumberFormatterDecimalStyle];
+        self.woGoal.goalValue=[f numberFromString:self.caloriesTextField.text];
+        if ([self.woGoal.goalValue doubleValue]==0.0) {
+            [ILAlertView showWithTitle:@"Error" message:@"Enter Proper Data" closeButtonTitle:@"OK" secondButtonTitle:nil tappedSecondButton:nil];
+            [self.caloriesTextField becomeFirstResponder];
+            return;
+        }
+    }
+    else if (self.durationRB.selected)
+    {
+        self.woGoal.goalType=DURATION;
+        NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
+        [f setNumberStyle:NSNumberFormatterDecimalStyle];
+        self.woGoal.goalValue=[f numberFromString:self.durationTextField.text];
+        if ([self.woGoal.goalValue doubleValue]==0.0) {
+            [ILAlertView showWithTitle:@"Error" message:@"Enter Proper Data" closeButtonTitle:@"OK" secondButtonTitle:nil tappedSecondButton:nil];
+            [self.durationTextField becomeFirstResponder];
+            return;
+        }
+    }
+    if ([self.woGoal saveWOGoal]) {
+        [ILAlertView showWithTitle:@"Success" message:@"Goal Saved Successfully" closeButtonTitle:@"OK" secondButtonTitle:nil tappedSecondButton:nil];
+    }
+    else
+    {
+        [ILAlertView showWithTitle:@"Error" message:@"Error in Saving Goal" closeButtonTitle:@"OK" secondButtonTitle:nil tappedSecondButton:nil];
+    }
+    
+}
+
 @end

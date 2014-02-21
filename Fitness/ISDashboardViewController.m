@@ -12,6 +12,7 @@
 #import "MMDrawerBarButtonItem.h"
 #import "ISPathViewController.h"
 #import "ISReportsViewController.h"
+#import "ISProfileViewController.h"
 
 @interface ISDashboardViewController ()
 
@@ -37,7 +38,23 @@
 //    [appDel.drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeNone];
 //    [appDel.drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
     [[appDel getHRDistributor] setDashBoardDelegate:self];
+    if (![[appDel woHandler] isUserProfileSet]) {
+        ISProfileViewController *userProfile=[[ISProfileViewController alloc]initWithNibName:nil bundle:nil];
+        userProfile.wantsFullScreenLayout = YES;
+        
+        [self presentViewController:userProfile animated:YES completion:nil];
+    }
        
+}
+-(void)viewWillAppear:(BOOL)animated
+{
+    
+    ISAppDelegate *appDel=[[UIApplication sharedApplication]delegate];
+    if (![[appDel woHandler] isUserProfileSet]) {
+        ISProfileViewController *userProfile=[[ISProfileViewController alloc]initWithNibName:nil bundle:nil];
+        userProfile.wantsFullScreenLayout = YES;
+         [(UINavigationController*)[(ISAppDelegate *)[[UIApplication sharedApplication]delegate] drawerController] presentViewController:userProfile animated:YES completion:nil];
+    }
 }
 
 

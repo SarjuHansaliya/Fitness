@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Fitness/ISProfileViewController.m"
-            timestampString = "414591606.563874"
+            timestampString = "414677939.87382"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "204"
-            endingLineNumber = "204"
+            startingLineNumber = "278"
+            endingLineNumber = "278"
             landmarkName = "-touchesBegan:withEvent:"
             landmarkType = "5">
             <Locations>
@@ -104,11 +104,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Fitness/ISProfileViewController.m"
-            timestampString = "414590899.591551"
+            timestampString = "414676462.779295"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143"
+            startingLineNumber = "165"
+            endingLineNumber = "165"
             landmarkName = "-changeGender"
             landmarkType = "5">
          </BreakpointContent>
@@ -120,11 +120,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Fitness/ISProfileViewController.m"
-            timestampString = "414590899.591551"
+            timestampString = "414676462.779295"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "135"
-            endingLineNumber = "135"
+            startingLineNumber = "157"
+            endingLineNumber = "157"
             landmarkName = "-setupGenderRB"
             landmarkType = "5">
          </BreakpointContent>
@@ -136,11 +136,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Fitness/ISDashboardViewController.m"
-            timestampString = "414595137.304242"
+            timestampString = "414677260.859358"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
             landmarkName = "-setupNavigationBar"
             landmarkType = "5">
          </BreakpointContent>
@@ -152,11 +152,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Fitness/ISSetWorkoutGoalViewController.m"
-            timestampString = "414484256.731832"
+            timestampString = "414676462.779295"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
             landmarkName = "-goBack:"
             landmarkType = "5">
          </BreakpointContent>
@@ -440,11 +440,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Fitness/ISProfileViewController.m"
-            timestampString = "414590899.591551"
+            timestampString = "414676462.779295"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
             landmarkName = "-keyboardWasShown:"
             landmarkType = "5">
          </BreakpointContent>
@@ -456,11 +456,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Fitness/ISProfileViewController.m"
-            timestampString = "414590899.591551"
+            timestampString = "414676462.779295"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
             landmarkName = "-keyboardWasShown:"
             landmarkType = "5">
          </BreakpointContent>
@@ -472,11 +472,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Fitness/ISSetWorkoutGoalViewController.m"
-            timestampString = "414592952.394964"
+            timestampString = "414676462.779295"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "153"
-            endingLineNumber = "153"
+            startingLineNumber = "196"
+            endingLineNumber = "196"
             landmarkName = "-durationTFClicked:"
             landmarkType = "5">
          </BreakpointContent>
@@ -488,11 +488,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Fitness/ISSetWorkoutGoalViewController.m"
-            timestampString = "414592952.394964"
+            timestampString = "414676462.779295"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "159"
-            endingLineNumber = "159"
+            startingLineNumber = "202"
+            endingLineNumber = "202"
             landmarkName = "-caloriesTFClicked:"
             landmarkType = "5">
          </BreakpointContent>
@@ -504,11 +504,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Fitness/ISSetWorkoutGoalViewController.m"
-            timestampString = "414592952.394964"
+            timestampString = "414676462.779295"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "162"
-            endingLineNumber = "162"
+            startingLineNumber = "205"
+            endingLineNumber = "205"
             landmarkName = "-milesTFClicked:"
             landmarkType = "5">
          </BreakpointContent>
@@ -520,11 +520,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Fitness/ISSetWorkoutGoalViewController.m"
-            timestampString = "414592952.394964"
+            timestampString = "414676462.779295"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "165"
-            endingLineNumber = "165"
+            startingLineNumber = "208"
+            endingLineNumber = "208"
             landmarkName = "-milesTFClicked:"
             landmarkType = "5">
          </BreakpointContent>

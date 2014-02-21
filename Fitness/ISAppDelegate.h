@@ -10,6 +10,8 @@
 #import "MMDrawerController.h"
 #import "ISBluetooth.h"
 #import "ISHRDistributor.h"
+#import "ISDBManager.h"
+#import "ISWorkOutHandler.h"
 
 @interface ISAppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -17,6 +19,8 @@
 @property MMDrawerController *drawerController;
 @property ISBluetooth *bluetoothManager;
 @property ISHRDistributor *hrDistributor;
+@property (weak,atomic) ISDBManager *dbManager;
+@property (weak,atomic) ISWorkOutHandler *woHandler;
 
 -(ISHRDistributor *)getHRDistributor;
 -(ISBluetooth *)getBluetoothManager;

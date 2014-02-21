@@ -150,6 +150,15 @@
 		BB779E6C18AA5A3E009C2D8C /* MMDrawerVisualState.m in Sources */ = {isa = PBXBuildFile; fileRef = BB779E6518AA5A3E009C2D8C /* MMDrawerVisualState.m */; };
 		BB779E6D18AA5A3E009C2D8C /* MMExampleDrawerVisualStateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BB779E6718AA5A3E009C2D8C /* MMExampleDrawerVisualStateManager.m */; };
 		BB779E6E18AA5A3E009C2D8C /* UIViewController+MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB779E6918AA5A3E009C2D8C /* UIViewController+MMDrawerController.m */; };
+		BB98D6E318B7381E00C6A16D /* ISUserDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = BB98D6E218B7381E00C6A16D /* ISUserDetails.m */; };
+		BB98D6E618B738A100C6A16D /* ISHR.m in Sources */ = {isa = PBXBuildFile; fileRef = BB98D6E518B738A100C6A16D /* ISHR.m */; };
+		BB98D6E918B738E600C6A16D /* ISWOGoal.m in Sources */ = {isa = PBXBuildFile; fileRef = BB98D6E818B738E600C6A16D /* ISWOGoal.m */; };
+		BB98D6EB18B7396D00C6A16D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB98D6EA18B7396D00C6A16D /* CoreLocation.framework */; };
+		BB98D6EE18B7399100C6A16D /* ISLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = BB98D6ED18B7399100C6A16D /* ISLocation.m */; };
+		BB98D6F118B739D000C6A16D /* ISWorkOut.m in Sources */ = {isa = PBXBuildFile; fileRef = BB98D6F018B739D000C6A16D /* ISWorkOut.m */; };
+		BB98D6F818B73B1A00C6A16D /* ISDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BB98D6F718B73B1A00C6A16D /* ISDBManager.m */; };
+		BB98D6FA18B7418D00C6A16D /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BB98D6F918B7418D00C6A16D /* libsqlite3.dylib */; };
+		BB98D6FE18B771A200C6A16D /* ISWorkOutHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = BB98D6FD18B771A200C6A16D /* ISWorkOutHandler.m */; };
 		BBD4207D18B4BFD00094F958 /* ISRepeatReminderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBD4207C18B4BFD00094F958 /* ISRepeatReminderCell.xib */; };
 		BBD4208018B4C0920094F958 /* ISRepeatReminderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BBD4207F18B4C0920094F958 /* ISRepeatReminderCell.m */; };
 		BBD4208318B4C1710094F958 /* ISReminderRepeatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBD4208218B4C1710094F958 /* ISReminderRepeatViewController.m */; };
@@ -346,6 +355,22 @@
 		BB779E6718AA5A3E009C2D8C /* MMExampleDrawerVisualStateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMExampleDrawerVisualStateManager.m; sourceTree = "<group>"; };
 		BB779E6818AA5A3E009C2D8C /* UIViewController+MMDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MMDrawerController.h"; sourceTree = "<group>"; };
 		BB779E6918AA5A3E009C2D8C /* UIViewController+MMDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MMDrawerController.m"; sourceTree = "<group>"; };
+		BB98D6E118B7381E00C6A16D /* ISUserDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISUserDetails.h; sourceTree = "<group>"; };
+		BB98D6E218B7381E00C6A16D /* ISUserDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISUserDetails.m; sourceTree = "<group>"; };
+		BB98D6E418B738A100C6A16D /* ISHR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISHR.h; sourceTree = "<group>"; };
+		BB98D6E518B738A100C6A16D /* ISHR.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISHR.m; sourceTree = "<group>"; };
+		BB98D6E718B738E600C6A16D /* ISWOGoal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISWOGoal.h; sourceTree = "<group>"; };
+		BB98D6E818B738E600C6A16D /* ISWOGoal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISWOGoal.m; sourceTree = "<group>"; };
+		BB98D6EA18B7396D00C6A16D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		BB98D6EC18B7399100C6A16D /* ISLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISLocation.h; sourceTree = "<group>"; };
+		BB98D6ED18B7399100C6A16D /* ISLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISLocation.m; sourceTree = "<group>"; };
+		BB98D6EF18B739D000C6A16D /* ISWorkOut.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISWorkOut.h; sourceTree = "<group>"; };
+		BB98D6F018B739D000C6A16D /* ISWorkOut.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISWorkOut.m; sourceTree = "<group>"; };
+		BB98D6F618B73B1A00C6A16D /* ISDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISDBManager.h; sourceTree = "<group>"; };
+		BB98D6F718B73B1A00C6A16D /* ISDBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISDBManager.m; sourceTree = "<group>"; };
+		BB98D6F918B7418D00C6A16D /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		BB98D6FC18B771A200C6A16D /* ISWorkOutHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISWorkOutHandler.h; sourceTree = "<group>"; };
+		BB98D6FD18B771A200C6A16D /* ISWorkOutHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISWorkOutHandler.m; sourceTree = "<group>"; };
 		BBD4207C18B4BFD00094F958 /* ISRepeatReminderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISRepeatReminderCell.xib; sourceTree = "<group>"; };
 		BBD4207E18B4C0920094F958 /* ISRepeatReminderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISRepeatReminderCell.h; sourceTree = "<group>"; };
 		BBD4207F18B4C0920094F958 /* ISRepeatReminderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISRepeatReminderCell.m; sourceTree = "<group>"; };
@@ -361,6 +386,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB98D6FA18B7418D00C6A16D /* libsqlite3.dylib in Frameworks */,
+				BB98D6EB18B7396D00C6A16D /* CoreLocation.framework in Frameworks */,
 				BB11950A18B5F16B00D05A97 /* CoreBluetooth.framework in Frameworks */,
 				1F4E039818AE35D300BAF4D8 /* MapKit.framework in Frameworks */,
 				BB0EE32E18A3ADAB00E3EA63 /* CoreGraphics.framework in Frameworks */,
@@ -536,6 +563,8 @@
 		BB0EE32A18A3ADAB00E3EA63 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BB98D6F918B7418D00C6A16D /* libsqlite3.dylib */,
+				BB98D6EA18B7396D00C6A16D /* CoreLocation.framework */,
 				BB11950918B5F16B00D05A97 /* CoreBluetooth.framework */,
 				1F4E039718AE35D300BAF4D8 /* MapKit.framework */,
 				BB0EE32B18A3ADAB00E3EA63 /* Foundation.framework */,
@@ -549,6 +578,8 @@
 		BB0EE33118A3ADAB00E3EA63 /* Fitness */ = {
 			isa = PBXGroup;
 			children = (
+				BB98D6FB18B7717D00C6A16D /* process handler */,
+				BB98D6E018B737F000C6A16D /* classes */,
 				BB5DCCA518B7249900DAB3CE /* alertview */,
 				BB11950518B5EFBE00D05A97 /* bluetooth api */,
 				BB28211518AB657000ADE985 /* included files */,
@@ -814,6 +845,42 @@
 			path = MMDrawerController;
 			sourceTree = "<group>";
 		};
+		BB98D6E018B737F000C6A16D /* classes */ = {
+			isa = PBXGroup;
+			children = (
+				BB98D6F218B73AA100C6A16D /* database interaction */,
+				BB98D6E118B7381E00C6A16D /* ISUserDetails.h */,
+				BB98D6E218B7381E00C6A16D /* ISUserDetails.m */,
+				BB98D6E418B738A100C6A16D /* ISHR.h */,
+				BB98D6E518B738A100C6A16D /* ISHR.m */,
+				BB98D6E718B738E600C6A16D /* ISWOGoal.h */,
+				BB98D6E818B738E600C6A16D /* ISWOGoal.m */,
+				BB98D6EC18B7399100C6A16D /* ISLocation.h */,
+				BB98D6ED18B7399100C6A16D /* ISLocation.m */,
+				BB98D6EF18B739D000C6A16D /* ISWorkOut.h */,
+				BB98D6F018B739D000C6A16D /* ISWorkOut.m */,
+			);
+			name = classes;
+			sourceTree = "<group>";
+		};
+		BB98D6F218B73AA100C6A16D /* database interaction */ = {
+			isa = PBXGroup;
+			children = (
+				BB98D6F618B73B1A00C6A16D /* ISDBManager.h */,
+				BB98D6F718B73B1A00C6A16D /* ISDBManager.m */,
+			);
+			name = "database interaction";
+			sourceTree = "<group>";
+		};
+		BB98D6FB18B7717D00C6A16D /* process handler */ = {
+			isa = PBXGroup;
+			children = (
+				BB98D6FC18B771A200C6A16D /* ISWorkOutHandler.h */,
+				BB98D6FD18B771A200C6A16D /* ISWorkOutHandler.m */,
+			);
+			name = "process handler";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1016,20 +1083,25 @@
 				BB779DDE18AA3463009C2D8C /* UIFont+Replacement.m in Sources */,
 				BB5DCCAC18B7249900DAB3CE /* ILAlertView.m in Sources */,
 				BB779E6A18AA5A3E009C2D8C /* MMDrawerBarButtonItem.m in Sources */,
+				BB98D6F118B739D000C6A16D /* ISWorkOut.m in Sources */,
 				BB11950818B5EFBE00D05A97 /* ISBluetooth.m in Sources */,
 				BBD4208318B4C1710094F958 /* ISReminderRepeatViewController.m in Sources */,
 				BBD4208618B4CE5C0094F958 /* ISReminderAlertViewController.m in Sources */,
 				BB005F5D18AB3BD0003FAF8B /* ISSetWorkoutGoalViewController.m in Sources */,
 				1F4E039518AE332E00BAF4D8 /* ISPathViewController.m in Sources */,
+				BB98D6EE18B7399100C6A16D /* ISLocation.m in Sources */,
 				BB11950D18B60FAA00D05A97 /* ISHRDistributor.m in Sources */,
 				BB779E6E18AA5A3E009C2D8C /* UIViewController+MMDrawerController.m in Sources */,
 				BB11950318B5D87F00D05A97 /* ISWorkoutReminderController.m in Sources */,
 				BB779E4C18AA4783009C2D8C /* ISDashboardViewController.m in Sources */,
 				1FEC254418B1E8F60053A996 /* ISNewReminderViewController.m in Sources */,
+				BB98D6E318B7381E00C6A16D /* ISUserDetails.m in Sources */,
+				BB98D6FE18B771A200C6A16D /* ISWorkOutHandler.m in Sources */,
 				BB3C66CB18A9EA2800CAA240 /* ISProfileViewController.m in Sources */,
 				1F19312D18B34735005BB31C /* ISReportsViewController.m in Sources */,
 				1F4E038D18AE226200BAF4D8 /* ISConnectionManagerViewController.m in Sources */,
 				1F05309318B1D43300F34E0D /* ISEditReminderViewController.m in Sources */,
+				BB98D6E918B738E600C6A16D /* ISWOGoal.m in Sources */,
 				BB11E4BE18A8C9C400406313 /* ISUserProfileViewController.m in Sources */,
 				BB779E5118AA518B009C2D8C /* ISMenuViewController.m in Sources */,
 				1FEC257F18B2364B0053A996 /* ISAlertReminderViewController.m in Sources */,
@@ -1041,11 +1113,13 @@
 				1F19312A18B3406C005BB31C /* ISReportDetailCell.m in Sources */,
 				1FEC257A18B21A200053A996 /* ISRepeatReminderViewController.m in Sources */,
 				BB0B80C618ACC9E800BCC2E0 /* ISReminderCellViewController.m in Sources */,
+				BB98D6E618B738A100C6A16D /* ISHR.m in Sources */,
 				1F4E034E18ADF23C00BAF4D8 /* ISReminderCell.m in Sources */,
 				BBD4208018B4C0920094F958 /* ISRepeatReminderCell.m in Sources */,
 				1F4E034A18ADE5B600BAF4D8 /* ISWorkoutRemindersViewController.m in Sources */,
 				BB779E6D18AA5A3E009C2D8C /* MMExampleDrawerVisualStateManager.m in Sources */,
 				1F4E038018AE138000BAF4D8 /* ISBLEDeviceCell.m in Sources */,
+				BB98D6F818B73B1A00C6A16D /* ISDBManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

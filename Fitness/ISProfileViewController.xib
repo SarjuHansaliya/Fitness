@@ -13,7 +13,9 @@
                 <outlet property="dobTextField" destination="xWm-Eb-iTo" id="u4z-FG-XVf"/>
                 <outlet property="femaleRB" destination="avd-04-9tU" id="RuK-Li-Ae6"/>
                 <outlet property="heightTextField" destination="gRc-RB-g3x" id="yJV-kE-Jhd"/>
+                <outlet property="hrSwitch" destination="us6-jG-xdV" id="uzj-gS-Ufo"/>
                 <outlet property="maleRB" destination="5AX-eO-4oi" id="fo0-dq-cg1"/>
+                <outlet property="nameTextField" destination="AVA-86-zlq" id="xcn-C1-b1v"/>
                 <outlet property="view" destination="1" id="3"/>
                 <outlet property="weightTextField" destination="gbI-Ex-hBA" id="rFv-CW-JDr"/>
             </connections>
@@ -123,7 +125,7 @@
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xWm-Eb-iTo">
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="dd MMM yy" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xWm-Eb-iTo">
                                             <rect key="frame" x="85" y="11" width="170" height="22"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -273,7 +275,7 @@
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gbI-Ex-hBA">
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0.00 kg" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gbI-Ex-hBA">
                                             <rect key="frame" x="85" y="11" width="200" height="22"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -282,7 +284,7 @@
                                                 <constraint firstAttribute="width" constant="200" id="ZUM-Ak-DHZ"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
+                                            <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                                             <connections>
                                                 <outlet property="delegate" destination="-1" id="2im-Mr-uPN"/>
                                             </connections>
@@ -316,7 +318,7 @@
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gRc-RB-g3x">
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0 cm" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gRc-RB-g3x">
                                             <rect key="frame" x="85" y="11" width="200" height="22"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -325,7 +327,7 @@
                                                 <constraint firstAttribute="height" constant="22" id="wFJ-Js-4ox"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
+                                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             <connections>
                                                 <outlet property="delegate" destination="-1" id="W3L-uf-gvH"/>
                                             </connections>

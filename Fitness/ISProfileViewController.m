@@ -7,6 +7,9 @@
 //
 
 #import "ISProfileViewController.h"
+#import "ILAlertView.h"
+#import "ISAppDelegate.h"
+
 
 
 
@@ -23,8 +26,7 @@
     if (self) {
         // Custom initialization
         [self registerForKeyboardNotifications];
-        
-        
+        self.userDetails=[[(ISAppDelegate *)[[UIApplication sharedApplication]delegate] woHandler] userDetails];
     }
     return self;
 }
@@ -34,17 +36,37 @@
     [super viewDidLoad];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
     self.wantsFullScreenLayout=YES;
-    
     self.dobTextField.inputView = self.datePicker;
     self.dobTextField.inputAccessoryView = self.accessoryView;
-    
-    
     [self setupGenderRB];
-    
-       // Do any additional setup after loading the view from its nib.
+    [self fillTextFields];
 }
 
+//---------------------loading data to text fields-------------------
 
+-(void)fillTextFields
+{
+    self.nameTextField.text=self.userDetails.name;
+    NSDateFormatter *formatter=[[NSDateFormatter alloc]init];
+    formatter.dateFormat=@"dd MMM yy";
+    self.dobTextField.text=[formatter stringFromDate:self.userDetails.DOB];
+    if ([self.userDetails.height doubleValue]!=0.0) {
+        self.heightTextField.text=[NSString stringWithFormat:@"%.0f",[self.userDetails.height doubleValue]];
+    }
+    if ([self.userDetails.weight doubleValue]!=0.0) {
+        self.weightTextField.text=[NSString stringWithFormat:@"%.2f",[self.userDetails.weight doubleValue]];
+    }
+    
+    if (self.userDetails.gender==1) {
+        [self maleRBClicked:nil];
+    }
+    else
+    {
+        [self femaleRBClicked:nil];
+    }
+    self.hrSwitch.on=self.userDetails.hrMonitoring;
+    
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -166,11 +188,63 @@
 }
 
 - (IBAction)cancelButtonClicked:(id)sender {
-     [self dismissViewControllerAnimated:YES completion:nil];
+    
+    ISAppDelegate *appdel=(ISAppDelegate *)[[UIApplication sharedApplication]delegate];
+    if (appdel.woHandler.isUserProfileSet) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+    else
+    {
+        [ILAlertView showWithTitle:@"Error" message:@"Enter Your Details to Proceed" closeButtonTitle:@"OK" secondButtonTitle:nil tappedSecondButton:nil];
+        
+    }
 }
 
 - (IBAction)saveUserData:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    
+    self.userDetails.name=self.nameTextField.text;
+    self.userDetails.DOB=self.datePicker.date;
+    self.userDetails.hrMonitoring=self.hrSwitch.on;
+    NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
+    [f setNumberStyle:NSNumberFormatterDecimalStyle];
+    self.userDetails.height=[f numberFromString:self.heightTextField.text];
+    if ([self.userDetails.height doubleValue]==0.0) {
+        [ILAlertView showWithTitle:@"Error" message:@"Enter Proper Height" closeButtonTitle:@"OK" secondButtonTitle:nil tappedSecondButton:nil];
+        [self.heightTextField becomeFirstResponder];
+        return;
+    }
+    self.userDetails.weight=[f numberFromString:self.weightTextField.text];
+    if ([self.userDetails.weight doubleValue]==0.0) {
+        [ILAlertView showWithTitle:@"Error" message:@"Enter Proper Weight" closeButtonTitle:@"OK" secondButtonTitle:nil tappedSecondButton:nil];
+        [self.weightTextField becomeFirstResponder];
+        return;
+    }
+    
+    if (self.maleRB.selected) {
+        self.userDetails.gender=1;
+    }
+    else
+        self.userDetails.gender=0;
+    ISAppDelegate *appdel=(ISAppDelegate *)[[UIApplication sharedApplication]delegate];
+    
+    if ([self.userDetails saveUserDetails]) {
+        
+        if (appdel.woHandler.isUserProfileSet) {
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
+        else
+        {
+            appdel.woHandler.isUserProfileSet=YES;
+            [appdel.window setRootViewController:appdel.drawerController];
+        }
+        
+    }
+    else
+    {
+        [ILAlertView showWithTitle:@"Error" message:@"Enter Proper Data" closeButtonTitle:@"OK" secondButtonTitle:nil tappedSecondButton:nil];
+    }
+    
 }
 
 - (IBAction)viewDOBPicker:(id)sender {
