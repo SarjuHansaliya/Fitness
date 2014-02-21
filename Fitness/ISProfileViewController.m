@@ -44,6 +44,8 @@
        // Do any additional setup after loading the view from its nib.
 }
 
+
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -74,10 +76,23 @@
     self.contentScrollView.contentInset = contentInsets;
     self.contentScrollView.scrollIndicatorInsets = contentInsets;
     
-    // If active text field is hidden by keyboard, scroll it so it's visible
-    // Your application might not need or want this behavior.
+   
     CGRect aRect = self.view.frame;
     aRect.size.height -= kbSize.height;
+    
+    if ([self.weightTextField isFirstResponder]) {
+        if (CGRectContainsPoint(aRect, self.weightTextField.frame.origin) ) {
+            CGPoint scrollPoint = CGPointMake(0.0, kbSize.height-180);
+            [self.contentScrollView setContentOffset:scrollPoint animated:YES];
+        }
+    }
+    else if([self.heightTextField isFirstResponder])
+    {
+        if (CGRectContainsPoint(aRect, self.heightTextField.frame.origin) ) {
+            CGPoint scrollPoint = CGPointMake(0.0, kbSize.height-150);
+            [self.contentScrollView setContentOffset:scrollPoint animated:YES];
+        }
+    }
     
 //    if (!CGRectContainsPoint(aRect, self.weightTextfeild.frame.origin) ) {
 //        CGPoint scrollPoint = CGPointMake(0.0, self.weightTextfeild.frame.origin.y-kbSize.height);
@@ -130,6 +145,7 @@
     
 }
 
+
 - (IBAction)maleRBClicked:(id)sender {
     
     if (!self.maleRB.selected) {
@@ -147,6 +163,10 @@
         [self changeGender];
     }
     
+}
+
+- (IBAction)cancelButtonClicked:(id)sender {
+     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)saveUserData:(id)sender {

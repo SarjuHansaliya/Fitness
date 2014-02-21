@@ -78,18 +78,20 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LdC-G1-5b2" userLabel="No Border Style Text Field - From">
-                            <rect key="frame" x="47" y="13" width="120" height="19"/>
+                            <rect key="frame" x="47" y="10" width="120" height="25"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="120" id="1FA-Wg-Fh7"/>
+                                <constraint firstAttribute="height" constant="25" id="86J-vB-20J"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ypw-kH-pj0" userLabel="No Border Style Text Field - TO">
-                            <rect key="frame" x="194" y="13" width="120" height="19"/>
+                            <rect key="frame" x="194" y="10" width="120" height="25"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
+                                <constraint firstAttribute="height" constant="25" id="0Sr-Oq-dal"/>
                                 <constraint firstAttribute="width" constant="120" id="oqc-yo-sbh"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>

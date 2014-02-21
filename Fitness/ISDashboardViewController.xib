@@ -7,7 +7,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ISDashboardViewController">
             <connections>
+                <outlet property="hrLabel" destination="Cmx-5b-8n0" id="jss-yU-vWv"/>
                 <outlet property="mapPathView" destination="iNQ-rO-8aM" id="YSf-X4-V7I"/>
+                <outlet property="maxHRLabel" destination="pd9-kK-UcC" id="Dua-sq-672"/>
+                <outlet property="minHRLabel" destination="lS0-rD-xg7" id="q4W-1q-FjZ"/>
                 <outlet property="reportView" destination="NxO-zn-4fS" id="7wY-zT-ku4"/>
                 <outlet property="startWorkoutView" destination="71k-Ew-CAp" id="oLa-ue-BfF"/>
                 <outlet property="view" destination="1" id="3"/>

@@ -84,7 +84,7 @@
     UILabel *titleLable=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 25)];
     
     titleLable.backgroundColor=[UIColor clearColor];
-    titleLable.text=@"Edit Reminder";
+    titleLable.text=@"New Reminder";
     titleLable.font=[UIFont fontWithName:@"Arial" size:20.0];
     titleLable.textColor= [UIColor colorWithHue:31.0/360.0 saturation:99.0/100.0 brightness:87.0/100.0 alpha:1];
     

@@ -46,7 +46,7 @@
                             </constraints>
                         </imageView>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="14A-IY-QNC">
-                            <rect key="frame" x="115" y="13" width="195" height="18"/>
+                            <rect key="frame" x="115" y="0.0" width="195" height="43"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="textColor" red="0.32549019610000002" green="0.32549019610000002" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
@@ -57,8 +57,10 @@
                         <constraint firstAttribute="trailing" secondItem="14A-IY-QNC" secondAttribute="trailing" constant="10" id="4Ig-tw-U7U"/>
                         <constraint firstAttribute="width" constant="320" id="7tO-GZ-Ubd"/>
                         <constraint firstAttribute="centerY" secondItem="dbd-wZ-uMo" secondAttribute="centerY" id="EfZ-fU-LZq"/>
+                        <constraint firstItem="14A-IY-QNC" firstAttribute="top" secondItem="nfo-z3-bEf" secondAttribute="top" id="NLK-AG-UHE"/>
                         <constraint firstAttribute="height" constant="43" id="RAO-fm-UpP"/>
                         <constraint firstAttribute="trailing" secondItem="2lU-Xp-4oM" secondAttribute="trailing" id="SmD-FO-niU"/>
+                        <constraint firstAttribute="bottom" secondItem="14A-IY-QNC" secondAttribute="bottom" id="ThV-xT-WGy"/>
                         <constraint firstItem="14A-IY-QNC" firstAttribute="leading" secondItem="nfo-z3-bEf" secondAttribute="leading" constant="115" id="b6s-e7-eO1"/>
                         <constraint firstItem="dbd-wZ-uMo" firstAttribute="leading" secondItem="nfo-z3-bEf" secondAttribute="leading" constant="10" id="jbx-3v-lww"/>
                         <constraint firstAttribute="centerY" secondItem="14A-IY-QNC" secondAttribute="centerY" id="p2Q-u5-jYl"/>

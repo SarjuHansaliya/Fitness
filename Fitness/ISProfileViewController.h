@@ -18,8 +18,13 @@
 @property (weak, nonatomic) IBOutlet UITextField *dobTextField;
 @property (nonatomic, weak) IBOutlet UIToolbar *accessoryView;
 
+@property (weak, nonatomic) IBOutlet UITextField *weightTextField;
+@property (weak, nonatomic) IBOutlet UITextField *heightTextField;
+
+
 - (IBAction)maleRBClicked:(id)sender;
 - (IBAction)femaleRBClicked:(id)sender;
+- (IBAction)cancelButtonClicked:(id)sender;
 
 - (IBAction)saveUserData:(id)sender;
 - (IBAction)viewDOBPicker:(id)sender;

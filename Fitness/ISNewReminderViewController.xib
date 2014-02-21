@@ -46,7 +46,7 @@
                             </constraints>
                         </imageView>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zzn-3c-9DV">
-                            <rect key="frame" x="115" y="13" width="195" height="18"/>
+                            <rect key="frame" x="115" y="0.0" width="195" height="43"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="textColor" red="0.32549019610000002" green="0.32549019610000002" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
@@ -56,10 +56,12 @@
                     <constraints>
                         <constraint firstAttribute="centerY" secondItem="zzn-3c-9DV" secondAttribute="centerY" id="1TV-Kv-MD3"/>
                         <constraint firstItem="bam-55-TUe" firstAttribute="leading" secondItem="I3c-PT-IH9" secondAttribute="leading" constant="10" id="3Dt-8K-n7d"/>
+                        <constraint firstAttribute="bottom" secondItem="zzn-3c-9DV" secondAttribute="bottom" id="DGv-bD-n4f"/>
                         <constraint firstItem="zzn-3c-9DV" firstAttribute="leading" secondItem="I3c-PT-IH9" secondAttribute="leading" constant="115" id="ErZ-V3-LEn"/>
                         <constraint firstAttribute="height" constant="43" id="VYg-Qo-uzQ"/>
                         <constraint firstAttribute="bottom" secondItem="lrI-vd-YHW" secondAttribute="bottom" id="YRa-rW-Mgf"/>
                         <constraint firstAttribute="trailing" secondItem="zzn-3c-9DV" secondAttribute="trailing" constant="10" id="atV-yR-N7i"/>
+                        <constraint firstItem="zzn-3c-9DV" firstAttribute="top" secondItem="I3c-PT-IH9" secondAttribute="top" id="gjg-0P-hm8"/>
                         <constraint firstAttribute="trailing" secondItem="lrI-vd-YHW" secondAttribute="trailing" id="i9E-5b-O1v"/>
                         <constraint firstItem="lrI-vd-YHW" firstAttribute="leading" secondItem="I3c-PT-IH9" secondAttribute="leading" id="l5f-JU-xDz"/>
                         <constraint firstAttribute="centerY" secondItem="bam-55-TUe" secondAttribute="centerY" id="rDt-P7-ATy"/>

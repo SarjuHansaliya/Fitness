@@ -10,6 +10,7 @@
 #import "ISBLEDeviceCell.h"
 #import "ISConnectionManagerViewController.h"
 #import "macros.h"
+#import "ILAlertView.h"
 
 @interface ISBLEConnectionManagerViewController ()
 
@@ -68,7 +69,7 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 32.0;
+    return 45.0;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -99,7 +100,9 @@
     }
     if(isSame)
     {
+        
         [cell setSelectedDeviceImageHidden:NO];
+        
     }
     else
     {
@@ -134,7 +137,16 @@
     }
     if(isSame)
     {
-        [newSelectedCell setSelectedDeviceImageHidden:NO];
+        
+        [ILAlertView showWithTitle:[NSString stringWithFormat:@"Disconnect\n%@",p.name]
+                           message:@"Are you sure you want to disconnect this device?"
+                  closeButtonTitle:@"No"
+                 secondButtonTitle:@"Yes"
+                tappedSecondButton:^{
+                    [self.bluetoothManager disconnectPeripheral];
+                    [newSelectedCell setSelectedDeviceImageHidden:YES];
+                }];
+        
     }
     else
     {

@@ -38,12 +38,13 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NE2-vI-VmP">
-                            <rect key="frame" x="259" y="7" width="31" height="25"/>
+                            <rect key="frame" x="245" y="-4" width="45" height="45"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="25" id="XD3-2M-koR"/>
-                                <constraint firstAttribute="width" constant="31" id="yFm-lF-Tly"/>
+                                <constraint firstAttribute="height" constant="45" id="XD3-2M-koR"/>
+                                <constraint firstAttribute="width" constant="45" id="yFm-lF-Tly"/>
                             </constraints>
+                            <inset key="imageEdgeInsets" minX="15" minY="10" maxX="0.0" maxY="10"/>
                             <state key="normal" image="refresh.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -51,21 +52,21 @@
                                 <action selector="discoverDevices:" destination="-1" eventType="touchUpInside" id="zgY-7c-8Gs"/>
                             </connections>
                         </button>
-                        <activityIndicatorView opaque="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="6bb-J1-tBH">
-                            <rect key="frame" x="259" y="7" width="31" height="25"/>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="6bb-J1-tBH">
+                            <rect key="frame" x="263" y="6" width="25" height="25"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="color" red="0.87450981139999995" green="0.45882353190000003" blue="0.01176470611" alpha="1" colorSpace="calibratedRGB"/>
                         </activityIndicatorView>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="6bb-J1-tBH" firstAttribute="centerX" secondItem="NE2-vI-VmP" secondAttribute="centerX" id="0zw-Fa-jii"/>
+                        <constraint firstItem="6bb-J1-tBH" firstAttribute="centerX" secondItem="NE2-vI-VmP" secondAttribute="centerX" constant="8" id="0zw-Fa-jii"/>
                         <constraint firstAttribute="trailing" secondItem="NE2-vI-VmP" secondAttribute="trailing" constant="10" id="5hd-0X-rRQ"/>
                         <constraint firstAttribute="centerY" secondItem="LrB-SS-QBC" secondAttribute="centerY" id="7ga-M6-S2N"/>
-                        <constraint firstItem="6bb-J1-tBH" firstAttribute="height" secondItem="NE2-vI-VmP" secondAttribute="height" id="9sM-Sj-Jzh"/>
+                        <constraint firstItem="6bb-J1-tBH" firstAttribute="height" secondItem="NE2-vI-VmP" secondAttribute="height" constant="-20" id="9sM-Sj-Jzh"/>
                         <constraint firstAttribute="centerY" secondItem="NE2-vI-VmP" secondAttribute="centerY" id="L0z-hd-tp3"/>
                         <constraint firstItem="6bb-J1-tBH" firstAttribute="centerY" secondItem="NE2-vI-VmP" secondAttribute="centerY" id="LAw-Ep-QXn"/>
                         <constraint firstItem="aOu-wj-ktV" firstAttribute="leading" secondItem="RQU-xo-ZNh" secondAttribute="leading" constant="10" id="MoR-r2-tjL"/>
-                        <constraint firstItem="6bb-J1-tBH" firstAttribute="width" secondItem="NE2-vI-VmP" secondAttribute="width" id="Obi-og-dl4"/>
+                        <constraint firstItem="6bb-J1-tBH" firstAttribute="width" secondItem="NE2-vI-VmP" secondAttribute="width" constant="-20" id="Obi-og-dl4"/>
                         <constraint firstAttribute="height" secondItem="LrB-SS-QBC" secondAttribute="height" id="Qdz-0u-aSZ"/>
                         <constraint firstAttribute="width" secondItem="LrB-SS-QBC" secondAttribute="width" id="ajv-yP-TW1"/>
                         <constraint firstAttribute="centerX" secondItem="LrB-SS-QBC" secondAttribute="centerX" id="oNI-qL-xRJ"/>

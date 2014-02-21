@@ -9,11 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "MMDrawerController.h"
 #import "ISBluetooth.h"
+#import "ISHRDistributor.h"
 
 @interface ISAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property MMDrawerController *drawerController;
 @property ISBluetooth *bluetoothManager;
+@property ISHRDistributor *hrDistributor;
+
+-(ISHRDistributor *)getHRDistributor;
 -(ISBluetooth *)getBluetoothManager;
 @end

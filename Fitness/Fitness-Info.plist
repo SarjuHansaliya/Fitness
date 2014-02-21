@@ -26,14 +26,14 @@
 	<true/>
 	<key>ReplacementFonts</key>
 	<dict>
-		<key>Courier</key>
-		<string>HelveticaNeueLTCom-Roman</string>
 		<key>Arial</key>
 		<string>HelveticaWorld-Regular</string>
-		<key>Helvetica Neue</key>
+		<key>Courier</key>
 		<string>HelveticaNeueLTCom-Roman</string>
 		<key>Helvetica</key>
 		<string>Helvetica37-CondensedThin</string>
+		<key>Helvetica Neue</key>
+		<string>HelveticaNeueLTCom-Roman</string>
 	</dict>
 	<key>UIAppFonts</key>
 	<array>
@@ -41,6 +41,10 @@
 		<string>helvetica-neue-lt-com-55-roman.ttf</string>
 		<string>comic sans.ttf</string>
 		<string>helvetica-condensed-thin.ttf</string>
+	</array>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>bluetooth-central</string>
 	</array>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>

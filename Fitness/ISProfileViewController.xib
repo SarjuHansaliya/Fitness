@@ -12,8 +12,10 @@
                 <outlet property="datePicker" destination="hab-76-3nC" id="lXJ-RL-DSH"/>
                 <outlet property="dobTextField" destination="xWm-Eb-iTo" id="u4z-FG-XVf"/>
                 <outlet property="femaleRB" destination="avd-04-9tU" id="RuK-Li-Ae6"/>
+                <outlet property="heightTextField" destination="gRc-RB-g3x" id="yJV-kE-Jhd"/>
                 <outlet property="maleRB" destination="5AX-eO-4oi" id="fo0-dq-cg1"/>
                 <outlet property="view" destination="1" id="3"/>
+                <outlet property="weightTextField" destination="gbI-Ex-hBA" id="rFv-CW-JDr"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -191,11 +193,11 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5AX-eO-4oi">
-                                            <rect key="frame" x="85" y="14" width="15" height="15"/>
+                                            <rect key="frame" x="85" y="2" width="40" height="40"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="15" id="bsO-XE-NrQ"/>
-                                                <constraint firstAttribute="height" constant="15" id="ks9-rI-6FV"/>
+                                                <constraint firstAttribute="width" constant="40" id="bsO-XE-NrQ"/>
+                                                <constraint firstAttribute="height" constant="40" id="ks9-rI-6FV"/>
                                             </constraints>
                                             <state key="normal" image="radoi.png">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -205,7 +207,7 @@
                                             </connections>
                                         </button>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Male" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TMt-Qm-eGV">
-                                            <rect key="frame" x="110" y="13" width="55" height="17"/>
+                                            <rect key="frame" x="125" y="13" width="55" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="55" id="nbG-n7-deP"/>
@@ -214,12 +216,13 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="avd-04-9tU">
-                                            <rect key="frame" x="185" y="14" width="15" height="15"/>
+                                            <rect key="frame" x="180" y="2" width="40" height="40"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="15" id="IKp-fE-brG"/>
-                                                <constraint firstAttribute="width" constant="15" id="PS5-7K-Cnt"/>
+                                                <constraint firstAttribute="height" constant="40" id="IKp-fE-brG"/>
+                                                <constraint firstAttribute="width" constant="40" id="PS5-7K-Cnt"/>
                                             </constraints>
+                                            <inset key="contentEdgeInsets" minX="-10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                             <state key="normal" image="radoi.png">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
@@ -228,7 +231,7 @@
                                             </connections>
                                         </button>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Female" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pFA-Qb-WDB">
-                                            <rect key="frame" x="210" y="13" width="55" height="17"/>
+                                            <rect key="frame" x="220" y="13" width="55" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="55" id="gtS-pE-qTd"/>
@@ -249,11 +252,11 @@
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="3iN-VB-QoG" secondAttribute="bottom" id="8sb-aJ-tgy"/>
                                         <constraint firstAttribute="centerY" secondItem="PCU-LE-yro" secondAttribute="centerY" id="9DT-a7-phY"/>
-                                        <constraint firstItem="pFA-Qb-WDB" firstAttribute="leading" secondItem="avd-04-9tU" secondAttribute="leading" constant="25" id="ISc-eX-I9m"/>
+                                        <constraint firstItem="pFA-Qb-WDB" firstAttribute="leading" secondItem="avd-04-9tU" secondAttribute="leading" constant="40" id="ISc-eX-I9m"/>
                                         <constraint firstAttribute="height" constant="43" id="Nbw-mi-6Fc"/>
-                                        <constraint firstItem="TMt-Qm-eGV" firstAttribute="leading" secondItem="5AX-eO-4oi" secondAttribute="leading" constant="25" id="UZp-xO-JX5"/>
+                                        <constraint firstItem="TMt-Qm-eGV" firstAttribute="leading" secondItem="5AX-eO-4oi" secondAttribute="leading" constant="40" id="UZp-xO-JX5"/>
                                         <constraint firstAttribute="centerY" secondItem="pFA-Qb-WDB" secondAttribute="centerY" id="VFG-J6-mLM"/>
-                                        <constraint firstAttribute="trailing" secondItem="avd-04-9tU" secondAttribute="trailing" constant="100" id="aoh-yP-sVp"/>
+                                        <constraint firstAttribute="trailing" secondItem="avd-04-9tU" secondAttribute="trailing" constant="80" id="aoh-yP-sVp"/>
                                         <constraint firstAttribute="centerY" secondItem="TMt-Qm-eGV" secondAttribute="centerY" id="cKL-ao-fmc"/>
                                         <constraint firstAttribute="centerY" secondItem="5AX-eO-4oi" secondAttribute="centerY" id="ie0-jb-82h"/>
                                         <constraint firstAttribute="width" constant="300" id="jsl-oG-Jng"/>
@@ -408,7 +411,7 @@
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9fr-c5-oEC">
-                            <rect key="frame" x="110" y="268" width="100" height="35"/>
+                            <rect key="frame" x="45" y="268" width="100" height="35"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="35" id="ZsR-UB-b0T"/>
@@ -422,12 +425,29 @@
                                 <action selector="saveUserData:" destination="-1" eventType="touchUpInside" id="d9R-fU-j1F"/>
                             </connections>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ODt-58-1dH">
+                            <rect key="frame" x="175" y="268" width="100" height="35"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="100" id="kfE-Ug-IBB"/>
+                                <constraint firstAttribute="height" constant="35" id="sCw-5F-kCH"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                            <state key="normal" title="Cancel" backgroundImage="register btn.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="cancelButtonClicked:" destination="-1" eventType="touchUpInside" id="PAp-oI-D6s"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <constraints>
-                        <constraint firstAttribute="centerX" secondItem="9fr-c5-oEC" secondAttribute="centerX" id="IPG-9E-oFe"/>
                         <constraint firstItem="Ith-aI-SfP" firstAttribute="leading" secondItem="qG4-v9-yOT" secondAttribute="leading" constant="10" id="IjS-cq-WOd"/>
+                        <constraint firstItem="9fr-c5-oEC" firstAttribute="leading" secondItem="qG4-v9-yOT" secondAttribute="leading" constant="45" id="QuG-Tw-qFn"/>
                         <constraint firstAttribute="trailing" secondItem="Ith-aI-SfP" secondAttribute="trailing" constant="10" id="UpY-1k-Ftc"/>
                         <constraint firstItem="Ith-aI-SfP" firstAttribute="top" secondItem="qG4-v9-yOT" secondAttribute="top" id="YXr-gk-GTB"/>
+                        <constraint firstItem="ODt-58-1dH" firstAttribute="top" secondItem="qG4-v9-yOT" secondAttribute="top" constant="268" id="aLR-uB-QvL"/>
+                        <constraint firstAttribute="trailing" secondItem="ODt-58-1dH" secondAttribute="trailing" constant="45" id="dpw-zB-pzU"/>
                         <constraint firstItem="9fr-c5-oEC" firstAttribute="top" secondItem="qG4-v9-yOT" secondAttribute="top" constant="268" id="fPD-Mc-Wzh"/>
                         <constraint firstAttribute="bottom" secondItem="Ith-aI-SfP" secondAttribute="bottom" id="hf5-cQ-Cd4"/>
                     </constraints>
@@ -472,7 +492,7 @@
                 <!--2014-02-19 06:54:13 +0000-->
             </date>
             <timeZone key="timeZone" name="America/Los_Angeles">
-                <mutableData key="data">
+                <data key="data">
 VFppZgAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAC5AAAABAAAABCepkign7sVkKCGKqChmveQ
 y4kaoNIj9HDSYSYQ1v50INiArZDa/tGg28CQENzes6DdqayQ3r6VoN+JjpDgnneg4WlwkOJ+WaDjSVKQ
 5F47oOUpNJDmR1gg5xJREOgnOiDo8jMQ6gccIOrSFRDr5v4g7LH3EO3G4CDukdkQ76/8oPBxuxDxj96g
@@ -490,7 +510,7 @@ f5gqkAABAAECAwEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
-</mutableData>
+</data>
             </timeZone>
         </datePicker>
     </objects>

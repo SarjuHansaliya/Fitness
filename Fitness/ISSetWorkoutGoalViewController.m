@@ -146,7 +146,24 @@
 }
 
 
-
+- (IBAction)durationTFClicked:(id)sender
+{
+    [self clearText];
+    [self clearGoalType];
+    [self.durationRB setSelected:YES];
+}
+- (IBAction)caloriesTFClicked:(id)sender
+{
+    [self clearText];
+    [self clearGoalType];
+     [self.caloriesRB setSelected:YES];
+}
+- (IBAction)milesTFClicked:(id)sender
+{
+    [self clearText];
+    [self clearGoalType];
+     [self.milesRB setSelected:YES];
+}
 
 - (IBAction)durationRBClicked:(id)sender {
     

@@ -35,7 +35,7 @@
 		1F4E038418AE16D800BAF4D8 /* ISBLEConnectionManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4E038218AE16D800BAF4D8 /* ISBLEConnectionManagerViewController.m */; };
 		1F4E038518AE16D800BAF4D8 /* ISBLEConnectionManagerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F4E038318AE16D800BAF4D8 /* ISBLEConnectionManagerViewController.xib */; };
 		1F4E038718AE1D2700BAF4D8 /* black line 640.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F4E038618AE1D2700BAF4D8 /* black line 640.png */; };
-		1F4E038918AE1F3B00BAF4D8 /* disable reminder.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F4E038818AE1F3B00BAF4D8 /* disable reminder.png */; };
+		1F4E038918AE1F3B00BAF4D8 /* disable-reminder.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F4E038818AE1F3B00BAF4D8 /* disable-reminder.png */; };
 		1F4E038D18AE226200BAF4D8 /* ISConnectionManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4E038B18AE226200BAF4D8 /* ISConnectionManagerViewController.m */; };
 		1F4E038E18AE226200BAF4D8 /* ISConnectionManagerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F4E038C18AE226200BAF4D8 /* ISConnectionManagerViewController.xib */; };
 		1F4E039518AE332E00BAF4D8 /* ISPathViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4E039318AE332E00BAF4D8 /* ISPathViewController.m */; };
@@ -88,6 +88,7 @@
 		BB11950418B5D87F00D05A97 /* ISWorkoutReminderController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB11950218B5D87F00D05A97 /* ISWorkoutReminderController.xib */; };
 		BB11950818B5EFBE00D05A97 /* ISBluetooth.m in Sources */ = {isa = PBXBuildFile; fileRef = BB11950718B5EFBE00D05A97 /* ISBluetooth.m */; };
 		BB11950A18B5F16B00D05A97 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB11950918B5F16B00D05A97 /* CoreBluetooth.framework */; };
+		BB11950D18B60FAA00D05A97 /* ISHRDistributor.m in Sources */ = {isa = PBXBuildFile; fileRef = BB11950C18B60FAA00D05A97 /* ISHRDistributor.m */; };
 		BB11E4BE18A8C9C400406313 /* ISUserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB11E4BC18A8C9C400406313 /* ISUserProfileViewController.m */; };
 		BB11E4BF18A8C9C400406313 /* ISUserProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB11E4BD18A8C9C400406313 /* ISUserProfileViewController.xib */; };
 		BB11E4C918A8CA5900406313 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = BB11E4C218A8CA5900406313 /* bg.png */; };
@@ -103,6 +104,9 @@
 		BB28211718AB658F00ADE985 /* macros.h in Resources */ = {isa = PBXBuildFile; fileRef = BB28211618AB658F00ADE985 /* macros.h */; };
 		BB3C66CB18A9EA2800CAA240 /* ISProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB3C66C918A9EA2800CAA240 /* ISProfileViewController.m */; };
 		BB3C66CC18A9EA2800CAA240 /* ISProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB3C66CA18A9EA2800CAA240 /* ISProfileViewController.xib */; };
+		BB5DCCAA18B7249900DAB3CE /* alertBkg.png in Resources */ = {isa = PBXBuildFile; fileRef = BB5DCCA618B7249900DAB3CE /* alertBkg.png */; };
+		BB5DCCAB18B7249900DAB3CE /* alertBkg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BB5DCCA718B7249900DAB3CE /* alertBkg@2x.png */; };
+		BB5DCCAC18B7249900DAB3CE /* ILAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB5DCCA918B7249900DAB3CE /* ILAlertView.m */; };
 		BB779DDA18AA1DED009C2D8C /* comic sans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB779DD918AA1DED009C2D8C /* comic sans.ttf */; };
 		BB779DDE18AA3463009C2D8C /* UIFont+Replacement.m in Sources */ = {isa = PBXBuildFile; fileRef = BB779DDD18AA3463009C2D8C /* UIFont+Replacement.m */; };
 		BB779DE518AA4186009C2D8C /* radio-sel@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = BB779DDF18AA4186009C2D8C /* radio-sel@1x.png */; };
@@ -110,7 +114,6 @@
 		BB779DE718AA4186009C2D8C /* line.png in Resources */ = {isa = PBXBuildFile; fileRef = BB779DE118AA4186009C2D8C /* line.png */; };
 		BB779DE818AA4186009C2D8C /* radio-sel.png in Resources */ = {isa = PBXBuildFile; fileRef = BB779DE218AA4186009C2D8C /* radio-sel.png */; };
 		BB779DE918AA4186009C2D8C /* radoi.png in Resources */ = {isa = PBXBuildFile; fileRef = BB779DE318AA4186009C2D8C /* radoi.png */; };
-		BB779DEA18AA4186009C2D8C /* line@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = BB779DE418AA4186009C2D8C /* line@1x.png */; };
 		BB779E1C18AA4765009C2D8C /* 02-dashboard edit.png in Resources */ = {isa = PBXBuildFile; fileRef = BB779DED18AA4765009C2D8C /* 02-dashboard edit.png */; };
 		BB779E1E18AA4765009C2D8C /* black.png in Resources */ = {isa = PBXBuildFile; fileRef = BB779DF018AA4765009C2D8C /* black.png */; };
 		BB779E1F18AA4765009C2D8C /* cal-icn.png in Resources */ = {isa = PBXBuildFile; fileRef = BB779DF118AA4765009C2D8C /* cal-icn.png */; };
@@ -202,7 +205,7 @@
 		1F4E038218AE16D800BAF4D8 /* ISBLEConnectionManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISBLEConnectionManagerViewController.m; sourceTree = "<group>"; };
 		1F4E038318AE16D800BAF4D8 /* ISBLEConnectionManagerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISBLEConnectionManagerViewController.xib; sourceTree = "<group>"; };
 		1F4E038618AE1D2700BAF4D8 /* black line 640.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "black line 640.png"; sourceTree = "<group>"; };
-		1F4E038818AE1F3B00BAF4D8 /* disable reminder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "disable reminder.png"; sourceTree = "<group>"; };
+		1F4E038818AE1F3B00BAF4D8 /* disable-reminder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "disable-reminder.png"; sourceTree = "<group>"; };
 		1F4E038A18AE226200BAF4D8 /* ISConnectionManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISConnectionManagerViewController.h; sourceTree = "<group>"; };
 		1F4E038B18AE226200BAF4D8 /* ISConnectionManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISConnectionManagerViewController.m; sourceTree = "<group>"; };
 		1F4E038C18AE226200BAF4D8 /* ISConnectionManagerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISConnectionManagerViewController.xib; sourceTree = "<group>"; };
@@ -268,6 +271,8 @@
 		BB11950618B5EFBE00D05A97 /* ISBluetooth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISBluetooth.h; sourceTree = "<group>"; };
 		BB11950718B5EFBE00D05A97 /* ISBluetooth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISBluetooth.m; sourceTree = "<group>"; };
 		BB11950918B5F16B00D05A97 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		BB11950B18B60FAA00D05A97 /* ISHRDistributor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISHRDistributor.h; sourceTree = "<group>"; };
+		BB11950C18B60FAA00D05A97 /* ISHRDistributor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISHRDistributor.m; sourceTree = "<group>"; };
 		BB11E4BB18A8C9C400406313 /* ISUserProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISUserProfileViewController.h; sourceTree = "<group>"; };
 		BB11E4BC18A8C9C400406313 /* ISUserProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISUserProfileViewController.m; sourceTree = "<group>"; };
 		BB11E4BD18A8C9C400406313 /* ISUserProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISUserProfileViewController.xib; sourceTree = "<group>"; };
@@ -285,6 +290,10 @@
 		BB3C66C818A9EA2800CAA240 /* ISProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISProfileViewController.h; sourceTree = "<group>"; };
 		BB3C66C918A9EA2800CAA240 /* ISProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISProfileViewController.m; sourceTree = "<group>"; };
 		BB3C66CA18A9EA2800CAA240 /* ISProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISProfileViewController.xib; sourceTree = "<group>"; };
+		BB5DCCA618B7249900DAB3CE /* alertBkg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alertBkg.png; sourceTree = "<group>"; };
+		BB5DCCA718B7249900DAB3CE /* alertBkg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alertBkg@2x.png"; sourceTree = "<group>"; };
+		BB5DCCA818B7249900DAB3CE /* ILAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILAlertView.h; sourceTree = "<group>"; };
+		BB5DCCA918B7249900DAB3CE /* ILAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILAlertView.m; sourceTree = "<group>"; };
 		BB779DD918AA1DED009C2D8C /* comic sans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "comic sans.ttf"; sourceTree = "<group>"; };
 		BB779DDC18AA3463009C2D8C /* UIFont+Replacement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Replacement.h"; sourceTree = "<group>"; };
 		BB779DDD18AA3463009C2D8C /* UIFont+Replacement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Replacement.m"; sourceTree = "<group>"; };
@@ -293,7 +302,6 @@
 		BB779DE118AA4186009C2D8C /* line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = line.png; sourceTree = "<group>"; };
 		BB779DE218AA4186009C2D8C /* radio-sel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "radio-sel.png"; sourceTree = "<group>"; };
 		BB779DE318AA4186009C2D8C /* radoi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radoi.png; sourceTree = "<group>"; };
-		BB779DE418AA4186009C2D8C /* line@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "line@1x.png"; sourceTree = "<group>"; };
 		BB779DED18AA4765009C2D8C /* 02-dashboard edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "02-dashboard edit.png"; sourceTree = "<group>"; };
 		BB779DF018AA4765009C2D8C /* black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black.png; sourceTree = "<group>"; };
 		BB779DF118AA4765009C2D8C /* cal-icn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cal-icn.png"; sourceTree = "<group>"; };
@@ -499,7 +507,7 @@
 				BB1194FA18B5D6D300D05A97 /* selRem.png */,
 				BB1194FB18B5D6D300D05A97 /* deleteRem.png */,
 				BB1194FC18B5D6D300D05A97 /* editRem.png */,
-				1F4E038818AE1F3B00BAF4D8 /* disable reminder.png */,
+				1F4E038818AE1F3B00BAF4D8 /* disable-reminder.png */,
 				1F4E037C18AE130100BAF4D8 /* new@2x.png */,
 				BB0B80CF18ACCA9A00BCC2E0 /* lineReminderCell.png */,
 			);
@@ -541,6 +549,7 @@
 		BB0EE33118A3ADAB00E3EA63 /* Fitness */ = {
 			isa = PBXGroup;
 			children = (
+				BB5DCCA518B7249900DAB3CE /* alertview */,
 				BB11950518B5EFBE00D05A97 /* bluetooth api */,
 				BB28211518AB657000ADE985 /* included files */,
 				BB779E5E18AA5A3E009C2D8C /* MMDrawerController */,
@@ -590,6 +599,8 @@
 			children = (
 				BB11950618B5EFBE00D05A97 /* ISBluetooth.h */,
 				BB11950718B5EFBE00D05A97 /* ISBluetooth.m */,
+				BB11950B18B60FAA00D05A97 /* ISHRDistributor.h */,
+				BB11950C18B60FAA00D05A97 /* ISHRDistributor.m */,
 			);
 			path = "bluetooth api";
 			sourceTree = "<group>";
@@ -665,7 +676,6 @@
 				BB779DE118AA4186009C2D8C /* line.png */,
 				BB779DE218AA4186009C2D8C /* radio-sel.png */,
 				BB779DE318AA4186009C2D8C /* radoi.png */,
-				BB779DE418AA4186009C2D8C /* line@1x.png */,
 				BB11E4C218A8CA5900406313 /* bg.png */,
 				BB11E4C318A8CA5900406313 /* date btn.png */,
 				BB11E4C418A8CA5900406313 /* head bg.png */,
@@ -694,6 +704,17 @@
 				BB28211618AB658F00ADE985 /* macros.h */,
 			);
 			name = "included files";
+			sourceTree = "<group>";
+		};
+		BB5DCCA518B7249900DAB3CE /* alertview */ = {
+			isa = PBXGroup;
+			children = (
+				BB5DCCA618B7249900DAB3CE /* alertBkg.png */,
+				BB5DCCA718B7249900DAB3CE /* alertBkg@2x.png */,
+				BB5DCCA818B7249900DAB3CE /* ILAlertView.h */,
+				BB5DCCA918B7249900DAB3CE /* ILAlertView.m */,
+			);
+			path = alertview;
 			sourceTree = "<group>";
 		};
 		BB779DDB18AA3463009C2D8C /* UIFont+Replacement */ = {
@@ -872,6 +893,7 @@
 				1F4E038718AE1D2700BAF4D8 /* black line 640.png in Resources */,
 				BB779E2418AA4765009C2D8C /* menu1.png in Resources */,
 				BB3C66CC18A9EA2800CAA240 /* ISProfileViewController.xib in Resources */,
+				BB5DCCAA18B7249900DAB3CE /* alertBkg.png in Resources */,
 				BB779E5218AA518B009C2D8C /* ISMenuViewController.xib in Resources */,
 				1F4E037A18AE115700BAF4D8 /* line.png in Resources */,
 				1F19312518B33DFD005BB31C /* ISReportDetailsViewController.xib in Resources */,
@@ -892,10 +914,10 @@
 				1F4E037618AE115700BAF4D8 /* selected.png in Resources */,
 				BB779E3018AA4765009C2D8C /* white.png in Resources */,
 				BB779E2B18AA4765009C2D8C /* start.png in Resources */,
+				BB5DCCAB18B7249900DAB3CE /* alertBkg@2x.png in Resources */,
 				BB1194FF18B5D6D400D05A97 /* editRem.png in Resources */,
 				BB11E4CA18A8CA5900406313 /* date btn.png in Resources */,
 				BB779E2318AA4765009C2D8C /* hr.png in Resources */,
-				BB779DEA18AA4186009C2D8C /* line@1x.png in Resources */,
 				BB11E4CB18A8CA5900406313 /* head bg.png in Resources */,
 				BB779E2518AA4765009C2D8C /* mile-icn.png in Resources */,
 				1FEC258018B2364B0053A996 /* ISAlertReminderViewController.xib in Resources */,
@@ -909,7 +931,7 @@
 				1F4E037418AE115700BAF4D8 /* line.png in Resources */,
 				BB779E5918AA56F4009C2D8C /* 03-dashboard_slider_edited.jpg in Resources */,
 				BB005F5518AB3BA4003FAF8B /* radoi@2x.png in Resources */,
-				1F4E038918AE1F3B00BAF4D8 /* disable reminder.png in Resources */,
+				1F4E038918AE1F3B00BAF4D8 /* disable-reminder.png in Resources */,
 				BB0B80DD18ACCA9A00BCC2E0 /* lineReminderCell.png in Resources */,
 				BB1F96A718ACBA6F0023A174 /* helvetica-condensed-thin.ttf in Resources */,
 				BB11950418B5D87F00D05A97 /* ISWorkoutReminderController.xib in Resources */,
@@ -992,12 +1014,14 @@
 				BB779E6C18AA5A3E009C2D8C /* MMDrawerVisualState.m in Sources */,
 				1F4E035E18AE110300BAF4D8 /* ISHRMonitorViewController.m in Sources */,
 				BB779DDE18AA3463009C2D8C /* UIFont+Replacement.m in Sources */,
+				BB5DCCAC18B7249900DAB3CE /* ILAlertView.m in Sources */,
 				BB779E6A18AA5A3E009C2D8C /* MMDrawerBarButtonItem.m in Sources */,
 				BB11950818B5EFBE00D05A97 /* ISBluetooth.m in Sources */,
 				BBD4208318B4C1710094F958 /* ISReminderRepeatViewController.m in Sources */,
 				BBD4208618B4CE5C0094F958 /* ISReminderAlertViewController.m in Sources */,
 				BB005F5D18AB3BD0003FAF8B /* ISSetWorkoutGoalViewController.m in Sources */,
 				1F4E039518AE332E00BAF4D8 /* ISPathViewController.m in Sources */,
+				BB11950D18B60FAA00D05A97 /* ISHRDistributor.m in Sources */,
 				BB779E6E18AA5A3E009C2D8C /* UIViewController+MMDrawerController.m in Sources */,
 				BB11950318B5D87F00D05A97 /* ISWorkoutReminderController.m in Sources */,
 				BB779E4C18AA4783009C2D8C /* ISDashboardViewController.m in Sources */,

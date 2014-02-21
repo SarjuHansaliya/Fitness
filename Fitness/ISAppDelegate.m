@@ -42,7 +42,20 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [self.window setRootViewController:self.drawerController];
+    [self getBluetoothManager];
     return YES;
+}
+
+-(ISHRDistributor *)getHRDistributor
+{
+    if (self.hrDistributor==nil) {
+        self.hrDistributor=[[ISHRDistributor alloc]init];
+        //setting intial hr values to avoid wrong interpretations
+        self.hrDistributor.maxHR=@0;
+        self.hrDistributor.minHR=@1000;
+    }
+    
+    return self.hrDistributor;
 }
 
 
@@ -50,7 +63,7 @@
 {
     if (self.bluetoothManager==nil) {
         self.bluetoothManager=[[ISBluetooth alloc]init];
-        
+        self.bluetoothManager.notificationDelegate=[self getHRDistributor];
     }
     
     return self.bluetoothManager;

@@ -31,20 +31,20 @@
                                 </connections>
                             </switch>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Morning Walk" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V5v-Sz-fB3">
-                                <rect key="frame" x="35" y="4" width="74" height="14"/>
+                                <rect key="frame" x="35" y="3" width="74" height="14"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                 <color key="textColor" red="0.87450981139999995" green="0.45882353190000003" blue="0.01176470611" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="06:30 PM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r0c-mV-kyY">
-                                <rect key="frame" x="35" y="23" width="86" height="24"/>
+                                <rect key="frame" x="35" y="21" width="86" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mon, Tue, Wed, Thu" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Da-IX-AhD">
-                                <rect key="frame" x="35" y="47" width="108" height="14"/>
+                                <rect key="frame" x="35" y="48" width="108" height="14"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                 <nil key="highlightedColor"/>
@@ -67,8 +67,8 @@
                             <constraint firstItem="r0c-mV-kyY" firstAttribute="leading" secondItem="V5v-Sz-fB3" secondAttribute="leading" id="5yw-Rh-73x"/>
                             <constraint firstItem="1Da-IX-AhD" firstAttribute="leading" secondItem="BP5-4D-XaT" secondAttribute="leading" constant="35" id="BL2-AP-1Rz"/>
                             <constraint firstAttribute="width" constant="320" id="Hcf-Wc-9Gm"/>
-                            <constraint firstAttribute="bottom" secondItem="1Da-IX-AhD" secondAttribute="bottom" constant="3" id="SLv-sk-NPQ"/>
-                            <constraint firstItem="V5v-Sz-fB3" firstAttribute="top" secondItem="BP5-4D-XaT" secondAttribute="top" constant="4" id="VwP-f5-uAu"/>
+                            <constraint firstAttribute="bottom" secondItem="1Da-IX-AhD" secondAttribute="bottom" constant="2" id="SLv-sk-NPQ"/>
+                            <constraint firstItem="V5v-Sz-fB3" firstAttribute="top" secondItem="BP5-4D-XaT" secondAttribute="top" constant="3" id="VwP-f5-uAu"/>
                             <constraint firstItem="0gZ-fE-vdi" firstAttribute="top" secondItem="BP5-4D-XaT" secondAttribute="top" id="Wjc-3H-KfW"/>
                             <constraint firstItem="2qz-AD-Pa2" firstAttribute="leading" secondItem="BP5-4D-XaT" secondAttribute="leading" constant="30" id="Xkp-aM-0b3"/>
                             <constraint firstAttribute="centerY" secondItem="SVc-VY-Sum" secondAttribute="centerY" id="ZU3-MO-2JG"/>
@@ -79,7 +79,7 @@
                             <constraint firstAttribute="trailing" secondItem="19K-mr-d2w" secondAttribute="trailing" constant="20" id="oP8-0B-pHd"/>
                             <constraint firstAttribute="centerX" secondItem="0gZ-fE-vdi" secondAttribute="centerX" id="qEh-sz-GBn"/>
                             <constraint firstAttribute="centerY" secondItem="0gZ-fE-vdi" secondAttribute="centerY" id="wIN-1C-eJB"/>
-                            <constraint firstItem="r0c-mV-kyY" firstAttribute="top" secondItem="V5v-Sz-fB3" secondAttribute="bottom" constant="5" id="yPk-Zj-mMh"/>
+                            <constraint firstItem="r0c-mV-kyY" firstAttribute="top" secondItem="V5v-Sz-fB3" secondAttribute="bottom" constant="4" id="yPk-Zj-mMh"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -101,7 +101,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="disable-reminder.png" width="641" height="1138"/>
+        <image name="disable-reminder.png" width="640" height="130"/>
         <image name="lineReminderCell.png" width="640" height="1"/>
         <image name="selRem.png" width="40" height="30"/>
     </resources>

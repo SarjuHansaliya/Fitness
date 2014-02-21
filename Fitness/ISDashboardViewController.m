@@ -27,17 +27,16 @@
     }
     return self;
 }
--(void)viewDidAppear:(BOOL)animated
-{
-    ISAppDelegate *appDel=[[UIApplication sharedApplication]delegate];
-    [appDel.drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
-    [appDel.drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
-}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self setupNavigationBar];
     [self setupMenuItemsTouchEvents];
+    ISAppDelegate *appDel=[[UIApplication sharedApplication]delegate];
+//    [appDel.drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeNone];
+//    [appDel.drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
+    [[appDel getHRDistributor] setDashBoardDelegate:self];
        
 }
 
@@ -121,8 +120,20 @@
 }
 -(void) workoutButtonClicked:(id)sender
 {
+        
+}
+
+//---------------------------------handling heart value change-------------------------
+-(void)didUpdateCurrentHeartRate:(NSNumber *)currHr maxHeartRate:(NSNumber *)maxHr minHeartRate:(NSNumber *)minHr
+{
+    self.hrLabel.text=[NSString stringWithFormat:@"%@ bpm",[currHr stringValue] ];
+    self.maxHRLabel.text=[NSString stringWithFormat:@"Max - %@ bpm",[maxHr stringValue] ];
+    self.minHRLabel.text=[NSString stringWithFormat:@"Min - %@ bpm",[minHr stringValue] ];
+    
+    
     
 }
+
 
 - (void)didReceiveMemoryWarning
 {

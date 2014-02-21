@@ -48,9 +48,9 @@
 {
     
     
-    UIView *fromView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 18, 16)];
+    UIView *fromView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 23, 21)];
     
-    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 15 , 15)];
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 20 , 20)];
     [btn addTarget:self action:@selector(buttonFromDateClicked:) forControlEvents:UIControlEventTouchUpInside];
     [btn setImage:[UIImage imageNamed:@"date.png"] forState:UIControlStateNormal];
     
@@ -63,9 +63,9 @@
 
     
     
-    UIView *toView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 18, 16)];
+    UIView *toView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 23, 21)];
    
-    UIButton *btn1 = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 15 , 15)];
+    UIButton *btn1 = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 20 , 20)];
     [btn1 addTarget:self action:@selector(buttonToDateClicked:) forControlEvents:UIControlEventTouchUpInside];
     [btn1 setImage:[UIImage imageNamed:@"date.png"] forState:UIControlStateNormal];
     

@@ -8,6 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreBluetooth/CoreBluetooth.h>
+//---------------------------------------------------------------------------------------------------------------
+
+@protocol ISBluetoothNotificationDelegate <NSObject>
+
+@optional
+
+-(void)didUpdateHeartRate:(UInt16)hr formate16bit:(BOOL)is16bit;
+
+@end
 
 //---------------------------------------------------------------------------------------------------------------
 
@@ -34,6 +43,7 @@
 @interface ISBluetooth : NSObject <CBCentralManagerDelegate,CBPeripheralDelegate>
 
 @property(weak, nonatomic) id<ISBluetoothDelegate> delegate;
+@property(weak, nonatomic) id<ISBluetoothNotificationDelegate> notificationDelegate;
 @property CBCentralManager *centralManager;
 @property CBPeripheral *connectedPeripheral;
 @property NSMutableArray *peripherals;

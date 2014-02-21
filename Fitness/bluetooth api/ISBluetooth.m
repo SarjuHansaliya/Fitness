@@ -465,6 +465,9 @@
             if ([self.delegate respondsToSelector:@selector(didUpdateHeartRate:formate16bit:)]) {
                 [self.delegate didUpdateHeartRate:hr formate16bit:is16bit];
             }
+            if ([self.notificationDelegate respondsToSelector:@selector(didUpdateHeartRate:formate16bit:)]) {
+                [self.notificationDelegate didUpdateHeartRate:hr formate16bit:is16bit];
+            }
         }
         
         

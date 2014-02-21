@@ -14,6 +14,9 @@
 @property (weak, nonatomic) IBOutlet UIView *reportView;
 @property (weak, nonatomic) IBOutlet UIView *startWorkoutView;
 
-
+-(void)didUpdateCurrentHeartRate:(NSNumber *)currHr maxHeartRate:(NSNumber *)maxHr minHeartRate:(NSNumber *)minHr;
+@property (weak, nonatomic) IBOutlet UILabel *hrLabel;
+@property (weak, nonatomic) IBOutlet UILabel *maxHRLabel;
+@property (weak, nonatomic) IBOutlet UILabel *minHRLabel;
 
 @end

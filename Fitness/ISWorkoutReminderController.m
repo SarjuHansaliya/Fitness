@@ -108,11 +108,14 @@
 }
 
 - (IBAction)editReminderButtonClicked:(id)sender {
-    ISEditReminderViewController *editReminder=[[ISEditReminderViewController alloc]initWithNibName:nil bundle:nil];
-    editReminder.wantsFullScreenLayout = YES;
-    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:editReminder];
-    
-    [self presentViewController:nav animated:YES completion:nil];
+    if (self.remindersTableVC.selectedReminderIndex!=nil) {
+        
+        ISEditReminderViewController *editReminder=[[ISEditReminderViewController alloc]initWithNibName:nil bundle:nil];
+        editReminder.wantsFullScreenLayout = YES;
+        UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:editReminder];
+        
+        [self presentViewController:nav animated:YES completion:nil];
+    }
     
     
 }

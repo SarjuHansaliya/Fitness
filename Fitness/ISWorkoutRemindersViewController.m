@@ -132,26 +132,42 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
-           ISReminderCell *prevSelectedCell=(ISReminderCell *)[self.tableView cellForRowAtIndexPath:self.selectedReminderIndex];
-        ISReminderCell *newSelectedCell=(ISReminderCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+    ISReminderCell *prevSelectedCell=(ISReminderCell *)[self.tableView cellForRowAtIndexPath:self.selectedReminderIndex];
+    ISReminderCell *newSelectedCell=(ISReminderCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+    
+    if ([self.selectedReminderIndex isEqual:indexPath]) {
+        prevSelectedCell.reminderSelImage.hidden=!prevSelectedCell.reminderSelImage.hidden;
+        if (prevSelectedCell.reminderSelImage.hidden) {
+            self.selectedReminderIndex=nil;
+        }
+        
+        
+    }
+    else
+    {
+        
         
         prevSelectedCell.reminderSelImage.hidden=YES;
         newSelectedCell.reminderSelImage.hidden=NO;
         
         self.selectedReminderIndex=indexPath;
         
-
+    }
     
     
 }
 
 -(void)deleteCell
 {
+    if (self.selectedReminderIndex!=nil) {
+        
+    
     [dateArray removeObjectAtIndex:self.selectedReminderIndex.row];
     [daysArray removeObjectAtIndex:self.selectedReminderIndex.row];
     
     [self.tableView deleteRowsAtIndexPaths:@[self.selectedReminderIndex] withRowAnimation:UITableViewRowAnimationFade];
-    
+        self.selectedReminderIndex=nil;
+    }
     
 }
 
