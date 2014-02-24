@@ -237,6 +237,7 @@
     
     isConnected=YES;
     
+    
     if (SYSTEM_VERSION_EQUAL_TO(@"7.0"))
     {
         [self addNewKnownPeripheral:peripheral.identifier];
@@ -246,6 +247,9 @@
     if ([self.delegate respondsToSelector:@selector(didConnectPeripheral)]) {
         [self.delegate didConnectPeripheral];
     }
+    if ([self.connectionDelegate respondsToSelector:@selector(peripheralDidConnect)]) {
+        [self.connectionDelegate peripheralDidConnect];
+    }
 }
 
 -(void)disconnectPeripheral
@@ -254,13 +258,28 @@
     {
         [self.centralManager cancelPeripheralConnection:self.connectedPeripheral];
         self.connectedPeripheral=nil;
-        isConnected=NO;
         self.connectedDeviceServices=[NSMutableArray arrayWithCapacity:1];
         self.connectedDeviceCharacteristicsForService=[NSMutableDictionary dictionaryWithCapacity:1];
         
     }
 }
-
+-(void)centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error
+{
+    isConnected=NO;
+   
+    if ([self.notificationDelegate respondsToSelector:@selector(peripheralDidDisconnect:)]) {
+        [self.notificationDelegate peripheralDidDisconnect:error];
+    }
+    if ([self.delegate respondsToSelector:@selector(peripheralDidDisconnect:)]) {
+        [self.delegate peripheralDidDisconnect:error];
+    }
+    if (error!=nil) {
+        
+        if ([self.connectionDelegate respondsToSelector:@selector(peripheralDidDisconnect:)]) {
+            [self.connectionDelegate peripheralDidDisconnect:error];
+        }
+    }
+}
 
 //---------------------------------------------------------------------------------------------------------------
 

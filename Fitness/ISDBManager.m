@@ -318,7 +318,7 @@ static sqlite3_stmt *statement = nil;
     }
     return nil;
 }
-//-----------------------handling userdetails----------------------------------------------
+//-----------------------handling WO Goals----------------------------------------------
 - (BOOL) saveWOGoal:(ISWOGoal*)woGoal
 {
     
@@ -413,19 +413,94 @@ static sqlite3_stmt *statement = nil;
     }
     return nil;
 }
-
+//-----------------------handling HR----------------------------------------------
+- (BOOL) saveHRArray:(NSArray*)hrArray
+{
+    
+    const char *dbpath = [databasePath UTF8String];
+    if (sqlite3_open(dbpath, &database) == SQLITE_OK)
+    {
+        
+        NSString* statementStr;
+        
+        statementStr = @"BEGIN EXCLUSIVE TRANSACTION";
+        
+        if (sqlite3_prepare_v2(database, [statementStr UTF8String], -1, &statement, NULL) != SQLITE_OK) {
+            NSLog(@"db error: %s\n", sqlite3_errmsg(database));
+            return NO;
+        }
+        if (sqlite3_step(statement) != SQLITE_DONE) {
+            sqlite3_finalize(statement);
+            NSLog(@"db error: %s\n", sqlite3_errmsg(database));
+            return NO;
+        }
+        sqlite3_stmt *compiledStatement;
+        
+        statementStr=[NSString stringWithFormat:@"insert into hr_details(timestamp,hr) values(?1,?2)"];
+        
+        if(sqlite3_prepare_v2(database, [statementStr UTF8String], -1, &compiledStatement, NULL) == SQLITE_OK)
+        {
+            
+            for (ISHR *hr  in hrArray) {
+                
+                sqlite3_bind_int(compiledStatement, 1,(int) [hr.timeStamp timeIntervalSince1970]);
+                sqlite3_bind_int(compiledStatement, 2,[hr.hr intValue]);
+                
+                while(YES){
+                    NSInteger result = sqlite3_step(compiledStatement);
+                    if(result == SQLITE_DONE){
+                        break;
+                    }
+                    else if(result != SQLITE_BUSY){
+                        NSLog(@"db error: %s\n", sqlite3_errmsg(database));
+                        break;
+                    }
+                }
+                sqlite3_reset(compiledStatement);
+                
+                
+            }
+            
+            
+        }
+        
+        
+        
+        
+        // COMMIT
+        statementStr = @"COMMIT TRANSACTION";
+        sqlite3_stmt *commitStatement;
+        if (sqlite3_prepare_v2(database, [statementStr UTF8String], -1, &commitStatement, NULL) != SQLITE_OK) {
+            NSLog(@"db error: %s\n", sqlite3_errmsg(database));
+            return NO;
+        }
+        if (sqlite3_step(commitStatement) != SQLITE_DONE) {
+            NSLog(@"db error: %s\n", sqlite3_errmsg(database));
+            return NO;
+        }
+        
+        //     sqlite3_finalize(beginStatement);
+        sqlite3_finalize(compiledStatement);
+        sqlite3_finalize(commitStatement);
+        return YES;
+        
+    }
+    
+    
+    return NO;
+}
 
 
 //
 //-(BOOL) insertBatchData:(NSArray*)dataArray
 //{
-//    
+//
 //    const char *dbpath = [databasePath UTF8String];
 //    if (sqlite3_open(dbpath, &database) == SQLITE_OK)
 //    {
-//        
+//
 //        NSString* statementStr;
-//        
+//
 //        statementStr = @"BEGIN EXCLUSIVE TRANSACTION";
 //        
 //        if (sqlite3_prepare_v2(database, [statementStr UTF8String], -1, &statement, NULL) != SQLITE_OK) {

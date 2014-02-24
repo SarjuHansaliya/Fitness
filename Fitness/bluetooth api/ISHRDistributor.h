@@ -10,12 +10,17 @@
 #import "ISBluetooth.h"
 #import "ISDashboardViewController.h"
 
+
 @interface ISHRDistributor : NSObject <ISBluetoothNotificationDelegate>
 
 @property NSNumber *currentHR;
+@property NSMutableArray *hrArray;
 @property NSNumber *maxHR;
 @property NSNumber *minHR;
 @property (weak) ISDashboardViewController * dashBoardDelegate;
 
+-(void)saveData;
+-(void)reset;
+-(void)calculateEnergyExp;
 
 @end

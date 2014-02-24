@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "ISWOGoal.h"
+#import "ISWorkOut.h"
 #import "ISUserDetails.h"
 
 @interface ISWorkOutHandler : NSObject
@@ -15,10 +16,19 @@
 
 @property BOOL isWOGoalEnable;
 @property ISWOGoal *woGoal;
+
 @property BOOL isUserProfileSet;
 @property ISUserDetails *userDetails;
 
+@property BOOL isDeviceConnected;
+
+@property BOOL isWOStarted;
+@property ISWorkOut *currentWO;
 
 +(ISWorkOutHandler*)getSharedInstance;
+
+
+-(void)startWO;
+-(void)stopWO;
 
 @end

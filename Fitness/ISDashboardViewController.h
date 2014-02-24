@@ -10,13 +10,23 @@
 #import "UIViewController+MMDrawerController.h"
 
 @interface ISDashboardViewController : UIViewController
+
+
+
 @property (weak, nonatomic) IBOutlet UIView *mapPathView;
 @property (weak, nonatomic) IBOutlet UIView *reportView;
-@property (weak, nonatomic) IBOutlet UIView *startWorkoutView;
-
--(void)didUpdateCurrentHeartRate:(NSNumber *)currHr maxHeartRate:(NSNumber *)maxHr minHeartRate:(NSNumber *)minHr;
 @property (weak, nonatomic) IBOutlet UILabel *hrLabel;
 @property (weak, nonatomic) IBOutlet UILabel *maxHRLabel;
 @property (weak, nonatomic) IBOutlet UILabel *minHRLabel;
+@property (weak, nonatomic) IBOutlet UILabel *calBurnedLabel;
+@property (weak, nonatomic) IBOutlet UIButton *startWOButton;
+@property (weak, nonatomic) IBOutlet UILabel *woDurationLabel;
+@property (weak, nonatomic) IBOutlet UILabel *goalLabel;
+
+
+
+- (IBAction)workoutStart:(id)sender;
+
+-(void)didUpdateCurrentHeartRate:(NSNumber *)currHr maxHeartRate:(NSNumber *)maxHr minHeartRate:(NSNumber *)minHr;
 
 @end

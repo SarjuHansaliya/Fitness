@@ -13,18 +13,29 @@
 #import "ISPathViewController.h"
 #import "ISReportsViewController.h"
 #import "ISProfileViewController.h"
+#import "ILAlertView.h"
+
+
+#define MILES 1
+#define CALORIES 2
+#define DURATION 3
+
 
 @interface ISDashboardViewController ()
 
 @end
 
 @implementation ISDashboardViewController
+{
+    ISAppDelegate *appDel;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        appDel=(ISAppDelegate*)[[UIApplication sharedApplication]delegate];
     }
     return self;
 }
@@ -34,7 +45,7 @@
     [super viewDidLoad];
     [self setupNavigationBar];
     [self setupMenuItemsTouchEvents];
-    ISAppDelegate *appDel=[[UIApplication sharedApplication]delegate];
+   
 //    [appDel.drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeNone];
 //    [appDel.drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
     [[appDel getHRDistributor] setDashBoardDelegate:self];
@@ -49,7 +60,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     
-    ISAppDelegate *appDel=[[UIApplication sharedApplication]delegate];
+   
     if (![[appDel woHandler] isUserProfileSet]) {
         ISProfileViewController *userProfile=[[ISProfileViewController alloc]initWithNibName:nil bundle:nil];
         userProfile.wantsFullScreenLayout = YES;
@@ -120,9 +131,6 @@
     tapOnReportView.numberOfTapsRequired=1;
     [self.reportView addGestureRecognizer:tapOnReportView];
     
-    UITapGestureRecognizer *tapOnStartWorkOutView = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(workoutButtonClicked:)];
-    tapOnStartWorkOutView.numberOfTapsRequired=1;
-    [self.startWorkoutView addGestureRecognizer:tapOnStartWorkOutView];
     
     
 }
@@ -135,10 +143,6 @@
 {
     [(UINavigationController*)[(ISAppDelegate *)[[UIApplication sharedApplication]delegate] drawerController].centerViewController pushViewController:[[ISReportsViewController alloc] initWithNibName:nil bundle:nil] animated:YES];
 }
--(void) workoutButtonClicked:(id)sender
-{
-        
-}
 
 //---------------------------------handling heart value change-------------------------
 -(void)didUpdateCurrentHeartRate:(NSNumber *)currHr maxHeartRate:(NSNumber *)maxHr minHeartRate:(NSNumber *)minHr
@@ -148,6 +152,8 @@
     self.minHRLabel.text=[NSString stringWithFormat:@"Min - %@ bpm",[minHr stringValue] ];
     
     
+    self.calBurnedLabel.text= [NSString stringWithFormat:@"%.2f kcal" ,[appDel.woHandler.currentWO.calBurned doubleValue]/1000];
+    [self calculateGoalCompletion];
     
 }
 
@@ -157,5 +163,143 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+-(void)calculateWODuration
+{
+    
+    if (!appDel.woHandler.isWOStarted) {
+        return;
+    }
+    
+    NSDateComponents *ageComponents = [[NSCalendar currentCalendar]
+                                       components:NSMinuteCalendarUnit
+                                       fromDate:appDel.woHandler.currentWO.startTimeStamp
+                                       toDate:[NSDate date]
+                                       options:0];
+    
+    self.woDurationLabel.text=[NSString stringWithFormat:@"%d Min",ageComponents.minute];
+    [self calculateGoalCompletion];
+    if (appDel.woHandler.isWOStarted) {
+    
+        [self performSelector:@selector(calculateWODuration) withObject:nil afterDelay:60.0];
+    }
+}
+-(void)calculateGoalCompletion
+{
+    if (!appDel.woHandler.isWOStarted) {
+        return;
+    }
+    
+    if (appDel.woHandler.isWOGoalEnable) {
+        
+        double completed=0.0;
+        NSDateComponents *ageComponents = [[NSCalendar currentCalendar]
+                                           components:NSMinuteCalendarUnit
+                                           fromDate:appDel.woHandler.currentWO.startTimeStamp
+                                           toDate:[NSDate date]
+                                           options:0];
+        
+        switch (appDel.woHandler.woGoal.goalType) {
+            case MILES:
+                break;
+                
+            case CALORIES:
+                
+                completed=([appDel.woHandler.currentWO.calBurned doubleValue]/1000)/[appDel.woHandler.woGoal.goalValue doubleValue]*100.0;
+                break;
+                
+            case DURATION:
+                
+                completed=(double)ageComponents.minute /[appDel.woHandler.woGoal.goalValue doubleValue]*100.0;
+                break;
+                
+        }
+        
+        
+        if (completed>100.0) {
+            completed=100.0;
+        }
+        
+        self.goalLabel.text=[NSString stringWithFormat:@"%.0f %%",completed];
+       
+        if (completed>=100) {
+            
+            UIApplicationState state = [[UIApplication sharedApplication] applicationState];
+            if (state == UIApplicationStateBackground || state==UIApplicationStateInactive)
+            {
+                
+                UILocalNotification* localNotification = [[UILocalNotification alloc] init];
+                localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:1];
+                localNotification.alertBody = @"Workout Goal Completed";
+                localNotification.timeZone = [NSTimeZone defaultTimeZone];
+                localNotification.alertAction = @"View Details";
+                localNotification.soundName = UILocalNotificationDefaultSoundName;
+                localNotification.applicationIconBadgeNumber = 1;
+                [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+            }
+            else if(state==UIApplicationStateActive)
+            {
+                [ILAlertView showWithTitle:[NSString stringWithFormat:@"Success"]
+                                   message:@"Workout Goal Completed"
+                          closeButtonTitle:@"OK"
+                         secondButtonTitle:nil
+                        tappedSecondButton:nil];
+            }
+            
+            [self.startWOButton setTitle:@"Start Workout" forState:UIControlStateNormal];
+            [appDel.woHandler stopWO];
+        }
+        
+        
+        
+    }
+    else
+    {
+        self.goalLabel.text=@"- -";
+    }
+}
+
+- (IBAction)workoutStart:(id)sender {
+    
+    if ([self.startWOButton.titleLabel.text isEqualToString:@"Start Workout"]) {
+        
+        [self.startWOButton setTitle:@"Stop Workout" forState:UIControlStateNormal];
+        [appDel.woHandler startWO];
+        [self calculateWODuration];
+        [self calculateGoalCompletion];
+        
+    }
+    else
+    {
+        [self.startWOButton setTitle:@"Start Workout" forState:UIControlStateNormal];
+        [appDel.woHandler stopWO];
+    }
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @end

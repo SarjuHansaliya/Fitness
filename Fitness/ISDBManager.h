@@ -10,6 +10,7 @@
 #import <sqlite3.h>
 #import "ISUserDetails.h"
 #import "ISWOGoal.h"
+#import "ISHR.h"
 
 @interface ISDBManager : NSObject
 {
@@ -23,5 +24,5 @@
 
 -(BOOL) saveUserDetails:(ISUserDetails*)userDetails;
 - (BOOL) saveWOGoal:(ISWOGoal*)woGoal;
-
+- (BOOL) saveHRArray:(NSArray*)hrArray;
 @end

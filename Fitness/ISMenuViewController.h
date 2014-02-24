@@ -8,9 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface ISMenuViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIView *workoutGoalsView;
 @property (weak, nonatomic) IBOutlet UIView *hrMonitorView;
 @property (weak, nonatomic) IBOutlet UIView *deviceConnectionManagerView;
 @property (weak, nonatomic) IBOutlet UIView *userProfileView;
+
+
+
+
+
 @end

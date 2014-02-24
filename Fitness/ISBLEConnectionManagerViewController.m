@@ -9,6 +9,7 @@
 #import "ISBLEConnectionManagerViewController.h"
 #import "ISBLEDeviceCell.h"
 #import "ISConnectionManagerViewController.h"
+#import "ISAppDelegate.h"
 #import "macros.h"
 #import "ILAlertView.h"
 
@@ -117,7 +118,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self.tableView deselectRowAtIndexPath:indexPath animated:NO ];
-    ISBLEDeviceCell *newSelectedCell =(ISBLEDeviceCell *)[self.tableView cellForRowAtIndexPath:indexPath];
     
     CBPeripheral *p=(CBPeripheral*)[self.bluetoothManager.peripherals objectAtIndex:indexPath.row];
     NSUUID *u1,*u2;
@@ -144,7 +144,6 @@
                  secondButtonTitle:@"Yes"
                 tappedSecondButton:^{
                     [self.bluetoothManager disconnectPeripheral];
-                    [newSelectedCell setSelectedDeviceImageHidden:YES];
                 }];
         
     }
@@ -168,7 +167,10 @@
         [error show];
     }
 }
-
+-(void)peripheralDidDisconnect:(NSError *)error
+{
+    [self.tableView reloadData];
+}
 -(void)didDiscoverPeripheral:(CBPeripheral *)peripheral
 {
     [self.tableView reloadData];

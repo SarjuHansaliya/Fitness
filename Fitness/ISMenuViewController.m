@@ -8,10 +8,6 @@
 
 #import "ISMenuViewController.h"
 #import "ISAppDelegate.h"
-#import "ISSetWorkoutGoalViewController.h"
-#import "ISHRMonitorViewController.h"
-#import "ISConnectionManagerViewController.h"
-#import "ISProfileViewController.h"
 #import "macros.h"
 
 @interface ISMenuViewController ()
@@ -19,12 +15,15 @@
 @end
 
 @implementation ISMenuViewController
+{
+    ISAppDelegate *appDel;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        appDel=(ISAppDelegate *)[[UIApplication sharedApplication]delegate];
     }
     return self;
 }
@@ -36,6 +35,14 @@
     self.wantsFullScreenLayout=YES;
 
     [self setupMenuItemsTouchEvents];
+}
+-(void)viewWillAppear:(BOOL)animated
+{
+    if (appDel.woHandler.isWOStarted) {
+        self.userProfileView.hidden=YES;
+    }
+    else
+        self.userProfileView.hidden=NO;
 }
 
 //----------------------------handling touch events on menu items---------------
@@ -61,29 +68,26 @@
 }
 -(void) displayConnectionManager:(id)sender
 {
-    [[(ISAppDelegate *)[[UIApplication sharedApplication]delegate] drawerController] toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
-    [(UINavigationController*)[(ISAppDelegate *)[[UIApplication sharedApplication]delegate] drawerController].centerViewController pushViewController:[[ISConnectionManagerViewController alloc] initWithNibName:nil bundle:nil] animated:YES];
+    [[appDel drawerController] toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
+    [(UINavigationController*)[appDel drawerController].centerViewController pushViewController:[appDel getConnectionManagerViewController] animated:YES];
 }
 
 
 -(void) displayHRMonitor:(id)sender
 {
-    [[(ISAppDelegate *)[[UIApplication sharedApplication]delegate] drawerController] toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
-    [(UINavigationController*)[(ISAppDelegate *)[[UIApplication sharedApplication]delegate] drawerController].centerViewController pushViewController:[[ISHRMonitorViewController alloc] initWithNibName:nil bundle:nil] animated:YES];
+    [[appDel drawerController] toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
+    [(UINavigationController*)[appDel drawerController].centerViewController pushViewController:[appDel getHRMonitorViewController] animated:YES];
 }
 
 -(void) displayWorkoutGoals:(id)sender
 {
-    [[(ISAppDelegate *)[[UIApplication sharedApplication]delegate] drawerController] toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
-    [(UINavigationController*)[(ISAppDelegate *)[[UIApplication sharedApplication]delegate] drawerController].centerViewController pushViewController:[[ISSetWorkoutGoalViewController alloc] initWithNibName:nil bundle:nil] animated:YES];
+    [[appDel drawerController] toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
+    [(UINavigationController*)[appDel drawerController].centerViewController pushViewController:[appDel getSetWorkoutGoalViewController] animated:YES];
 }
 -(void) displayUserProfile:(id)sender
 {
-    [[(ISAppDelegate *)[[UIApplication sharedApplication]delegate] drawerController] toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
-    ISProfileViewController *userProfile=[[ISProfileViewController alloc]initWithNibName:nil bundle:nil];
-    userProfile.wantsFullScreenLayout = YES;
-    
-    [self presentViewController:userProfile animated:YES completion:nil];
+    [[appDel drawerController] toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
+    [self presentViewController:[appDel getProfileViewController] animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning

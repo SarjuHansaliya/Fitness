@@ -15,6 +15,15 @@
 @optional
 
 -(void)didUpdateHeartRate:(UInt16)hr formate16bit:(BOOL)is16bit;
+-(void)peripheralDidDisconnect:(NSError*)error;
+
+@end
+
+@protocol ISBluetoothConnectionDelegate <NSObject>
+
+@optional
+-(void)peripheralDidConnect;
+-(void)peripheralDidDisconnect:(NSError*)error;
 
 @end
 
@@ -30,7 +39,7 @@
 -(void)subscriptionStateChanged;
 -(void)didStopScanning;
 -(void)didRecieveValueForDescriptorForCharacteristics:(CBCharacteristic*)chara;
-
+-(void)peripheralDidDisconnect:(NSError*)error;
 -(void)didUpdateHeartRate:(UInt16)hr formate16bit:(BOOL)is16bit;
 -(void)didRecieveValueForDeviceLocation:(NSString*)location;
 -(void)didResetControlPoint;
@@ -44,6 +53,8 @@
 
 @property(weak, nonatomic) id<ISBluetoothDelegate> delegate;
 @property(weak, nonatomic) id<ISBluetoothNotificationDelegate> notificationDelegate;
+@property(weak, nonatomic) id<ISBluetoothConnectionDelegate> connectionDelegate;
+
 @property CBCentralManager *centralManager;
 @property CBPeripheral *connectedPeripheral;
 @property NSMutableArray *peripherals;

@@ -13,4 +13,7 @@
 @property NSDate *timeStamp;
 @property NSNumber *hr;
 
+
++(ISHR*)hrWithHeartRate:(int)hr timestamp:(NSDate*)ts;
++(BOOL)saveHRArray:(NSArray*)hrArray;
 @end

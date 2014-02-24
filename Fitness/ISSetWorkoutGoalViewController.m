@@ -27,6 +27,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.woGoal=[[(ISAppDelegate *)[[UIApplication sharedApplication]delegate] woHandler] woGoal];
+        
     }
     return self;
 }
@@ -38,7 +39,10 @@
     [self setupNavigationBar];
     [self setupViewWorkoutGoalsClickEvent];
     [self fillGoalTextField];
+    [self toggleWOGoal:nil];
 }
+
+
 
 -(void)fillGoalTextField
 {
@@ -76,15 +80,41 @@
 -(void)toggleWOGoal:(id)sender
 {
     UILabel *lbl=(UILabel*)[self.enableWOGoal viewWithTag:9];
+    ISAppDelegate *appDel=(ISAppDelegate *)[[UIApplication sharedApplication]delegate];
     
-    if ([lbl.text isEqualToString:@"Enable WO Goal"]) {
-        lbl.text=@"Disable WO Goal";
-        [[(ISAppDelegate *)[[UIApplication sharedApplication]delegate] woHandler] setIsWOGoalEnable:YES];
+    if (!appDel.woHandler.isWOStarted) {
+        
+        if (sender !=nil) {
+            
+            appDel.woHandler.isWOGoalEnable=!appDel.woHandler.isWOGoalEnable;
+        }
+       
+        if (appDel.woHandler.isWOGoalEnable ) {
+            
+            if (appDel.woHandler.woGoal.woGoalId!=0 || appDel.woHandler.woGoal.goalType!=0) {
+                
+                lbl.text=@"Disable WO Goal";
+                [self fillGoalTextField];
+            }
+            else
+            {
+                [ILAlertView showWithTitle:@"Warning" message:@"Please Set Workout Goal First" closeButtonTitle:@"OK" secondButtonTitle:nil tappedSecondButton:nil];
+                [self clearGoalType];
+                self.milesRB.selected=YES;
+                [self.milesTextField becomeFirstResponder];
+            }
+            
+            
+        }
+        else
+        {
+            lbl.text=@"Enable WO Goal";
+            
+        }
     }
     else
     {
-        lbl.text=@"Enable WO Goal";
-        [[(ISAppDelegate *)[[UIApplication sharedApplication]delegate] woHandler] setIsWOGoalEnable:NO];
+        [ILAlertView showWithTitle:@"Warning" message:@"Stop Current Workout First" closeButtonTitle:@"OK" secondButtonTitle:nil tappedSecondButton:nil];
     }
     
 }
@@ -232,9 +262,8 @@
 }
 
 - (IBAction)milesRBClicked:(id)sender {
+    
     if (!self.milesRB.selected) {
-        
-        
         [self clearGoalType];
         self.milesRB.selected=YES;
         [self.milesTextField becomeFirstResponder];

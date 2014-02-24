@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ISAppDelegate.h"
+#import "ISBluetooth.h"
 
 
 

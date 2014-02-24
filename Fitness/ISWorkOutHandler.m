@@ -25,7 +25,6 @@ static ISWorkOutHandler *sharedInstance = nil;
 -(void)firstTime
 {
    
-    
     self.userDetails=[ISUserDetails getUserDetails];
     if (self.userDetails==nil) {
         self.isUserProfileSet=NO;
@@ -42,6 +41,29 @@ static ISWorkOutHandler *sharedInstance = nil;
     else
         self.isWOGoalEnable=YES;
     
+    self.isDeviceConnected=NO;
+    self.isWOStarted=NO;
+    
+    
 }
+
+-(void)startWO
+{
+    self.isWOStarted=YES;
+    self.currentWO=[[ISWorkOut alloc]init];
+    self.currentWO.startTimeStamp=[NSDate date];
+    
+}
+-(void)stopWO
+{
+    self.isWOStarted=NO;
+    self.currentWO.endTimeStamp=[NSDate date];
+}
+
+
+
+
+
+
 
 @end

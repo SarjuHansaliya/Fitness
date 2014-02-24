@@ -11,6 +11,8 @@
 #import "ISMenuViewController.h"
 #import "ISDashboardViewController.h"
 #import "MMExampleDrawerVisualStateManager.h"
+#import "ISConnectionManagerViewController.h"
+#import "ILAlertView.h"
 
 
 @implementation ISAppDelegate
@@ -58,13 +60,49 @@
     return YES;
 }
 
+//------------------------initializing VC-------------------------------
+
+
+-(ISSetWorkoutGoalViewController*)getSetWorkoutGoalViewController
+{
+    if (self.setWorkoutGoalViewController==nil) {
+        self.setWorkoutGoalViewController=[[ISSetWorkoutGoalViewController alloc]initWithNibName:nil bundle:nil];
+    }
+    
+    return self.setWorkoutGoalViewController;
+}
+-(ISHRMonitorViewController*)getHRMonitorViewController
+{
+    if (self.hrMonitorViewController==nil) {
+        self.hrMonitorViewController=[[ISHRMonitorViewController alloc]initWithNibName:nil bundle:nil];
+    }
+    
+    return self.hrMonitorViewController;
+}
+-(ISConnectionManagerViewController*)getConnectionManagerViewController
+{
+    if (self.connectionManagerViewController==nil) {
+        self.connectionManagerViewController=[[ISConnectionManagerViewController alloc]initWithNibName:nil bundle:nil];
+    }
+    
+    return self.connectionManagerViewController;
+}
+-(ISProfileViewController*)getProfileViewController
+{
+    if (self.profileViewController==nil) {
+        self.profileViewController=[[ISProfileViewController alloc]initWithNibName:nil bundle:nil];
+        self.profileViewController.wantsFullScreenLayout=YES;
+    }
+    
+    return self.profileViewController;
+}
+
 -(ISHRDistributor *)getHRDistributor
 {
     if (self.hrDistributor==nil) {
         self.hrDistributor=[[ISHRDistributor alloc]init];
         //setting intial hr values to avoid wrong interpretations
-        self.hrDistributor.maxHR=@0;
-        self.hrDistributor.minHR=@1000;
+        [self.hrDistributor reset];
     }
     
     return self.hrDistributor;
@@ -75,13 +113,46 @@
 {
     if (self.bluetoothManager==nil) {
         self.bluetoothManager=[[ISBluetooth alloc]init];
+        self.bluetoothManager.connectionDelegate=self;
         self.bluetoothManager.notificationDelegate=[self getHRDistributor];
     }
     
     return self.bluetoothManager;
 }
+-(void)peripheralDidConnect
+{
+    self.woHandler.isDeviceConnected=YES;
+}
+-(void)peripheralDidDisconnect:(NSError *)error
+{
+    [self.hrDistributor saveData];
+    self.woHandler.isDeviceConnected=NO;
+    
+    UIApplicationState state = [[UIApplication sharedApplication] applicationState];
+    if (state == UIApplicationStateBackground || state==UIApplicationStateInactive)
+    {
+        UILocalNotification* localNotification = [[UILocalNotification alloc] init];
+        localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:1];
+        localNotification.alertBody = @"Device Disconnected";
+        localNotification.timeZone = [NSTimeZone defaultTimeZone];
+        localNotification.alertAction = @"View Details";
+        localNotification.soundName = UILocalNotificationDefaultSoundName;
+        localNotification.applicationIconBadgeNumber = 1;
+        [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+    }
+    else if(state==UIApplicationStateActive)
+    {
+        [ILAlertView showWithTitle:[NSString stringWithFormat:@"Device Disconnected"]
+                           message:@"Connect Another Device?"
+                  closeButtonTitle:@"NO"
+                 secondButtonTitle:@"Yes"
+                tappedSecondButton:^{
+                    [(UINavigationController*)self.drawerController.centerViewController popToRootViewControllerAnimated:NO];
+                    [(UINavigationController*)[self drawerController].centerViewController pushViewController:[[ISConnectionManagerViewController alloc] initWithNibName:nil bundle:nil] animated:YES];
+                }];
+    }
 
-
+}
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
@@ -109,7 +180,7 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+     application.applicationIconBadgeNumber = 0;
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ISBLEConnectionManagerViewController.h"
-#import "ISAppDelegate.h"
+
 
 
 @interface ISConnectionManagerViewController : UIViewController 

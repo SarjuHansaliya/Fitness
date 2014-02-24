@@ -13,7 +13,14 @@
 #import "ISDBManager.h"
 #import "ISWorkOutHandler.h"
 
-@interface ISAppDelegate : UIResponder <UIApplicationDelegate>
+#import "ISSetWorkoutGoalViewController.h"
+#import "ISHRMonitorViewController.h"
+#import "ISConnectionManagerViewController.h"
+#import "ISProfileViewController.h"
+
+
+
+@interface ISAppDelegate : UIResponder <UIApplicationDelegate,ISBluetoothConnectionDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property MMDrawerController *drawerController;
@@ -21,6 +28,19 @@
 @property ISHRDistributor *hrDistributor;
 @property (weak,atomic) ISDBManager *dbManager;
 @property (weak,atomic) ISWorkOutHandler *woHandler;
+
+@property ISSetWorkoutGoalViewController *setWorkoutGoalViewController;
+@property ISHRMonitorViewController *hrMonitorViewController;
+@property ISConnectionManagerViewController *connectionManagerViewController;
+@property ISProfileViewController *profileViewController;
+
+
+
+-(ISSetWorkoutGoalViewController*)getSetWorkoutGoalViewController;
+-(ISHRMonitorViewController*)getHRMonitorViewController;
+-(ISConnectionManagerViewController*)getConnectionManagerViewController;
+-(ISProfileViewController*)getProfileViewController;
+
 
 -(ISHRDistributor *)getHRDistributor;
 -(ISBluetooth *)getBluetoothManager;
