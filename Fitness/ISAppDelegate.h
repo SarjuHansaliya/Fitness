@@ -17,6 +17,7 @@
 #import "ISHRMonitorViewController.h"
 #import "ISConnectionManagerViewController.h"
 #import "ISProfileViewController.h"
+#import "ISReportsViewController.h"
 
 
 
@@ -33,9 +34,10 @@
 @property ISHRMonitorViewController *hrMonitorViewController;
 @property ISConnectionManagerViewController *connectionManagerViewController;
 @property ISProfileViewController *profileViewController;
+@property ISReportsViewController *reportsViewController;
 
 
-
+-(ISReportsViewController*)getReportsViewController;
 -(ISSetWorkoutGoalViewController*)getSetWorkoutGoalViewController;
 -(ISHRMonitorViewController*)getHRMonitorViewController;
 -(ISConnectionManagerViewController*)getConnectionManagerViewController;

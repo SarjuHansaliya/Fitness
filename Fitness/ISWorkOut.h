@@ -20,4 +20,9 @@
 @property NSNumber *distance;
 @property int woGoalId;
 
++(ISWorkOut*)workoutWithwoId:(int)woId startTimeStamp:(NSDate*)startTimeStamp endTimeStamp:(NSDate*)endTimeStamp steps:(NSNumber*)steps calBurned:(NSNumber*)calBurned minSpeed:(NSNumber*)minSpeed maxSpeed:(NSNumber*)maxSpeed distance:(NSNumber*)distance woGoalId:(int)woGoalId;
++(NSArray *)getWorkouts;
+-(BOOL)saveNewWorkout;
+-(BOOL)updateWorkout;
+
 @end

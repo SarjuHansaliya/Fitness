@@ -96,6 +96,14 @@
     
     return self.profileViewController;
 }
+-(ISReportsViewController*)getReportsViewController
+{
+    if (self.reportsViewController==nil) {
+        self.reportsViewController=[[ISReportsViewController alloc]initWithStyle:UITableViewStylePlain];
+    }
+    
+    return self.reportsViewController;
+}
 
 -(ISHRDistributor *)getHRDistributor
 {

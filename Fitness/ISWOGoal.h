@@ -19,4 +19,5 @@
 +(ISWOGoal *)getWOGoal;
 
 -(BOOL)saveWOGoal;
++(ISWOGoal *)getWOGoalWithId:(int)woGoalID;
 @end

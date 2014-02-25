@@ -34,6 +34,19 @@
         return [fetchedDetails lastObject];
 }
 
++(ISWOGoal *)getWOGoalWithId:(int)woGoalID
+{
+    NSArray *fetchedDetails=[[(ISAppDelegate*)[[UIApplication sharedApplication]delegate] dbManager] fetchWOGoals];
+    
+    for (ISWOGoal *g in fetchedDetails) {
+        if (g.woGoalId==woGoalID) {
+            return g;
+        }
+    }
+    return nil;
+}
+
+
 -(BOOL)saveWOGoal
 {
     return [[(ISAppDelegate*)[[UIApplication sharedApplication]delegate] dbManager] saveWOGoal:self];

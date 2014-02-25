@@ -7,10 +7,24 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ISWorkOut.h"
 
 @interface ISReportDetailsViewController : UIViewController
 
 
 @property (weak, nonatomic) IBOutlet UIView *mapPathView;
+@property (weak, nonatomic) IBOutlet UILabel *hrLabel;
+@property (weak, nonatomic) IBOutlet UILabel *maxHRLabel;
+@property (weak, nonatomic) IBOutlet UILabel *minHRLabel;
+@property (weak, nonatomic) IBOutlet UILabel *calBurnedLabel;
+@property (weak, nonatomic) IBOutlet UILabel *woDurationLabel;
+@property (weak, nonatomic) IBOutlet UILabel *goalLabel;
+@property (weak, nonatomic) IBOutlet UILabel *distanceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *stepsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *minSpeedLabel;
+@property (weak, nonatomic) IBOutlet UILabel *maxSpeedLabel;
+@property (weak, nonatomic) IBOutlet UILabel *speedLabel;
 @property (weak, nonatomic) IBOutlet UIView *deleteReportView;
+@property (weak) ISWorkOut *workout;
+
 @end

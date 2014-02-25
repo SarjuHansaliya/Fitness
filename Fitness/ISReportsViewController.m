@@ -10,7 +10,7 @@
 #import "macros.h"
 #import "ISReportDetailCell.h"
 #import "ISReportDetailsViewController.h"
-#import "ISReportDetailsViewController.h"
+#import "ISWorkOut.h"
 #import "ISAppDelegate.h"
 
 @interface ISReportsViewController ()
@@ -19,12 +19,10 @@
 
 @implementation ISReportsViewController
 {
-    // dummy data, just for checking screen--------------------------
-    NSMutableArray *dateArray;
-    NSMutableArray *goalTypeArray;
-    NSMutableArray *goalValueArray;
     
-    //remove before original implementation---------------------------
+    ISAppDelegate *appDel;
+    NSMutableArray*  workouts;
+    ISReportDetailsViewController *reportDetailsVC;
     
 }
 
@@ -32,7 +30,8 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
+        appDel=(ISAppDelegate*)[[UIApplication sharedApplication]delegate];
+        reportDetailsVC=[[ISReportDetailsViewController alloc]initWithNibName:nil bundle:nil];
     }
     return self;
 }
@@ -41,12 +40,28 @@
 {
     [super viewDidLoad];
     [self setupNavigationBar];
-    [self fillDummyReportData]; //remove this
     self.tableView.separatorColor=[UIColor clearColor];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg.png"]];
     
     self.tableView.backgroundView = imageView;
     
+    
+}
+-(void)viewWillAppear:(BOOL)animated
+{
+    workouts=[NSMutableArray arrayWithArray:[ISWorkOut getWorkouts]];
+    
+    if (appDel.woHandler.isWOStarted) {
+        
+        
+        for (ISWorkOut *w in workouts) {
+            if (w.woId==appDel.woHandler.currentWO.woId) {
+                [workouts removeObject:w];
+                break;
+            }
+        }
+    }
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -113,8 +128,8 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    return [workouts count];
     
-    return [goalTypeArray count];
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -134,7 +149,38 @@
         
         
     }
-    [cell setGoalTypeLabel:[goalTypeArray objectAtIndex:indexPath.row] workoutDateLabel:[dateArray objectAtIndex:indexPath.row] goalValueLabel:[goalValueArray objectAtIndex:indexPath.row]];
+    ISWorkOut *wo=(ISWorkOut*)[workouts objectAtIndex:indexPath.row];
+    int goalId=wo.woGoalId;
+    NSString *goalTypeLabel=@"Calories :";
+    NSString *goalValueLabel=[NSString stringWithFormat:@"%@  kcal",wo.calBurned];
+    if (goalId!=0)
+    {
+        ISWOGoal *goal=[ISWOGoal getWOGoalWithId:goalId];
+        
+        switch (goal.goalType) {
+            case MILES:
+                goalTypeLabel=@"Miles :";
+                goalValueLabel=[NSString stringWithFormat:@"%.1f  miles",[wo.distance doubleValue]];
+                break;
+            case CALORIES:
+                goalTypeLabel=@"Calories :";
+                goalValueLabel=[NSString stringWithFormat:@"%.2f  kcal",[wo.calBurned doubleValue]/1000];
+                break;
+            case DURATION:
+                goalTypeLabel=@"Duration :";
+                NSDateComponents *ageComponents = [[NSCalendar currentCalendar]
+                                                   components:NSMinuteCalendarUnit
+                                                   fromDate:wo.startTimeStamp
+                                                   toDate:wo.endTimeStamp
+                                                   options:0];
+                
+                goalValueLabel=[NSString stringWithFormat:@"%d min",ageComponents.minute];
+                break;
+        }
+        
+    }
+    
+    [cell setGoalTypeLabel:goalTypeLabel workoutDateLabel:wo.startTimeStamp goalValueLabel:goalValueLabel];
     
     
     
@@ -183,37 +229,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [(UINavigationController*)[(ISAppDelegate *)[[UIApplication sharedApplication]delegate] drawerController].centerViewController pushViewController:[[ISReportDetailsViewController alloc] initWithNibName:nil bundle:nil] animated:YES];
+    reportDetailsVC.workout=[workouts objectAtIndex:indexPath.row];
+    [(UINavigationController*)[appDel drawerController].centerViewController pushViewController:reportDetailsVC animated:YES];
 }
 
 
-
-
-
-//-------------------------filling dummy Data-------------------------
--(void)fillDummyReportData
-{
-    dateArray=[[NSMutableArray alloc]initWithCapacity:1];
-    [dateArray addObject:[NSDate date]];
-    [dateArray addObject:[NSDate date]];
-    [dateArray addObject:[NSDate date]];
-    [dateArray addObject:[NSDate date]];
-    [dateArray addObject:[NSDate date]];
-    
-    
-    goalTypeArray=[[NSMutableArray alloc]initWithCapacity:1];
-    [goalTypeArray addObject:@"Duration :"];
-    [goalTypeArray addObject:@"Miles :"];
-    [goalTypeArray addObject:@"Calories :"];
-    [goalTypeArray addObject:@"Duration :"];
-    [goalTypeArray addObject:@"Miles :"];
-    goalValueArray=[[NSMutableArray alloc]initWithCapacity:1];
-    [goalValueArray addObject:@"120 min"];
-    [goalValueArray addObject:@"10.05 miles"];
-    [goalValueArray addObject:@"250 kcal"];
-    [goalValueArray addObject:@"30 min"];
-    [goalValueArray addObject:@"9.06 miles"];
-    
-    
-}
 @end

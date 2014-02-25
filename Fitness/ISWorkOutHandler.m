@@ -44,7 +44,6 @@ static ISWorkOutHandler *sharedInstance = nil;
     self.isDeviceConnected=NO;
     self.isWOStarted=NO;
     
-    
 }
 
 -(void)startWO
@@ -52,12 +51,18 @@ static ISWorkOutHandler *sharedInstance = nil;
     self.isWOStarted=YES;
     self.currentWO=[[ISWorkOut alloc]init];
     self.currentWO.startTimeStamp=[NSDate date];
+    if (self.isWOGoalEnable) {
+        self.currentWO.woGoalId=self.woGoal.woGoalId;
+    }
+    [self.currentWO saveNewWorkout];
     
 }
 -(void)stopWO
 {
     self.isWOStarted=NO;
     self.currentWO.endTimeStamp=[NSDate date];
+    [self.currentWO updateWorkout];
+    
 }
 
 

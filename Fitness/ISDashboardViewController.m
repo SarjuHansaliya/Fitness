@@ -11,14 +11,10 @@
 #import "macros.h"
 #import "MMDrawerBarButtonItem.h"
 #import "ISPathViewController.h"
-#import "ISReportsViewController.h"
 #import "ISProfileViewController.h"
 #import "ILAlertView.h"
 
 
-#define MILES 1
-#define CALORIES 2
-#define DURATION 3
 
 
 @interface ISDashboardViewController ()
@@ -137,11 +133,11 @@
 -(void) displayPathOnMap:(id)sender
 {
 
-    [(UINavigationController*)[(ISAppDelegate *)[[UIApplication sharedApplication]delegate] drawerController].centerViewController pushViewController:[[ISPathViewController alloc] initWithNibName:nil bundle:nil] animated:YES];
+    [(UINavigationController*)[appDel drawerController].centerViewController pushViewController:[[ISPathViewController alloc] initWithNibName:nil bundle:nil] animated:YES];
 }
 -(void) displayReport:(id)sender
 {
-    [(UINavigationController*)[(ISAppDelegate *)[[UIApplication sharedApplication]delegate] drawerController].centerViewController pushViewController:[[ISReportsViewController alloc] initWithNibName:nil bundle:nil] animated:YES];
+    [(UINavigationController*)[appDel drawerController].centerViewController pushViewController:[appDel getReportsViewController] animated:YES];
 }
 
 //---------------------------------handling heart value change-------------------------
@@ -201,6 +197,7 @@
         
         switch (appDel.woHandler.woGoal.goalType) {
             case MILES:
+                
                 break;
                 
             case CALORIES:

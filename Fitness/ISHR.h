@@ -16,4 +16,5 @@
 
 +(ISHR*)hrWithHeartRate:(int)hr timestamp:(NSDate*)ts;
 +(BOOL)saveHRArray:(NSArray*)hrArray;
++(NSArray *)getHRArrayWithStartTS:(NSDate *)startTS endTS:(NSDate*)endTS;
 @end

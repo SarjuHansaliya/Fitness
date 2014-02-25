@@ -7,9 +7,20 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ISReportDetailsViewController">
             <connections>
+                <outlet property="calBurnedLabel" destination="PYh-Pw-HLV" id="lke-U4-fsJ"/>
                 <outlet property="deleteReportView" destination="49I-Id-08B" id="3Hw-nd-2mk"/>
+                <outlet property="distanceLabel" destination="C4N-pg-Tth" id="twj-vY-jWt"/>
+                <outlet property="goalLabel" destination="5ZE-ge-CyT" id="LYX-2U-CXL"/>
+                <outlet property="hrLabel" destination="YTD-zl-L7P" id="wQZ-Y9-wJy"/>
                 <outlet property="mapPathView" destination="kTo-bM-KzJ" id="NDW-VW-6z9"/>
+                <outlet property="maxHRLabel" destination="5NX-jU-vRb" id="4e0-Yf-MEq"/>
+                <outlet property="maxSpeedLabel" destination="2Fh-Et-432" id="ZSd-0R-HXq"/>
+                <outlet property="minHRLabel" destination="Bwd-5o-dZS" id="RlD-kh-9kS"/>
+                <outlet property="minSpeedLabel" destination="HPY-uj-oX8" id="0WO-So-vEH"/>
+                <outlet property="speedLabel" destination="Sp8-Zf-eQY" id="EzT-OS-wiB"/>
+                <outlet property="stepsLabel" destination="q4y-Xh-Jlv" id="B7e-Zp-jNj"/>
                 <outlet property="view" destination="tHU-mW-cFI" id="rWg-tV-IUY"/>
+                <outlet property="woDurationLabel" destination="DBR-IA-VDe" id="lrR-yu-ktg"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

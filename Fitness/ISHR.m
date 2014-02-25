@@ -25,4 +25,10 @@
     return [[(ISAppDelegate*)[[UIApplication sharedApplication]delegate] dbManager] saveHRArray:hrArray];
 }
 
++(NSArray *)getHRArrayWithStartTS:(NSDate *)startTS endTS:(NSDate*)endTS
+{
+    return [[(ISAppDelegate*)[[UIApplication sharedApplication]delegate] dbManager] fetchHRWithStartTS:startTS endTS:endTS];
+}
+
+
 @end

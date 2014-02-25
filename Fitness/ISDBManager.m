@@ -175,7 +175,8 @@ static sqlite3_stmt *statement = nil;
                 NSLog(@"Failed to update pragma");
             }
             
-            sql_stmt ="create table if not exists wo_details (wo_id integer primary key AUTOINCREMENT,start_timestamp int not null,end_timestamp integer not null,steps integer not null, calories_burned real not null,min_speed real not null,max_speed real not null,distance real not null, goal_id integer, foreign key(goal_id)  REFERENCES wo_goal_details(goal_id) on delete cascade)";
+            sql_stmt ="create table if not exists wo_details (wo_id integer primary key AUTOINCREMENT,start_timestamp int not null,end_timestamp integer not null,steps integer not null, calories_burned real not null,min_speed real not null,max_speed real not null,distance real not null, goal_id integer)";
+            //sql_stmt ="create table if not exists wo_details (wo_id integer primary key AUTOINCREMENT,start_timestamp int not null,end_timestamp integer not null,steps integer not null, calories_burned real not null,min_speed real not null,max_speed real not null,distance real not null, goal_id integer, foreign key(goal_id)  REFERENCES wo_goal_details(goal_id) on delete cascade)";
             if (sqlite3_exec(database, sql_stmt, NULL, NULL, &errMsg)
                 != SQLITE_OK)
             {
@@ -342,7 +343,9 @@ static sqlite3_stmt *statement = nil;
         
         
         sqlite3_stmt *compiledStatement;
-        statementStr=[NSString stringWithFormat:@"insert into wo_goal_details(goal_type,goal_value) values(?1,?2)"];
+        statementStr=[NSString stringWithFormat:@"insert into wo_goal_details(goal_type,goal_value) values(?1,?2) "];
+        NSString *queryForLastRowIndex=@"SELECT last_insert_rowid() from wo_goal_details";
+        sqlite3_stmt *stmt;
         if(sqlite3_prepare_v2(database, [statementStr UTF8String], -1, &compiledStatement, NULL) == SQLITE_OK)
         {
             
@@ -352,6 +355,18 @@ static sqlite3_stmt *statement = nil;
             while(YES){
                 NSInteger result = sqlite3_step(compiledStatement);
                 if(result == SQLITE_DONE){
+                    if (sqlite3_prepare_v2(database,
+                                           [queryForLastRowIndex UTF8String], -1, &stmt, NULL) == SQLITE_OK)
+                    {
+                        
+                        if (sqlite3_step(stmt) == SQLITE_ROW)
+                        {
+                            woGoal.woGoalId= sqlite3_column_int(stmt, GOAL_ID);
+                        }
+                        sqlite3_finalize(stmt);
+                    }
+                    
+                    
                     break;
                 }
                 else if(result != SQLITE_BUSY){
@@ -489,6 +504,249 @@ static sqlite3_stmt *statement = nil;
     
     return NO;
 }
+- (NSArray*) fetchHRWithStartTS:(NSDate *)startTS endTS:(NSDate*)endTS
+{
+    const char *dbpath = [databasePath UTF8String];
+    if (sqlite3_open(dbpath, &database) == SQLITE_OK)
+    {
+        
+        
+        int sTS=[startTS timeIntervalSince1970];
+        int eTS=[endTS timeIntervalSince1970];
+        NSString *s=[NSString stringWithFormat:@"select * from hr_details where timestamp>=%d and timestamp<=%d",sTS,eTS];
+        
+        const char *query_stmt = [s UTF8String];
+        NSMutableArray *resultArray = [NSMutableArray arrayWithCapacity:1];
+        if (sqlite3_prepare_v2(database,
+                               query_stmt, -1, &statement, NULL) == SQLITE_OK)
+        {
+            
+            while (sqlite3_step(statement) == SQLITE_ROW) {
+                
+                NSDate * TS=[NSDate dateWithTimeIntervalSince1970:sqlite3_column_int(statement, HR_TIMESTAMP)];
+                int hr=sqlite3_column_int(statement, HR_HR);
+                
+                [resultArray addObject:[ISHR hrWithHeartRate:hr timestamp:TS]];
+            }
+            sqlite3_finalize(statement);
+            sqlite3_close(database);
+            return resultArray;
+            
+            
+        }
+    }
+    return nil;
+}
+
+
+//-----------------------handling workout ----------------------------------------------
+
+- (BOOL) saveWorkout:(ISWorkOut*)woDetails
+{
+    const char *dbpath = [databasePath UTF8String];
+    if (sqlite3_open(dbpath, &database) == SQLITE_OK)
+    {
+        
+        NSString* statementStr;
+        
+        statementStr = @"BEGIN EXCLUSIVE TRANSACTION";
+        
+        if (sqlite3_prepare_v2(database, [statementStr UTF8String], -1, &statement, NULL) != SQLITE_OK) {
+            NSLog(@"db error: %s\n", sqlite3_errmsg(database));
+            return NO;
+        }
+        if (sqlite3_step(statement) != SQLITE_DONE) {
+            sqlite3_finalize(statement);
+            NSLog(@"db error: %s\n", sqlite3_errmsg(database));
+            return NO;
+        }
+        
+        
+        sqlite3_stmt *compiledStatement;
+        
+        
+            
+        statementStr=[NSString stringWithFormat:@"insert into wo_details(start_timestamp ,end_timestamp ,steps , calories_burned ,min_speed ,max_speed ,distance,goal_id) values(?1,?2,?3,?4,?5,?6,?7,?8)"];
+        NSString *queryForLastRowIndex=@"SELECT last_insert_rowid() from wo_details";
+        sqlite3_stmt *stmt;
+            
+        if(sqlite3_prepare_v2(database, [statementStr UTF8String], -1, &compiledStatement, NULL) == SQLITE_OK)
+        {
+            
+            sqlite3_bind_int(compiledStatement, 1, (int)[woDetails.startTimeStamp timeIntervalSince1970]);
+            sqlite3_bind_int(compiledStatement, 2, (int)[woDetails.endTimeStamp timeIntervalSince1970]);
+            sqlite3_bind_int(compiledStatement, 3, [woDetails.steps intValue]);
+            sqlite3_bind_double(compiledStatement, 4, [woDetails.calBurned doubleValue]);
+            sqlite3_bind_double(compiledStatement, 5, [woDetails.minSpeed doubleValue]);
+            sqlite3_bind_double(compiledStatement, 6, [woDetails.maxSpeed doubleValue]);
+            sqlite3_bind_double(compiledStatement, 7, [woDetails.distance doubleValue]);
+            sqlite3_bind_int(compiledStatement, 8, woDetails.woGoalId);
+            
+            
+            while(YES){
+                NSInteger result = sqlite3_step(compiledStatement);
+                if(result == SQLITE_DONE){
+                    if (sqlite3_prepare_v2(database,
+                                           [queryForLastRowIndex UTF8String], -1, &stmt, NULL) == SQLITE_OK)
+                    {
+                        
+                        if (sqlite3_step(stmt) == SQLITE_ROW)
+                        {
+                            woDetails.woId=sqlite3_column_int(stmt, WO_ID);
+                        }
+                        sqlite3_finalize(stmt);
+                    }
+                    break;
+                }
+                else if(result != SQLITE_BUSY){
+                    NSLog(@"db error: %s\n", sqlite3_errmsg(database));
+                    break;
+                }
+            }
+            sqlite3_reset(compiledStatement);
+            
+            
+            
+            
+        }
+        
+        
+        //------------------------commit-------------------
+        statementStr = @"COMMIT TRANSACTION";
+        sqlite3_stmt *commitStatement;
+        if (sqlite3_prepare_v2(database, [statementStr UTF8String], -1, &commitStatement, NULL) != SQLITE_OK) {
+            NSLog(@"db error: %s\n", sqlite3_errmsg(database));
+            return NO;
+        }
+        if (sqlite3_step(commitStatement) != SQLITE_DONE) {
+            NSLog(@"db error: %s\n", sqlite3_errmsg(database));
+            return NO;
+        }
+        
+        
+        sqlite3_finalize(compiledStatement);
+        sqlite3_finalize(commitStatement);
+        sqlite3_finalize(statement);
+        sqlite3_close(database);
+        return YES;
+    }
+    return NO;
+}
+
+- (BOOL) updateWorkout:(ISWorkOut*)woDetails
+{
+    const char *dbpath = [databasePath UTF8String];
+    if (sqlite3_open(dbpath, &database) == SQLITE_OK)
+    {
+        
+        NSString* statementStr;
+        
+        statementStr = @"BEGIN EXCLUSIVE TRANSACTION";
+        
+        if (sqlite3_prepare_v2(database, [statementStr UTF8String], -1, &statement, NULL) != SQLITE_OK) {
+            NSLog(@"db error: %s\n", sqlite3_errmsg(database));
+            return NO;
+        }
+        if (sqlite3_step(statement) != SQLITE_DONE) {
+            sqlite3_finalize(statement);
+            NSLog(@"db error: %s\n", sqlite3_errmsg(database));
+            return NO;
+        }
+        
+        
+        sqlite3_stmt *compiledStatement;
+        
+        statementStr=[NSString stringWithFormat:@"update wo_details set start_timestamp=?1 ,end_timestamp=?2 ,steps=?3 , calories_burned=?4 ,min_speed=?5 ,max_speed=?6 ,distance=?7,goal_id=?8  where wo_id=%d ",woDetails.woId];
+        
+        if(sqlite3_prepare_v2(database, [statementStr UTF8String], -1, &compiledStatement, NULL) == SQLITE_OK)
+        {
+            
+            sqlite3_bind_int(compiledStatement, 1, (int)[woDetails.startTimeStamp timeIntervalSince1970]);
+            sqlite3_bind_int(compiledStatement, 2, (int)[woDetails.endTimeStamp timeIntervalSince1970]);
+            sqlite3_bind_int(compiledStatement, 3, [woDetails.steps intValue]);
+            sqlite3_bind_double(compiledStatement, 4, [woDetails.calBurned doubleValue]);
+            sqlite3_bind_double(compiledStatement, 5, [woDetails.minSpeed doubleValue]);
+            sqlite3_bind_double(compiledStatement, 6, [woDetails.maxSpeed doubleValue]);
+            sqlite3_bind_double(compiledStatement, 7, [woDetails.distance doubleValue]);
+            sqlite3_bind_int(compiledStatement, 8, woDetails.woGoalId);
+            
+            
+            while(YES){
+                NSInteger result = sqlite3_step(compiledStatement);
+                if(result == SQLITE_DONE){
+                    break;
+                }
+                else if(result != SQLITE_BUSY){
+                    NSLog(@"db error: %s\n", sqlite3_errmsg(database));
+                    break;
+                }
+            }
+            sqlite3_reset(compiledStatement);
+            
+        }
+        
+        
+        
+        //------------------------commit-------------------
+        statementStr = @"COMMIT TRANSACTION";
+        sqlite3_stmt *commitStatement;
+        if (sqlite3_prepare_v2(database, [statementStr UTF8String], -1, &commitStatement, NULL) != SQLITE_OK) {
+            NSLog(@"db error: %s\n", sqlite3_errmsg(database));
+            return NO;
+        }
+        if (sqlite3_step(commitStatement) != SQLITE_DONE) {
+            NSLog(@"db error: %s\n", sqlite3_errmsg(database));
+            return NO;
+        }
+        
+        
+        sqlite3_finalize(compiledStatement);
+        sqlite3_finalize(commitStatement);
+        sqlite3_finalize(statement);
+        sqlite3_close(database);
+        return YES;
+    }
+    return NO;
+}
+
+
+- (NSArray*) fetchAllWorkouts
+{
+    const char *dbpath = [databasePath UTF8String];
+    if (sqlite3_open(dbpath, &database) == SQLITE_OK)
+    {
+        
+        const char *query_stmt = "select * from wo_details";
+        NSMutableArray *resultArray = [NSMutableArray arrayWithCapacity:1];
+        if (sqlite3_prepare_v2(database,
+                               query_stmt, -1, &statement, NULL) == SQLITE_OK)
+        {
+            
+            while (sqlite3_step(statement) == SQLITE_ROW) {
+                
+                 int woId=sqlite3_column_int(statement, WO_ID);
+                 NSDate *startTimeStamp=[NSDate dateWithTimeIntervalSince1970:sqlite3_column_double(statement, WO_START_TIMESTAMP)];
+                 NSDate *endTimeStamp=[NSDate dateWithTimeIntervalSince1970:sqlite3_column_double(statement, WO_END_TIMESTAMP)];
+                 NSNumber *steps=[NSNumber numberWithInt: sqlite3_column_int(statement, WO_STEPS)];
+                 NSNumber *calBurned=[NSNumber numberWithDouble: (double)sqlite3_column_double(statement, WO_CALORIES_BURNED)];
+                 NSNumber *minSpeed=[NSNumber numberWithDouble: (double)sqlite3_column_double(statement, WO_MIN_SPEED)];
+                 NSNumber *maxSpeed=[NSNumber numberWithDouble: (double)sqlite3_column_double(statement, WO_MAX_SPEED)];
+                 NSNumber *distance=[NSNumber numberWithDouble: (double)sqlite3_column_double(statement, WO_DISTANCE)];
+                 int woGoalId=sqlite3_column_int(statement, WO_GOAL_ID);
+                
+                
+                [resultArray addObject:[ISWorkOut workoutWithwoId:woId startTimeStamp:startTimeStamp endTimeStamp:endTimeStamp steps:steps calBurned:calBurned minSpeed:minSpeed maxSpeed:maxSpeed distance:distance woGoalId:woGoalId]];
+            }
+            sqlite3_finalize(statement);
+            sqlite3_close(database);
+            return resultArray;
+            
+            
+        }
+    }
+    return nil;
+}
+
 
 
 //

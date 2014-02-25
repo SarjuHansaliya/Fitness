@@ -21,7 +21,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
@@ -32,9 +31,94 @@
     [super viewDidLoad];
     [self setupMenuItemsTouchEvents];
     [self setupNavigationBar];
-    // Do any additional setup after loading the view from its nib.
 }
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    
+    NSDateComponents *ageComponents = [[NSCalendar currentCalendar]
+                                       components:NSMinuteCalendarUnit
+                                       fromDate:self.workout.startTimeStamp
+                                       toDate:self.workout.endTimeStamp
+                                       options:0];
+    
+    self.woDurationLabel.text=[NSString stringWithFormat:@"%d Min",ageComponents.minute];
+    self.distanceLabel.text=[NSString stringWithFormat:@"%.1f Miles", [self.workout.distance doubleValue]];
+    self.stepsLabel.text=[NSString stringWithFormat:@"%d Steps", [self.workout.steps intValue]];
+    self.calBurnedLabel.text=[NSString stringWithFormat:@"%.2f kcal", [self.workout.calBurned doubleValue]/1000];
+    self.minSpeedLabel.text=[NSString stringWithFormat:@"Min - %.2f mph", [self.workout.minSpeed doubleValue]];
+    self.maxSpeedLabel.text=[NSString stringWithFormat:@"Max - %.2f mph", [self.workout.maxSpeed doubleValue]];
+    double speed=[self.workout.distance doubleValue]/(ageComponents.minute/60);
+    if (speed>=0.0) {
+        
+        
+        self.speedLabel.text=[NSString stringWithFormat:@"Min - %.2f mph", speed];
+    }
+    else
+        self.speedLabel.text=@"- -";
+    
+    
+    NSArray *hrRecords=[ISHR getHRArrayWithStartTS:self.workout.startTimeStamp endTS:self.workout.endTimeStamp];
+    
+    if ([hrRecords count]==0 || hrRecords== nil) {
+        self.hrLabel.text=@"0 bpm";
+        self.minHRLabel.text=[NSString stringWithFormat:@"Min - 0 bpm"];
+        self.maxHRLabel.text=[NSString stringWithFormat:@"Max - 0 bpm"];
+    }
+    else
+    {
+        int maxHR=0;
+        int minHR=1000;
+        int avgHR=0;
+        
+        for (ISHR *h in hrRecords) {
+            if ([h.hr intValue]< minHR) {
+                minHR=[h.hr intValue];
+            }
+            else if ([h.hr intValue]> maxHR) {
+                maxHR=[h.hr intValue];
+            }
+            
+            avgHR+=[h.hr intValue];
+            
+        }
+        avgHR=avgHR/[hrRecords count];
+        
+        self.hrLabel.text=[NSString stringWithFormat:@"%d bpm",avgHR];
+        self.minHRLabel.text=[NSString stringWithFormat:@"Min - %d bpm",minHR];
+        self.maxHRLabel.text=[NSString stringWithFormat:@"Max - %d bpm",maxHR];
+    }
+    int goalId=self.workout.woGoalId;
+    double completed;
+    if (goalId!=0)
+    {
+        ISWOGoal *goal=[ISWOGoal getWOGoalWithId:goalId];
+        
+        switch (goal.goalType) {
+            case MILES:
+                
+                completed=([self.workout.distance doubleValue])/[goal.goalValue doubleValue]*100.0;
+                break;
+            case CALORIES:
+                
+                completed=([self.workout.calBurned doubleValue]/1000)/[goal.goalValue doubleValue]*100.0;
+                break;
+            case DURATION:
+                
+                completed=(ageComponents.minute)/[goal.goalValue doubleValue]*100.0;
+                break;
+        }
+        if (completed>100.0) {
+            completed=100.0;
+        }
+        self.goalLabel.text=[NSString stringWithFormat:@"%.0f %%",completed];
+        
+    }
+    else
+    {
+        self.goalLabel.text=@"- -";
+    }
+    
+}
 -(void)setupNavigationBar
 {
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
@@ -95,7 +179,7 @@
     tapOnDeleteView.numberOfTapsRequired=1;
     [self.deleteReportView addGestureRecognizer:tapOnDeleteView];
     
-   
+    
     
     
 }
