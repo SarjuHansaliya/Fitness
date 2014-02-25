@@ -23,10 +23,18 @@
 @property (weak, nonatomic) IBOutlet UILabel *woDurationLabel;
 @property (weak, nonatomic) IBOutlet UILabel *goalLabel;
 
+@property (weak, nonatomic) IBOutlet UILabel *distanceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *stepsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *minSpeedLabel;
+@property (weak, nonatomic) IBOutlet UILabel *maxSpeedLabel;
+@property (weak, nonatomic) IBOutlet UILabel *speedLabel;
+
 
 
 - (IBAction)workoutStart:(id)sender;
 
 -(void)didUpdateCurrentHeartRate:(NSNumber *)currHr maxHeartRate:(NSNumber *)maxHr minHeartRate:(NSNumber *)minHr;
+
+-(void)didUpdateLocation;
 
 @end

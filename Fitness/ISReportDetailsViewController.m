@@ -42,19 +42,31 @@
                                        options:0];
     
     self.woDurationLabel.text=[NSString stringWithFormat:@"%d Min",ageComponents.minute];
-    self.distanceLabel.text=[NSString stringWithFormat:@"%.1f Miles", [self.workout.distance doubleValue]];
+    self.distanceLabel.text=[NSString stringWithFormat:@"%.2f Miles", [self.workout.distance doubleValue]];
     self.stepsLabel.text=[NSString stringWithFormat:@"%d Steps", [self.workout.steps intValue]];
     self.calBurnedLabel.text=[NSString stringWithFormat:@"%.2f kcal", [self.workout.calBurned doubleValue]/1000];
-    self.minSpeedLabel.text=[NSString stringWithFormat:@"Min - %.2f mph", [self.workout.minSpeed doubleValue]];
-    self.maxSpeedLabel.text=[NSString stringWithFormat:@"Max - %.2f mph", [self.workout.maxSpeed doubleValue]];
-    double speed=[self.workout.distance doubleValue]/(ageComponents.minute/60);
-    if (speed>=0.0) {
-        
-        
-        self.speedLabel.text=[NSString stringWithFormat:@"Min - %.2f mph", speed];
+    if ([self.workout.minSpeed doubleValue]>999.0 || [self.workout.minSpeed doubleValue]< 0.00) {
+        self.minSpeedLabel.text=[NSString stringWithFormat:@"Min - mph"];
+    }
+    else
+    {
+        self.minSpeedLabel.text=[NSString stringWithFormat:@"Min - %.1f mph",[self.workout.minSpeed doubleValue] ];
+    }
+    if ([self.workout.maxSpeed doubleValue]<=0.00) {
+        self.maxSpeedLabel.text=[NSString stringWithFormat:@"Max - mph"];
+    }
+    else
+    {
+        self.maxSpeedLabel.text=[NSString stringWithFormat:@"Max - %.1f mph",[self.workout.maxSpeed doubleValue] ];
+    }
+    
+    double speed=[self.workout.distance doubleValue]/(ageComponents.minute/60.0);
+    if (speed>=0.0 && ageComponents.minute!=0.0) {
+        self.speedLabel.text=[NSString stringWithFormat:@"%.2f mph", speed];
     }
     else
         self.speedLabel.text=@"- -";
+    
     
     
     NSArray *hrRecords=[ISHR getHRArrayWithStartTS:self.workout.startTimeStamp endTS:self.workout.endTimeStamp];

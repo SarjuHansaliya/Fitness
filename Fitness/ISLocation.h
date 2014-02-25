@@ -11,4 +11,8 @@
 
 @interface ISLocation : CLLocation
 
++(ISLocation*)locationWithTimeStamp:(NSDate *)ts latitude:(double)lat longitude:(double)lon;
++(BOOL)saveLocationArray:(NSArray*)locationArray;
++(NSArray *)getLocationArrayWithStartTS:(NSDate *)startTS endTS:(NSDate*)endTS;
+
 @end

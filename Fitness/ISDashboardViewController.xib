@@ -8,13 +8,18 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ISDashboardViewController">
             <connections>
                 <outlet property="calBurnedLabel" destination="Xpy-9j-rbD" id="C8f-dd-RPc"/>
+                <outlet property="distanceLabel" destination="7HB-Yj-b3S" id="Rgz-Or-s2R"/>
                 <outlet property="goalLabel" destination="I5Z-dy-RMy" id="SX0-Iy-pH7"/>
                 <outlet property="hrLabel" destination="Cmx-5b-8n0" id="jss-yU-vWv"/>
                 <outlet property="mapPathView" destination="iNQ-rO-8aM" id="YSf-X4-V7I"/>
                 <outlet property="maxHRLabel" destination="pd9-kK-UcC" id="Dua-sq-672"/>
+                <outlet property="maxSpeedLabel" destination="AKN-Gs-bt4" id="H4v-9x-Ww6"/>
                 <outlet property="minHRLabel" destination="lS0-rD-xg7" id="q4W-1q-FjZ"/>
+                <outlet property="minSpeedLabel" destination="gRH-ia-LZf" id="aIT-Hr-gqZ"/>
                 <outlet property="reportView" destination="NxO-zn-4fS" id="7wY-zT-ku4"/>
+                <outlet property="speedLabel" destination="xxY-5L-V8P" id="IDo-Gf-IR3"/>
                 <outlet property="startWOButton" destination="dtu-dv-tFv" id="qT4-F6-FWn"/>
+                <outlet property="stepsLabel" destination="4lU-8D-y5B" id="hnb-7A-8rw"/>
                 <outlet property="view" destination="1" id="3"/>
                 <outlet property="woDurationLabel" destination="nLO-0x-0ow" id="Fnx-jl-K9F"/>
             </connections>

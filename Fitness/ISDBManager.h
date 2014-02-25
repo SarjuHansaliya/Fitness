@@ -12,6 +12,7 @@
 #import "ISWOGoal.h"
 #import "ISHR.h"
 #import "ISWorkOut.h"
+#import "ISLocation.h"
 
 @interface ISDBManager : NSObject
 {
@@ -31,5 +32,8 @@
 - (NSArray*) fetchAllWorkouts;
 - (NSArray*) fetchHRWithStartTS:(NSDate *)startTS endTS:(NSDate*)endTS;
 - (BOOL) deleteWorkout:(ISWorkOut*)woDetails;
+- (BOOL) saveLocationArray:(NSArray*)locationArray;
+- (NSArray*) fetchLocationWithStartTS:(NSDate *)startTS endTS:(NSDate*)endTS;
+
 
 @end

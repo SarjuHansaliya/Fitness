@@ -517,13 +517,17 @@ static sqlite3_stmt *statement = nil;
         
         int sTS=[startTS timeIntervalSince1970];
         int eTS=[endTS timeIntervalSince1970];
-        NSString *s=[NSString stringWithFormat:@"select * from hr_details where timestamp>=%d and timestamp<=%d",sTS,eTS];
+        NSString *s=[NSString stringWithFormat:@"select * from hr_details where timestamp>=?1 and timestamp<=?2"];
         
         const char *query_stmt = [s UTF8String];
         NSMutableArray *resultArray = [NSMutableArray arrayWithCapacity:1];
         if (sqlite3_prepare_v2(database,
                                query_stmt, -1, &statement, NULL) == SQLITE_OK)
         {
+            
+            sqlite3_bind_int(statement, 1, sTS);
+            sqlite3_bind_int(statement, 2, eTS);
+            
             
             while (sqlite3_step(statement) == SQLITE_ROW) {
                 
@@ -821,6 +825,123 @@ static sqlite3_stmt *statement = nil;
     return nil;
 }
 
+//--------------------------------------handling location details------------------------------
+- (BOOL) saveLocationArray:(NSArray*)locationArray
+{
+    
+    const char *dbpath = [databasePath UTF8String];
+    if (sqlite3_open(dbpath, &database) == SQLITE_OK)
+    {
+        
+        NSString* statementStr;
+        
+        statementStr = @"BEGIN EXCLUSIVE TRANSACTION";
+        
+        if (sqlite3_prepare_v2(database, [statementStr UTF8String], -1, &statement, NULL) != SQLITE_OK) {
+            NSLog(@"db error: %s\n", sqlite3_errmsg(database));
+            return NO;
+        }
+        if (sqlite3_step(statement) != SQLITE_DONE) {
+            sqlite3_finalize(statement);
+            NSLog(@"db error: %s\n", sqlite3_errmsg(database));
+            return NO;
+        }
+        sqlite3_stmt *compiledStatement;
+        
+        statementStr=[NSString stringWithFormat:@"insert into location_details(timestamp,latitude,longitude) values(?1,?2,?3)"];
+        
+        if(sqlite3_prepare_v2(database, [statementStr UTF8String], -1, &compiledStatement, NULL) == SQLITE_OK)
+        {
+            
+            for (ISLocation *loc  in locationArray) {
+                
+                sqlite3_bind_int(compiledStatement, 1,(int) [loc.timestamp timeIntervalSince1970]);
+                sqlite3_bind_double(compiledStatement, 2,loc.coordinate.latitude);
+                sqlite3_bind_double(compiledStatement, 3,loc.coordinate.longitude);
+                
+                while(YES){
+                    NSInteger result = sqlite3_step(compiledStatement);
+                    if(result == SQLITE_DONE){
+                        break;
+                    }
+                    else if(result != SQLITE_BUSY){
+                        NSLog(@"db error: %s\n", sqlite3_errmsg(database));
+                        break;
+                    }
+                }
+                sqlite3_reset(compiledStatement);
+                
+                
+            }
+            
+            
+        }
+        
+        
+        
+        
+        // COMMIT
+        statementStr = @"COMMIT TRANSACTION";
+        sqlite3_stmt *commitStatement;
+        if (sqlite3_prepare_v2(database, [statementStr UTF8String], -1, &commitStatement, NULL) != SQLITE_OK) {
+            NSLog(@"db error: %s\n", sqlite3_errmsg(database));
+            return NO;
+        }
+        if (sqlite3_step(commitStatement) != SQLITE_DONE) {
+            NSLog(@"db error: %s\n", sqlite3_errmsg(database));
+            return NO;
+        }
+        
+        //     sqlite3_finalize(beginStatement);
+        sqlite3_finalize(compiledStatement);
+        sqlite3_finalize(commitStatement);
+        return YES;
+        
+    }
+    
+    
+    return NO;
+}
+
+
+
+- (NSArray*) fetchLocationWithStartTS:(NSDate *)startTS endTS:(NSDate*)endTS
+{
+    const char *dbpath = [databasePath UTF8String];
+    if (sqlite3_open(dbpath, &database) == SQLITE_OK)
+    {
+        
+        
+        int sTS=[startTS timeIntervalSince1970];
+        int eTS=[endTS timeIntervalSince1970];
+        NSString *s=[NSString stringWithFormat:@"select * from location_details where timestamp>=?1 and timestamp<=?2"];
+        
+        const char *query_stmt = [s UTF8String];
+        NSMutableArray *resultArray = [NSMutableArray arrayWithCapacity:1];
+        if (sqlite3_prepare_v2(database,
+                               query_stmt, -1, &statement, NULL) == SQLITE_OK)
+        {
+            
+            sqlite3_bind_int(statement, 1, sTS);
+            sqlite3_bind_int(statement, 2, eTS);
+            
+            while (sqlite3_step(statement) == SQLITE_ROW) {
+                
+                NSDate * TS=[NSDate dateWithTimeIntervalSince1970:sqlite3_column_int(statement, LOCATION_TIMESTAMP)];
+                double latitude=sqlite3_column_double(statement, LOCATION_LATITUDE);
+                double longitude=sqlite3_column_double(statement, LOCATION_LONGITUDE);
+                
+                [resultArray addObject:[ISLocation locationWithTimeStamp:TS latitude:latitude longitude:longitude]];
+            }
+            sqlite3_finalize(statement);
+            sqlite3_close(database);
+            return resultArray;
+            
+            
+        }
+    }
+    return nil;
+}
 
 
 //

@@ -45,6 +45,7 @@
 //    [appDel.drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeNone];
 //    [appDel.drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
     [[appDel getHRDistributor] setDashBoardDelegate:self];
+    [appDel.woHandler setDashBoardDelegate:self];
     if (![[appDel woHandler] isUserProfileSet]) {
         ISProfileViewController *userProfile=[[ISProfileViewController alloc]initWithNibName:nil bundle:nil];
         userProfile.wantsFullScreenLayout = YES;
@@ -56,12 +57,15 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     
-   
     if (![[appDel woHandler] isUserProfileSet]) {
         ISProfileViewController *userProfile=[[ISProfileViewController alloc]initWithNibName:nil bundle:nil];
         userProfile.wantsFullScreenLayout = YES;
          [(UINavigationController*)[(ISAppDelegate *)[[UIApplication sharedApplication]delegate] drawerController] presentViewController:userProfile animated:YES completion:nil];
     }
+    if (appDel.woHandler.isWOStarted) {
+        [self didUpdateLocation];
+    }
+    
 }
 
 
@@ -153,13 +157,48 @@
     
 }
 
-
-- (void)didReceiveMemoryWarning
+//-----------------------------handling location updates-------------------------------------
+-(void)didUpdateLocation
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+   
+    self.distanceLabel.text= [NSString stringWithFormat:@"%.2f Miles" ,[appDel.woHandler.currentWO.distance doubleValue]];
+    if ([appDel.woHandler.currentWO.minSpeed doubleValue]>999.0 || [appDel.woHandler.currentWO.minSpeed doubleValue]< 0.00) {
+        self.minSpeedLabel.text=[NSString stringWithFormat:@"Min - mph"];
+    }
+    else
+    {
+        self.minSpeedLabel.text=[NSString stringWithFormat:@"Min - %.1f mph",[appDel.woHandler.currentWO.minSpeed doubleValue] ];
+    }
+    if ([appDel.woHandler.currentWO.maxSpeed doubleValue]<=0.00) {
+        self.maxSpeedLabel.text=[NSString stringWithFormat:@"Max - mph"];
+    }
+    else
+    {
+        self.maxSpeedLabel.text=[NSString stringWithFormat:@"Max - %.1f mph",[appDel.woHandler.currentWO.maxSpeed doubleValue] ];
+    }
+    [self calculateSpeed];
+    
+
+    [self calculateGoalCompletion];
+}
+-(void)calculateSpeed
+{
+    NSDateComponents *ageComponents = [[NSCalendar currentCalendar]
+                                       components:NSMinuteCalendarUnit
+                                       fromDate:appDel.woHandler.currentWO.startTimeStamp
+                                       toDate:[NSDate date]
+                                       options:0];
+
+   // NSLog(@"%@ %f",appDel.woHandler.currentWO.distance,ageComponents.minute/60.0);
+    double speed=[appDel.woHandler.currentWO.distance doubleValue]/(ageComponents.minute/60.0);
+    if (speed>=0.0 && ageComponents.minute!=0.0) {
+        self.speedLabel.text=[NSString stringWithFormat:@"%.2f mph", speed];
+    }
+    else
+        self.speedLabel.text=@"- -";
 }
 
+//--------------------------------------handling duration updates--------------------------
 -(void)calculateWODuration
 {
     
@@ -176,10 +215,15 @@
     self.woDurationLabel.text=[NSString stringWithFormat:@"%d Min",ageComponents.minute];
     [self calculateGoalCompletion];
     if (appDel.woHandler.isWOStarted) {
-    
+        
+        [self calculateSpeed];
         [self performSelector:@selector(calculateWODuration) withObject:nil afterDelay:60.0];
     }
 }
+
+
+//-----------------------------------calculating goal completion-------------------------------
+
 -(void)calculateGoalCompletion
 {
     if (!appDel.woHandler.isWOStarted) {
@@ -247,8 +291,6 @@
             [appDel.woHandler stopWO];
         }
         
-        
-        
     }
     else
     {
@@ -276,7 +318,11 @@
 }
 
 
-
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    
+}
 
 
 

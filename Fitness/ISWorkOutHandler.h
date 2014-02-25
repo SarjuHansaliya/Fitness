@@ -7,12 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 #import "ISWOGoal.h"
 #import "ISWorkOut.h"
 #import "ISUserDetails.h"
+#import "ISDashboardViewController.h"
 
-@interface ISWorkOutHandler : NSObject
+@interface ISWorkOutHandler : NSObject <CLLocationManagerDelegate>
 
+@property CLLocationManager *locationManager;
+@property NSMutableArray * locations;
 
 @property BOOL isWOGoalEnable;
 @property ISWOGoal *woGoal;
@@ -23,7 +27,10 @@
 @property BOOL isDeviceConnected;
 
 @property BOOL isWOStarted;
+
 @property ISWorkOut *currentWO;
+@property (weak) ISDashboardViewController * dashBoardDelegate;
+
 
 +(ISWorkOutHandler*)getSharedInstance;
 
