@@ -42,6 +42,10 @@
 {
     return [[(ISAppDelegate*)[[UIApplication sharedApplication]delegate] dbManager] updateWorkout:self];
 }
+-(BOOL)deleteWorkout
+{
+    return [[(ISAppDelegate*)[[UIApplication sharedApplication]delegate] dbManager] deleteWorkout:self];
+}
 
 
 @end

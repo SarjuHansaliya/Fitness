@@ -30,6 +30,6 @@
 - (BOOL) updateWorkout:(ISWorkOut*)woDetails;
 - (NSArray*) fetchAllWorkouts;
 - (NSArray*) fetchHRWithStartTS:(NSDate *)startTS endTS:(NSDate*)endTS;
-
+- (BOOL) deleteWorkout:(ISWorkOut*)woDetails;
 
 @end

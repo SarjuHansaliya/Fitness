@@ -190,6 +190,7 @@
 }
 -(void) deleteReport:(id)sender
 {
+    [self.workout deleteWorkout];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

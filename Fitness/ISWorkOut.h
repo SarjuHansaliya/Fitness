@@ -24,5 +24,6 @@
 +(NSArray *)getWorkouts;
 -(BOOL)saveNewWorkout;
 -(BOOL)updateWorkout;
+-(BOOL)deleteWorkout;
 
 @end

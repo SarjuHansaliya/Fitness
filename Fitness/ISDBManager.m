@@ -393,6 +393,7 @@ static sqlite3_stmt *statement = nil;
         
         sqlite3_finalize(compiledStatement);
         sqlite3_finalize(commitStatement);
+        sqlite3_finalize(stmt);
         sqlite3_finalize(statement);
         sqlite3_close(database);
         return YES;
@@ -504,6 +505,9 @@ static sqlite3_stmt *statement = nil;
     
     return NO;
 }
+
+
+
 - (NSArray*) fetchHRWithStartTS:(NSDate *)startTS endTS:(NSDate*)endTS
 {
     const char *dbpath = [databasePath UTF8String];
@@ -626,6 +630,7 @@ static sqlite3_stmt *statement = nil;
         
         sqlite3_finalize(compiledStatement);
         sqlite3_finalize(commitStatement);
+        sqlite3_finalize(stmt);
         sqlite3_finalize(statement);
         sqlite3_close(database);
         return YES;
@@ -656,7 +661,7 @@ static sqlite3_stmt *statement = nil;
         
         sqlite3_stmt *compiledStatement;
         
-        statementStr=[NSString stringWithFormat:@"update wo_details set start_timestamp=?1 ,end_timestamp=?2 ,steps=?3 , calories_burned=?4 ,min_speed=?5 ,max_speed=?6 ,distance=?7,goal_id=?8  where wo_id=%d ",woDetails.woId];
+        statementStr=[NSString stringWithFormat:@"update wo_details set start_timestamp=?1 ,end_timestamp=?2 ,steps=?3 , calories_burned=?4 ,min_speed=?5 ,max_speed=?6 ,distance=?7,goal_id=?8  where wo_id=?9 "];
         
         if(sqlite3_prepare_v2(database, [statementStr UTF8String], -1, &compiledStatement, NULL) == SQLITE_OK)
         {
@@ -669,6 +674,75 @@ static sqlite3_stmt *statement = nil;
             sqlite3_bind_double(compiledStatement, 6, [woDetails.maxSpeed doubleValue]);
             sqlite3_bind_double(compiledStatement, 7, [woDetails.distance doubleValue]);
             sqlite3_bind_int(compiledStatement, 8, woDetails.woGoalId);
+            sqlite3_bind_int(compiledStatement, 9, woDetails.woId);
+            
+            while(YES){
+                NSInteger result = sqlite3_step(compiledStatement);
+                if(result == SQLITE_DONE){
+                    break;
+                }
+                else if(result != SQLITE_BUSY){
+                    NSLog(@"db error: %s\n", sqlite3_errmsg(database));
+                    break;
+                }
+            }
+            sqlite3_reset(compiledStatement);
+            
+        }
+        
+        
+        
+        //------------------------commit-------------------
+        statementStr = @"COMMIT TRANSACTION";
+        sqlite3_stmt *commitStatement;
+        if (sqlite3_prepare_v2(database, [statementStr UTF8String], -1, &commitStatement, NULL) != SQLITE_OK) {
+            NSLog(@"db error: %s\n", sqlite3_errmsg(database));
+            return NO;
+        }
+        if (sqlite3_step(commitStatement) != SQLITE_DONE) {
+            NSLog(@"db error: %s\n", sqlite3_errmsg(database));
+            return NO;
+        }
+        
+        
+        sqlite3_finalize(compiledStatement);
+        sqlite3_finalize(commitStatement);
+        sqlite3_finalize(statement);
+        sqlite3_close(database);
+        return YES;
+    }
+    return NO;
+}
+
+- (BOOL) deleteWorkout:(ISWorkOut*)woDetails
+{
+    const char *dbpath = [databasePath UTF8String];
+    if (sqlite3_open(dbpath, &database) == SQLITE_OK)
+    {
+        
+        NSString* statementStr;
+        
+        statementStr = @"BEGIN EXCLUSIVE TRANSACTION";
+        
+        if (sqlite3_prepare_v2(database, [statementStr UTF8String], -1, &statement, NULL) != SQLITE_OK) {
+            NSLog(@"db error: %s\n", sqlite3_errmsg(database));
+            return NO;
+        }
+        if (sqlite3_step(statement) != SQLITE_DONE) {
+            sqlite3_finalize(statement);
+            NSLog(@"db error: %s\n", sqlite3_errmsg(database));
+            return NO;
+        }
+        
+        
+        sqlite3_stmt *compiledStatement;
+        
+        statementStr=@"delete from wo_details where wo_id = ?1";
+        
+        if(sqlite3_prepare_v2(database, [statementStr UTF8String], -1, &compiledStatement, NULL) == SQLITE_OK)
+        {
+            
+            sqlite3_bind_int(compiledStatement, 1, woDetails.woId);
             
             
             while(YES){
