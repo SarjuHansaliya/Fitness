@@ -24,16 +24,28 @@
     }
     return self;
 }
+-(ISReminderRepeatViewController*)getRepeatController
+{
+    if (self.repeatController==nil) {
+        self.repeatController=[[ISReminderRepeatViewController alloc]initWithStyle:UITableViewStylePlain];
+    }
+    
+    return self.repeatController;
+}
+-(ISReminderAlertViewController*)getAlertController
+{
+    if (self.alertController==nil) {
+        self.alertController=[[ISReminderAlertViewController alloc]initWithStyle:UITableViewStylePlain];
+    }
+    
+    return self.alertController;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self setupGestureRecognizer];
     [self setupNavigationBar];
-    
-    
-    self.repeatController = [[ISReminderRepeatViewController alloc]initWithStyle:UITableViewStylePlain];
-    self.alertController = [[ISReminderAlertViewController alloc]initWithStyle:UITableViewStylePlain];
     
     self.toDateTextField.inputView=self.datePicker;
     self.toDateTextField.inputAccessoryView=self.accessoryView;
@@ -56,7 +68,6 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    self.repeatLabel.text = self.repeatController.label;
     self.alertLabel.text = self.alertController.label;
 
 }
@@ -175,15 +186,14 @@
 -(void)repeatClicked:(id)sender
 {
     
-    [self.navigationController pushViewController:self.repeatController animated:YES ];
+    [self.navigationController pushViewController:[self getRepeatController] animated:YES ];
 }
 
 -(void)alertClicked:(id)sender
 {
     
-    [self.navigationController pushViewController:self.alertController animated:YES ];
+    [self.navigationController pushViewController:[self getAlertController] animated:YES ];
 }
-
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
    

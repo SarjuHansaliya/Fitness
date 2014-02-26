@@ -69,6 +69,7 @@
 		BB0B80C618ACC9E800BCC2E0 /* ISReminderCellViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB0B80C418ACC9E800BCC2E0 /* ISReminderCellViewController.m */; };
 		BB0B80C718ACC9E800BCC2E0 /* ISReminderCellViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB0B80C518ACC9E800BCC2E0 /* ISReminderCellViewController.xib */; };
 		BB0B80DD18ACCA9A00BCC2E0 /* lineReminderCell.png in Resources */ = {isa = PBXBuildFile; fileRef = BB0B80CF18ACCA9A00BCC2E0 /* lineReminderCell.png */; };
+		BB0C61E518BDE8B200FCB7D1 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB0C61E418BDE8B200FCB7D1 /* EventKit.framework */; };
 		BB0EE32C18A3ADAB00E3EA63 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB0EE32B18A3ADAB00E3EA63 /* Foundation.framework */; };
 		BB0EE32E18A3ADAB00E3EA63 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB0EE32D18A3ADAB00E3EA63 /* CoreGraphics.framework */; };
 		BB0EE33018A3ADAB00E3EA63 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB0EE32F18A3ADAB00E3EA63 /* UIKit.framework */; };
@@ -255,6 +256,7 @@
 		BB0B80C418ACC9E800BCC2E0 /* ISReminderCellViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISReminderCellViewController.m; sourceTree = "<group>"; };
 		BB0B80C518ACC9E800BCC2E0 /* ISReminderCellViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISReminderCellViewController.xib; sourceTree = "<group>"; };
 		BB0B80CF18ACCA9A00BCC2E0 /* lineReminderCell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lineReminderCell.png; sourceTree = "<group>"; };
+		BB0C61E418BDE8B200FCB7D1 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		BB0EE32818A3ADAB00E3EA63 /* Fitness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fitness.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB0EE32B18A3ADAB00E3EA63 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BB0EE32D18A3ADAB00E3EA63 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -386,6 +388,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB0C61E518BDE8B200FCB7D1 /* EventKit.framework in Frameworks */,
 				BB98D6FA18B7418D00C6A16D /* libsqlite3.dylib in Frameworks */,
 				BB98D6EB18B7396D00C6A16D /* CoreLocation.framework in Frameworks */,
 				BB11950A18B5F16B00D05A97 /* CoreBluetooth.framework in Frameworks */,
@@ -563,6 +566,7 @@
 		BB0EE32A18A3ADAB00E3EA63 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BB0C61E418BDE8B200FCB7D1 /* EventKit.framework */,
 				BB98D6F918B7418D00C6A16D /* libsqlite3.dylib */,
 				BB98D6EA18B7396D00C6A16D /* CoreLocation.framework */,
 				BB11950918B5F16B00D05A97 /* CoreBluetooth.framework */,

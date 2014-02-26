@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ISWorkOut.h"
+#import <MapKit/MapKit.h>
 
-@interface ISPathViewController : UIViewController
+@interface ISPathViewController : UIViewController <MKMapViewDelegate>
 
+@property (weak) ISWorkOut * workout;
+@property (weak, nonatomic) IBOutlet MKMapView *map;
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil workout:(ISWorkOut*)workout;
 @end

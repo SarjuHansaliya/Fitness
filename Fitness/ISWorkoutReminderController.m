@@ -10,18 +10,24 @@
 #import "ISEditReminderViewController.h"
 #import "ISNewReminderViewController.h"
 #import "macros.h"
+#import "ISAppDelegate.h"
 
 @interface ISWorkoutReminderController ()
 
 @end
 
 @implementation ISWorkoutReminderController
+{
+    ISAppDelegate *appDel;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.remindersTableVC=[[ISWorkoutRemindersViewController alloc]initWithStyle:UITableViewStylePlain];
+        
+        appDel=(ISAppDelegate*)[[UIApplication sharedApplication]delegate];
+        [appDel checkEventStoreAccessForCalendar];
     }
     return self;
 }
@@ -30,7 +36,10 @@
 {
     [super viewDidLoad];
     [self setupNavigationBar];
+    self.remindersTableVC=[[ISWorkoutRemindersViewController alloc]initWithStyle:UITableViewStylePlain];
     [self.remindersView addSubview:self.remindersTableVC.tableView];
+    
+    
     
 }
 //--------------------------------setting up navigation bar--------------------------------------
@@ -76,7 +85,9 @@
     
     // [backButton setTintColor: [UIColor colorWithHue:31.0/360.0 saturation:99.0/100.0 brightness:87.0/100.0 alpha:1]];
     [self.navigationItem setLeftBarButtonItem:backButton];
-    [self.navigationItem setRightBarButtonItem:addButton];
+    if (appDel.isCalendarAccessGranted) {
+        [self.navigationItem setRightBarButtonItem:addButton];
+    }
     
     
 }

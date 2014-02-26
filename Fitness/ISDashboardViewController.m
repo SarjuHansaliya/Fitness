@@ -137,7 +137,7 @@
 -(void) displayPathOnMap:(id)sender
 {
 
-    [(UINavigationController*)[appDel drawerController].centerViewController pushViewController:[[ISPathViewController alloc] initWithNibName:nil bundle:nil] animated:YES];
+    [(UINavigationController*)[appDel drawerController].centerViewController pushViewController:[[ISPathViewController alloc] initWithNibName:nil bundle:nil workout:appDel.woHandler.currentWO] animated:YES];
 }
 -(void) displayReport:(id)sender
 {
@@ -270,7 +270,7 @@
             {
                 
                 UILocalNotification* localNotification = [[UILocalNotification alloc] init];
-                localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:1];
+                localNotification.fireDate = [NSDate date];
                 localNotification.alertBody = @"Workout Goal Completed";
                 localNotification.timeZone = [NSTimeZone defaultTimeZone];
                 localNotification.alertAction = @"View Details";

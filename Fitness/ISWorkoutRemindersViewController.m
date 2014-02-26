@@ -7,6 +7,7 @@
 //
 
 #import "ISWorkoutRemindersViewController.h"
+#import "ISAppDelegate.h"
 
 
 
@@ -23,13 +24,15 @@
     
     //remove before original implementation---------------------------
     
+    ISAppDelegate *appDel;
+    
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
+        appDel=(ISAppDelegate*)[[UIApplication sharedApplication]delegate];
     }
     return self;
 }
@@ -37,16 +40,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self fillDummyReminderData]; //remove this
     self.tableView.separatorColor=[UIColor clearColor];
     self.tableView.backgroundColor=[UIColor clearColor];
-   
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(storeChanged:)
+                                                 name:EKEventStoreChangedNotification
+                                               object:appDel.eventStore];
+    [self fetchData];
 }
+
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
@@ -64,7 +70,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 
-    return [dateArray count];
+    return [self.reminders count];
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -82,9 +88,7 @@
         
                
     }
-    [cell setReminderTime:[dateArray objectAtIndex:indexPath.row] reminderOnDays:[daysArray objectAtIndex:indexPath.row] ];
-    
-    
+    [cell setCellValuesForReminder:[self.reminders objectAtIndex:indexPath.row]] ;
     
     return cell;
 }
@@ -145,8 +149,6 @@
     }
     else
     {
-        
-        
         prevSelectedCell.reminderSelImage.hidden=YES;
         newSelectedCell.reminderSelImage.hidden=NO;
         
@@ -171,31 +173,40 @@
     
 }
 
-
-
-//-------------------------filling dummy Data-------------------------
--(void)fillDummyReminderData
+-(void)fetchData
 {
-    dateArray=[[NSMutableArray alloc]initWithCapacity:1];
-    [dateArray addObject:[NSDate date]];
-    [dateArray addObject:[NSDate date]];
-    [dateArray addObject:[NSDate date]];
     
-    NSArray *weekdays1=@[@"Mon,",@"Tue,",@"Wed,",@"Thu,",@"Fri,",@"Sat"];
-    NSArray *weekdays2=@[@"Mon,",@"Tue,",@"Wed"];
-    NSArray *weekdays3=@[@"Wed,",@"Thu,",@"Fri,",@"Sat"];
-    
-    
-    daysArray=[[NSMutableArray alloc]initWithCapacity:1];
-    
-    [daysArray addObject:weekdays1];
-    [daysArray addObject:weekdays2];
-    [daysArray addObject:weekdays3];
-    
-    
-    
+    NSPredicate *pre=[appDel.eventStore predicateForRemindersInCalendars:@[appDel.calendar]];
+    [appDel.eventStore fetchRemindersMatchingPredicate:pre completion:^(NSArray *reminders) {
+        
+        self.reminders=[NSMutableArray arrayWithCapacity:1];
+        for (EKReminder *rm in reminders) {
+            
+            if (rm.recurrenceRules==nil || [rm.recurrenceRules count]<=0) {
+                //[self.reminders removeObject:rm];
+                continue;
+            }
+            
+            EKRecurrenceRule *rr=(EKRecurrenceRule*)[rm.recurrenceRules objectAtIndex:0];
+            
+            if (([rr.daysOfTheWeek count]<=0 || rr.daysOfTheWeek==nil) && rr.frequency!=EKRecurrenceFrequencyDaily) {
+                continue;
+            }
+            [self.reminders addObject:rm];
+        }
+        
+        
+        
+        
+        
+        [self.tableView reloadData];
+    }];
 }
-    
+-(void)storeChanged:(id)sender
+{
+    [self fetchData];
+}
+
 
 
 

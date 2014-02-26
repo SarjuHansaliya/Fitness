@@ -11,7 +11,7 @@
                 <outlet property="alertLabel" destination="eur-ov-2jX" id="3v5-z5-85p"/>
                 <outlet property="alertView" destination="ffg-PF-rHo" id="hgd-RH-UFT"/>
                 <outlet property="datePicker" destination="6PE-7Z-byG" id="xJ9-TD-dpj"/>
-                <outlet property="repeatLabel" destination="nHJ-hG-i0W" id="JB9-S9-i0z"/>
+                <outlet property="reminderLabel" destination="CYu-fX-veI" id="fus-9S-K22"/>
                 <outlet property="repeatView" destination="uHH-be-DMV" id="8NH-Oa-gMz"/>
                 <outlet property="startView" destination="I3c-PT-IH9" id="T5M-wA-HGU"/>
                 <outlet property="toDateTextField" destination="zzn-3c-9DV" id="kHM-b2-5Af"/>
@@ -87,13 +87,6 @@
                                 <constraint firstAttribute="width" constant="19" id="q1A-bm-2fL"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Never" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nHJ-hG-i0W">
-                            <rect key="frame" x="221" y="13" width="40" height="18"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                            <color key="textColor" red="0.32549019610000002" green="0.32549019610000002" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line_edit_reminder.png" translatesAutoresizingMaskIntoConstraints="NO" id="Z9I-gX-kHI">
                             <rect key="frame" x="10" y="42" width="310" height="1"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -106,13 +99,11 @@
                         <constraint firstAttribute="width" constant="320" id="0Qg-4r-LiK"/>
                         <constraint firstAttribute="trailing" secondItem="PLo-fv-uEJ" secondAttribute="trailing" constant="10" id="4j1-VX-G8r"/>
                         <constraint firstItem="tDP-0C-ag8" firstAttribute="leading" secondItem="uHH-be-DMV" secondAttribute="leading" constant="10" id="9ZD-xm-V5q"/>
-                        <constraint firstAttribute="centerY" secondItem="nHJ-hG-i0W" secondAttribute="centerY" id="Apw-BD-qei"/>
                         <constraint firstItem="Z9I-gX-kHI" firstAttribute="leading" secondItem="uHH-be-DMV" secondAttribute="leading" constant="10" id="GPr-vk-J50"/>
                         <constraint firstAttribute="bottom" secondItem="Z9I-gX-kHI" secondAttribute="bottom" id="Nmk-9F-lxb"/>
                         <constraint firstAttribute="centerY" secondItem="tDP-0C-ag8" secondAttribute="centerY" id="df9-zh-4Yt"/>
                         <constraint firstAttribute="centerY" secondItem="PLo-fv-uEJ" secondAttribute="centerY" id="gZa-yf-v2q"/>
                         <constraint firstAttribute="height" constant="43" id="ham-2Y-H0a"/>
-                        <constraint firstItem="PLo-fv-uEJ" firstAttribute="leading" secondItem="nHJ-hG-i0W" secondAttribute="trailing" constant="30" id="iyM-Ad-UmD"/>
                         <constraint firstAttribute="trailing" secondItem="Z9I-gX-kHI" secondAttribute="trailing" id="mu2-JX-Brj"/>
                     </constraints>
                 </view>
@@ -241,7 +232,7 @@
                 <!--2014-02-17 06:43:51 +0000-->
             </date>
             <timeZone key="timeZone" name="America/Los_Angeles">
-                <mutableData key="data">
+                <data key="data">
 VFppZgAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAC5AAAABAAAABCepkign7sVkKCGKqChmveQ
 y4kaoNIj9HDSYSYQ1v50INiArZDa/tGg28CQENzes6DdqayQ3r6VoN+JjpDgnneg4WlwkOJ+WaDjSVKQ
 5F47oOUpNJDmR1gg5xJREOgnOiDo8jMQ6gccIOrSFRDr5v4g7LH3EO3G4CDukdkQ76/8oPBxuxDxj96g
@@ -259,7 +250,7 @@ f5gqkAABAAECAwEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
-</mutableData>
+</data>
             </timeZone>
         </datePicker>
     </objects>

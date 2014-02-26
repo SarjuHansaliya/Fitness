@@ -517,7 +517,7 @@ static sqlite3_stmt *statement = nil;
         
         int sTS=[startTS timeIntervalSince1970];
         int eTS=[endTS timeIntervalSince1970];
-        NSString *s=[NSString stringWithFormat:@"select * from hr_details where timestamp>=?1 and timestamp<=?2"];
+        NSString *s=[NSString stringWithFormat:@"select * from hr_details where timestamp>=?1 and timestamp<=?2 order by timestamp"];
         
         const char *query_stmt = [s UTF8String];
         NSMutableArray *resultArray = [NSMutableArray arrayWithCapacity:1];
@@ -914,7 +914,7 @@ static sqlite3_stmt *statement = nil;
         
         int sTS=[startTS timeIntervalSince1970];
         int eTS=[endTS timeIntervalSince1970];
-        NSString *s=[NSString stringWithFormat:@"select * from location_details where timestamp>=?1 and timestamp<=?2"];
+        NSString *s=[NSString stringWithFormat:@"select * from location_details where timestamp>=?1 and timestamp<=?2 order by timestamp"];
         
         const char *query_stmt = [s UTF8String];
         NSMutableArray *resultArray = [NSMutableArray arrayWithCapacity:1];

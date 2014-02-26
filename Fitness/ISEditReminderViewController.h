@@ -22,7 +22,6 @@
 @property (weak, nonatomic) IBOutlet UIView *repeatView;
 
 
-@property (weak, nonatomic) IBOutlet UILabel *repeatLabel;
 @property (weak, nonatomic) IBOutlet UILabel *alertLabel;
 
 

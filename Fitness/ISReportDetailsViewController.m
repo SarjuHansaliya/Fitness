@@ -198,7 +198,7 @@
 -(void) displayPathOnMap:(id)sender
 {
     
-    [(UINavigationController*)[(ISAppDelegate *)[[UIApplication sharedApplication]delegate] drawerController].centerViewController pushViewController:[[ISPathViewController alloc] initWithNibName:nil bundle:nil] animated:YES];
+    [(UINavigationController*)[(ISAppDelegate *)[[UIApplication sharedApplication]delegate] drawerController].centerViewController pushViewController:[[ISPathViewController alloc] initWithNibName:nil bundle:nil workout:self.workout] animated:YES];
 }
 -(void) deleteReport:(id)sender
 {

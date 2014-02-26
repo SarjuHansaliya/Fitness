@@ -140,7 +140,7 @@
     if (state == UIApplicationStateBackground || state==UIApplicationStateInactive)
     {
         UILocalNotification* localNotification = [[UILocalNotification alloc] init];
-        localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:1];
+        localNotification.fireDate = [NSDate date];
         localNotification.alertBody = @"Device Disconnected";
         localNotification.timeZone = [NSTimeZone defaultTimeZone];
         localNotification.alertAction = @"View Details";
@@ -195,5 +195,109 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+
+// Check the authorization status of our application for Calendar
+-(void)checkEventStoreAccessForCalendar
+{
+    self.eventStore=[[EKEventStore alloc]init];
+    EKAuthorizationStatus status = [EKEventStore authorizationStatusForEntityType:EKEntityTypeReminder];
+    
+    switch (status)
+    {
+            // Update our UI if the user has granted access to their Calendar
+        case EKAuthorizationStatusAuthorized: [self accessGrantedForCalendar];
+            break;
+            // Prompt the user for access to Calendar if there is no definitive answer
+        case EKAuthorizationStatusNotDetermined: [self requestCalendarAccess];
+            break;
+            // Display a message if the user has denied or restricted access to Calendar
+        case EKAuthorizationStatusDenied:
+        case EKAuthorizationStatusRestricted:
+        {
+            [ILAlertView showWithTitle:@"Privacy Warning" message:@"Permission was not granted for Calendar" closeButtonTitle:@"OK" secondButtonTitle:nil tappedSecondButton:nil];
+        }
+            break;
+        default:
+            break;
+    }
+}
+
+
+// Prompt the user for access to their Calendar
+-(void)requestCalendarAccess
+{
+    [self.eventStore requestAccessToEntityType:EKEntityTypeReminder completion:^(BOOL granted, NSError *error)
+     {
+         if (granted)
+         {
+             ISAppDelegate * __weak weakSelf = self;
+             // Let's ensure that our code will be executed from the main queue
+             dispatch_async(dispatch_get_main_queue(), ^{
+                 [weakSelf accessGrantedForCalendar];
+             });
+         }
+     }];
+}
+
+
+// This method is called when the user has granted permission to Calendar
+-(void)accessGrantedForCalendar
+{
+    NSString *calendarIdentifier = [[NSUserDefaults standardUserDefaults] objectForKey:@"Calendar"];
+    if (self.calendar==nil) {
+        self.calendar = [self.eventStore calendarWithIdentifier:calendarIdentifier];
+    }
+    if (self.calendar==nil) {
+        self.calendar=[self createCalendar];
+    }
+    self.isCalendarAccessGranted=YES;
+}
+
+-(EKCalendar*)createCalendar
+{
+    EKCalendar *calendar = [EKCalendar calendarForEntityType:EKEntityTypeReminder eventStore:self.eventStore];
+    calendar.title = @"Fitness Calendar";
+    
+    EKSource *localSource = nil;
+    EKSource *defaultSource = [self.eventStore defaultCalendarForNewReminders].source;
+    
+    if (defaultSource.sourceType == EKSourceTypeExchange) {
+        localSource = defaultSource;
+    } else {
+        
+        for (EKSource *source in self.eventStore.sources) {
+            if (source.sourceType == EKSourceTypeLocal) {
+                localSource = source;
+                break;
+            }
+        }
+        
+    }
+    
+    if (localSource) {
+        calendar.source = localSource;
+    } else {
+        NSLog(@"Error: no local sources available");
+    }
+    
+    NSError *error = nil;
+    BOOL result = [self.eventStore saveCalendar:calendar commit:YES error:&error];
+    
+    if (result) {
+        
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        [userDefaults setObject:calendar.calendarIdentifier forKey:@"Calendar"];
+        [userDefaults synchronize];
+        
+        NSLog(@"Saved calendar to event store");
+        return calendar;
+        
+    } else {
+        NSLog(@"Error saving Calendar");
+    }
+    return nil;
+}
+
 
 @end

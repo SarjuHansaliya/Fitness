@@ -12,6 +12,7 @@
 
 
 
+
 @implementation ISReminderCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -20,15 +21,10 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         
-        
-        
         NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"ISReminderTableCell" owner:self options:nil];
         self = [topLevelObjects objectAtIndex:0];
         
         self.backgroundColor=[UIColor clearColor];
-        
-        
-       
         
     }
     return self;
@@ -38,7 +34,50 @@
 
 //---------------------------setting label values--------------------
 
-
+-(void)setCellValuesForReminder:(EKReminder*)reminder
+{
+    self.reminder=reminder;
+    self.reminderLabel.text=reminder.title;
+    
+    NSDateFormatter *formatter=[[NSDateFormatter alloc]init];
+    formatter.dateFormat=@"hh:mm a";
+    self.reminderTimeLabel.text=[formatter stringFromDate:reminder.dueDateComponents.date];
+    EKRecurrenceRule *rr=(EKRecurrenceRule*)[self.reminder.recurrenceRules objectAtIndex:0];
+    if (rr.frequency ==EKRecurrenceFrequencyDaily) {
+        self.reminderDaysLabel.text=@"Sun, Mon, Tue, Wed, Thu, Fri, Sat";
+    }
+    else
+    {
+        NSMutableString *s=[[NSMutableString alloc]initWithCapacity:1];
+        for (EKRecurrenceDayOfWeek *d in rr.daysOfTheWeek) {
+            switch (d.dayOfTheWeek) {
+                case EKSunday:
+                    [s appendString:@"Sun, "];
+                    break;
+                case EKMonday:
+                    [s appendString:@"Mon, "];
+                    break;
+                case EKTuesday:
+                    [s appendString:@"Tue, "];
+                    break;
+                case EKWednesday:
+                    [s appendString:@"Wed, "];
+                    break;
+                case EKThursday:
+                    [s appendString:@"Thu, "];
+                    break;
+                case EKFriday:
+                    [s appendString:@"Fri, "];
+                    break;
+                case EKSaturday:
+                    [s appendString:@"Sat, "];
+                    break;
+            }
+        }
+        self.reminderDaysLabel.text=[s substringToIndex:s.length-2];
+    }
+    
+}
 
 
 -(void)setReminderTime:(NSDate *)time reminderOnDays:(NSArray *)days

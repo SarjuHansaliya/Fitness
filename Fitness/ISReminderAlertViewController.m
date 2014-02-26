@@ -185,7 +185,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    
     self.label = [labelArray objectAtIndex:indexPath.row];
     self.selectedRow = indexPath.row;
     [self.tableView reloadData];
@@ -207,8 +206,8 @@
     [labelArray addObject:@"30 Min before"];
     [labelArray addObject:@"1 hour before"];
     [labelArray addObject:@"2 hour before"];
-    [labelArray addObject:@"1 week before"];
-    [labelArray addObject:@"2 week before"];    
+//    [labelArray addObject:@"1 week before"];
+//    [labelArray addObject:@"2 week before"];    
 }
 
 

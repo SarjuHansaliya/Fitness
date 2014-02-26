@@ -8,21 +8,54 @@
 
 #import "ISNewReminderViewController.h"
 #import "macros.h"
+#import "ILAlertView.h"
+#import "ISAppDelegate.h"
 
+typedef enum ALARM
+{
+    NONE,
+    AT_EVENT,
+    MIN_5,
+    MIN_15,
+    MIN_30,
+    HOUR_1,
+    HOUR_2
+    
+}ALARM_TYPE;
 
 @interface ISNewReminderViewController ()
 
 @end
 
 @implementation ISNewReminderViewController
+{
+    ISAppDelegate *appDel;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        appDel=(ISAppDelegate*)[[UIApplication sharedApplication]delegate];
     }
     return self;
+}
+
+-(ISReminderRepeatViewController*)getRepeatController
+{
+    if (self.repeatController==nil) {
+        self.repeatController=[[ISReminderRepeatViewController alloc]initWithStyle:UITableViewStylePlain];
+    }
+    
+    return self.repeatController;
+}
+-(ISReminderAlertViewController*)getAlertController
+{
+    if (self.alertController==nil) {
+        self.alertController=[[ISReminderAlertViewController alloc]initWithStyle:UITableViewStylePlain];
+    }
+    
+    return self.alertController;
 }
 
 - (void)viewDidLoad
@@ -30,10 +63,6 @@
     [super viewDidLoad];
     [self setupGestureRecognizer];
     [self setupNavigationBar];
-    
-    
-    self.repeatController = [[ISReminderRepeatViewController alloc]initWithStyle:UITableViewStylePlain];
-    self.alertController = [[ISReminderAlertViewController alloc]initWithStyle:UITableViewStylePlain];
     
     self.toDateTextField.inputView=self.datePicker;
     self.toDateTextField.inputAccessoryView=self.accessoryView;
@@ -43,20 +72,10 @@
     
     self.toDateTextField.text=[formatter stringFromDate:[NSDate date]];
     
-    
-    
-    
-    
-    
-    
-    
-    
-    // Do any additional setup after loading the view from its nib.
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    self.repeatLabel.text = self.repeatController.label;
     self.alertLabel.text = self.alertController.label;
     
 }
@@ -140,8 +159,6 @@
 -(void)setupGestureRecognizer
 {
     
-    
-    
     UITapGestureRecognizer *tapOnRepeat = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(repeatClicked:)];
     tapOnRepeat.numberOfTapsRequired=1;
     [self.repeatView addGestureRecognizer:tapOnRepeat];
@@ -170,18 +187,115 @@
 }
 -(void)saveClicked:(id)sender
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    if (![self.reminderLabel.text length]>0) {
+        [ILAlertView showWithTitle:@"Warning" message:@"Enter Label" closeButtonTitle:@"OK" secondButtonTitle:nil tappedSecondButton:nil];
+        [self.reminderLabel becomeFirstResponder];
+    }
+    else
+    {
+        
+        EKReminder *reminder=[EKReminder reminderWithEventStore:appDel.eventStore];
+        [reminder setTitle:self.reminderLabel.text];
+        [reminder setCalendar:appDel.calendar];
+        
+        
+        if ([self.alertController selectedRow]!=0) {
+            
+            EKAlarm *alarm;
+            if (self.alertController.selectedRow==AT_EVENT) {
+                alarm=[EKAlarm alarmWithAbsoluteDate:self.datePicker.date];
+            }
+            else
+            {
+                switch (self.alertController.selectedRow) {
+                        
+                    case MIN_5:
+                        alarm=[EKAlarm alarmWithRelativeOffset:-(5.0*60.0)];
+                        break;
+                    case MIN_15:
+                        alarm=[EKAlarm alarmWithRelativeOffset:-(15.0*60.0)];
+                        break;
+                    case MIN_30:
+                        alarm=[EKAlarm alarmWithRelativeOffset:-(30.0*60.0)];
+                        break;
+                    case HOUR_1:
+                        alarm=[EKAlarm alarmWithRelativeOffset:-(1.0*60.0*60.0)];
+                        break;
+                    case HOUR_2:
+                        alarm=[EKAlarm alarmWithRelativeOffset:-(2.0*60.0*60.0)];
+                        break;
+                        
+                        
+                }
+            }
+            [reminder setAlarms:@[alarm]];
+        }
+        
+        NSMutableArray * weekDays=[NSMutableArray arrayWithCapacity:1];
+//        for (NSIndexPath *ip in [self.repeatController.tableView indexPathsForSelectedRows]) {
+//           // NSLog(@"%d",ip.row);
+//            [weekDays addObject:[EKRecurrenceDayOfWeek dayOfWeek:ip.row]];
+//            
+//        }
+        
+        for(int i=1;i<=7;i++)
+        {
+            NSIndexPath *ip = [NSIndexPath indexPathForRow:i inSection:0];
+            ISRepeatReminderCell *cell = (ISRepeatReminderCell*)[self.repeatController.tableView cellForRowAtIndexPath:ip];
+            if(cell.selectedImage.hidden == NO)
+            {
+                [weekDays addObject:[EKRecurrenceDayOfWeek dayOfWeek:ip.row]];
+                NSLog(@"%d",ip.row);
+            }
+            
+        }
+        
+        EKRecurrenceRule *rr=[[EKRecurrenceRule alloc]initRecurrenceWithFrequency:0 interval:1 daysOfTheWeek:weekDays daysOfTheMonth:nil monthsOfTheYear:nil weeksOfTheYear:nil daysOfTheYear:nil setPositions:nil end:nil];
+
+        
+        
+        [reminder setRecurrenceRules:@[rr]];
+       
+        NSCalendar *gregorian = [[NSCalendar alloc]
+                                 initWithCalendarIdentifier:NSGregorianCalendar];
+        unsigned unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit|NSHourCalendarUnit|NSMinuteCalendarUnit|NSSecondCalendarUnit;
+        NSDateComponents *startDateComponents =
+        [gregorian components:unitFlags fromDate:[NSDate date]];
+       
+        NSDateComponents *endDateComponents =
+        [gregorian components:unitFlags fromDate:self.datePicker.date];
+        
+        
+               
+        
+        [reminder setStartDateComponents:startDateComponents];
+        [reminder setDueDateComponents:endDateComponents];
+     
+        
+        
+        
+        NSError *err;
+        [appDel.eventStore saveReminder:reminder commit:YES error:&err];
+        NSLog(@"%@",err);
+        if (err==nil) {
+            [ILAlertView showWithTitle:@"Success" message:@"Reminder Saved" closeButtonTitle:nil secondButtonTitle:@"OK" tappedSecondButton:^{
+                [self dismissViewControllerAnimated:YES completion:nil];
+            }];
+        }
+        
+        
+    }
 }
 -(void)repeatClicked:(id)sender
 {
     
-    [self.navigationController pushViewController:self.repeatController animated:YES ];
+    [self.navigationController pushViewController:[self getRepeatController] animated:YES ];
 }
 
 -(void)alertClicked:(id)sender
 {
     
-    [self.navigationController pushViewController:self.alertController animated:YES ];
+    [self.navigationController pushViewController:[self getAlertController] animated:YES ];
 }
 
 
@@ -193,8 +307,6 @@
 - (IBAction)doneEditing:(id)sender{
     NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
     [formatter setDateFormat:@"MMM dd , yyyy\t   hh:mm a"];
-    
-    
     self.toDateTextField.text = [formatter stringFromDate: self.datePicker.date];
     [self.toDateTextField resignFirstResponder];
     

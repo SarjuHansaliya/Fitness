@@ -10,7 +10,5 @@
 
 @interface ISReminderRepeatViewController : UITableViewController
 
-@property (nonatomic) NSString *label;
-@property (nonatomic) NSInteger selectedRow;
 
 @end

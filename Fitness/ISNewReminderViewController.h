@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <EventKit/EventKit.h>
 #import "ISReminderAlertViewController.h"
 #import "ISReminderRepeatViewController.h"
 
@@ -19,12 +20,13 @@
 @property (weak, nonatomic) IBOutlet UIView *repeatView;
 
 
-@property (weak, nonatomic) IBOutlet UILabel *repeatLabel;
+
 @property (weak, nonatomic) IBOutlet UILabel *alertLabel;
 
 
 @property (weak, nonatomic) IBOutlet UITextField *toDateTextField;
 @property (strong, nonatomic) IBOutlet UIToolbar *accessoryView;
+@property (weak, nonatomic) IBOutlet UITextField *reminderLabel;
 
 
 - (IBAction)doneEditing:(id)sender;

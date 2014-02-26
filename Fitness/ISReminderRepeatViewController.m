@@ -17,11 +17,8 @@
 @implementation ISReminderRepeatViewController
 
 {
-    // dummy data, just for checking screen--------------------------
+    
     NSMutableArray *labelArray;
-    
-    
-    //remove before original implementation---------------------------
     
 }
 
@@ -29,9 +26,6 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
-        _selectedRow = 2;
-        _label = @"Every Week";
     }
     return self;
 }
@@ -131,15 +125,11 @@
     if (cell == nil) {
         
         cell = [[ISRepeatReminderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier ];
-        
-        
     }
     
-    BOOL temp = (self.selectedRow == indexPath.row) ? YES : NO;
+   // BOOL temp = (self.selectedRow == indexPath.row) ? YES : NO;
     
-    [cell setLabel:[labelArray objectAtIndex:indexPath.row] isSelected:temp];
-    
-    
+    [cell setLabel:[labelArray objectAtIndex:indexPath.row] isSelected:cell.isSelected];
     
     return cell;
 }
@@ -186,12 +176,27 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
-    self.label = [labelArray objectAtIndex:indexPath.row];
-    self.selectedRow = indexPath.row;
-    [self.tableView reloadData];
-    [self.navigationController popViewControllerAnimated:YES];
+    
+    
+    
+    
+    if (indexPath.row==0) {
+        [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
+        for (int i=1; i<[labelArray count]; i++) {
+            ISRepeatReminderCell *cellOther=(ISRepeatReminderCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+            [cellOther.selectedImage setHidden:NO];
+        }
+        
+    }
+    else
+    {
+        ISRepeatReminderCell *cell=(ISRepeatReminderCell*)[self.tableView cellForRowAtIndexPath:indexPath];
+        [cell.selectedImage setHidden:!cell.selectedImage.hidden];
+        ISRepeatReminderCell *cellOther=(ISRepeatReminderCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+        [cellOther.selectedImage setHidden:YES];
+    }
+    
 }
 
 
@@ -202,12 +207,15 @@
 -(void)fillDummyReminderData
 {
     labelArray=[[NSMutableArray alloc]initWithCapacity:1];
-    [labelArray addObject:@"Never"];
     [labelArray addObject:@"Every Day"];
-    [labelArray addObject:@"Every Week"];
-    [labelArray addObject:@"Every 2 Week"];
-    [labelArray addObject:@"Every Month"];
-    [labelArray addObject:@"Every Year"];
+    [labelArray addObject:@"Sunday"];
+    [labelArray addObject:@"Monday"];
+    [labelArray addObject:@"Tuesday"];
+    [labelArray addObject:@"Wednesday"];
+    [labelArray addObject:@"Thursday"];
+    [labelArray addObject:@"Friday"];
+    [labelArray addObject:@"Saturday"];
+    
     
     
     

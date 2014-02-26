@@ -121,9 +121,9 @@ static ISWorkOutHandler *sharedInstance = nil;
     
     NSTimeInterval locationAge = -[newLocation.timestamp timeIntervalSinceNow];
     if (locationAge > 1.0) return;
-    if (newLocation.horizontalAccuracy < 0 || newLocation.horizontalAccuracy>15.0) return;
+    if (newLocation.horizontalAccuracy < 0 || newLocation.horizontalAccuracy>10.0) return;
     
-    NSLog(@"%f",newLocation.horizontalAccuracy);
+    NSLog(@"%f %f",newLocation.coordinate.latitude,newLocation.coordinate.longitude);
     [self.locations addObject:newLocation];
     
     if(oldLocation != nil)

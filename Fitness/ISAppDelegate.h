@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <EventKit/EventKit.h>
 #import "MMDrawerController.h"
 #import "ISBluetooth.h"
 #import "ISHRDistributor.h"
@@ -29,6 +30,9 @@
 @property ISHRDistributor *hrDistributor;
 @property (weak,atomic) ISDBManager *dbManager;
 @property (weak,atomic) ISWorkOutHandler *woHandler;
+@property EKCalendar *calendar;
+@property EKEventStore *eventStore;
+@property BOOL isCalendarAccessGranted;
 
 @property ISSetWorkoutGoalViewController *setWorkoutGoalViewController;
 @property ISHRMonitorViewController *hrMonitorViewController;
@@ -42,6 +46,9 @@
 -(ISHRMonitorViewController*)getHRMonitorViewController;
 -(ISConnectionManagerViewController*)getConnectionManagerViewController;
 -(ISProfileViewController*)getProfileViewController;
+
+
+-(void)checkEventStoreAccessForCalendar;
 
 
 -(ISHRDistributor *)getHRDistributor;

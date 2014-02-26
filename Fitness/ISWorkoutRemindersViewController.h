@@ -14,6 +14,7 @@
 @interface ISWorkoutRemindersViewController : UITableViewController
 
 @property  NSIndexPath *selectedReminderIndex;
+@property NSMutableArray *reminders;
 
 -(void)deleteCell;
 
