@@ -11,17 +11,7 @@
 #import "ILAlertView.h"
 #import "ISAppDelegate.h"
 
-typedef enum ALARM
-{
-    NONE,
-    AT_EVENT,
-    MIN_5,
-    MIN_15,
-    MIN_30,
-    HOUR_1,
-    HOUR_2
-    
-}ALARM_TYPE;
+
 
 @interface ISNewReminderViewController ()
 
@@ -76,7 +66,10 @@ typedef enum ALARM
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    self.alertLabel.text = self.alertController.label;
+    if (self.alertController!=nil) {
+
+        self.alertLabel.text = self.alertController.label;
+    }
     
 }
 
@@ -187,6 +180,12 @@ typedef enum ALARM
 }
 -(void)saveClicked:(id)sender
 {
+    if([self.toDateTextField isFirstResponder])
+    {
+        return;
+    }
+    
+    
     if (![self.reminderLabel.text length]>0) {
         [ILAlertView showWithTitle:@"Warning" message:@"Enter Label" closeButtonTitle:@"OK" secondButtonTitle:nil tappedSecondButton:nil];
         [self.reminderLabel becomeFirstResponder];
@@ -226,6 +225,7 @@ typedef enum ALARM
                         break;
                         
                         
+                        
                 }
             }
             [reminder setAlarms:@[alarm]];
@@ -241,30 +241,34 @@ typedef enum ALARM
         for(int i=1;i<=7;i++)
         {
             NSIndexPath *ip = [NSIndexPath indexPathForRow:i inSection:0];
-            ISRepeatReminderCell *cell = (ISRepeatReminderCell*)[self.repeatController.tableView cellForRowAtIndexPath:ip];
-            if(cell.selectedImage.hidden == NO)
-            {
-                [weekDays addObject:[EKRecurrenceDayOfWeek dayOfWeek:ip.row]];
-                NSLog(@"%d",ip.row);
-            }
+            
+                ISRepeatReminderCell *cell = (ISRepeatReminderCell*)[self.repeatController.tableView cellForRowAtIndexPath:ip];
+                if(cell.selectedImage.hidden == NO)
+                {
+                    [weekDays addObject:[EKRecurrenceDayOfWeek dayOfWeek:ip.row]];
+                    // NSLog(@"%d",ip.row);
+                }
+                
+           
             
         }
+        if([weekDays count] <=0 || self.repeatController ==nil)
+        {
+            [ILAlertView showWithTitle:@"Warning" message:@"Please select repeat options" closeButtonTitle:@"OK" secondButtonTitle:nil tappedSecondButton:nil];
+            return;
+        }
         
-        EKRecurrenceRule *rr=[[EKRecurrenceRule alloc]initRecurrenceWithFrequency:0 interval:1 daysOfTheWeek:weekDays daysOfTheMonth:nil monthsOfTheYear:nil weeksOfTheYear:nil daysOfTheYear:nil setPositions:nil end:nil];
-
-        
+        EKRecurrenceRule *rr=[[EKRecurrenceRule alloc]initRecurrenceWithFrequency:1 interval:1 daysOfTheWeek:weekDays daysOfTheMonth:nil monthsOfTheYear:nil weeksOfTheYear:nil daysOfTheYear:nil setPositions:nil end:nil];
         
         [reminder setRecurrenceRules:@[rr]];
        
         NSCalendar *gregorian = [[NSCalendar alloc]
                                  initWithCalendarIdentifier:NSGregorianCalendar];
-        unsigned unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit|NSHourCalendarUnit|NSMinuteCalendarUnit|NSSecondCalendarUnit;
+        unsigned unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit|NSHourCalendarUnit|NSMinuteCalendarUnit|NSSecondCalendarUnit|NSTimeZoneCalendarUnit|NSCalendarCalendarUnit;
         NSDateComponents *startDateComponents =
         [gregorian components:unitFlags fromDate:[NSDate date]];
-       
         NSDateComponents *endDateComponents =
         [gregorian components:unitFlags fromDate:self.datePicker.date];
-        
         
                
         
@@ -276,13 +280,16 @@ typedef enum ALARM
         
         NSError *err;
         [appDel.eventStore saveReminder:reminder commit:YES error:&err];
-        NSLog(@"%@",err);
+        //NSLog(@"%@",err);
         if (err==nil) {
-            [ILAlertView showWithTitle:@"Success" message:@"Reminder Saved" closeButtonTitle:nil secondButtonTitle:@"OK" tappedSecondButton:^{
-                [self dismissViewControllerAnimated:YES completion:nil];
+            
+            [self dismissViewControllerAnimated:YES completion:^{
+                [ILAlertView showWithTitle:@"Success" message:@"Reminder Saved" closeButtonTitle:@"OK" secondButtonTitle:nil tappedSecondButton:nil];
             }];
+            
+            
+            
         }
-        
         
     }
 }
@@ -300,6 +307,11 @@ typedef enum ALARM
 
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+    if([self.toDateTextField isFirstResponder])
+    {
+        return;
+    }
     
     [self.view endEditing:YES];
 }

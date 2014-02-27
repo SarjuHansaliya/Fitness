@@ -28,8 +28,21 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
-        _selectedRow = 0;
-        _label = @"None";
+        
+        
+    }
+    return self;
+}
+- (id)initWithStyle:(UITableViewStyle)style selectedRow:(int)row
+{
+    self = [super initWithStyle:style];
+    if (self) {
+        // Custom initialization
+        [self fillDummyReminderData]; //remove this
+        self.selectedRow = row;
+        self.label = [labelArray objectAtIndex:row];
+        
+        
     }
     return self;
 }
@@ -38,7 +51,8 @@
 {
     [super viewDidLoad];
     [self setupNavigationBar];
-    [self fillDummyReminderData]; //remove this
+    [self fillDummyReminderData];
+    self.label = [labelArray objectAtIndex:self.selectedRow];
     self.tableView.separatorColor=[UIColor clearColor];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg.png"]];
     
@@ -129,7 +143,6 @@
     if (cell == nil) {
         
         cell = [[ISRepeatReminderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier ];
-        
         
     }
     

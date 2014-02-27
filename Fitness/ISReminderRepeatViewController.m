@@ -19,6 +19,7 @@
 {
     
     NSMutableArray *labelArray;
+    int *weekdays;
     
 }
 
@@ -26,6 +27,14 @@
 {
     self = [super initWithStyle:style];
     if (self) {
+    }
+    return self;
+}
+- (id)initWithStyle:(UITableViewStyle)style weekdays:(int *)w
+{
+    self = [super initWithStyle:style];
+    if (self) {
+        weekdays=w;
     }
     return self;
 }
@@ -127,10 +136,12 @@
         cell = [[ISRepeatReminderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier ];
     }
     
-   // BOOL temp = (self.selectedRow == indexPath.row) ? YES : NO;
-    
-    [cell setLabel:[labelArray objectAtIndex:indexPath.row] isSelected:cell.isSelected];
-    
+    BOOL temp=NO;
+    if (weekdays!=nil) {
+         temp = (weekdays[indexPath.row]==1) ? YES : NO;
+    }
+
+    [cell setLabel:[labelArray objectAtIndex:indexPath.row] isSelected:temp];
     return cell;
 }
 
@@ -176,9 +187,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    
-    
     
     
     if (indexPath.row==0) {

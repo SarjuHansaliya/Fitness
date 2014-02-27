@@ -10,5 +10,5 @@
 
 @interface ISReminderRepeatViewController : UITableViewController
 
-
+- (id)initWithStyle:(UITableViewStyle)style weekdays:(int *)w;
 @end

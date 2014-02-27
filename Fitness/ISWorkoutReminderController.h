@@ -12,7 +12,7 @@
 @interface ISWorkoutReminderController : UIViewController
 
 @property ISWorkoutRemindersViewController *remindersTableVC;
-@property (weak, nonatomic) IBOutlet UIView *remindersView;
+@property (weak, nonatomic) IBOutlet UITableView *remindersView;
 - (IBAction)deleteReminderButtonClicked:(id)sender;
 - (IBAction)editReminderButtonClicked:(id)sender;
 

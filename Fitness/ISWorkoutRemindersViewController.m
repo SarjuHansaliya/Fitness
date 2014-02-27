@@ -8,6 +8,7 @@
 
 #import "ISWorkoutRemindersViewController.h"
 #import "ISAppDelegate.h"
+#import "ILAlertView.h"
 
 
 
@@ -161,15 +162,20 @@
 
 -(void)deleteCell
 {
-    if (self.selectedReminderIndex!=nil) {
+    
+    NSError *err;
+    [appDel.eventStore removeReminder:[self.reminders objectAtIndex:self.selectedReminderIndex.row] commit:YES error:&err];
+    if (err==nil) {
+        [self.reminders removeObjectAtIndex:self.selectedReminderIndex.row];
         
-    
-    [dateArray removeObjectAtIndex:self.selectedReminderIndex.row];
-    [daysArray removeObjectAtIndex:self.selectedReminderIndex.row];
-    
-    [self.tableView deleteRowsAtIndexPaths:@[self.selectedReminderIndex] withRowAnimation:UITableViewRowAnimationFade];
+        [self.tableView deleteRowsAtIndexPaths:@[self.selectedReminderIndex] withRowAnimation:UITableViewRowAnimationFade];
         self.selectedReminderIndex=nil;
     }
+    else
+    {
+        [ILAlertView showWithTitle:@"Error" message:@"Unexpected Error occured!" closeButtonTitle:@"OK" secondButtonTitle:nil tappedSecondButton:nil];
+    }
+    
     
 }
 
@@ -189,14 +195,11 @@
             
             EKRecurrenceRule *rr=(EKRecurrenceRule*)[rm.recurrenceRules objectAtIndex:0];
             
-            if (([rr.daysOfTheWeek count]<=0 || rr.daysOfTheWeek==nil) && rr.frequency!=EKRecurrenceFrequencyDaily) {
+            if (([rr.daysOfTheWeek count]<=0 || rr.daysOfTheWeek==nil) && (rr.frequency!=EKRecurrenceFrequencyDaily)) {
                 continue;
             }
             [self.reminders addObject:rm];
         }
-        
-        
-        
         
         
         [self.tableView reloadData];

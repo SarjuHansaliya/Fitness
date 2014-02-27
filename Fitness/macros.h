@@ -7,3 +7,15 @@
 #define MILES 1
 #define CALORIES 2
 #define DURATION 3
+
+typedef enum ALARM
+{
+    NONE,
+    AT_EVENT,
+    MIN_5,
+    MIN_15,
+    MIN_30,
+    HOUR_1,
+    HOUR_2
+    
+}ALARM_TYPE;

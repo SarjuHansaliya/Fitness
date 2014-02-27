@@ -11,6 +11,7 @@
                 <outlet property="alertLabel" destination="R7o-p1-F4H" id="FgO-yb-PBR"/>
                 <outlet property="alertView" destination="oag-RV-uvd" id="GhM-Kw-JAs"/>
                 <outlet property="datePicker" destination="zh1-Ig-hhn" id="r1o-kL-bei"/>
+                <outlet property="reminderLabel" destination="qWL-Li-jYN" id="RWn-ye-Tua"/>
                 <outlet property="repeatView" destination="0se-HY-c82" id="Xx2-Te-dc0"/>
                 <outlet property="startView" destination="nfo-z3-bEf" id="efM-26-iNo"/>
                 <outlet property="toDateTextField" destination="14A-IY-QNC" id="gMJ-Od-SO5"/>

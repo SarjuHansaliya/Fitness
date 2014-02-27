@@ -11,6 +11,7 @@
 #import "ISNewReminderViewController.h"
 #import "macros.h"
 #import "ISAppDelegate.h"
+#import "ILAlertView.h"
 
 @interface ISWorkoutReminderController ()
 
@@ -37,10 +38,16 @@
     [super viewDidLoad];
     [self setupNavigationBar];
     self.remindersTableVC=[[ISWorkoutRemindersViewController alloc]initWithStyle:UITableViewStylePlain];
+    [self addChildViewController:self.remindersTableVC];
     [self.remindersView addSubview:self.remindersTableVC.tableView];
-    
-    
-    
+}
+-(void)viewDidAppear:(BOOL)animated
+{
+    CGRect rect = self.remindersTableVC.tableView.frame;
+    rect.size.height = self.remindersView.frame.size.height;
+    rect.origin.y=0.0;
+    [self.remindersTableVC.tableView setFrame:rect];
+
 }
 //--------------------------------setting up navigation bar--------------------------------------
 
@@ -115,13 +122,25 @@
 
 - (IBAction)deleteReminderButtonClicked:(id)sender {
     
-    [self.remindersTableVC deleteCell];
+    if (self.remindersTableVC.selectedReminderIndex!=nil) {
+    
+        [ILAlertView showWithTitle:@"Delete" message:@"Are you sure, you want to delete reminder?" closeButtonTitle:@"NO" secondButtonTitle:@"YES" tappedSecondButton:^{
+            [self.remindersTableVC deleteCell];
+        }];
+        
+    }
+    else
+    {
+        [ILAlertView showWithTitle:@"Warning" message:@"Please Select Reminder" closeButtonTitle:@"OK" secondButtonTitle:nil tappedSecondButton:nil];
+        
+    }
+    
 }
 
 - (IBAction)editReminderButtonClicked:(id)sender {
     if (self.remindersTableVC.selectedReminderIndex!=nil) {
         
-        ISEditReminderViewController *editReminder=[[ISEditReminderViewController alloc]initWithNibName:nil bundle:nil];
+        ISEditReminderViewController *editReminder=[[ISEditReminderViewController alloc]initWithNibName:nil bundle:nil workoutReminder:[self.remindersTableVC.reminders objectAtIndex:self.remindersTableVC.selectedReminderIndex.row]];
         editReminder.wantsFullScreenLayout = YES;
         UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:editReminder];
         

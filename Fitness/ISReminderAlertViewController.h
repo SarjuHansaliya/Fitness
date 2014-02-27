@@ -13,4 +13,5 @@
 @interface ISReminderAlertViewController : UITableViewController
 @property (nonatomic) NSString *label;
 @property (nonatomic) NSInteger selectedRow;
+- (id)initWithStyle:(UITableViewStyle)style selectedRow:(int)row;
 @end
