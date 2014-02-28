@@ -7,19 +7,38 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CorePlot-CocoaTouch.h"
 
-@interface ISHRMonitorViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UIButton *buttonFromDate;
-- (IBAction)buttonToDateClicked:(id)sender;
-- (IBAction)buttonFromDateClicked:(id)sender;
+typedef enum _ScaleLevel {
+    MIN=0,
+    HOUR=1,
+    DAY=2,
+    WEEK=3,
+    MONTH=4
+}
+ScaleLevel;
+
+
+@interface ISHRMonitorViewController : UIViewController<CPTPlotDataSource, CPTAxisDelegate,CPTPlotSpaceDelegate,
+CPTPlotDataSource,CPTScatterPlotDelegate>
+
+{
+    CPTXYGraph *graph;
+    NSMutableArray *dataForPlot;
+    CPTPlotSpaceAnnotation *symbolTextAnnotation;
+    NSNumber * xAxisUnitInterval;
+    UISegmentedControl *segmentedControl;
+    ScaleLevel *currentScale;
+    
+}
+
+
+@property (readwrite, strong, nonatomic) NSMutableArray *dataForPlot;
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
-
-
 @property (weak, nonatomic) IBOutlet UITextField *fromDateTextField;
-
 @property (weak, nonatomic) IBOutlet UITextField *toDateTextField;
 @property (strong, nonatomic) IBOutlet UIToolbar *accessoryView;
-
+@property (weak, nonatomic) IBOutlet UIView *graphView;
 
 - (IBAction)doneEditing:(id)sender;
 

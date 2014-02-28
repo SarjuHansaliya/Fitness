@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="CIDR_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$/../License.txt">
+      <sourceFolder url="file://$MODULE_DIR$/../License.txt" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../documentation/doxygen/DoxygenLayout.xml">
+      <sourceFolder url="file://$MODULE_DIR$/../documentation/doxygen/DoxygenLayout.xml" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../documentation/doxygen/doxygen touch.config">
+      <sourceFolder url="file://$MODULE_DIR$/../documentation/doxygen/doxygen touch.config" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../documentation/doxygen/doxygen-cocoa-tags.xml">
+      <sourceFolder url="file://$MODULE_DIR$/../documentation/doxygen/doxygen-cocoa-tags.xml" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../documentation/doxygen/doxygen-cocoa-touch-tags.xml">
+      <sourceFolder url="file://$MODULE_DIR$/../documentation/doxygen/doxygen-cocoa-touch-tags.xml" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../documentation/doxygen/doxygen.config">
+      <sourceFolder url="file://$MODULE_DIR$/../documentation/doxygen/doxygen.config" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
+

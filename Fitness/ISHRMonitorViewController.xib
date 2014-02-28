@@ -10,6 +10,7 @@
                 <outlet property="accessoryView" destination="LYa-0O-2pd" id="ZOK-lu-n8n"/>
                 <outlet property="datePicker" destination="JO6-vU-NKv" id="rba-wV-Emm"/>
                 <outlet property="fromDateTextField" destination="LdC-G1-5b2" id="wzt-Xo-tzj"/>
+                <outlet property="graphView" destination="ELW-E0-6m4" id="qcN-Pp-Yfw"/>
                 <outlet property="toDateTextField" destination="ypw-kH-pj0" id="eFD-Cz-YPe"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
@@ -120,7 +121,7 @@
                         <constraint firstItem="7sV-SX-7pF" firstAttribute="leading" secondItem="0Fd-cs-ito" secondAttribute="leading" constant="10" id="jwW-xu-dVs"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ELW-E0-6m4" userLabel="View Graph">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ELW-E0-6m4" userLabel="View Graph" customClass="CPTGraphHostingView">
                     <rect key="frame" x="10" y="115" width="300" height="443"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </view>
