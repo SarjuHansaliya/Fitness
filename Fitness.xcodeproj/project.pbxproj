@@ -151,6 +151,8 @@
 		BB779E6C18AA5A3E009C2D8C /* MMDrawerVisualState.m in Sources */ = {isa = PBXBuildFile; fileRef = BB779E6518AA5A3E009C2D8C /* MMDrawerVisualState.m */; };
 		BB779E6D18AA5A3E009C2D8C /* MMExampleDrawerVisualStateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BB779E6718AA5A3E009C2D8C /* MMExampleDrawerVisualStateManager.m */; };
 		BB779E6E18AA5A3E009C2D8C /* UIViewController+MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB779E6918AA5A3E009C2D8C /* UIViewController+MMDrawerController.m */; };
+		BB8A31FE18C0624600067BE4 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8A31FD18C0624600067BE4 /* MBProgressHUD.m */; };
+		BB8A335F18C0724A00067BE4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB8A335E18C0724A00067BE4 /* QuartzCore.framework */; };
 		BB98D6E318B7381E00C6A16D /* ISUserDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = BB98D6E218B7381E00C6A16D /* ISUserDetails.m */; };
 		BB98D6E618B738A100C6A16D /* ISHR.m in Sources */ = {isa = PBXBuildFile; fileRef = BB98D6E518B738A100C6A16D /* ISHR.m */; };
 		BB98D6E918B738E600C6A16D /* ISWOGoal.m in Sources */ = {isa = PBXBuildFile; fileRef = BB98D6E818B738E600C6A16D /* ISWOGoal.m */; };
@@ -357,6 +359,9 @@
 		BB779E6718AA5A3E009C2D8C /* MMExampleDrawerVisualStateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMExampleDrawerVisualStateManager.m; sourceTree = "<group>"; };
 		BB779E6818AA5A3E009C2D8C /* UIViewController+MMDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MMDrawerController.h"; sourceTree = "<group>"; };
 		BB779E6918AA5A3E009C2D8C /* UIViewController+MMDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MMDrawerController.m"; sourceTree = "<group>"; };
+		BB8A31FC18C0624600067BE4 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		BB8A31FD18C0624600067BE4 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		BB8A335E18C0724A00067BE4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		BB98D6E118B7381E00C6A16D /* ISUserDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISUserDetails.h; sourceTree = "<group>"; };
 		BB98D6E218B7381E00C6A16D /* ISUserDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISUserDetails.m; sourceTree = "<group>"; };
 		BB98D6E418B738A100C6A16D /* ISHR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISHR.h; sourceTree = "<group>"; };
@@ -388,6 +393,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB8A335F18C0724A00067BE4 /* QuartzCore.framework in Frameworks */,
 				BB0C61E518BDE8B200FCB7D1 /* EventKit.framework in Frameworks */,
 				BB98D6FA18B7418D00C6A16D /* libsqlite3.dylib in Frameworks */,
 				BB98D6EB18B7396D00C6A16D /* CoreLocation.framework in Frameworks */,
@@ -566,6 +572,7 @@
 		BB0EE32A18A3ADAB00E3EA63 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BB8A335E18C0724A00067BE4 /* QuartzCore.framework */,
 				BB0C61E418BDE8B200FCB7D1 /* EventKit.framework */,
 				BB98D6F918B7418D00C6A16D /* libsqlite3.dylib */,
 				BB98D6EA18B7396D00C6A16D /* CoreLocation.framework */,
@@ -744,6 +751,8 @@
 		BB5DCCA518B7249900DAB3CE /* alertview */ = {
 			isa = PBXGroup;
 			children = (
+				BB8A31FC18C0624600067BE4 /* MBProgressHUD.h */,
+				BB8A31FD18C0624600067BE4 /* MBProgressHUD.m */,
 				BB5DCCA618B7249900DAB3CE /* alertBkg.png */,
 				BB5DCCA718B7249900DAB3CE /* alertBkg@2x.png */,
 				BB5DCCA818B7249900DAB3CE /* ILAlertView.h */,
@@ -1112,6 +1121,7 @@
 				BB0EE33C18A3ADAB00E3EA63 /* ISAppDelegate.m in Sources */,
 				1F4E038418AE16D800BAF4D8 /* ISBLEConnectionManagerViewController.m in Sources */,
 				BB779E6B18AA5A3E009C2D8C /* MMDrawerController.m in Sources */,
+				BB8A31FE18C0624600067BE4 /* MBProgressHUD.m in Sources */,
 				BB0EE33818A3ADAB00E3EA63 /* main.m in Sources */,
 				1F19312418B33DFD005BB31C /* ISReportDetailsViewController.m in Sources */,
 				1F19312A18B3406C005BB31C /* ISReportDetailCell.m in Sources */,

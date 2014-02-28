@@ -47,7 +47,7 @@
                                              selector:@selector(storeChanged:)
                                                  name:EKEventStoreChangedNotification
                                                object:appDel.eventStore];
-    [self fetchData];
+    [self showHUD];
 }
 
 
@@ -179,9 +179,20 @@
     
 }
 
+- (void)showHUD {
+	
+	self.HUD = [[MBProgressHUD alloc] initWithView:self.view];
+	[self.view addSubview:self.HUD];
+	
+	self.HUD.labelText = @"Loading...";
+	self.HUD.detailsLabelText = @"Fetching data";
+	self.HUD.square = YES;
+    [self.HUD show:YES];
+    [self fetchData];
+}
+
 -(void)fetchData
 {
-    
     NSPredicate *pre=[appDel.eventStore predicateForRemindersInCalendars:@[appDel.calendar]];
     [appDel.eventStore fetchRemindersMatchingPredicate:pre completion:^(NSArray *reminders) {
         
@@ -203,11 +214,15 @@
         
         
         [self.tableView reloadData];
+        dispatch_async(dispatch_get_main_queue(), ^{
+           [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        });
+        
     }];
 }
 -(void)storeChanged:(id)sender
 {
-    [self fetchData];
+    [self showHUD];
 }
 
 

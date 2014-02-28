@@ -362,30 +362,31 @@
         
         
         
-        NSError *err;
-        [appDel.eventStore removeReminder:self.reminder commit:YES error:&err];
-        // NSLog(@"%@",err);
-        if (err!=nil) {
-            [ILAlertView showWithTitle:@"Error" message:@"Unexpected Error Occured!" closeButtonTitle:nil secondButtonTitle:@"OK" tappedSecondButton:^{
-            }];
-            return;
-        }
-        else
-        {
-            [appDel.eventStore saveReminder:reminder commit:YES error:&err];
-            //NSLog(@"%@",err);
-            if (err==nil) {
-                
-                [self dismissViewControllerAnimated:YES completion:^{
-                     [ILAlertView showWithTitle:@"Success" message:@"Reminder Saved" closeButtonTitle:@"OK" secondButtonTitle:nil tappedSecondButton:nil];
+        
+        
+        [ILAlertView showWithTitle:@"Save Reminder" message:@"Do u want to save changes?" closeButtonTitle:@"No" secondButtonTitle:@"Yes" tappedSecondButton:^{
+            NSError *err;
+            [appDel.eventStore removeReminder:self.reminder commit:YES error:&err];
+            // NSLog(@"%@",err);
+            if (err!=nil) {
+                [ILAlertView showWithTitle:@"Error" message:@"Unexpected Error Occured!" closeButtonTitle:nil secondButtonTitle:@"OK" tappedSecondButton:^{
                 }];
-                
-               
-                 
-                
-                
+                return;
             }
-        }
+            else
+            {
+                [appDel.eventStore saveReminder:reminder commit:YES error:&err];
+                //NSLog(@"%@",err);
+                if (err==nil) {
+                    
+                    [self dismissViewControllerAnimated:YES completion:nil];
+                    
+                    
+                }
+            }
+        }];
+        
+        
         
         
         

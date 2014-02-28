@@ -8,13 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "ISReminderCell.h"
-
+#import "MBProgressHUD.h"
 #import "macros.h"
 
 @interface ISWorkoutRemindersViewController : UITableViewController
 
 @property  NSIndexPath *selectedReminderIndex;
 @property NSMutableArray *reminders;
+@property MBProgressHUD *HUD;
 
 -(void)deleteCell;
 

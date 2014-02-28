@@ -277,21 +277,18 @@
      
         
         
-        
-        NSError *err;
-        [appDel.eventStore saveReminder:reminder commit:YES error:&err];
-        //NSLog(@"%@",err);
-        if (err==nil) {
-            
-            [self dismissViewControllerAnimated:YES completion:^{
-                [ILAlertView showWithTitle:@"Success" message:@"Reminder Saved" closeButtonTitle:@"OK" secondButtonTitle:nil tappedSecondButton:nil];
-            }];
-            
-            
-            
-        }
-        
+        [ILAlertView showWithTitle:@"Save Reminder" message:@"Do u want to save Reminder?" closeButtonTitle:@"No" secondButtonTitle:@"Yes" tappedSecondButton:^{
+            NSError *err;
+            [appDel.eventStore saveReminder:reminder commit:YES error:&err];
+            //NSLog(@"%@",err);
+            if (err==nil) {
+                
+                [self dismissViewControllerAnimated:YES completion:nil];
+            }
+        }];
     }
+    
+    
 }
 -(void)repeatClicked:(id)sender
 {
