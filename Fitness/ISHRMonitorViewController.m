@@ -66,9 +66,9 @@ float randomFloat(float Min, float Max){
 -(BOOL)plotSpace:(CPTPlotSpace *)space shouldScaleBy:(CGFloat)interactionScale aboutPoint:(CGPoint)interactionPoint
 {
     //NSLog(@"%f %f %f",interactionScale,interactionPoint.x,interactionPoint.y);
-    if (interactionScale>=1.5) {
-        NSLog(@"hello");
-    }
+//    if (interactionScale>=1.5) {
+//        NSLog(@"hello");
+//    }
     
     return YES;
 }
@@ -276,7 +276,7 @@ float randomFloat(float Min, float Max){
     CPTXYAxis *x          = axisSet.xAxis;
     CPTTimeFormatter *timeFormatter = [[CPTTimeFormatter alloc] initWithDateFormatter:formatter];
     timeFormatter.referenceDate = startDate;
-    //NSLog(@"%@",startDate);
+    
     x.labelFormatter            = timeFormatter;
     x.labelRotation             = M_PI / 4;
     x.majorIntervalLength         = CPTDecimalFromFloat(xAxisUnitInterval.floatValue);
@@ -383,7 +383,7 @@ float randomFloat(float Min, float Max){
 //        }
         
         
-        NSLog(@"%f",newRange.lengthDouble);
+      
     }
     return newRange;
 }
