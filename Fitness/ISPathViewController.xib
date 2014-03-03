@@ -7,7 +7,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ISPathViewController">
             <connections>
-                <outlet property="map" destination="21m-1A-w0Z" id="UCK-gW-9Pu"/>
+                <outlet property="backView" destination="MGh-kf-IzB" id="rpO-BG-q9P"/>
+                <outlet property="frontView" destination="JmG-eS-YOS" id="OQn-GJ-Lwm"/>
+                <outlet property="map" destination="HDM-yi-6OB" id="DKO-lW-mIQ"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
@@ -16,20 +18,103 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="21m-1A-w0Z">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MGh-kf-IzB" userLabel="BackView">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                </mapView>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="do5-2H-PLl">
+                            <rect key="frame" x="180" y="403" width="120" height="40"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="mxs-zK-X64"/>
+                                <constraint firstAttribute="width" constant="120" id="wts-CM-8bY"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <state key="normal" title="Standard" backgroundImage="set.png">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="standardButtonAction:" destination="-1" eventType="touchUpInside" id="eQ4-ph-5kO"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ui-el-JOF">
+                            <rect key="frame" x="180" y="458" width="120" height="40"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="b4E-Wx-DVU"/>
+                                <constraint firstAttribute="width" constant="120" id="ouk-Yr-wsj"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <state key="normal" title="Satellite" backgroundImage="set.png">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="satelliteButtonAction:" destination="-1" eventType="touchUpInside" id="gcD-Mc-92B"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ANL-1V-Th2">
+                            <rect key="frame" x="180" y="513" width="120" height="40"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="120" id="MVD-sG-SKO"/>
+                                <constraint firstAttribute="height" constant="40" id="wPh-gw-2lQ"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <state key="normal" title="Hybrid" backgroundImage="set.png">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="hybridButtonAction:" destination="-1" eventType="touchUpInside" id="6pw-Oy-wly"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="ANL-1V-Th2" secondAttribute="trailing" constant="20" id="Gn3-q4-DMx"/>
+                        <constraint firstAttribute="bottom" secondItem="ANL-1V-Th2" secondAttribute="bottom" constant="15" id="H4Y-vC-Wz0"/>
+                        <constraint firstAttribute="trailing" secondItem="do5-2H-PLl" secondAttribute="trailing" constant="20" id="KFz-JC-Zwk"/>
+                        <constraint firstItem="9Ui-el-JOF" firstAttribute="top" secondItem="do5-2H-PLl" secondAttribute="bottom" constant="15" id="NMx-C4-SHr"/>
+                        <constraint firstItem="ANL-1V-Th2" firstAttribute="top" secondItem="9Ui-el-JOF" secondAttribute="bottom" constant="15" id="T0I-rE-fhR"/>
+                        <constraint firstAttribute="trailing" secondItem="9Ui-el-JOF" secondAttribute="trailing" constant="20" id="eGh-e2-JUv"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JmG-eS-YOS" userLabel="FrontView">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="HDM-yi-6OB">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        </mapView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="HDM-yi-6OB" secondAttribute="bottom" id="5Se-bX-oTr"/>
+                        <constraint firstAttribute="trailing" secondItem="HDM-yi-6OB" secondAttribute="trailing" id="BEc-qe-FpJ"/>
+                        <constraint firstItem="HDM-yi-6OB" firstAttribute="leading" secondItem="JmG-eS-YOS" secondAttribute="leading" id="BoI-kI-66a"/>
+                        <constraint firstItem="HDM-yi-6OB" firstAttribute="top" secondItem="JmG-eS-YOS" secondAttribute="top" id="khi-h4-TYd"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="21m-1A-w0Z" secondAttribute="bottom" id="9rm-yv-UtX"/>
-                <constraint firstItem="21m-1A-w0Z" firstAttribute="top" secondItem="1" secondAttribute="top" id="Ckb-u8-DRJ"/>
-                <constraint firstAttribute="trailing" secondItem="21m-1A-w0Z" secondAttribute="trailing" id="OdL-BQ-gZK"/>
-                <constraint firstItem="21m-1A-w0Z" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="Qgw-O5-YYv"/>
+                <constraint firstItem="JmG-eS-YOS" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="0v1-hu-foU"/>
+                <constraint firstAttribute="bottom" secondItem="MGh-kf-IzB" secondAttribute="bottom" id="GYz-TR-nrU"/>
+                <constraint firstAttribute="bottom" secondItem="JmG-eS-YOS" secondAttribute="bottom" id="GoY-Dp-Foe"/>
+                <constraint firstItem="JmG-eS-YOS" firstAttribute="top" secondItem="1" secondAttribute="top" id="I77-ML-dZK"/>
+                <constraint firstAttribute="trailing" secondItem="MGh-kf-IzB" secondAttribute="trailing" id="NQc-Yy-pZP"/>
+                <constraint firstItem="MGh-kf-IzB" firstAttribute="top" secondItem="1" secondAttribute="top" id="b6C-oM-3Ab"/>
+                <constraint firstItem="MGh-kf-IzB" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="pgG-IF-yOa"/>
+                <constraint firstAttribute="trailing" secondItem="JmG-eS-YOS" secondAttribute="trailing" id="vDj-rh-B6C"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>
+    <resources>
+        <image name="set.png" width="75" height="38"/>
+    </resources>
 </document>

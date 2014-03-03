@@ -154,6 +154,21 @@
 		BB8A31FE18C0624600067BE4 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8A31FD18C0624600067BE4 /* MBProgressHUD.m */; };
 		BB8A335F18C0724A00067BE4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB8A335E18C0724A00067BE4 /* QuartzCore.framework */; };
 		BB8A375B18C07AB700067BE4 /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB8A375A18C07AB700067BE4 /* libCorePlot-CocoaTouch.a */; };
+		BB95B29218C49B20003AD69B /* CGPointAdditions.c in Sources */ = {isa = PBXBuildFile; fileRef = BB95B27A18C49B20003AD69B /* CGPointAdditions.c */; };
+		BB95B29318C49B20003AD69B /* BackFragmentShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = BB95B27D18C49B20003AD69B /* BackFragmentShader.glsl */; };
+		BB95B29418C49B20003AD69B /* BackPageGradient.png in Resources */ = {isa = PBXBuildFile; fileRef = BB95B27E18C49B20003AD69B /* BackPageGradient.png */; };
+		BB95B29518C49B20003AD69B /* BackVertexShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = BB95B27F18C49B20003AD69B /* BackVertexShader.glsl */; };
+		BB95B29618C49B20003AD69B /* FrontFragmentShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = BB95B28018C49B20003AD69B /* FrontFragmentShader.glsl */; };
+		BB95B29718C49B20003AD69B /* FrontVertexShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = BB95B28118C49B20003AD69B /* FrontVertexShader.glsl */; };
+		BB95B29818C49B20003AD69B /* NextPageFragmentShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = BB95B28218C49B20003AD69B /* NextPageFragmentShader.glsl */; };
+		BB95B29918C49B20003AD69B /* NextPageNoTextureFragmentShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = BB95B28318C49B20003AD69B /* NextPageNoTextureFragmentShader.glsl */; };
+		BB95B29A18C49B20003AD69B /* NextPageNoTextureVertexShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = BB95B28418C49B20003AD69B /* NextPageNoTextureVertexShader.glsl */; };
+		BB95B29B18C49B20003AD69B /* NextPageVertexShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = BB95B28518C49B20003AD69B /* NextPageVertexShader.glsl */; };
+		BB95B29C18C49B20003AD69B /* XBAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = BB95B28718C49B20003AD69B /* XBAnimation.m */; };
+		BB95B29D18C49B20003AD69B /* XBAnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BB95B28918C49B20003AD69B /* XBAnimationManager.m */; };
+		BB95B29E18C49B20003AD69B /* XBCurlView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB95B28B18C49B20003AD69B /* XBCurlView.m */; };
+		BB95B2A618C49B4B003AD69B /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB95B2A518C49B4A003AD69B /* OpenGLES.framework */; };
+		BB95B2A818C4A2FF003AD69B /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = BB95B2A718C4A2FF003AD69B /* settings.png */; };
 		BB98D6E318B7381E00C6A16D /* ISUserDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = BB98D6E218B7381E00C6A16D /* ISUserDetails.m */; };
 		BB98D6E618B738A100C6A16D /* ISHR.m in Sources */ = {isa = PBXBuildFile; fileRef = BB98D6E518B738A100C6A16D /* ISHR.m */; };
 		BB98D6E918B738E600C6A16D /* ISWOGoal.m in Sources */ = {isa = PBXBuildFile; fileRef = BB98D6E818B738E600C6A16D /* ISWOGoal.m */; };
@@ -450,6 +465,25 @@
 		BB8A375818C07AA200067BE4 /* NSDecimalNumberExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDecimalNumberExtensions.h; sourceTree = "<group>"; };
 		BB8A375918C07AA200067BE4 /* NSNumberExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSNumberExtensions.h; sourceTree = "<group>"; };
 		BB8A375A18C07AB700067BE4 /* libCorePlot-CocoaTouch.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libCorePlot-CocoaTouch.a"; path = "Fitness/core plot/libCorePlot-CocoaTouch.a"; sourceTree = "<group>"; };
+		BB95B27A18C49B20003AD69B /* CGPointAdditions.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CGPointAdditions.c; sourceTree = "<group>"; };
+		BB95B27B18C49B20003AD69B /* CGPointAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGPointAdditions.h; sourceTree = "<group>"; };
+		BB95B27D18C49B20003AD69B /* BackFragmentShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BackFragmentShader.glsl; sourceTree = "<group>"; };
+		BB95B27E18C49B20003AD69B /* BackPageGradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BackPageGradient.png; sourceTree = "<group>"; };
+		BB95B27F18C49B20003AD69B /* BackVertexShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BackVertexShader.glsl; sourceTree = "<group>"; };
+		BB95B28018C49B20003AD69B /* FrontFragmentShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FrontFragmentShader.glsl; sourceTree = "<group>"; };
+		BB95B28118C49B20003AD69B /* FrontVertexShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FrontVertexShader.glsl; sourceTree = "<group>"; };
+		BB95B28218C49B20003AD69B /* NextPageFragmentShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NextPageFragmentShader.glsl; sourceTree = "<group>"; };
+		BB95B28318C49B20003AD69B /* NextPageNoTextureFragmentShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NextPageNoTextureFragmentShader.glsl; sourceTree = "<group>"; };
+		BB95B28418C49B20003AD69B /* NextPageNoTextureVertexShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NextPageNoTextureVertexShader.glsl; sourceTree = "<group>"; };
+		BB95B28518C49B20003AD69B /* NextPageVertexShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NextPageVertexShader.glsl; sourceTree = "<group>"; };
+		BB95B28618C49B20003AD69B /* XBAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBAnimation.h; sourceTree = "<group>"; };
+		BB95B28718C49B20003AD69B /* XBAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBAnimation.m; sourceTree = "<group>"; };
+		BB95B28818C49B20003AD69B /* XBAnimationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBAnimationManager.h; sourceTree = "<group>"; };
+		BB95B28918C49B20003AD69B /* XBAnimationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBAnimationManager.m; sourceTree = "<group>"; };
+		BB95B28A18C49B20003AD69B /* XBCurlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBCurlView.h; sourceTree = "<group>"; };
+		BB95B28B18C49B20003AD69B /* XBCurlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBCurlView.m; sourceTree = "<group>"; };
+		BB95B2A518C49B4A003AD69B /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		BB95B2A718C4A2FF003AD69B /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		BB98D6E118B7381E00C6A16D /* ISUserDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISUserDetails.h; sourceTree = "<group>"; };
 		BB98D6E218B7381E00C6A16D /* ISUserDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISUserDetails.m; sourceTree = "<group>"; };
 		BB98D6E418B738A100C6A16D /* ISHR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISHR.h; sourceTree = "<group>"; };
@@ -481,6 +515,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB95B2A618C49B4B003AD69B /* OpenGLES.framework in Frameworks */,
 				BB8A335F18C0724A00067BE4 /* QuartzCore.framework in Frameworks */,
 				BB0C61E518BDE8B200FCB7D1 /* EventKit.framework in Frameworks */,
 				BB98D6FA18B7418D00C6A16D /* libsqlite3.dylib in Frameworks */,
@@ -662,6 +697,7 @@
 		BB0EE32A18A3ADAB00E3EA63 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BB95B2A518C49B4A003AD69B /* OpenGLES.framework */,
 				BB8A375A18C07AB700067BE4 /* libCorePlot-CocoaTouch.a */,
 				BB8A335E18C0724A00067BE4 /* QuartzCore.framework */,
 				BB0C61E418BDE8B200FCB7D1 /* EventKit.framework */,
@@ -680,6 +716,7 @@
 		BB0EE33118A3ADAB00E3EA63 /* Fitness */ = {
 			isa = PBXGroup;
 			children = (
+				BB95B27918C49B20003AD69B /* XBPageCurl */,
 				BB8A336918C073D800067BE4 /* core plot */,
 				BB98D6FB18B7717D00C6A16D /* process handler */,
 				BB98D6E018B737F000C6A16D /* classes */,
@@ -789,6 +826,7 @@
 		BB11E4C018A8CA5900406313 /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				BB95B2A718C4A2FF003AD69B /* settings.png */,
 				1FEC253C18B1E2850053A996 /* edit reminder */,
 				1F4E036018AE115700BAF4D8 /* Connection Manager */,
 				1F4E036918AE115700BAF4D8 /* heart rate monitoring */,
@@ -1052,6 +1090,38 @@
 			path = "core plot/CorePlotHeaders";
 			sourceTree = "<group>";
 		};
+		BB95B27918C49B20003AD69B /* XBPageCurl */ = {
+			isa = PBXGroup;
+			children = (
+				BB95B27A18C49B20003AD69B /* CGPointAdditions.c */,
+				BB95B27B18C49B20003AD69B /* CGPointAdditions.h */,
+				BB95B27C18C49B20003AD69B /* Resources */,
+				BB95B28618C49B20003AD69B /* XBAnimation.h */,
+				BB95B28718C49B20003AD69B /* XBAnimation.m */,
+				BB95B28818C49B20003AD69B /* XBAnimationManager.h */,
+				BB95B28918C49B20003AD69B /* XBAnimationManager.m */,
+				BB95B28A18C49B20003AD69B /* XBCurlView.h */,
+				BB95B28B18C49B20003AD69B /* XBCurlView.m */,
+			);
+			path = XBPageCurl;
+			sourceTree = "<group>";
+		};
+		BB95B27C18C49B20003AD69B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BB95B27D18C49B20003AD69B /* BackFragmentShader.glsl */,
+				BB95B27E18C49B20003AD69B /* BackPageGradient.png */,
+				BB95B27F18C49B20003AD69B /* BackVertexShader.glsl */,
+				BB95B28018C49B20003AD69B /* FrontFragmentShader.glsl */,
+				BB95B28118C49B20003AD69B /* FrontVertexShader.glsl */,
+				BB95B28218C49B20003AD69B /* NextPageFragmentShader.glsl */,
+				BB95B28318C49B20003AD69B /* NextPageNoTextureFragmentShader.glsl */,
+				BB95B28418C49B20003AD69B /* NextPageNoTextureVertexShader.glsl */,
+				BB95B28518C49B20003AD69B /* NextPageVertexShader.glsl */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		BB98D6E018B737F000C6A16D /* classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -1184,12 +1254,17 @@
 				1F4E038718AE1D2700BAF4D8 /* black line 640.png in Resources */,
 				BB779E2418AA4765009C2D8C /* menu1.png in Resources */,
 				BB3C66CC18A9EA2800CAA240 /* ISProfileViewController.xib in Resources */,
+				BB95B29318C49B20003AD69B /* BackFragmentShader.glsl in Resources */,
+				BB95B29A18C49B20003AD69B /* NextPageNoTextureVertexShader.glsl in Resources */,
 				BB5DCCAA18B7249900DAB3CE /* alertBkg.png in Resources */,
 				BB779E5218AA518B009C2D8C /* ISMenuViewController.xib in Resources */,
 				1F4E037A18AE115700BAF4D8 /* line.png in Resources */,
 				1F19312518B33DFD005BB31C /* ISReportDetailsViewController.xib in Resources */,
 				1FEC257618B219AC0053A996 /* menu1@2x.png in Resources */,
+				BB95B29B18C49B20003AD69B /* NextPageVertexShader.glsl in Resources */,
+				BB95B29618C49B20003AD69B /* FrontFragmentShader.glsl in Resources */,
 				BB005F4E18AB3BA4003FAF8B /* radoi.png in Resources */,
+				BB95B29918C49B20003AD69B /* NextPageNoTextureFragmentShader.glsl in Resources */,
 				BB779E2818AA4765009C2D8C /* report.png in Resources */,
 				BB779DE918AA4186009C2D8C /* radoi.png in Resources */,
 				BB779DE518AA4186009C2D8C /* radio-sel@1x.png in Resources */,
@@ -1219,6 +1294,7 @@
 				BB779E5C18AA56F4009C2D8C /* orange.png in Resources */,
 				BB1194FE18B5D6D400D05A97 /* deleteRem.png in Resources */,
 				BB11E4CC18A8CA5900406313 /* mid img.png in Resources */,
+				BB95B29518C49B20003AD69B /* BackVertexShader.glsl in Resources */,
 				1F4E037418AE115700BAF4D8 /* line.png in Resources */,
 				BB779E5918AA56F4009C2D8C /* 03-dashboard_slider_edited.jpg in Resources */,
 				BB005F5518AB3BA4003FAF8B /* radoi@2x.png in Resources */,
@@ -1234,6 +1310,7 @@
 				1F4E037318AE115700BAF4D8 /* device.png in Resources */,
 				BB779E2C18AA4765009C2D8C /* steps-icn.png in Resources */,
 				BB005F5118AB3BA4003FAF8B /* start.png in Resources */,
+				BB95B2A818C4A2FF003AD69B /* settings.png in Resources */,
 				1F4E038518AE16D800BAF4D8 /* ISBLEConnectionManagerViewController.xib in Resources */,
 				BB1194FD18B5D6D300D05A97 /* selRem.png in Resources */,
 				BB779E2E18AA4765009C2D8C /* time-icn.png in Resources */,
@@ -1242,6 +1319,7 @@
 				BB779DDA18AA1DED009C2D8C /* comic sans.ttf in Resources */,
 				BBD4207D18B4BFD00094F958 /* ISRepeatReminderCell.xib in Resources */,
 				BB779E2F18AA4765009C2D8C /* time.png in Resources */,
+				BB95B29718C49B20003AD69B /* FrontVertexShader.glsl in Resources */,
 				BB005F4C18AB3BA4003FAF8B /* back1.png in Resources */,
 				BB005F5618AB3BA4003FAF8B /* set@2x.png in Resources */,
 				BB779E2D18AA4765009C2D8C /* steps.png in Resources */,
@@ -1249,9 +1327,11 @@
 				BB005F4B18AB3BA4003FAF8B /* 04-workout goals.jpg in Resources */,
 				BB005F5318AB3BA4003FAF8B /* back@2x.png in Resources */,
 				BB005F4D18AB3BA4003FAF8B /* radio-sel.png in Resources */,
+				BB95B29818C49B20003AD69B /* NextPageFragmentShader.glsl in Resources */,
 				1FEC253F18B1E2850053A996 /* btn_edit_reminder.png in Resources */,
 				BB779E4D18AA4783009C2D8C /* ISDashboardViewController.xib in Resources */,
 				BB779E2A18AA4765009C2D8C /* speed.png in Resources */,
+				BB95B29418C49B20003AD69B /* BackPageGradient.png in Resources */,
 				BB11E4CE18A8CA5900406313 /* text box bg.png in Resources */,
 				BB005F5718AB3BA4003FAF8B /* start-goal@2x.png in Resources */,
 				1F4E037B18AE115700BAF4D8 /* textHR.png in Resources */,
@@ -1312,6 +1392,7 @@
 				BBD4208318B4C1710094F958 /* ISReminderRepeatViewController.m in Sources */,
 				BBD4208618B4CE5C0094F958 /* ISReminderAlertViewController.m in Sources */,
 				BB005F5D18AB3BD0003FAF8B /* ISSetWorkoutGoalViewController.m in Sources */,
+				BB95B29218C49B20003AD69B /* CGPointAdditions.c in Sources */,
 				1F4E039518AE332E00BAF4D8 /* ISPathViewController.m in Sources */,
 				BB98D6EE18B7399100C6A16D /* ISLocation.m in Sources */,
 				BB11950D18B60FAA00D05A97 /* ISHRDistributor.m in Sources */,
@@ -1319,11 +1400,14 @@
 				BB11950318B5D87F00D05A97 /* ISWorkoutReminderController.m in Sources */,
 				BB779E4C18AA4783009C2D8C /* ISDashboardViewController.m in Sources */,
 				1FEC254418B1E8F60053A996 /* ISNewReminderViewController.m in Sources */,
+				BB95B29E18C49B20003AD69B /* XBCurlView.m in Sources */,
+				BB95B29C18C49B20003AD69B /* XBAnimation.m in Sources */,
 				BB98D6E318B7381E00C6A16D /* ISUserDetails.m in Sources */,
 				BB98D6FE18B771A200C6A16D /* ISWorkOutHandler.m in Sources */,
 				BB3C66CB18A9EA2800CAA240 /* ISProfileViewController.m in Sources */,
 				1F19312D18B34735005BB31C /* ISReportsViewController.m in Sources */,
 				1F4E038D18AE226200BAF4D8 /* ISConnectionManagerViewController.m in Sources */,
+				BB95B29D18C49B20003AD69B /* XBAnimationManager.m in Sources */,
 				1F05309318B1D43300F34E0D /* ISEditReminderViewController.m in Sources */,
 				BB98D6E918B738E600C6A16D /* ISWOGoal.m in Sources */,
 				BB11E4BE18A8C9C400406313 /* ISUserProfileViewController.m in Sources */,

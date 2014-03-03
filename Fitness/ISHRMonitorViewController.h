@@ -31,7 +31,9 @@ CPTPlotDataSource,CPTScatterPlotDelegate>
     ScaleLevel currentScale;
     
 }
+- (IBAction)switchValueChanged:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UISwitch *countinuousMonitoringSwitch;
 
 @property (readwrite, strong, nonatomic) NSMutableArray *dataForPlot;
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;

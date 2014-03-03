@@ -10,6 +10,7 @@
 #import "macros.h"
 #import "ISHR.h"
 #import "ILAlertView.h"
+#import "ISAppDelegate.h"
 
 
 
@@ -24,6 +25,7 @@
     NSDate *toDate;
     NSDate *startDate;
     NSDate *endDate;
+    ISAppDelegate *appDel;
 }
 
 
@@ -429,6 +431,7 @@ float randomFloat(float Min, float Max){
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        appDel=(ISAppDelegate*)[[UIApplication sharedApplication]delegate];
     }
     return self;
 }
@@ -438,10 +441,15 @@ float randomFloat(float Min, float Max){
     [super viewDidLoad];
     [self setupNavigationBar];
     [self setupTextFields];
-    xAxisUnitInterval=@60.0;
-    currentScale=MONTH;
+    
+    
 }
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.countinuousMonitoringSwitch setOn:appDel.woHandler.userDetails.hrMonitoring];
+    
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -453,7 +461,6 @@ float randomFloat(float Min, float Max){
 
 -(void)setupTextFields
 {
-    
     
     UIView *fromView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 23, 21)];
     
@@ -564,4 +571,9 @@ float randomFloat(float Min, float Max){
     
 }
 
+- (IBAction)switchValueChanged:(id)sender {
+    
+    appDel.woHandler.userDetails.hrMonitoring=self.countinuousMonitoringSwitch.on;
+    [appDel.woHandler.userDetails saveUserDetails];
+}
 @end

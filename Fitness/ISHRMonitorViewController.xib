@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ISHRMonitorViewController">
             <connections>
                 <outlet property="accessoryView" destination="LYa-0O-2pd" id="ZOK-lu-n8n"/>
+                <outlet property="countinuousMonitoringSwitch" destination="jDx-Ad-Sg0" id="myY-KC-wKl"/>
                 <outlet property="datePicker" destination="JO6-vU-NKv" id="rba-wV-Emm"/>
                 <outlet property="fromDateTextField" destination="LdC-G1-5b2" id="wzt-Xo-tzj"/>
                 <outlet property="graphView" destination="ELW-E0-6m4" id="qcN-Pp-Yfw"/>
@@ -32,6 +33,9 @@
                             <rect key="frame" x="261" y="14" width="51" height="31"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="onTintColor" red="0.87450981139999995" green="0.45882353190000003" blue="0.01176470611" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="switchValueChanged:" destination="-1" eventType="valueChanged" id="4E1-Tv-MgV"/>
+                            </connections>
                         </switch>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Heart Rate Monitoring" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q8e-Z4-OjJ">
                             <rect key="frame" x="10" y="20" width="178" height="21"/>

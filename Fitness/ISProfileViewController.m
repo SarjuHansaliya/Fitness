@@ -41,7 +41,11 @@
     [self setupGenderRB];
     [self fillTextFields];
 }
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.hrSwitch.on=self.userDetails.hrMonitoring;
+}
 //---------------------loading data to text fields-------------------
 
 -(void)fillTextFields
@@ -64,7 +68,7 @@
     {
         [self femaleRBClicked:nil];
     }
-    self.hrSwitch.on=self.userDetails.hrMonitoring;
+    
     
 }
 

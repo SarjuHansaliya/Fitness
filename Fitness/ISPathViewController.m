@@ -9,6 +9,7 @@
 #import "ISPathViewController.h"
 #import "macros.h"
 #import "ISAppDelegate.h"
+#define kDuration 0.5
 
 
 @interface ISPathViewController ()
@@ -20,6 +21,7 @@
     ISAppDelegate *appDel;
     NSArray  *locations;
     BOOL singleLocation;
+    BOOL isCurled;
     
 }
 
@@ -46,7 +48,14 @@
     [self setupNavigationBar];
     [self.map setDelegate:self];
     [self fetchCordinates];
+    [self.curlView stopAnimating];
    
+}
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    CGRect r = self.frontView.frame;
+    self.curlView = [[XBCurlView alloc] initWithFrame:r];
 }
 
 //--------------------------------setting up navigation bar--------------------------------------
@@ -85,9 +94,15 @@
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:backView];
     
     
+    UIButton *addButtonCustom = [UIButton buttonWithType:UIButtonTypeCustom];
+    [addButtonCustom setFrame:CGRectMake(0.0f, 0.0f, 25.0f, 25.0f)];
+    [addButtonCustom addTarget:self action:@selector(curlButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [addButtonCustom setImage:[UIImage imageNamed:@"settings.png"] forState:UIControlStateNormal];
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithCustomView:addButtonCustom];
     
     // [backButton setTintColor: [UIColor colorWithHue:31.0/360.0 saturation:99.0/100.0 brightness:87.0/100.0 alpha:1]];
     [self.navigationItem setLeftBarButtonItem:backButton];
+    [self.navigationItem setRightBarButtonItem:addButton];
     
 }
 
@@ -182,7 +197,46 @@
     }
     else return nil;
 }
+//----------------------------------------handling map type change-----------------------
 
+- (void)curlButtonAction:(id)sender
+{
+    if (isCurled) {
+        [self.curlView uncurlAnimatedWithDuration:kDuration];
+    }
+    else
+    {
+        CGRect r = self.frontView.frame;
+        self.curlView.opaque = NO; //Transparency on the next page (so that the view behind curlView will appear)
+        self.curlView.pageOpaque = YES; //The page to be curled has no transparency
+        [self.curlView curlView:self.frontView cylinderPosition:CGPointMake(r.size.width/3, r.size.height/2) cylinderAngle:M_PI_2+0.23 cylinderRadius:UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad? 80: 50 animatedWithDuration:kDuration];
+    }
+    
+    isCurled = !isCurled;
+}
+
+
+
+- (IBAction)standardButtonAction:(id)sender
+{
+    self.map.mapType = MKMapTypeStandard;
+    [self.curlView uncurlAnimatedWithDuration:kDuration];
+    isCurled=NO;
+}
+
+- (IBAction)satelliteButtonAction:(id)sender
+{
+    self.map.mapType = MKMapTypeSatellite;
+    [self.curlView uncurlAnimatedWithDuration:kDuration];
+    isCurled=NO;
+}
+
+- (IBAction)hybridButtonAction:(id)sender
+{
+    self.map.mapType = MKMapTypeHybrid;
+    [self.curlView uncurlAnimatedWithDuration:kDuration];
+    isCurled=NO;
+}
 
 - (void)didReceiveMemoryWarning
 {
