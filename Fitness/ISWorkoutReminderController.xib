@@ -21,12 +21,11 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="L1v-Qp-BkD">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="415"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="462"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="320" id="s53-Lx-jHF"/>
-                        <constraint firstAttribute="height" constant="415" id="ttR-Zo-kKs"/>
                     </constraints>
                 </tableView>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7oD-av-HLo">
@@ -79,6 +78,7 @@
                 <constraint firstItem="L1v-Qp-BkD" firstAttribute="top" secondItem="1" secondAttribute="top" id="51X-6x-Tce"/>
                 <constraint firstItem="7oD-av-HLo" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="110" id="Iur-Io-cVZ"/>
                 <constraint firstAttribute="bottom" secondItem="1Gg-xG-JlR" secondAttribute="bottom" id="Ltv-TS-wqb"/>
+                <constraint firstAttribute="bottom" secondItem="L1v-Qp-BkD" secondAttribute="bottom" constant="86" id="Lwh-f1-pL9"/>
                 <constraint firstAttribute="trailing" secondItem="DNE-zu-HvQ" secondAttribute="trailing" constant="110" id="UXg-As-VIV"/>
                 <constraint firstAttribute="bottom" secondItem="DNE-zu-HvQ" secondAttribute="bottom" constant="10" id="Wo3-zd-PlA"/>
                 <constraint firstItem="jx8-V9-gaj" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="100" id="YWU-zT-iLh"/>

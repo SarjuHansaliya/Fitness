@@ -28,7 +28,7 @@ CPTPlotDataSource,CPTScatterPlotDelegate>
     CPTPlotSpaceAnnotation *symbolTextAnnotation;
     NSNumber * xAxisUnitInterval;
     UISegmentedControl *segmentedControl;
-    ScaleLevel *currentScale;
+    ScaleLevel currentScale;
     
 }
 

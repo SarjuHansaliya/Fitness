@@ -22,6 +22,8 @@
 {
     NSDate *fromDate;
     NSDate *toDate;
+    NSDate *startDate;
+    NSDate *endDate;
 }
 
 
@@ -32,15 +34,18 @@ float randomFloat(float Min, float Max){
     return ((arc4random()%RAND_MAX)/(RAND_MAX*1.0))*(Max-Min)+Min;
 }
 
--(NSDate *)generateData
+-(void)generateData
 {
     dataForPlot=nil;
     NSArray * data=[ISHR getHRArrayWithStartTS:fromDate endTS:toDate];
     if (data ==nil || [data count]<=0) {
-        return nil;
+        startDate=nil;
+        endDate=nil;
+        return;
     }
-    NSDate *startDate=[(ISHR*)data[0] timeStamp];
-   // NSLog(@"%@",data);
+    startDate=[(ISHR*)data[0] timeStamp];
+    endDate=[(ISHR*)data[([data count]-1)] timeStamp];
+    xAxisUnitInterval=[NSNumber numberWithDouble:[endDate timeIntervalSinceDate:startDate]];
     if ( !dataForPlot ) {
         NSMutableArray *newData = [NSMutableArray array];
         for (ISHR *hr in data)
@@ -52,9 +57,9 @@ float randomFloat(float Min, float Max){
               nil]];
         }
         dataForPlot = newData;
-        return startDate;
+        return;
     }
-    return nil;
+    return ;
 }
 -(BOOL)plotSpace:(CPTPlotSpace *)space shouldScaleBy:(CGFloat)interactionScale aboutPoint:(CGPoint)interactionPoint
 {
@@ -71,8 +76,8 @@ float randomFloat(float Min, float Max){
 
 -(void)reloadGraph
 {
-   NSDate *refDate = [self generateData];
-    if (refDate ==nil) {
+    [self generateData];
+    if (startDate ==nil) {
         
         [ILAlertView showWithTitle:@"" message:@"No Heart rate records found!" closeButtonTitle:@"OK" secondButtonTitle:nil tappedSecondButton:nil];
         return;
@@ -81,6 +86,7 @@ float randomFloat(float Min, float Max){
     graph = [[CPTXYGraph alloc] initWithFrame:CGRectZero];
     CPTTheme *theme = [CPTTheme themeNamed:kCPTPlainWhiteTheme];
     [graph applyTheme:theme];
+  //  [theme applyThemeToBackground:graph];
     CPTGraphHostingView *hostingView =(CPTGraphHostingView*)self.graphView;
     hostingView.collapsesLayers = NO;
     hostingView.hostedGraph     = graph;
@@ -110,44 +116,20 @@ float randomFloat(float Min, float Max){
     CPTXYAxis *x          = axisSet.xAxis;
     x.majorIntervalLength         = CPTDecimalFromFloat(xAxisUnitInterval.floatValue);
     //  x.orthogonalCoordinateDecimal = CPTDecimalFromString(@"4");
-    x.minorTicksPerInterval       = 0;
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    
-    if([xAxisUnitInterval isEqual:@60]){
-        dateFormatter.dateFormat= @"hh:mm:ss" ;
-    }
-    else if([xAxisUnitInterval isEqual:@(60*60)]){
-        dateFormatter.dateFormat= @"hh:mm" ;
-    }
-    else if([xAxisUnitInterval isEqual:@(60*60*24)]){
-        dateFormatter.dateFormat= @"dd-MM-yy" ;
-    }
-    else if([xAxisUnitInterval isEqual:@(60*24*60*7)]){
-        dateFormatter.dateStyle=kCFDateFormatterShortStandaloneMonthSymbols;
-        graph.plotAreaFrame.paddingBottom = 80.0;
-        
-    }
-    else if([xAxisUnitInterval isEqual:@(60*24*60*30)]){
-        dateFormatter.dateFormat= @"MMM-yy" ;
-    }
-    
-    //dateFormatter.dateStyle=kCFDateFormatterDefaultFormat;
-    CPTTimeFormatter *timeFormatter = [[CPTTimeFormatter alloc] initWithDateFormatter:dateFormatter];
-    timeFormatter.referenceDate = refDate;
     x.minorTicksPerInterval       = 2;
     x.preferredNumberOfMajorTicks = 8;
-    x.labelFormatter            = timeFormatter;
     x.labelRotation             = M_PI / 4;
+     x.majorIntervalLength         = CPTDecimalFromFloat(xAxisUnitInterval.floatValue);
     //    x.title         = @"Date";
     //    x.titleOffset   = 30.0;
     //    x.titleLocation = CPTDecimalFromString(@"1.25");
     x.majorGridLineStyle          = majorGridLineStyle;
     x.minorGridLineStyle          = minorGridLineStyle;
     x.axisConstraints       = [CPTConstraints constraintWithRelativeOffset:0.0];
-    // x.delegate=self;
-    
-    
-    // Label y with an automatic label policy.
+     x.delegate=self;
+    CPTMutableTextStyle *ts=[[CPTMutableTextStyle alloc]init];
+    ts.fontSize=11.0;
+    [x setLabelTextStyle:ts];
     CPTXYAxis *y = axisSet.yAxis;
     y.labelingPolicy              = CPTAxisLabelingPolicyAutomatic;
     
@@ -156,6 +138,7 @@ float randomFloat(float Min, float Max){
     y.majorGridLineStyle          = majorGridLineStyle;
     y.minorGridLineStyle          = minorGridLineStyle;
     y.labelOffset                 = 3.0;
+    [y setLabelTextStyle:ts];
     //y.delegate             = self;
     //    y.title         = @"HR";
     //    y.titleOffset   = 20.0;
@@ -165,22 +148,22 @@ float randomFloat(float Min, float Max){
     // Create a plot that uses the data source method
     CPTScatterPlot *dataSourceLinePlot = [[CPTScatterPlot alloc] init];
     dataSourceLinePlot.identifier = @"Data Source Plot";
-    
+   // dataSourceLinePlot.interpolation=CPTScatterPlotInterpolationStepped;
     CPTMutableLineStyle *lineStyle = [dataSourceLinePlot.dataLineStyle mutableCopy];
-    lineStyle.lineWidth              = 5.0;
-    lineStyle.lineJoin               = kCGLineJoinRound;
-    lineStyle.lineGradient           = [CPTGradient gradientWithBeginningColor:[CPTColor grayColor] endingColor:[CPTColor whiteColor]];
+    lineStyle.lineWidth              = 2.0;
+    lineStyle.lineJoin               = kCGLineJoinBevel;
+    lineStyle.lineGradient           = [CPTGradient gradientWithBeginningColor:[CPTColor colorWithComponentRed:254.0/255.0 green:247.0/255.0 blue:235.0/255.0 alpha:1.0] endingColor:[CPTColor whiteColor]];
     dataSourceLinePlot.dataLineStyle = lineStyle;
     dataSourceLinePlot.dataSource    = self;
     [graph addPlot:dataSourceLinePlot];
     
     // Put an area gradient under the plot above
-    CPTColor *areaColor       = [CPTColor colorWithComponentRed:0.3 green:0.5 blue:0.3 alpha:0.9];
+    CPTColor *areaColor       = [CPTColor  colorWithComponentRed:223.0/255.0 green:117.0/255.0 blue:3.0/255.0 alpha:1.0];
     CPTGradient *areaGradient = [CPTGradient gradientWithBeginningColor:areaColor endingColor:[CPTColor clearColor]];
     areaGradient.angle = -90.0;
     CPTFill *areaGradientFill = [CPTFill fillWithGradient:areaGradient];
     dataSourceLinePlot.areaFill      = areaGradientFill;
-    dataSourceLinePlot.areaBaseValue = CPTDecimalFromString(@"0.0");
+    dataSourceLinePlot.areaBaseValue = CPTDecimalFromString(@"60.0");
     
     // Auto scale the plot space to fit the plot data
     // Extend the ranges by 30% for neatness
@@ -235,48 +218,67 @@ float randomFloat(float Min, float Max){
 
 -(BOOL)axis:(CPTAxis *)axis shouldUpdateAxisLabelsAtLocations:(NSSet *)locations
 {
-    static CPTTextStyle *positiveStyle = nil;
-    static CPTTextStyle *negativeStyle = nil;
     
-    NSFormatter *formatter = axis.labelFormatter;
+    
+    NSDateFormatter *formatter =[[NSDateFormatter alloc]init];
+    if([xAxisUnitInterval isEqual:@60]){
+        formatter.dateFormat= @"HH:mm:ss" ;
+    }
+    else if([xAxisUnitInterval isEqual:@1.0]){
+        formatter.dateFormat= @"HH:mm:ss" ;
+    }
+    else if([xAxisUnitInterval isEqual:@10.0]){
+        formatter.dateFormat= @"HH:mm:ss" ;
+    }
+    else if([xAxisUnitInterval isEqual:@(60*10)]){
+        formatter.dateFormat= @"HH:mm" ;
+    }
+    else if([xAxisUnitInterval isEqual:@(60*60)]){
+        formatter.dateFormat= @"HH:mm" ;
+    }
+    else if([xAxisUnitInterval isEqual:@(60*60*6)]){
+        formatter.dateFormat= @"HH:mm" ;
+    }
+    else if([xAxisUnitInterval isEqual:@(60*60*24)]){
+        formatter.dateFormat= @"dd-MM-yy" ;
+    }
+    else if([xAxisUnitInterval isEqual:@(60*60*24*7)]){
+        formatter.dateFormat= @"dd-MM-yy" ;
+    }
+    else if([xAxisUnitInterval isEqual:@(60*24*60*30)]){
+        formatter.dateFormat= @"MMM-yy" ;
+    }
     CGFloat labelOffset    = axis.labelOffset;
-    NSDecimalNumber *zero  = [NSDecimalNumber zero];
-    
     NSMutableSet *newLabels = [NSMutableSet set];
+    
     
     for ( NSDecimalNumber *tickLocation in locations ) {
         CPTTextStyle *theLabelTextStyle;
-        
-        if ( [tickLocation isGreaterThanOrEqualTo:zero] ) {
-            if ( !positiveStyle ) {
-                CPTMutableTextStyle *newStyle = [axis.labelTextStyle mutableCopy];
-                newStyle.color = [CPTColor greenColor];
-                positiveStyle  = newStyle;
-            }
-            theLabelTextStyle = positiveStyle;
-        }
-        else {
-            if ( !negativeStyle ) {
-                CPTMutableTextStyle *newStyle = [axis.labelTextStyle mutableCopy];
-                newStyle.color = [CPTColor redColor];
-                negativeStyle  = newStyle;
-            }
-            theLabelTextStyle = negativeStyle;
-        }
-        
-        NSString *labelString       = [formatter stringForObjectValue:tickLocation];
+        CPTMutableTextStyle *newStyle = [axis.labelTextStyle mutableCopy];
+        newStyle.color = [CPTColor blackColor];
+        theLabelTextStyle=newStyle;
+        NSDate *d=[NSDate dateWithTimeInterval:[tickLocation intValue] sinceDate:startDate];
+        NSString *labelString       = [formatter stringFromDate:d];
+        //labelString=[formatter stringForObjectValue:labelString];
         CPTTextLayer *newLabelLayer = [[CPTTextLayer alloc] initWithText:labelString style:theLabelTextStyle];
-        
+        CGSize size = CGSizeMake(newLabelLayer.maximumSize.width, 5.0);
+        newLabelLayer.maximumSize = size;
         CPTAxisLabel *newLabel = [[CPTAxisLabel alloc] initWithContentLayer:newLabelLayer];
+        
         newLabel.tickLocation = tickLocation.decimalValue;
         newLabel.offset       = labelOffset;
-        
         [newLabels addObject:newLabel];
     }
-    
-    axis.axisLabels = newLabels;
-    
-    return NO;
+   // axis.axisLabels = newLabels;
+    CPTXYAxisSet *axisSet = (CPTXYAxisSet *)graph.axisSet;
+    CPTXYAxis *x          = axisSet.xAxis;
+    CPTTimeFormatter *timeFormatter = [[CPTTimeFormatter alloc] initWithDateFormatter:formatter];
+    timeFormatter.referenceDate = startDate;
+    //NSLog(@"%@",startDate);
+    x.labelFormatter            = timeFormatter;
+    x.labelRotation             = M_PI / 4;
+    x.majorIntervalLength         = CPTDecimalFromFloat(xAxisUnitInterval.floatValue);
+    return YES;
 }
 -(NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plot
 {
@@ -303,48 +305,83 @@ float randomFloat(float Min, float Max){
     
     if (coordinate==CPTCoordinateX) {
         
-        double len=newRange.lengthDouble;
-        double totalPoints=30;
-        double min=60*totalPoints;
-        double hour=min*60;
-        double day=hour*24;
-        double week=day*7;
-        NSNumber *temp=[NSNumber numberWithDouble: xAxisUnitInterval.doubleValue];
         
-//        if ( len <= min) {
-//            currentScale=MIN;
-//            xAxisUnitInterval=@60;
-//            
-//        }
-//        else if (len>min && len<=hour)
-//        {
-//            currentScale=HOUR;
-//            xAxisUnitInterval=@(60*60);
-//        }
-//        else if (len>hour && len<=day)
-//        {
-//            currentScale=DAY;
-//            xAxisUnitInterval=@(60*60*24);
-//        }
-//        else if (len>day && len<=week)
-//        {
-//            currentScale=WEEK;
-//            xAxisUnitInterval=@(60*60*24*7);
-//        }
-//        else if(len>week)
-//        {
-//            currentScale=MONTH;
-//            xAxisUnitInterval=@(60*60*24*30);
-//            
-//        }
-//        
+        double len=newRange.lengthDouble;
+        if (len<=6.0) {
+            CPTPlotRange *range=[[CPTPlotRange alloc]initWithLocation:newRange.location length:[[NSDecimalNumber decimalNumberWithString:@"6.0"] decimalValue]];
+            return range;
+        }
+        else if (len>=30000000.0)
+        {
+            CPTPlotRange *range=[[CPTPlotRange alloc]initWithLocation:newRange.location length:[[NSDecimalNumber decimalNumberWithString:@"30000000.0"] decimalValue]];
+            return range;
+        }
+        double sec=12.0;
+        double tenSec=80.0;
+        double min=750.0;
+        double oneFifthHour=5000.0;
+        double hour=50000.0;
+        double quaterDay=150000.0;
+        double day=800000.0;
+        double week=3400000.0;
+        double month=7600000.0;
+       // NSNumber *temp=[NSNumber numberWithDouble: xAxisUnitInterval.doubleValue];
+        
+        if ( len <= sec) {
+           
+            xAxisUnitInterval=@1.0;
+            
+        }
+        else if ( len>sec && len<=tenSec) {
+            currentScale=MIN;
+            xAxisUnitInterval=@10.0;
+            
+        }
+        else if ( len>tenSec && len<=min) {
+            currentScale=MIN;
+            xAxisUnitInterval=@60;
+            
+        }
+        else if (len>min && len<=oneFifthHour)
+        {
+            currentScale=HOUR;
+            xAxisUnitInterval=@(60*10);
+        }
+        else if (len>oneFifthHour && len<=hour)
+        {
+            currentScale=HOUR;
+            xAxisUnitInterval=@(60*60);
+        }
+        else if (len>hour && len<=quaterDay)
+        {
+            currentScale=DAY;
+            xAxisUnitInterval=@(60*60*6);
+        }
+
+        else if (len>quaterDay && len<=day)
+        {
+            currentScale=DAY;
+            xAxisUnitInterval=@(60*60*24);
+        }
+        else if (len>day && len<=week)
+        {
+            currentScale=WEEK;
+            xAxisUnitInterval=@(60*60*24*7);
+        }
+        else if(len>month)
+        {
+            currentScale=MONTH;
+            xAxisUnitInterval=@(60*60*24*30);
+            
+        }
+        
 //        if(![temp isEqual:xAxisUnitInterval])
 //        {
 //           // [self reloadGraph];
 //        }
         
         
-       // NSLog(@"%@",newRange);
+        NSLog(@"%f",newRange.lengthDouble);
     }
     return newRange;
 }
@@ -392,7 +429,6 @@ float randomFloat(float Min, float Max){
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
@@ -402,30 +438,15 @@ float randomFloat(float Min, float Max){
     [super viewDidLoad];
     [self setupNavigationBar];
     [self setupTextFields];
-   
-   // xAxisUnitInterval=@(60*24*60);
-    xAxisUnitInterval=@1.0;
-    
-    //    NSArray *itemArray = [NSArray arrayWithObjects: @"Min", @"Hour", @"Date",@"Week",@"Month", nil];
-    //    segmentedControl = [[UISegmentedControl alloc] initWithItems:itemArray];
-    //    segmentedControl.frame = CGRectMake(50, 380, 250, 30);
-    //    segmentedControl.segmentedControlStyle = UISegmentedControlStylePlain;
-    //    segmentedControl.selectedSegmentIndex = 2;
-    //
-    //    [segmentedControl addTarget:self action:@selector(unitChanged:) forControlEvents: UIControlEventValueChanged];
+    xAxisUnitInterval=@60.0;
     currentScale=MONTH;
-   // [self reloadGraph];
-
-    
-    
-    // Do any additional setup after loading the view from its nib.
 }
 
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
 }
 
 //--------------------------------setting up textfields--------------------------------------
@@ -498,9 +519,6 @@ float randomFloat(float Min, float Max){
     [backButtonCustom setImage:[UIImage imageNamed:@"back.png"] forState:UIControlStateNormal];
     [backView addSubview:backButtonCustom];
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:backView];
-    
-    
-    // [backButton setTintColor: [UIColor colorWithHue:31.0/360.0 saturation:99.0/100.0 brightness:87.0/100.0 alpha:1]];
     [self.navigationItem setLeftBarButtonItem:backButton];
     
 }

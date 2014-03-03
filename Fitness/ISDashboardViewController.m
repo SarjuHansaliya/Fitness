@@ -43,7 +43,7 @@
     [self setupMenuItemsTouchEvents];
    
 //    [appDel.drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeNone];
-//    [appDel.drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
+    [appDel.drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
     [[appDel getHRDistributor] setDashBoardDelegate:self];
     [appDel.woHandler setDashBoardDelegate:self];
     if (![[appDel woHandler] isUserProfileSet]) {
