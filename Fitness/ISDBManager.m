@@ -794,7 +794,7 @@ static sqlite3_stmt *statement = nil;
     if (sqlite3_open(dbpath, &database) == SQLITE_OK)
     {
         
-        const char *query_stmt = "select * from wo_details";
+        const char *query_stmt = "select * from wo_details order by start_timestamp desc";
         NSMutableArray *resultArray = [NSMutableArray arrayWithCapacity:1];
         if (sqlite3_prepare_v2(database,
                                query_stmt, -1, &statement, NULL) == SQLITE_OK)

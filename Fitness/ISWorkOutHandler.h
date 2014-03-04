@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
+#import <CoreMotion/CoreMotion.h>
 #import "ISWOGoal.h"
 #import "ISWorkOut.h"
 #import "ISUserDetails.h"
@@ -31,10 +32,14 @@
 @property ISWorkOut *currentWO;
 @property (weak) ISDashboardViewController * dashBoardDelegate;
 
+@property CMStepCounter *stepCounter;
+
 
 +(ISWorkOutHandler*)getSharedInstance;
 
 
+
+- (void)saveCurrentWorkOut;
 -(void)startWO;
 -(void)stopWO;
 

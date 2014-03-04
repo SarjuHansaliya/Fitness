@@ -87,6 +87,25 @@
         
         if (sender !=nil) {
             
+            
+            if (!appDel.woHandler.isWOGoalEnable) {
+                if (self.milesRB.selected && ![CLLocationManager locationServicesEnabled]) {
+                    
+                    
+                    [ILAlertView showWithTitle:@"Warning" message:@"Can't set goal, as location services are disabled!" closeButtonTitle:@"OK" secondButtonTitle:nil tappedSecondButton:nil];
+                    return;
+                    
+                }
+                else if (self.caloriesRB.selected && !appDel.woHandler.isDeviceConnected)
+                {
+                    
+                    
+                    [ILAlertView showWithTitle:@"Warning" message:@"Can't set goal, as HR device is not connected!" closeButtonTitle:@"OK" secondButtonTitle:nil tappedSecondButton:nil];
+                    return;
+                    
+                }
+            }
+            
             appDel.woHandler.isWOGoalEnable=!appDel.woHandler.isWOGoalEnable;
         }
         
@@ -119,6 +138,10 @@
     }
     
 }
+
+
+
+
 -(void) displayReminders:(id)sender
 {
     
@@ -312,6 +335,8 @@
         }
         if ([self.woGoal saveWOGoal]) {
             [ILAlertView showWithTitle:@"Success" message:@"Goal Saved Successfully" closeButtonTitle:@"OK" secondButtonTitle:nil tappedSecondButton:nil];
+            appDel.woHandler.isWOGoalEnable=NO;
+            [self toggleWOGoal:nil];
         }
         else
         {

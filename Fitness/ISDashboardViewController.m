@@ -52,8 +52,60 @@
         
         [self presentViewController:userProfile animated:YES completion:nil];
     }
-       
+    [self resetLabels];
 }
+-(void)resetLocationRelatedLabels
+{
+    if ([CLLocationManager locationServicesEnabled]) {
+        self.distanceLabel.text=@"- -";
+        self.speedLabel.text=@"- -";
+    }
+    else
+    {
+        self.distanceLabel.text=@"n/a";
+        self.speedLabel.text=@"n/a";
+    }
+
+}
+
+-(void)resetLabels
+{
+    self.woDurationLabel.text=@"- -";
+    [self resetLocationRelatedLabels];
+    if (appDel.woHandler.stepCounter!=nil) {
+        self.stepsLabel.text=@"- -";
+    }
+    else
+    {
+        self.stepsLabel.text=@"n/a";
+    }
+    
+    
+    self.minSpeedLabel.text=@"Min : - -";
+    self.maxSpeedLabel.text=@"Max : - -";
+    if (appDel.woHandler.isDeviceConnected) {
+     
+        self.hrLabel.text=@"- -";
+        self.maxHRLabel.text=@"Max : - -";
+        self.minHRLabel.text=@"Min : - -";
+        self.calBurnedLabel.text=@"- -";
+    }
+    else
+    {
+        self.hrLabel.text=@"n/a";
+        self.calBurnedLabel.text=@"n/a";
+        self.maxHRLabel.text=@"";
+        self.minHRLabel.text=@"";
+    }
+    if (appDel.woHandler.isWOGoalEnable) {
+        self.goalLabel.text=@"0 %";
+    }
+    else
+    {
+        self.goalLabel.text=@"- -";
+    }
+}
+
 -(void)viewWillAppear:(BOOL)animated
 {
     
@@ -143,6 +195,11 @@
 {
     [(UINavigationController*)[appDel drawerController].centerViewController pushViewController:[appDel getReportsViewController] animated:YES];
 }
+//---------------------------------handling steps value change-------------------------
+-(void)didUpdateStepsValue:(int)steps
+{
+    self.stepsLabel.text=[NSString stringWithFormat:@"%d",steps];
+}
 
 //---------------------------------handling heart value change-------------------------
 -(void)didUpdateCurrentHeartRate:(NSNumber *)currHr maxHeartRate:(NSNumber *)maxHr minHeartRate:(NSNumber *)minHr
@@ -151,8 +208,10 @@
     self.maxHRLabel.text=[NSString stringWithFormat:@"Max - %@ bpm",[maxHr stringValue] ];
     self.minHRLabel.text=[NSString stringWithFormat:@"Min - %@ bpm",[minHr stringValue] ];
     
+    if (appDel.woHandler.isWOStarted) {
+        self.calBurnedLabel.text= [NSString stringWithFormat:@"%.2f kcal" ,[appDel.woHandler.currentWO.calBurned doubleValue]/1000];
+    }
     
-    self.calBurnedLabel.text= [NSString stringWithFormat:@"%.2f kcal" ,[appDel.woHandler.currentWO.calBurned doubleValue]/1000];
     [self calculateGoalCompletion];
     
 }
@@ -176,6 +235,7 @@
     {
         self.maxSpeedLabel.text=[NSString stringWithFormat:@"Max - %.1f mph",[appDel.woHandler.currentWO.maxSpeed doubleValue] ];
     }
+    
     [self calculateSpeed];
     
 
@@ -216,7 +276,7 @@
     [self calculateGoalCompletion];
     if (appDel.woHandler.isWOStarted) {
         
-        [self calculateSpeed];
+        //[self calculateSpeed];
         [self performSelector:@selector(calculateWODuration) withObject:nil afterDelay:60.0];
     }
 }
@@ -301,12 +361,11 @@
 - (IBAction)workoutStart:(id)sender {
     
     if ([self.startWOButton.titleLabel.text isEqualToString:@"Start Workout"]) {
-        
+        [self resetLabels];
         [self.startWOButton setTitle:@"Stop Workout" forState:UIControlStateNormal];
         [appDel.woHandler startWO];
         [self calculateWODuration];
         [self calculateGoalCompletion];
-        
     }
     else
     {

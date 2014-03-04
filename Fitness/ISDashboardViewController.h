@@ -32,9 +32,9 @@
 
 
 - (IBAction)workoutStart:(id)sender;
-
+-(void)didUpdateStepsValue:(int)steps;
 -(void)didUpdateCurrentHeartRate:(NSNumber *)currHr maxHeartRate:(NSNumber *)maxHr minHeartRate:(NSNumber *)minHr;
-
+-(void)resetLocationRelatedLabels;
 -(void)didUpdateLocation;
 
 @end

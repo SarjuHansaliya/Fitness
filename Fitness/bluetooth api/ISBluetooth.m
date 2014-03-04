@@ -15,6 +15,7 @@
 #define HEART_RATE_BODY_SENSOR_LOCATION_CHAR_UUID @"2A38"
 #define HEART_RATE_CONTROL_POINT_CHAR_UUID @"2A39"
 
+#define RECONNECTION_TIMEOUT 5.0
 
 @implementation ISBluetooth
 {
@@ -32,7 +33,6 @@
         isConnected=NO;
         _connectedDeviceServices=[NSMutableArray arrayWithCapacity:1];
         _connectedDeviceCharacteristicsForService=[NSMutableDictionary dictionaryWithCapacity:1];
-        
         
         [self initializeCentralManager];
         
@@ -138,6 +138,7 @@
 {
     CBUUID *heartRateUUID=[CBUUID UUIDWithString:HEART_RATE_SERVICE_UUID];
     [self.centralManager scanForPeripheralsWithServices:@[heartRateUUID] options:@{ CBCentralManagerScanOptionAllowDuplicatesKey : @YES }];
+   // [self.centralManager scanForPeripheralsWithServices:nil options:@{ CBCentralManagerScanOptionAllowDuplicatesKey : @YES }];
     self.isScanning=YES;
     NSTimeInterval delay=120;
     [self performSelector:@selector(stopScanning) withObject:nil afterDelay:delay];
@@ -169,7 +170,7 @@
                   RSSI:(NSNumber *)RSSI {
     
     if (![self checkSignalStrengthWithRSSI:RSSI]) {
-        return;
+        //return;
     }
     
     NSLog(@"Discovered %@ at %@", peripheral.name, RSSI);
@@ -263,10 +264,15 @@
         
     }
 }
+
+-(void)connectToDeviceAgain
+{
+    [self.centralManager connectPeripheral:self.connectedPeripheral options:nil];
+}
+
 -(void)centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error
 {
     isConnected=NO;
-   
     if ([self.notificationDelegate respondsToSelector:@selector(peripheralDidDisconnect:)]) {
         [self.notificationDelegate peripheralDidDisconnect:error];
     }
@@ -275,10 +281,20 @@
     }
     if (error!=nil) {
         
-        if ([self.connectionDelegate respondsToSelector:@selector(peripheralDidDisconnect:)]) {
-            [self.connectionDelegate peripheralDidDisconnect:error];
-        }
+        [self connectToDeviceAgain];
+        [self performSelector:@selector(deviceReconnectionTimedOut:) withObject:error afterDelay:RECONNECTION_TIMEOUT];
     }
+}
+-(void)deviceReconnectionTimedOut:(NSError *)error
+{
+    if (isConnected) {
+        return;
+    }
+    
+    if ([self.connectionDelegate respondsToSelector:@selector(peripheralDidDisconnect:)]) {
+        [self.connectionDelegate peripheralDidDisconnect:error];
+    }
+    
 }
 
 //---------------------------------------------------------------------------------------------------------------

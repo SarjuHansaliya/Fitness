@@ -121,7 +121,7 @@ float randomFloat(float Min, float Max){
     x.minorTicksPerInterval       = 2;
     x.preferredNumberOfMajorTicks = 8;
     x.labelRotation             = M_PI / 4;
-     x.majorIntervalLength         = CPTDecimalFromFloat(xAxisUnitInterval.floatValue);
+    // x.majorIntervalLength         = CPTDecimalFromFloat(xAxisUnitInterval.floatValue);
     //    x.title         = @"Date";
     //    x.titleOffset   = 30.0;
     //    x.titleLocation = CPTDecimalFromString(@"1.25");
@@ -172,7 +172,7 @@ float randomFloat(float Min, float Max){
     [plotSpace scaleToFitPlots:[NSArray arrayWithObjects:dataSourceLinePlot, nil]];
     CPTMutablePlotRange *xRange = [plotSpace.xRange mutableCopy];
     CPTMutablePlotRange *yRange = [plotSpace.yRange mutableCopy];
-    [xRange expandRangeByFactor:CPTDecimalFromDouble(0.5)];
+   // [xRange expandRangeByFactor:CPTDecimalFromDouble(1.1)];
     [yRange expandRangeByFactor:CPTDecimalFromDouble(5)];
     
     

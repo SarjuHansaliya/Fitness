@@ -72,6 +72,7 @@
 
 -(void) scanForDevicesWithHeartRateService;
 -(void) connectPeripheral:(CBPeripheral *)peripheral options:(NSDictionary *)options;
+-(void)connectToDeviceAgain;
 -(void)stopScanning;
 -(void)disconnectPeripheral;
 

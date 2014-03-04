@@ -7,13 +7,19 @@
 //
 
 #import "ISWorkOutHandler.h"
+#import "ISAppDelegate.h"
 #import "ILAlertView.h"
 #import "ISLocation.h"
-
+#import "macros.h"
 #define LOCATIONS_SAVE_DELAY 30.0
+#define WORKOUT_SAVE_DELAY 30.0
+
 
 
 @implementation ISWorkOutHandler
+{
+    ISAppDelegate *appDel;
+}
 
 
 static ISWorkOutHandler *sharedInstance = nil;
@@ -53,6 +59,12 @@ static ISWorkOutHandler *sharedInstance = nil;
     self.isDeviceConnected=NO;
     self.isWOStarted=NO;
     
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") && [CMStepCounter isStepCountingAvailable]) {
+        self.stepCounter=[[CMStepCounter alloc]init];
+    }
+    
+    appDel=(ISAppDelegate*)[[UIApplication sharedApplication]delegate];
+    
 }
 //-------------------------------setting workout object------------------
 
@@ -80,10 +92,18 @@ static ISWorkOutHandler *sharedInstance = nil;
         self.locations=[NSMutableArray arrayWithCapacity:1];
         [self saveLocations];
     }
-    else
-    {
-        [ILAlertView showWithTitle:@"Location Service Disabled" message:@"To re-enable, please go to Settings and turn on Location Service for this app" closeButtonTitle:@"OK" secondButtonTitle:nil tappedSecondButton:nil];
+    if (self.stepCounter!=nil) {
+        
+        
+        [self.stepCounter startStepCountingUpdatesToQueue:[NSOperationQueue mainQueue] updateOn:1 withHandler:^(NSInteger numberOfSteps, NSDate *timestamp, NSError *error)
+         {
+             self.currentWO.steps=[NSNumber numberWithInteger:numberOfSteps];
+             UINavigationController *temp= (UINavigationController*)appDel.drawerController.centerViewController;
+             [(ISDashboardViewController*)[temp.viewControllers objectAtIndex:0] didUpdateStepsValue:numberOfSteps ];
+             
+         }];
     }
+    [self updateWorkoutInfo];
     
 }
 -(void)stopWO
@@ -91,6 +111,9 @@ static ISWorkOutHandler *sharedInstance = nil;
     self.currentWO.endTimeStamp=[NSDate date];
     if ([CLLocationManager locationServicesEnabled]) {
         [self.locationManager stopUpdatingLocation];
+    }
+    if (self.stepCounter!=nil) {
+        [self.stepCounter stopStepCountingUpdates];
     }
     [self.currentWO updateWorkout];
     self.isWOStarted=NO;
@@ -100,6 +123,8 @@ static ISWorkOutHandler *sharedInstance = nil;
 //--------------------------------handling location services
 -(void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
 {
+    UINavigationController *temp= (UINavigationController*)appDel.drawerController.centerViewController;
+    [(ISDashboardViewController*)[temp.viewControllers objectAtIndex:0] resetLocationRelatedLabels];
     if (!(status==kCLAuthorizationStatusAuthorized)) {
         [ILAlertView showWithTitle:@"Location Service Disabled" message:@"To re-enable, please go to Settings and turn on Location Service for this app" closeButtonTitle:@"OK" secondButtonTitle:nil tappedSecondButton:nil];
     }
@@ -152,11 +177,32 @@ static ISWorkOutHandler *sharedInstance = nil;
     //            self.navigationItem.title=[NSString stringWithFormat:@"Speed AVG:%f CURR:%f",speed,[newLocation distanceFromLocation:oldLocation]/[newLocation.timestamp timeIntervalSinceDate:oldLocation.timestamp]];
     //        }
     
+}
+
+//------------------------------regularly updating workout in db---------------------
+-(void)updateWorkoutInfo
+{
+    if (!self.isWOStarted) {
+        return;
+    }
+    [self saveCurrentWorkOut];
+    [self performSelector:@selector(updateWorkoutInfo) withObject:nil afterDelay:WORKOUT_SAVE_DELAY];
     
 }
 
 
-
+- (void)saveCurrentWorkOut
+{
+    if (self.isWOStarted) {
+        self.currentWO.endTimeStamp=[NSDate date];
+        [self.currentWO updateWorkout];
+        [self saveLocations];
+    }
+    if (self.isWOStarted || self.userDetails.hrMonitoring) {
+        [[appDel getHRDistributor]saveData];
+    }
+    
+}
 
 
 
