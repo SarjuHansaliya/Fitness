@@ -81,21 +81,21 @@
     }
     
     
-    self.minSpeedLabel.text=@"Min : - -";
-    self.maxSpeedLabel.text=@"Max : - -";
+    self.minSpeedLabel.text=@"- -";
+    self.maxSpeedLabel.text=@"- -";
     if (appDel.woHandler.isDeviceConnected) {
      
         self.hrLabel.text=@"- -";
-        self.maxHRLabel.text=@"Max : - -";
-        self.minHRLabel.text=@"Min : - -";
+        self.maxHRLabel.text=@"- -";
+        self.minHRLabel.text=@"- -";
         self.calBurnedLabel.text=@"- -";
     }
     else
     {
         self.hrLabel.text=@"n/a";
         self.calBurnedLabel.text=@"n/a";
-        self.maxHRLabel.text=@"";
-        self.minHRLabel.text=@"";
+        self.maxHRLabel.text=@"- -";
+        self.minHRLabel.text=@"- -";
     }
     if (appDel.woHandler.isWOGoalEnable) {
         self.goalLabel.text=@"0 %";
@@ -205,8 +205,8 @@
 -(void)didUpdateCurrentHeartRate:(NSNumber *)currHr maxHeartRate:(NSNumber *)maxHr minHeartRate:(NSNumber *)minHr
 {
     self.hrLabel.text=[NSString stringWithFormat:@"%@ bpm",[currHr stringValue] ];
-    self.maxHRLabel.text=[NSString stringWithFormat:@"Max - %@ bpm",[maxHr stringValue] ];
-    self.minHRLabel.text=[NSString stringWithFormat:@"Min - %@ bpm",[minHr stringValue] ];
+    self.maxHRLabel.text=[NSString stringWithFormat:@"%@ bpm",[maxHr stringValue] ];
+    self.minHRLabel.text=[NSString stringWithFormat:@"%@ bpm",[minHr stringValue] ];
     
     if (appDel.woHandler.isWOStarted) {
         self.calBurnedLabel.text= [NSString stringWithFormat:@"%.2f kcal" ,[appDel.woHandler.currentWO.calBurned doubleValue]/1000];
@@ -222,18 +222,18 @@
    
     self.distanceLabel.text= [NSString stringWithFormat:@"%.2f Miles" ,[appDel.woHandler.currentWO.distance doubleValue]];
     if ([appDel.woHandler.currentWO.minSpeed doubleValue]>999.0 || [appDel.woHandler.currentWO.minSpeed doubleValue]< 0.00) {
-        self.minSpeedLabel.text=[NSString stringWithFormat:@"Min - mph"];
+        self.minSpeedLabel.text=[NSString stringWithFormat:@"- -"];
     }
     else
     {
-        self.minSpeedLabel.text=[NSString stringWithFormat:@"Min - %.1f mph",[appDel.woHandler.currentWO.minSpeed doubleValue] ];
+        self.minSpeedLabel.text=[NSString stringWithFormat:@"%.1f mph",[appDel.woHandler.currentWO.minSpeed doubleValue] ];
     }
     if ([appDel.woHandler.currentWO.maxSpeed doubleValue]<=0.00) {
-        self.maxSpeedLabel.text=[NSString stringWithFormat:@"Max - mph"];
+        self.maxSpeedLabel.text=[NSString stringWithFormat:@"- -"];
     }
     else
     {
-        self.maxSpeedLabel.text=[NSString stringWithFormat:@"Max - %.1f mph",[appDel.woHandler.currentWO.maxSpeed doubleValue] ];
+        self.maxSpeedLabel.text=[NSString stringWithFormat:@"%.1f mph",[appDel.woHandler.currentWO.maxSpeed doubleValue] ];
     }
     
     [self calculateSpeed];

@@ -46,18 +46,18 @@
     self.stepsLabel.text=[NSString stringWithFormat:@"%d Steps", [self.workout.steps intValue]];
     self.calBurnedLabel.text=[NSString stringWithFormat:@"%.2f kcal", [self.workout.calBurned doubleValue]/1000];
     if ([self.workout.minSpeed doubleValue]>999.0 || [self.workout.minSpeed doubleValue]< 0.00) {
-        self.minSpeedLabel.text=[NSString stringWithFormat:@"Min - mph"];
+        self.minSpeedLabel.text=[NSString stringWithFormat:@"- -"];
     }
     else
     {
-        self.minSpeedLabel.text=[NSString stringWithFormat:@"Min - %.1f mph",[self.workout.minSpeed doubleValue] ];
+        self.minSpeedLabel.text=[NSString stringWithFormat:@"%.1f mph",[self.workout.minSpeed doubleValue] ];
     }
     if ([self.workout.maxSpeed doubleValue]<=0.00) {
-        self.maxSpeedLabel.text=[NSString stringWithFormat:@"Max - mph"];
+        self.maxSpeedLabel.text=[NSString stringWithFormat:@"- -"];
     }
     else
     {
-        self.maxSpeedLabel.text=[NSString stringWithFormat:@"Max - %.1f mph",[self.workout.maxSpeed doubleValue] ];
+        self.maxSpeedLabel.text=[NSString stringWithFormat:@"%.1f mph",[self.workout.maxSpeed doubleValue] ];
     }
     
     double speed=[self.workout.distance doubleValue]/(ageComponents.minute/60.0);
@@ -72,9 +72,9 @@
     NSArray *hrRecords=[ISHR getHRArrayWithStartTS:self.workout.startTimeStamp endTS:self.workout.endTimeStamp];
     
     if ([hrRecords count]==0 || hrRecords== nil) {
-        self.hrLabel.text=@"0 bpm";
-        self.minHRLabel.text=[NSString stringWithFormat:@"Min - 0 bpm"];
-        self.maxHRLabel.text=[NSString stringWithFormat:@"Max - 0 bpm"];
+        self.hrLabel.text=@"n/a";
+        self.minHRLabel.text=[NSString stringWithFormat:@"- -"];
+        self.maxHRLabel.text=[NSString stringWithFormat:@"- -"];
     }
     else
     {
@@ -96,8 +96,8 @@
         avgHR=avgHR/[hrRecords count];
         
         self.hrLabel.text=[NSString stringWithFormat:@"%d bpm",avgHR];
-        self.minHRLabel.text=[NSString stringWithFormat:@"Min - %d bpm",minHR];
-        self.maxHRLabel.text=[NSString stringWithFormat:@"Max - %d bpm",maxHR];
+        self.minHRLabel.text=[NSString stringWithFormat:@"%d bpm",minHR];
+        self.maxHRLabel.text=[NSString stringWithFormat:@"%d bpm",maxHR];
     }
     int goalId=self.workout.woGoalId;
     double completed;
