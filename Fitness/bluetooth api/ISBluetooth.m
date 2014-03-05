@@ -46,8 +46,7 @@
     
     if (SYSTEM_VERSION_EQUAL_TO(@"7.0")) {
         
-        self.centralManager=[[CBCentralManager alloc] initWithDelegate:self queue:nil options:nil];
-        
+        self.centralManager=[[CBCentralManager alloc] initWithDelegate:self queue:nil options:@{ CBCentralManagerOptionRestoreIdentifierKey:@"myCentralManagerIdentifier" }];
     }
     
     else   {
@@ -91,6 +90,19 @@
     
 }
 //---------------------------------------------------------------------------------------------------------------
+- (void)centralManager:(CBCentralManager *)central
+      willRestoreState:(NSDictionary *)state {
+    
+    NSArray *peripherals =
+    state[CBCentralManagerRestoredStatePeripheralsKey];
+    
+    if (peripherals!=nil || [peripherals count]>0) {
+        
+        [self connectPeripheral:[peripherals objectAtIndex:0] options:nil];
+    }
+    
+}
+
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central
 {
     if (central.state==CBCentralManagerStatePoweredOn) {
@@ -200,6 +212,12 @@
     self.isScanning=NO;
     if ([self.delegate respondsToSelector:@selector(didStopScanning)]) {
         [self.delegate didStopScanning];
+    }
+    
+    if ([self.peripherals count]<=0 && self.connectedPeripheral==nil) {
+        if ([self.delegate respondsToSelector:@selector(noPeripheralsFound)]) {
+            [self.delegate noPeripheralsFound];
+        }
     }
 }
 

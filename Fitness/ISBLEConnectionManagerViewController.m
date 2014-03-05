@@ -163,8 +163,8 @@
 -(void)centralManagerDidStartedWithSuccess:(BOOL)b  errorMessage:(NSString*)str
 {
     if (!b) {
-        UIAlertView *error=[[UIAlertView alloc]initWithTitle:@"Error" message:str delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        [error show];
+        [ILAlertView showWithTitle:@"Error" message:str closeButtonTitle:@"OK" secondButtonTitle:nil tappedSecondButton:nil];
+        
     }
 }
 -(void)peripheralDidDisconnect:(NSError *)error
@@ -174,7 +174,11 @@
 -(void)didDiscoverPeripheral:(CBPeripheral *)peripheral
 {
     [self.tableView reloadData];
-    
+}
+-(void)noPeripheralsFound
+{
+    NSString *str=@"Reasons:\n1.No Device is in range(10 ft)\n2.The Device is connected to other app or other BLE enabled device";
+    [ILAlertView showWithTitle:@"No Device Found" message:str closeButtonTitle:@"OK" secondButtonTitle:nil tappedSecondButton:nil];
 }
 
 -(void)didConnectPeripheral

@@ -33,7 +33,7 @@
                                     <constraint firstAttribute="width" constant="11" id="hBC-bn-tba"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line.png" translatesAutoresizingMaskIntoConstraints="NO" id="WbP-X6-lfj">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lineConnection.png" translatesAutoresizingMaskIntoConstraints="NO" id="WbP-X6-lfj">
                                 <rect key="frame" x="10" y="43" width="310" height="1"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
@@ -68,7 +68,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="line.png" width="620" height="1"/>
+        <image name="lineConnection.png" width="620" height="1"/>
         <image name="selected.png" width="22" height="22"/>
     </resources>
 </document>

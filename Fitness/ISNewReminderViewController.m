@@ -114,7 +114,7 @@
     
     leftLable.backgroundColor=[UIColor clearColor];
     leftLable.text=@"Cancel";
-    leftLable.font=[UIFont fontWithName:@"Helvetica Neue" size:12.0];
+    leftLable.font=[UIFont fontWithName:@"Helvetica Neue" size:15.0];
     leftLable.textColor= [UIColor colorWithHue:31.0/360.0 saturation:99.0/100.0 brightness:87.0/100.0 alpha:1];
     
     [leftView addSubview:leftLable];
@@ -133,7 +133,7 @@
     
     rightLable.backgroundColor=[UIColor clearColor];
     rightLable.text=@"Save";
-    rightLable.font=[UIFont fontWithName:@"Helvetica Neue" size:12.0];
+    rightLable.font=[UIFont fontWithName:@"Helvetica Neue" size:15.0];
     rightLable.textColor= [UIColor colorWithHue:31.0/360.0 saturation:99.0/100.0 brightness:87.0/100.0 alpha:1];
     rightLable.textAlignment=NSTextAlignmentRight;
     

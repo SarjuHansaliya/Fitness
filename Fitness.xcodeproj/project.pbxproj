@@ -23,12 +23,12 @@
 		1F4E037018AE115700BAF4D8 /* 08-connection manager.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1F4E036118AE115700BAF4D8 /* 08-connection manager.jpg */; };
 		1F4E037118AE115700BAF4D8 /* back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F4E036318AE115700BAF4D8 /* back@2x.png */; };
 		1F4E037318AE115700BAF4D8 /* device.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F4E036518AE115700BAF4D8 /* device.png */; };
-		1F4E037418AE115700BAF4D8 /* line.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F4E036618AE115700BAF4D8 /* line.png */; };
+		1F4E037418AE115700BAF4D8 /* lineConnection.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F4E036618AE115700BAF4D8 /* lineConnection.png */; };
 		1F4E037518AE115700BAF4D8 /* refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F4E036718AE115700BAF4D8 /* refresh.png */; };
 		1F4E037618AE115700BAF4D8 /* selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F4E036818AE115700BAF4D8 /* selected.png */; };
 		1F4E037718AE115700BAF4D8 /* 09-heart rate monitoring.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1F4E036A18AE115700BAF4D8 /* 09-heart rate monitoring.jpg */; };
 		1F4E037918AE115700BAF4D8 /* date.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F4E036D18AE115700BAF4D8 /* date.png */; };
-		1F4E037A18AE115700BAF4D8 /* line.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F4E036E18AE115700BAF4D8 /* line.png */; };
+		1F4E037A18AE115700BAF4D8 /* lineHR.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F4E036E18AE115700BAF4D8 /* lineHR.png */; };
 		1F4E037B18AE115700BAF4D8 /* textHR.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F4E036F18AE115700BAF4D8 /* textHR.png */; };
 		1F4E037D18AE130100BAF4D8 /* new@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F4E037C18AE130100BAF4D8 /* new@2x.png */; };
 		1F4E038018AE138000BAF4D8 /* ISBLEDeviceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4E037F18AE137F00BAF4D8 /* ISBLEDeviceCell.m */; };
@@ -46,10 +46,6 @@
 		1FEC254418B1E8F60053A996 /* ISNewReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FEC254218B1E8F60053A996 /* ISNewReminderViewController.m */; };
 		1FEC254518B1E8F60053A996 /* ISNewReminderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FEC254318B1E8F60053A996 /* ISNewReminderViewController.xib */; };
 		1FEC257618B219AC0053A996 /* menu1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FEC257518B219AC0053A996 /* menu1@2x.png */; };
-		1FEC257A18B21A200053A996 /* ISRepeatReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FEC257818B21A200053A996 /* ISRepeatReminderViewController.m */; };
-		1FEC257B18B21A200053A996 /* ISRepeatReminderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FEC257918B21A200053A996 /* ISRepeatReminderViewController.xib */; };
-		1FEC257F18B2364B0053A996 /* ISAlertReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FEC257D18B2364B0053A996 /* ISAlertReminderViewController.m */; };
-		1FEC258018B2364B0053A996 /* ISAlertReminderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FEC257E18B2364B0053A996 /* ISAlertReminderViewController.xib */; };
 		BB005F4B18AB3BA4003FAF8B /* 04-workout goals.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BB005F3A18AB3BA4003FAF8B /* 04-workout goals.jpg */; };
 		BB005F4C18AB3BA4003FAF8B /* back1.png in Resources */ = {isa = PBXBuildFile; fileRef = BB005F3C18AB3BA4003FAF8B /* back1.png */; };
 		BB005F4D18AB3BA4003FAF8B /* radio-sel.png in Resources */ = {isa = PBXBuildFile; fileRef = BB005F3D18AB3BA4003FAF8B /* radio-sel.png */; };
@@ -66,8 +62,6 @@
 		BB005F5918AB3BA4003FAF8B /* text@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BB005F4A18AB3BA4003FAF8B /* text@2x.png */; };
 		BB005F5D18AB3BD0003FAF8B /* ISSetWorkoutGoalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB005F5B18AB3BD0003FAF8B /* ISSetWorkoutGoalViewController.m */; };
 		BB005F5E18AB3BD0003FAF8B /* ISSetWorkoutGoalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB005F5C18AB3BD0003FAF8B /* ISSetWorkoutGoalViewController.xib */; };
-		BB0B80C618ACC9E800BCC2E0 /* ISReminderCellViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB0B80C418ACC9E800BCC2E0 /* ISReminderCellViewController.m */; };
-		BB0B80C718ACC9E800BCC2E0 /* ISReminderCellViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB0B80C518ACC9E800BCC2E0 /* ISReminderCellViewController.xib */; };
 		BB0B80DD18ACCA9A00BCC2E0 /* lineReminderCell.png in Resources */ = {isa = PBXBuildFile; fileRef = BB0B80CF18ACCA9A00BCC2E0 /* lineReminderCell.png */; };
 		BB0C61E518BDE8B200FCB7D1 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB0C61E418BDE8B200FCB7D1 /* EventKit.framework */; };
 		BB0EE32C18A3ADAB00E3EA63 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB0EE32B18A3ADAB00E3EA63 /* Foundation.framework */; };
@@ -90,8 +84,6 @@
 		BB11950818B5EFBE00D05A97 /* ISBluetooth.m in Sources */ = {isa = PBXBuildFile; fileRef = BB11950718B5EFBE00D05A97 /* ISBluetooth.m */; };
 		BB11950A18B5F16B00D05A97 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB11950918B5F16B00D05A97 /* CoreBluetooth.framework */; };
 		BB11950D18B60FAA00D05A97 /* ISHRDistributor.m in Sources */ = {isa = PBXBuildFile; fileRef = BB11950C18B60FAA00D05A97 /* ISHRDistributor.m */; };
-		BB11E4BE18A8C9C400406313 /* ISUserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB11E4BC18A8C9C400406313 /* ISUserProfileViewController.m */; };
-		BB11E4BF18A8C9C400406313 /* ISUserProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB11E4BD18A8C9C400406313 /* ISUserProfileViewController.xib */; };
 		BB11E4C918A8CA5900406313 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = BB11E4C218A8CA5900406313 /* bg.png */; };
 		BB11E4CA18A8CA5900406313 /* date btn.png in Resources */ = {isa = PBXBuildFile; fileRef = BB11E4C318A8CA5900406313 /* date btn.png */; };
 		BB11E4CB18A8CA5900406313 /* head bg.png in Resources */ = {isa = PBXBuildFile; fileRef = BB11E4C418A8CA5900406313 /* head bg.png */; };
@@ -112,7 +104,6 @@
 		BB779DDE18AA3463009C2D8C /* UIFont+Replacement.m in Sources */ = {isa = PBXBuildFile; fileRef = BB779DDD18AA3463009C2D8C /* UIFont+Replacement.m */; };
 		BB779DE518AA4186009C2D8C /* radio-sel@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = BB779DDF18AA4186009C2D8C /* radio-sel@1x.png */; };
 		BB779DE618AA4186009C2D8C /* radoi@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = BB779DE018AA4186009C2D8C /* radoi@1x.png */; };
-		BB779DE718AA4186009C2D8C /* line.png in Resources */ = {isa = PBXBuildFile; fileRef = BB779DE118AA4186009C2D8C /* line.png */; };
 		BB779DE818AA4186009C2D8C /* radio-sel.png in Resources */ = {isa = PBXBuildFile; fileRef = BB779DE218AA4186009C2D8C /* radio-sel.png */; };
 		BB779DE918AA4186009C2D8C /* radoi.png in Resources */ = {isa = PBXBuildFile; fileRef = BB779DE318AA4186009C2D8C /* radoi.png */; };
 		BB779E1C18AA4765009C2D8C /* 02-dashboard edit.png in Resources */ = {isa = PBXBuildFile; fileRef = BB779DED18AA4765009C2D8C /* 02-dashboard edit.png */; };
@@ -142,7 +133,7 @@
 		BB779E5118AA518B009C2D8C /* ISMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB779E4F18AA518B009C2D8C /* ISMenuViewController.m */; };
 		BB779E5218AA518B009C2D8C /* ISMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB779E5018AA518B009C2D8C /* ISMenuViewController.xib */; };
 		BB779E5918AA56F4009C2D8C /* 03-dashboard_slider_edited.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BB779E5418AA56F4009C2D8C /* 03-dashboard_slider_edited.jpg */; };
-		BB779E5A18AA56F4009C2D8C /* line.png in Resources */ = {isa = PBXBuildFile; fileRef = BB779E5518AA56F4009C2D8C /* line.png */; };
+		BB779E5A18AA56F4009C2D8C /* lineMenu.png in Resources */ = {isa = PBXBuildFile; fileRef = BB779E5518AA56F4009C2D8C /* lineMenu.png */; };
 		BB779E5B18AA56F4009C2D8C /* line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BB779E5618AA56F4009C2D8C /* line@2x.png */; };
 		BB779E5C18AA56F4009C2D8C /* orange.png in Resources */ = {isa = PBXBuildFile; fileRef = BB779E5718AA56F4009C2D8C /* orange.png */; };
 		BB779E5D18AA56F4009C2D8C /* orange@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BB779E5818AA56F4009C2D8C /* orange@2x.png */; };
@@ -226,12 +217,12 @@
 		1F4E036118AE115700BAF4D8 /* 08-connection manager.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "08-connection manager.jpg"; sourceTree = "<group>"; };
 		1F4E036318AE115700BAF4D8 /* back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back@2x.png"; sourceTree = "<group>"; };
 		1F4E036518AE115700BAF4D8 /* device.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = device.png; sourceTree = "<group>"; };
-		1F4E036618AE115700BAF4D8 /* line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = line.png; sourceTree = "<group>"; };
+		1F4E036618AE115700BAF4D8 /* lineConnection.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lineConnection.png; sourceTree = "<group>"; };
 		1F4E036718AE115700BAF4D8 /* refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = refresh.png; sourceTree = "<group>"; };
 		1F4E036818AE115700BAF4D8 /* selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selected.png; sourceTree = "<group>"; };
 		1F4E036A18AE115700BAF4D8 /* 09-heart rate monitoring.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "09-heart rate monitoring.jpg"; sourceTree = "<group>"; };
 		1F4E036D18AE115700BAF4D8 /* date.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = date.png; sourceTree = "<group>"; };
-		1F4E036E18AE115700BAF4D8 /* line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = line.png; sourceTree = "<group>"; };
+		1F4E036E18AE115700BAF4D8 /* lineHR.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lineHR.png; sourceTree = "<group>"; };
 		1F4E036F18AE115700BAF4D8 /* textHR.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textHR.png; sourceTree = "<group>"; };
 		1F4E037C18AE130100BAF4D8 /* new@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "new@2x.png"; sourceTree = "<group>"; };
 		1F4E037E18AE137F00BAF4D8 /* ISBLEDeviceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISBLEDeviceCell.h; sourceTree = "<group>"; };
@@ -254,12 +245,6 @@
 		1FEC254218B1E8F60053A996 /* ISNewReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISNewReminderViewController.m; sourceTree = "<group>"; };
 		1FEC254318B1E8F60053A996 /* ISNewReminderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISNewReminderViewController.xib; sourceTree = "<group>"; };
 		1FEC257518B219AC0053A996 /* menu1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu1@2x.png"; sourceTree = "<group>"; };
-		1FEC257718B21A200053A996 /* ISRepeatReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISRepeatReminderViewController.h; sourceTree = "<group>"; };
-		1FEC257818B21A200053A996 /* ISRepeatReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISRepeatReminderViewController.m; sourceTree = "<group>"; };
-		1FEC257918B21A200053A996 /* ISRepeatReminderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISRepeatReminderViewController.xib; sourceTree = "<group>"; };
-		1FEC257C18B2364B0053A996 /* ISAlertReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISAlertReminderViewController.h; sourceTree = "<group>"; };
-		1FEC257D18B2364B0053A996 /* ISAlertReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISAlertReminderViewController.m; sourceTree = "<group>"; };
-		1FEC257E18B2364B0053A996 /* ISAlertReminderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISAlertReminderViewController.xib; sourceTree = "<group>"; };
 		BB005F3A18AB3BA4003FAF8B /* 04-workout goals.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "04-workout goals.jpg"; sourceTree = "<group>"; };
 		BB005F3C18AB3BA4003FAF8B /* back1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back1.png; sourceTree = "<group>"; };
 		BB005F3D18AB3BA4003FAF8B /* radio-sel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "radio-sel.png"; sourceTree = "<group>"; };
@@ -277,9 +262,6 @@
 		BB005F5A18AB3BD0003FAF8B /* ISSetWorkoutGoalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISSetWorkoutGoalViewController.h; sourceTree = "<group>"; };
 		BB005F5B18AB3BD0003FAF8B /* ISSetWorkoutGoalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISSetWorkoutGoalViewController.m; sourceTree = "<group>"; };
 		BB005F5C18AB3BD0003FAF8B /* ISSetWorkoutGoalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISSetWorkoutGoalViewController.xib; sourceTree = "<group>"; };
-		BB0B80C318ACC9E800BCC2E0 /* ISReminderCellViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISReminderCellViewController.h; sourceTree = "<group>"; };
-		BB0B80C418ACC9E800BCC2E0 /* ISReminderCellViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISReminderCellViewController.m; sourceTree = "<group>"; };
-		BB0B80C518ACC9E800BCC2E0 /* ISReminderCellViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISReminderCellViewController.xib; sourceTree = "<group>"; };
 		BB0B80CF18ACCA9A00BCC2E0 /* lineReminderCell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lineReminderCell.png; sourceTree = "<group>"; };
 		BB0C61E418BDE8B200FCB7D1 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		BB0EE32818A3ADAB00E3EA63 /* Fitness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fitness.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -309,9 +291,6 @@
 		BB11950918B5F16B00D05A97 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		BB11950B18B60FAA00D05A97 /* ISHRDistributor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISHRDistributor.h; sourceTree = "<group>"; };
 		BB11950C18B60FAA00D05A97 /* ISHRDistributor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISHRDistributor.m; sourceTree = "<group>"; };
-		BB11E4BB18A8C9C400406313 /* ISUserProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISUserProfileViewController.h; sourceTree = "<group>"; };
-		BB11E4BC18A8C9C400406313 /* ISUserProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISUserProfileViewController.m; sourceTree = "<group>"; };
-		BB11E4BD18A8C9C400406313 /* ISUserProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISUserProfileViewController.xib; sourceTree = "<group>"; };
 		BB11E4C218A8CA5900406313 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
 		BB11E4C318A8CA5900406313 /* date btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "date btn.png"; sourceTree = "<group>"; };
 		BB11E4C418A8CA5900406313 /* head bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "head bg.png"; sourceTree = "<group>"; };
@@ -335,7 +314,6 @@
 		BB779DDD18AA3463009C2D8C /* UIFont+Replacement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Replacement.m"; sourceTree = "<group>"; };
 		BB779DDF18AA4186009C2D8C /* radio-sel@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "radio-sel@1x.png"; sourceTree = "<group>"; };
 		BB779DE018AA4186009C2D8C /* radoi@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "radoi@1x.png"; sourceTree = "<group>"; };
-		BB779DE118AA4186009C2D8C /* line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = line.png; sourceTree = "<group>"; };
 		BB779DE218AA4186009C2D8C /* radio-sel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "radio-sel.png"; sourceTree = "<group>"; };
 		BB779DE318AA4186009C2D8C /* radoi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radoi.png; sourceTree = "<group>"; };
 		BB779DED18AA4765009C2D8C /* 02-dashboard edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "02-dashboard edit.png"; sourceTree = "<group>"; };
@@ -367,7 +345,7 @@
 		BB779E4F18AA518B009C2D8C /* ISMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISMenuViewController.m; sourceTree = "<group>"; };
 		BB779E5018AA518B009C2D8C /* ISMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISMenuViewController.xib; sourceTree = "<group>"; };
 		BB779E5418AA56F4009C2D8C /* 03-dashboard_slider_edited.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "03-dashboard_slider_edited.jpg"; sourceTree = "<group>"; };
-		BB779E5518AA56F4009C2D8C /* line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = line.png; sourceTree = "<group>"; };
+		BB779E5518AA56F4009C2D8C /* lineMenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lineMenu.png; sourceTree = "<group>"; };
 		BB779E5618AA56F4009C2D8C /* line@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "line@2x.png"; sourceTree = "<group>"; };
 		BB779E5718AA56F4009C2D8C /* orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = orange.png; sourceTree = "<group>"; };
 		BB779E5818AA56F4009C2D8C /* orange@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "orange@2x.png"; sourceTree = "<group>"; };
@@ -557,7 +535,7 @@
 				1F4E038618AE1D2700BAF4D8 /* black line 640.png */,
 				1F4E036318AE115700BAF4D8 /* back@2x.png */,
 				1F4E036518AE115700BAF4D8 /* device.png */,
-				1F4E036618AE115700BAF4D8 /* line.png */,
+				1F4E036618AE115700BAF4D8 /* lineConnection.png */,
 				1F4E036718AE115700BAF4D8 /* refresh.png */,
 				1F4E036818AE115700BAF4D8 /* selected.png */,
 			);
@@ -577,7 +555,7 @@
 			isa = PBXGroup;
 			children = (
 				1F4E036D18AE115700BAF4D8 /* date.png */,
-				1F4E036E18AE115700BAF4D8 /* line.png */,
+				1F4E036E18AE115700BAF4D8 /* lineHR.png */,
 				1F4E036F18AE115700BAF4D8 /* textHR.png */,
 			);
 			path = 1x;
@@ -724,7 +702,6 @@
 				BB11950518B5EFBE00D05A97 /* bluetooth api */,
 				BB28211518AB657000ADE985 /* included files */,
 				BB779E5E18AA5A3E009C2D8C /* MMDrawerController */,
-				BB779DEB18AA4298009C2D8C /* Unused */,
 				BB779DDB18AA3463009C2D8C /* UIFont+Replacement */,
 				BB11E4C018A8CA5900406313 /* resources */,
 				BB11E4BA18A8C96F00406313 /* screens */,
@@ -845,7 +822,6 @@
 			children = (
 				BB779DDF18AA4186009C2D8C /* radio-sel@1x.png */,
 				BB779DE018AA4186009C2D8C /* radoi@1x.png */,
-				BB779DE118AA4186009C2D8C /* line.png */,
 				BB779DE218AA4186009C2D8C /* radio-sel.png */,
 				BB779DE318AA4186009C2D8C /* radoi.png */,
 				BB11E4C218A8CA5900406313 /* bg.png */,
@@ -900,25 +876,6 @@
 			path = "UIFont+Replacement";
 			sourceTree = "<group>";
 		};
-		BB779DEB18AA4298009C2D8C /* Unused */ = {
-			isa = PBXGroup;
-			children = (
-				1FEC257718B21A200053A996 /* ISRepeatReminderViewController.h */,
-				1FEC257818B21A200053A996 /* ISRepeatReminderViewController.m */,
-				1FEC257918B21A200053A996 /* ISRepeatReminderViewController.xib */,
-				1FEC257C18B2364B0053A996 /* ISAlertReminderViewController.h */,
-				1FEC257D18B2364B0053A996 /* ISAlertReminderViewController.m */,
-				1FEC257E18B2364B0053A996 /* ISAlertReminderViewController.xib */,
-				BB0B80C318ACC9E800BCC2E0 /* ISReminderCellViewController.h */,
-				BB0B80C418ACC9E800BCC2E0 /* ISReminderCellViewController.m */,
-				BB0B80C518ACC9E800BCC2E0 /* ISReminderCellViewController.xib */,
-				BB11E4BB18A8C9C400406313 /* ISUserProfileViewController.h */,
-				BB11E4BC18A8C9C400406313 /* ISUserProfileViewController.m */,
-				BB11E4BD18A8C9C400406313 /* ISUserProfileViewController.xib */,
-			);
-			name = Unused;
-			sourceTree = "<group>";
-		};
 		BB779DEC18AA4765009C2D8C /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -962,7 +919,7 @@
 			isa = PBXGroup;
 			children = (
 				BB779E5418AA56F4009C2D8C /* 03-dashboard_slider_edited.jpg */,
-				BB779E5518AA56F4009C2D8C /* line.png */,
+				BB779E5518AA56F4009C2D8C /* lineMenu.png */,
 				BB779E5618AA56F4009C2D8C /* line@2x.png */,
 				BB779E5718AA56F4009C2D8C /* orange.png */,
 				BB779E5818AA56F4009C2D8C /* orange@2x.png */,
@@ -1258,7 +1215,7 @@
 				BB95B29A18C49B20003AD69B /* NextPageNoTextureVertexShader.glsl in Resources */,
 				BB5DCCAA18B7249900DAB3CE /* alertBkg.png in Resources */,
 				BB779E5218AA518B009C2D8C /* ISMenuViewController.xib in Resources */,
-				1F4E037A18AE115700BAF4D8 /* line.png in Resources */,
+				1F4E037A18AE115700BAF4D8 /* lineHR.png in Resources */,
 				1F19312518B33DFD005BB31C /* ISReportDetailsViewController.xib in Resources */,
 				1FEC257618B219AC0053A996 /* menu1@2x.png in Resources */,
 				BB95B29B18C49B20003AD69B /* NextPageVertexShader.glsl in Resources */,
@@ -1286,16 +1243,14 @@
 				BB779E2318AA4765009C2D8C /* hr.png in Resources */,
 				BB11E4CB18A8CA5900406313 /* head bg.png in Resources */,
 				BB779E2518AA4765009C2D8C /* mile-icn.png in Resources */,
-				1FEC258018B2364B0053A996 /* ISAlertReminderViewController.xib in Resources */,
 				1F4E037118AE115700BAF4D8 /* back@2x.png in Resources */,
-				BB779E5A18AA56F4009C2D8C /* line.png in Resources */,
+				BB779E5A18AA56F4009C2D8C /* lineMenu.png in Resources */,
 				BB779E2118AA4765009C2D8C /* head-bg.png in Resources */,
-				BB11E4BF18A8C9C400406313 /* ISUserProfileViewController.xib in Resources */,
 				BB779E5C18AA56F4009C2D8C /* orange.png in Resources */,
 				BB1194FE18B5D6D400D05A97 /* deleteRem.png in Resources */,
 				BB11E4CC18A8CA5900406313 /* mid img.png in Resources */,
 				BB95B29518C49B20003AD69B /* BackVertexShader.glsl in Resources */,
-				1F4E037418AE115700BAF4D8 /* line.png in Resources */,
+				1F4E037418AE115700BAF4D8 /* lineConnection.png in Resources */,
 				BB779E5918AA56F4009C2D8C /* 03-dashboard_slider_edited.jpg in Resources */,
 				BB005F5518AB3BA4003FAF8B /* radoi@2x.png in Resources */,
 				1F4E038918AE1F3B00BAF4D8 /* disable-reminder.png in Resources */,
@@ -1323,7 +1278,6 @@
 				BB005F4C18AB3BA4003FAF8B /* back1.png in Resources */,
 				BB005F5618AB3BA4003FAF8B /* set@2x.png in Resources */,
 				BB779E2D18AA4765009C2D8C /* steps.png in Resources */,
-				BB779DE718AA4186009C2D8C /* line.png in Resources */,
 				BB005F4B18AB3BA4003FAF8B /* 04-workout goals.jpg in Resources */,
 				BB005F5318AB3BA4003FAF8B /* back@2x.png in Resources */,
 				BB005F4D18AB3BA4003FAF8B /* radio-sel.png in Resources */,
@@ -1339,7 +1293,6 @@
 				BB1F96A518AC9A9B0023A174 /* ribbon-bg1.png in Resources */,
 				BB11E4CF18A8CA5900406313 /* text.png in Resources */,
 				1F4E035018ADF26900BAF4D8 /* ISReminderTableCell.xib in Resources */,
-				1FEC257B18B21A200053A996 /* ISRepeatReminderViewController.xib in Resources */,
 				1F19312718B33FF8005BB31C /* ISReportDetailsCell.xib in Resources */,
 				1FEC254518B1E8F60053A996 /* ISNewReminderViewController.xib in Resources */,
 				BB28211718AB658F00ADE985 /* macros.h in Resources */,
@@ -1361,7 +1314,6 @@
 				1F4E035F18AE110300BAF4D8 /* ISHRMonitorViewController.xib in Resources */,
 				BB779E1F18AA4765009C2D8C /* cal-icn.png in Resources */,
 				BB005F5818AB3BA4003FAF8B /* start@2x.png in Resources */,
-				BB0B80C718ACC9E800BCC2E0 /* ISReminderCellViewController.xib in Resources */,
 				1F4E037918AE115700BAF4D8 /* date.png in Resources */,
 				BB0EE33E18A3ADAB00E3EA63 /* Images.xcassets in Resources */,
 			);
@@ -1410,9 +1362,7 @@
 				BB95B29D18C49B20003AD69B /* XBAnimationManager.m in Sources */,
 				1F05309318B1D43300F34E0D /* ISEditReminderViewController.m in Sources */,
 				BB98D6E918B738E600C6A16D /* ISWOGoal.m in Sources */,
-				BB11E4BE18A8C9C400406313 /* ISUserProfileViewController.m in Sources */,
 				BB779E5118AA518B009C2D8C /* ISMenuViewController.m in Sources */,
-				1FEC257F18B2364B0053A996 /* ISAlertReminderViewController.m in Sources */,
 				BB0EE33C18A3ADAB00E3EA63 /* ISAppDelegate.m in Sources */,
 				1F4E038418AE16D800BAF4D8 /* ISBLEConnectionManagerViewController.m in Sources */,
 				BB779E6B18AA5A3E009C2D8C /* MMDrawerController.m in Sources */,
@@ -1420,8 +1370,6 @@
 				BB0EE33818A3ADAB00E3EA63 /* main.m in Sources */,
 				1F19312418B33DFD005BB31C /* ISReportDetailsViewController.m in Sources */,
 				1F19312A18B3406C005BB31C /* ISReportDetailCell.m in Sources */,
-				1FEC257A18B21A200053A996 /* ISRepeatReminderViewController.m in Sources */,
-				BB0B80C618ACC9E800BCC2E0 /* ISReminderCellViewController.m in Sources */,
 				BB98D6E618B738A100C6A16D /* ISHR.m in Sources */,
 				1F4E034E18ADF23C00BAF4D8 /* ISReminderCell.m in Sources */,
 				BBD4208018B4C0920094F958 /* ISRepeatReminderCell.m in Sources */,

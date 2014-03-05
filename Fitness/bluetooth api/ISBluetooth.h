@@ -38,6 +38,7 @@
 -(void)didDiscoverCharacteristicsForService:(CBService *)service;
 -(void)subscriptionStateChanged;
 -(void)didStopScanning;
+-(void)noPeripheralsFound;
 -(void)didRecieveValueForDescriptorForCharacteristics:(CBCharacteristic*)chara;
 -(void)peripheralDidDisconnect:(NSError*)error;
 -(void)didUpdateHeartRate:(UInt16)hr formate16bit:(BOOL)is16bit;

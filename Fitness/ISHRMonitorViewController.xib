@@ -44,7 +44,7 @@
                             <color key="textColor" red="0.32549019610000002" green="0.32549019610000002" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line.png" translatesAutoresizingMaskIntoConstraints="NO" id="Kj6-mC-tCl">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lineHR.png" translatesAutoresizingMaskIntoConstraints="NO" id="Kj6-mC-tCl">
                             <rect key="frame" x="10" y="59" width="310" height="1"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
@@ -192,6 +192,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
     </objects>
     <resources>
         <image name="bg.png" width="641" height="1138"/>
-        <image name="line.png" width="620" height="1"/>
+        <image name="line.png" width="1" height="1"/>
+        <image name="lineHR.png" width="620" height="1"/>
     </resources>
 </document>
