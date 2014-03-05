@@ -19,7 +19,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="head-bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="L6A-L2-RcV">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="head bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="L6A-L2-RcV">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <constraints>
@@ -220,7 +220,7 @@
     </objects>
     <resources>
         <image name="bg.png" width="641" height="1138"/>
-        <image name="head-bg.png" width="320" height="65"/>
+        <image name="head bg.png" width="640" height="129"/>
         <image name="lineMenu.png" width="265" height="1"/>
         <image name="orange.png" width="12" height="21"/>
     </resources>

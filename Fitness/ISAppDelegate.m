@@ -92,6 +92,7 @@
     if (self.profileViewController==nil) {
         self.profileViewController=[[ISProfileViewController alloc]initWithNibName:nil bundle:nil];
         self.profileViewController.wantsFullScreenLayout=YES;
+         [self.profileViewController setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
     }
     
     return self.profileViewController;
@@ -194,11 +195,20 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+-(EKEventStore *)getEventStore
+{
+    if (self.eventStore==nil) {
+        self.eventStore=[[EKEventStore alloc]init];
+       
+    }
+     self.isCalendarAccessGranted=NO;
+    return self.eventStore;
+}
 
 // Check the authorization status of our application for Calendar
 -(void)checkEventStoreAccessForCalendar
 {
-    self.eventStore=[[EKEventStore alloc]init];
+    [self getEventStore];
     EKAuthorizationStatus status = [EKEventStore authorizationStatusForEntityType:EKEntityTypeReminder];
     
     switch (status)

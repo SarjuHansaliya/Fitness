@@ -186,36 +186,36 @@
     self.navigationItem.titleView.backgroundColor=[UIColor clearColor];
     
     
-    UIView *leftView = [[UIView alloc]initWithFrame:CGRectMake(0, 5, 38, 18)];
+    UIView *leftView = [[UIView alloc]initWithFrame:CGRectMake(0, 5, 55, 30)];
+    
     
     UITapGestureRecognizer *tapOnCancel = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(cancelClicked:)];
     tapOnCancel.numberOfTapsRequired=1;
     [leftView addGestureRecognizer:tapOnCancel];
     
-    UILabel *leftLable=[[UILabel alloc]initWithFrame:CGRectMake(0, 5, 38, 18)];
+    UILabel *leftLable=[[UILabel alloc]initWithFrame:CGRectMake(5, 10, 55, 20)];
     
     leftLable.backgroundColor=[UIColor clearColor];
     leftLable.text=@"Cancel";
-    leftLable.font=[UIFont fontWithName:@"Helvetica Neue" size:12.0];
+    leftLable.font=[UIFont fontWithName:@"Helvetica Neue" size:15.0];
     leftLable.textColor= [UIColor colorWithHue:31.0/360.0 saturation:99.0/100.0 brightness:87.0/100.0 alpha:1];
-
+    
     [leftView addSubview:leftLable];
     
     UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithCustomView:leftView];
     [self.navigationItem setLeftBarButtonItem:leftButton];
-
     
-    UIView *rightView = [[UIView alloc]initWithFrame:CGRectMake(0, 5, 38, 18)];
+    
+    UIView *rightView = [[UIView alloc]initWithFrame:CGRectMake(0, 5, 45, 30)];
     
     UITapGestureRecognizer *tapOnSave = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(saveClicked:)];
     tapOnSave.numberOfTapsRequired=1;
     [rightView addGestureRecognizer:tapOnSave];
     
-    UILabel *rightLable=[[UILabel alloc]initWithFrame:CGRectMake(0, 5, 38, 18)];
-    
+    UILabel *rightLable=[[UILabel alloc]initWithFrame:CGRectMake(-3, 10, 45, 20)];
     rightLable.backgroundColor=[UIColor clearColor];
     rightLable.text=@"Save";
-    rightLable.font=[UIFont fontWithName:@"Helvetica Neue" size:12.0];
+    rightLable.font=[UIFont fontWithName:@"Helvetica Neue" size:15.0];
     rightLable.textColor= [UIColor colorWithHue:31.0/360.0 saturation:99.0/100.0 brightness:87.0/100.0 alpha:1];
     rightLable.textAlignment=NSTextAlignmentRight;
     
@@ -223,6 +223,7 @@
     
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithCustomView:rightView];
     [self.navigationItem setRightBarButtonItem:rightButton];
+
     
     
 }

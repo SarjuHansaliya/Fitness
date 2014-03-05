@@ -87,7 +87,9 @@
 -(void) displayUserProfile:(id)sender
 {
     [[appDel drawerController] toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
+   
     [self presentViewController:[appDel getProfileViewController] animated:YES completion:nil];
+    
 }
 
 - (void)didReceiveMemoryWarning

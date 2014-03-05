@@ -125,7 +125,10 @@ static ISWorkOutHandler *sharedInstance = nil;
 {
     UINavigationController *temp= (UINavigationController*)appDel.drawerController.centerViewController;
     [(ISDashboardViewController*)[temp.viewControllers objectAtIndex:0] resetLocationRelatedLabels];
-    if (!(status==kCLAuthorizationStatusAuthorized)) {
+    
+    
+    
+    if (!(status==kCLAuthorizationStatusAuthorized) && status!=kCLAuthorizationStatusNotDetermined) {
         [ILAlertView showWithTitle:@"Location Service Disabled" message:@"To re-enable, please go to Settings and turn on Location Service for this app" closeButtonTitle:@"OK" secondButtonTitle:nil tappedSecondButton:nil];
     }
 }

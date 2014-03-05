@@ -181,6 +181,14 @@
 
 - (void)showHUD {
 	
+    [appDel checkEventStoreAccessForCalendar];
+    if (!appDel.isCalendarAccessGranted) {
+        
+        self.reminders=[NSMutableArray arrayWithCapacity:1];
+        [self.tableView reloadData];
+        return;
+    }
+    
 	self.HUD = [[MBProgressHUD alloc] initWithView:self.view];
 	[self.view addSubview:self.HUD];
 	
@@ -193,6 +201,7 @@
 
 -(void)fetchData
 {
+    
     NSPredicate *pre=[appDel.eventStore predicateForRemindersInCalendars:@[appDel.calendar]];
     [appDel.eventStore fetchRemindersMatchingPredicate:pre completion:^(NSArray *reminders) {
         
@@ -215,13 +224,15 @@
         
         [self.tableView reloadData];
         dispatch_async(dispatch_get_main_queue(), ^{
-           [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         });
         
     }];
+    
 }
 -(void)storeChanged:(id)sender
 {
+    
     [self showHUD];
 }
 

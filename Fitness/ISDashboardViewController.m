@@ -155,7 +155,7 @@
     //self.navigationController.navigationBarHidden=YES;
     self.title=@"Dashboard";
     UIImage *backImage=[UIImage imageNamed:@"back.png"];
-    [self.navigationItem.backBarButtonItem setImage:backImage];
+    //[self.navigationItem.backBarButtonItem setImage:backImage];
     [self setupLeftMenuButton];
     
 }

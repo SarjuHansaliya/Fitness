@@ -52,7 +52,7 @@
                                 <action selector="discoverDevices:" destination="-1" eventType="touchUpInside" id="zgY-7c-8Gs"/>
                             </connections>
                         </button>
-                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="6bb-J1-tBH">
+                        <activityIndicatorView opaque="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="6bb-J1-tBH">
                             <rect key="frame" x="263" y="6" width="25" height="25"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="color" red="0.87450981139999995" green="0.45882353190000003" blue="0.01176470611" alpha="1" colorSpace="calibratedRGB"/>
