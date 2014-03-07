@@ -56,13 +56,12 @@
                             <constraint firstItem="TbE-sF-vVF" firstAttribute="baseline" secondItem="J5Q-5I-jJS" secondAttribute="baseline" id="0an-Wk-OGR"/>
                             <constraint firstItem="4lU-C8-rqU" firstAttribute="leading" secondItem="8CP-Gu-XWg" secondAttribute="leading" constant="10" id="1Wp-bR-U5I"/>
                             <constraint firstAttribute="centerY" secondItem="Z0m-bp-gNU" secondAttribute="centerY" id="5dC-5T-tqM"/>
-                            <constraint firstAttribute="trailing" secondItem="Z0m-bp-gNU" secondAttribute="trailing" constant="10" id="Bgb-UA-CYv"/>
                             <constraint firstItem="TbE-sF-vVF" firstAttribute="leading" secondItem="8CP-Gu-XWg" secondAttribute="leading" constant="10" id="G0q-Eb-C3d"/>
                             <constraint firstItem="jt4-iQ-y7q" firstAttribute="leading" secondItem="8CP-Gu-XWg" secondAttribute="leading" constant="10" id="IRa-Gr-cV3"/>
                             <constraint firstAttribute="bottom" secondItem="jt4-iQ-y7q" secondAttribute="bottom" id="VGe-If-1HF"/>
                             <constraint firstAttribute="bottom" secondItem="4lU-C8-rqU" secondAttribute="bottom" constant="4" id="XVM-6O-AZf"/>
+                            <constraint firstAttribute="trailing" secondItem="Z0m-bp-gNU" secondAttribute="trailing" constant="10" id="YJw-sy-7sw"/>
                             <constraint firstItem="J5Q-5I-jJS" firstAttribute="leading" secondItem="TbE-sF-vVF" secondAttribute="trailing" constant="10" id="dGu-30-LAA"/>
-                            <constraint firstAttribute="width" constant="320" id="hlM-YU-QW7"/>
                             <constraint firstItem="TbE-sF-vVF" firstAttribute="top" secondItem="8CP-Gu-XWg" secondAttribute="top" constant="6" id="iRm-r3-BIz"/>
                             <constraint firstAttribute="trailing" secondItem="jt4-iQ-y7q" secondAttribute="trailing" id="nhI-QA-8Y1"/>
                         </constraints>
@@ -84,6 +83,6 @@
     </objects>
     <resources>
         <image name="btn_edit_reminder.png" width="19" height="30"/>
-        <image name="line.png" width="620" height="1"/>
+        <image name="line.png" width="1" height="1"/>
     </resources>
 </document>

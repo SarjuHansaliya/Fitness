@@ -66,7 +66,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="line.png" width="620" height="1"/>
+        <image name="line.png" width="1" height="1"/>
         <image name="selected.png" width="22" height="22"/>
     </resources>
 </document>

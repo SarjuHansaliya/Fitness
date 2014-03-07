@@ -14,6 +14,8 @@
 @property (weak, nonatomic) IBOutlet UIView *hrMonitorView;
 @property (weak, nonatomic) IBOutlet UIView *deviceConnectionManagerView;
 @property (weak, nonatomic) IBOutlet UIView *userProfileView;
+@property (weak, nonatomic) IBOutlet UIView *woReportsView;
+@property (weak, nonatomic) IBOutlet UIView *resetView;
 
 
 

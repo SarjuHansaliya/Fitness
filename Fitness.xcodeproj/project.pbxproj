@@ -62,6 +62,9 @@
 		BB005F5E18AB3BD0003FAF8B /* ISSetWorkoutGoalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB005F5C18AB3BD0003FAF8B /* ISSetWorkoutGoalViewController.xib */; };
 		BB0B80DD18ACCA9A00BCC2E0 /* lineReminderCell.png in Resources */ = {isa = PBXBuildFile; fileRef = BB0B80CF18ACCA9A00BCC2E0 /* lineReminderCell.png */; };
 		BB0C61E518BDE8B200FCB7D1 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB0C61E418BDE8B200FCB7D1 /* EventKit.framework */; };
+		BB0C902C18C9CB200011C65D /* ISReportsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB0C902B18C9CB200011C65D /* ISReportsViewController.xib */; };
+		BB0C903218C9EB0E0011C65D /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = BB0C903018C9EB0E0011C65D /* 37x-Checkmark.png */; };
+		BB0C903318C9EB0E0011C65D /* 37x-Checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BB0C903118C9EB0E0011C65D /* 37x-Checkmark@2x.png */; };
 		BB0EE32C18A3ADAB00E3EA63 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB0EE32B18A3ADAB00E3EA63 /* Foundation.framework */; };
 		BB0EE32E18A3ADAB00E3EA63 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB0EE32D18A3ADAB00E3EA63 /* CoreGraphics.framework */; };
 		BB0EE33018A3ADAB00E3EA63 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB0EE32F18A3ADAB00E3EA63 /* UIKit.framework */; };
@@ -268,6 +271,9 @@
 		BB005F5C18AB3BD0003FAF8B /* ISSetWorkoutGoalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISSetWorkoutGoalViewController.xib; sourceTree = "<group>"; };
 		BB0B80CF18ACCA9A00BCC2E0 /* lineReminderCell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lineReminderCell.png; sourceTree = "<group>"; };
 		BB0C61E418BDE8B200FCB7D1 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		BB0C902B18C9CB200011C65D /* ISReportsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISReportsViewController.xib; sourceTree = "<group>"; };
+		BB0C903018C9EB0E0011C65D /* 37x-Checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "37x-Checkmark.png"; sourceTree = "<group>"; };
+		BB0C903118C9EB0E0011C65D /* 37x-Checkmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "37x-Checkmark@2x.png"; sourceTree = "<group>"; };
 		BB0EE32818A3ADAB00E3EA63 /* Fitness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fitness.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB0EE32B18A3ADAB00E3EA63 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BB0EE32D18A3ADAB00E3EA63 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -800,6 +806,7 @@
 				1F19312318B33DFD005BB31C /* ISReportDetailsViewController.xib */,
 				1F19312B18B34735005BB31C /* ISReportsViewController.h */,
 				1F19312C18B34735005BB31C /* ISReportsViewController.m */,
+				BB0C902B18C9CB200011C65D /* ISReportsViewController.xib */,
 				BBD4208118B4C1710094F958 /* ISReminderRepeatViewController.h */,
 				BBD4208218B4C1710094F958 /* ISReminderRepeatViewController.m */,
 				BBD4208418B4CE5C0094F958 /* ISReminderAlertViewController.h */,
@@ -814,6 +821,8 @@
 		BB11E4C018A8CA5900406313 /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				BB0C903018C9EB0E0011C65D /* 37x-Checkmark.png */,
+				BB0C903118C9EB0E0011C65D /* 37x-Checkmark@2x.png */,
 				BB18B49E18C713E800FE8B46 /* Dashboard new */,
 				BB95B2A718C4A2FF003AD69B /* settings.png */,
 				1FEC253C18B1E2850053A996 /* edit reminder */,
@@ -1306,6 +1315,7 @@
 				BB95B29818C49B20003AD69B /* NextPageFragmentShader.glsl in Resources */,
 				1FEC253F18B1E2850053A996 /* btn_edit_reminder.png in Resources */,
 				BB779E4D18AA4783009C2D8C /* ISDashboardViewController.xib in Resources */,
+				BB0C903218C9EB0E0011C65D /* 37x-Checkmark.png in Resources */,
 				BB95B29418C49B20003AD69B /* BackPageGradient.png in Resources */,
 				BB11E4CE18A8CA5900406313 /* text box bg.png in Resources */,
 				BB005F5718AB3BA4003FAF8B /* start-goal@2x.png in Resources */,
@@ -1334,9 +1344,11 @@
 				BB18B4FD18C713E900FE8B46 /* cal.png in Resources */,
 				BB18B50218C713E900FE8B46 /* hr_bg.png in Resources */,
 				BB779E5D18AA56F4009C2D8C /* orange@2x.png in Resources */,
+				BB0C902C18C9CB200011C65D /* ISReportsViewController.xib in Resources */,
 				BB18B4FA18C713E900FE8B46 /* bg.png in Resources */,
 				BB18B50E18C713E900FE8B46 /* steps_bg.png in Resources */,
 				1F4E035F18AE110300BAF4D8 /* ISHRMonitorViewController.xib in Resources */,
+				BB0C903318C9EB0E0011C65D /* 37x-Checkmark@2x.png in Resources */,
 				BB005F5818AB3BA4003FAF8B /* start@2x.png in Resources */,
 				1F4E037918AE115700BAF4D8 /* date.png in Resources */,
 				BB0EE33E18A3ADAB00E3EA63 /* Images.xcassets in Resources */,

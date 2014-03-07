@@ -30,10 +30,12 @@
 - (BOOL) saveWorkout:(ISWorkOut*)woDetails;
 - (BOOL) updateWorkout:(ISWorkOut*)woDetails;
 - (NSArray*) fetchAllWorkouts;
+- (NSArray*) fetchWorkoutsWithDate:(NSDate*)date;
 - (NSArray*) fetchHRWithStartTS:(NSDate *)startTS endTS:(NSDate*)endTS;
 - (BOOL) deleteWorkout:(ISWorkOut*)woDetails;
 - (BOOL) saveLocationArray:(NSArray*)locationArray;
 - (NSArray*) fetchLocationWithStartTS:(NSDate *)startTS endTS:(NSDate*)endTS;
 
+-(BOOL)deleteAlldata;
 
 @end

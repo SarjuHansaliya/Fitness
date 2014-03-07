@@ -23,6 +23,8 @@
     ISAppDelegate *appDel;
     NSMutableArray*  workouts;
     ISReportDetailsViewController *reportDetailsVC;
+    UIButton *datePickerButton;
+    UITextField *dateTextField;
     
 }
 
@@ -49,10 +51,22 @@
 }
 -(void)viewWillAppear:(BOOL)animated
 {
-    workouts=[NSMutableArray arrayWithArray:[ISWorkOut getWorkouts]];
+    [datePickerButton setHidden:!self.showDatePicker];
+    if (animated) {
+        if (self.showDatePicker) {
+            workouts=[NSMutableArray arrayWithArray:[ISWorkOut getWorkouts]];
+        }
+        else
+        {
+            workouts=[NSMutableArray arrayWithArray:[ISWorkOut getWorkoutsWithDate:[self dateWithOutTime:[NSDate date]]]];
+        }
+    }
+    else
+    {
+        workouts=[NSMutableArray arrayWithArray:[ISWorkOut getWorkoutsWithDate:[self dateWithOutTime:self.datePicker.date]]];
+    }
     
     if (appDel.woHandler.isWOStarted) {
-        
         
         for (ISWorkOut *w in workouts) {
             if (w.woId==appDel.woHandler.currentWO.woId) {
@@ -63,7 +77,13 @@
     }
     [self.tableView reloadData];
 }
-
+-(NSDate *)dateWithOutTime:(NSDate *)datDate
+{
+    NSDateFormatter *formatter=[[NSDateFormatter alloc]init];
+    formatter.dateFormat=@"yyyy-MM-dd";
+    NSString *dateString=[formatter stringFromDate:datDate];
+    return [formatter dateFromString:dateString];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -104,14 +124,53 @@
     [backView addSubview:backButtonCustom];
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:backView];
     
+    datePickerButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [datePickerButton setFrame:CGRectMake(0.0f, 0.0f, 25.0f, 25.0f)];
+    [datePickerButton addTarget:self action:@selector(showDatePickerAtBottom) forControlEvents:UIControlEventTouchUpInside];
+    [datePickerButton setImage:[UIImage imageNamed:@"date.png"] forState:UIControlStateNormal];
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithCustomView:datePickerButton];
+    
     // [backButton setTintColor: [UIColor colorWithHue:31.0/360.0 saturation:99.0/100.0 brightness:87.0/100.0 alpha:1]];
-    [self.navigationItem setLeftBarButtonItem:backButton];
    
     
+    [self.navigationItem setLeftBarButtonItem:backButton];
+    [self.navigationItem setRightBarButtonItem:addButton];
+   
+}
+-(void)setUpDatePicker
+{
+    if (dateTextField==nil) {
+        
+        dateTextField=[[UITextField alloc]initWithFrame:CGRectZero];
+        [dateTextField setHidden:YES];
+        [self.view addSubview:dateTextField];
+        dateTextField.inputView = self.datePicker;
+        dateTextField.inputAccessoryView=self.toolbar;
+    }
     
 }
+-(void)showDatePickerAtBottom
+{
+    [self setUpDatePicker];
+    if ([dateTextField isFirstResponder]) {
+        [dateTextField resignFirstResponder];
+    }
+    else
+    {
+        [dateTextField becomeFirstResponder];
+    }
+}
+- (IBAction)doneEditing:(id)sender
+{
+    NSLog(@"%@--%f \n",self.datePicker.date,[self.datePicker.date timeIntervalSince1970]);
+    [self viewWillAppear:NO];
+    [dateTextField resignFirstResponder];
+}
+
+
 -(void)goBack:(id)sender
 {
+    
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -187,44 +246,22 @@
     return cell;
 }
 
-/*
- // Override to support conditional editing of the table view.
  - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
  {
- // Return NO if you do not want the specified item to be editable.
- return YES;
+     return YES;
  }
- */
 
-/*
- // Override to support editing the table view.
  - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
  {
- if (editingStyle == UITableViewCellEditingStyleDelete) {
- // Delete the row from the data source
- [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+     if (editingStyle == UITableViewCellEditingStyleDelete) {
+         ISWorkOut *wo=(ISWorkOut*)[workouts objectAtIndex:indexPath.row];
+         [workouts removeObject:wo];
+         [wo deleteWorkout];
+         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationRight];
+         
+     }
+ 
  }
- else if (editingStyle == UITableViewCellEditingStyleInsert) {
- // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
- }
- }
- */
-
-/*
- // Override to support rearranging the table view.
- - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
- {
- }
- */
-
-/*
- // Override to support conditional rearranging of the table view.
- - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the item to be re-orderable.
- return YES;
- }
- */
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

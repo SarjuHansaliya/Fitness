@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ISReportsViewController : UITableViewController
+@interface ISReportsViewController : UITableViewController <UIActionSheetDelegate>
+
+@property BOOL showDatePicker;
+
+@property (strong, nonatomic) IBOutlet UIToolbar *toolbar;
+@property (strong, nonatomic) IBOutlet UIDatePicker *datePicker;
+
+- (IBAction)doneEditing:(id)sender;
 
 @end

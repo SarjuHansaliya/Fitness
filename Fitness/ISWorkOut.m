@@ -33,6 +33,10 @@
 {
     return [[(ISAppDelegate*)[[UIApplication sharedApplication]delegate] dbManager] fetchAllWorkouts];
 }
++(NSArray *)getWorkoutsWithDate:(NSDate*)date
+{
+    return [[(ISAppDelegate*)[[UIApplication sharedApplication]delegate] dbManager] fetchWorkoutsWithDate:date];
+}
 
 -(BOOL)saveNewWorkout
 {

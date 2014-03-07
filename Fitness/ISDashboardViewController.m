@@ -153,7 +153,7 @@
     self.navigationItem.titleView.backgroundColor=[UIColor clearColor];
     //self.navigationController.navigationBarHidden=YES;
     self.title=@"Dashboard";
-    UIImage *backImage=[UIImage imageNamed:@"back.png"];
+   
     //[self.navigationItem.backBarButtonItem setImage:backImage];
     [self setupLeftMenuButton];
     
@@ -192,7 +192,7 @@
 }
 -(void) displayReport:(id)sender
 {
-    [(UINavigationController*)[appDel drawerController].centerViewController pushViewController:[appDel getReportsViewController] animated:YES];
+    [(UINavigationController*)[appDel drawerController].centerViewController pushViewController:[appDel getReportsViewControllerWithDateOptions:NO] animated:YES];
 }
 //---------------------------------handling steps value change-------------------------
 -(void)didUpdateStepsValue:(int)steps

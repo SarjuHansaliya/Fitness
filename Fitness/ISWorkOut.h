@@ -22,6 +22,7 @@
 
 +(ISWorkOut*)workoutWithwoId:(int)woId startTimeStamp:(NSDate*)startTimeStamp endTimeStamp:(NSDate*)endTimeStamp steps:(NSNumber*)steps calBurned:(NSNumber*)calBurned minSpeed:(NSNumber*)minSpeed maxSpeed:(NSNumber*)maxSpeed distance:(NSNumber*)distance woGoalId:(int)woGoalId;
 +(NSArray *)getWorkouts;
++(NSArray *)getWorkoutsWithDate:(NSDate*)date;
 -(BOOL)saveNewWorkout;
 -(BOOL)updateWorkout;
 -(BOOL)deleteWorkout;

@@ -41,7 +41,7 @@
 @property ISReportsViewController *reportsViewController;
 
 
--(ISReportsViewController*)getReportsViewController;
+-(ISReportsViewController*)getReportsViewControllerWithDateOptions:(BOOL)showDatePicker;
 -(ISSetWorkoutGoalViewController*)getSetWorkoutGoalViewController;
 -(ISHRMonitorViewController*)getHRMonitorViewController;
 -(ISConnectionManagerViewController*)getConnectionManagerViewController;
@@ -49,7 +49,7 @@
 
 
 -(void)checkEventStoreAccessForCalendar;
-
+-(void)resetAllObjects;
 
 -(ISHRDistributor *)getHRDistributor;
 -(ISBluetooth *)getBluetoothManager;

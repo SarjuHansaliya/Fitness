@@ -13,6 +13,7 @@
 #import "MMExampleDrawerVisualStateManager.h"
 #import "ISConnectionManagerViewController.h"
 #import "ILAlertView.h"
+#import "MBProgressHUD.h"
 
 #define DEVICE_RECONNECTION_TIMEOUT 5.0
 
@@ -60,6 +61,25 @@
     return YES;
 }
 
+-(void)resetAllObjects
+{
+    [ISWorkOutHandler reset];
+    [self.eventStore removeCalendar:self.calendar commit:YES error:nil];
+    self.drawerController=nil;
+    self.bluetoothManager=nil;
+    self.hrDistributor=nil;
+    self.calendar=nil;
+    self.eventStore=nil;
+    self.setWorkoutGoalViewController=nil;
+    self.hrMonitorViewController=nil;
+    self.connectionManagerViewController=nil;
+    self.profileViewController=nil;
+    self.reportsViewController=nil;
+    [self application:nil willFinishLaunchingWithOptions:nil];
+    [self application:nil didFinishLaunchingWithOptions:nil];
+    [MBProgressHUD hideAllHUDsForView:self.window animated:YES];
+}
+
 //------------------------initializing VC-------------------------------
 
 
@@ -97,12 +117,12 @@
     
     return self.profileViewController;
 }
--(ISReportsViewController*)getReportsViewController
+-(ISReportsViewController*)getReportsViewControllerWithDateOptions:(BOOL)showDatePicker
 {
     if (self.reportsViewController==nil) {
         self.reportsViewController=[[ISReportsViewController alloc]initWithStyle:UITableViewStylePlain];
     }
-    
+    self.reportsViewController.showDatePicker=showDatePicker;
     return self.reportsViewController;
 }
 

@@ -36,7 +36,7 @@
 
 
 +(ISWorkOutHandler*)getSharedInstance;
-
++(void)reset;
 
 
 - (void)saveCurrentWorkOut;

@@ -31,7 +31,10 @@ static ISWorkOutHandler *sharedInstance = nil;
     }
     return sharedInstance;
 }
-
++(void)reset
+{
+    sharedInstance=nil;
+}
 -(void)firstTime
 {
     

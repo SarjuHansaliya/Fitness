@@ -763,6 +763,29 @@ static sqlite3_stmt *statement = nil;
             
         }
         
+        statementStr=@"delete from location_details where timestamp >=?1 and timestamp<=?2 ";
+        
+        if(sqlite3_prepare_v2(database, [statementStr UTF8String], -1, &compiledStatement, NULL) == SQLITE_OK)
+        {
+            
+            sqlite3_bind_double(compiledStatement, 1, [woDetails.startTimeStamp timeIntervalSince1970]);
+            sqlite3_bind_double(compiledStatement, 2, [woDetails.endTimeStamp timeIntervalSince1970]);
+            
+            
+            while(YES){
+                NSInteger result = sqlite3_step(compiledStatement);
+                if(result == SQLITE_DONE){
+                    break;
+                }
+                else if(result != SQLITE_BUSY){
+                    NSLog(@"db error: %s\n", sqlite3_errmsg(database));
+                    break;
+                }
+            }
+            sqlite3_reset(compiledStatement);
+            
+        }
+        
         
         
         //------------------------commit-------------------
@@ -776,8 +799,6 @@ static sqlite3_stmt *statement = nil;
             NSLog(@"db error: %s\n", sqlite3_errmsg(database));
             return NO;
         }
-        
-        
         sqlite3_finalize(compiledStatement);
         sqlite3_finalize(commitStatement);
         sqlite3_finalize(statement);
@@ -824,7 +845,46 @@ static sqlite3_stmt *statement = nil;
     }
     return nil;
 }
-
+- (NSArray*) fetchWorkoutsWithDate:(NSDate*)date
+{
+    const char *dbpath = [databasePath UTF8String];
+    if (sqlite3_open(dbpath, &database) == SQLITE_OK)
+    {
+        NSDate *nextDate=[date dateByAddingTimeInterval:(60*60*24)];
+        const char *query_stmt = "select * from wo_details where start_timestamp>=?1 and start_timestamp<=?2 order by start_timestamp desc  ";
+        NSMutableArray *resultArray = [NSMutableArray arrayWithCapacity:1];
+        if (sqlite3_prepare_v2(database,
+                               query_stmt, -1, &statement, NULL) == SQLITE_OK)
+        {
+            
+            sqlite3_bind_double(statement, 1, [date timeIntervalSince1970]);
+            sqlite3_bind_double(statement, 2, [nextDate timeIntervalSince1970]);
+            
+            
+            while (sqlite3_step(statement) == SQLITE_ROW) {
+                
+                int woId=sqlite3_column_int(statement, WO_ID);
+                NSDate *startTimeStamp=[NSDate dateWithTimeIntervalSince1970:sqlite3_column_double(statement, WO_START_TIMESTAMP)];
+                NSDate *endTimeStamp=[NSDate dateWithTimeIntervalSince1970:sqlite3_column_double(statement, WO_END_TIMESTAMP)];
+                NSNumber *steps=[NSNumber numberWithInt: sqlite3_column_int(statement, WO_STEPS)];
+                NSNumber *calBurned=[NSNumber numberWithDouble: (double)sqlite3_column_double(statement, WO_CALORIES_BURNED)];
+                NSNumber *minSpeed=[NSNumber numberWithDouble: (double)sqlite3_column_double(statement, WO_MIN_SPEED)];
+                NSNumber *maxSpeed=[NSNumber numberWithDouble: (double)sqlite3_column_double(statement, WO_MAX_SPEED)];
+                NSNumber *distance=[NSNumber numberWithDouble: (double)sqlite3_column_double(statement, WO_DISTANCE)];
+                int woGoalId=sqlite3_column_int(statement, WO_GOAL_ID);
+                
+                
+                [resultArray addObject:[ISWorkOut workoutWithwoId:woId startTimeStamp:startTimeStamp endTimeStamp:endTimeStamp steps:steps calBurned:calBurned minSpeed:minSpeed maxSpeed:maxSpeed distance:distance woGoalId:woGoalId]];
+            }
+            sqlite3_finalize(statement);
+            sqlite3_close(database);
+            return resultArray;
+            
+            
+        }
+    }
+    return nil;
+}
 //--------------------------------------handling location details------------------------------
 - (BOOL) saveLocationArray:(NSArray*)locationArray
 {
@@ -1099,12 +1159,140 @@ static sqlite3_stmt *statement = nil;
 //    return NO;
 //}
 //
-//-(BOOL)deleteAllTables
-//{
-//    [self saveData:@"drop state"];
-//    return [self saveData:@"drop city"];
-//}
-//
+-(BOOL)deleteAlldata
+{
+    const char *dbpath = [databasePath UTF8String];
+    if (sqlite3_open(dbpath, &database) == SQLITE_OK)
+    {
+        
+        NSString* statementStr;
+        
+        statementStr = @"BEGIN EXCLUSIVE TRANSACTION";
+        
+        if (sqlite3_prepare_v2(database, [statementStr UTF8String], -1, &statement, NULL) != SQLITE_OK) {
+            NSLog(@"db error: %s\n", sqlite3_errmsg(database));
+            return NO;
+        }
+        if (sqlite3_step(statement) != SQLITE_DONE) {
+            sqlite3_finalize(statement);
+            NSLog(@"db error: %s\n", sqlite3_errmsg(database));
+            return NO;
+        }
+        
+        
+        sqlite3_stmt *compiledStatement;
+        
+        statementStr=@"delete from wo_details";
+        
+        if(sqlite3_prepare_v2(database, [statementStr UTF8String], -1, &compiledStatement, NULL) == SQLITE_OK)
+        {
+            while(YES){
+                NSInteger result = sqlite3_step(compiledStatement);
+                if(result == SQLITE_DONE){
+                    break;
+                }
+                else if(result != SQLITE_BUSY){
+                    NSLog(@"db error: %s\n", sqlite3_errmsg(database));
+                    break;
+                }
+            }
+            sqlite3_reset(compiledStatement);
+            
+        }
+        statementStr=@"delete from location_details";
+        
+        if(sqlite3_prepare_v2(database, [statementStr UTF8String], -1, &compiledStatement, NULL) == SQLITE_OK)
+        {
+            while(YES){
+                NSInteger result = sqlite3_step(compiledStatement);
+                if(result == SQLITE_DONE){
+                    break;
+                }
+                else if(result != SQLITE_BUSY){
+                    NSLog(@"db error: %s\n", sqlite3_errmsg(database));
+                    break;
+                }
+            }
+            sqlite3_reset(compiledStatement);
+            
+        }
+        statementStr=@"delete from user_details";
+        
+        if(sqlite3_prepare_v2(database, [statementStr UTF8String], -1, &compiledStatement, NULL) == SQLITE_OK)
+        {
+            while(YES){
+                NSInteger result = sqlite3_step(compiledStatement);
+                if(result == SQLITE_DONE){
+                    break;
+                }
+                else if(result != SQLITE_BUSY){
+                    NSLog(@"db error: %s\n", sqlite3_errmsg(database));
+                    break;
+                }
+            }
+            sqlite3_reset(compiledStatement);
+            
+        }
+        statementStr=@"delete from hr_details";
+        
+        if(sqlite3_prepare_v2(database, [statementStr UTF8String], -1, &compiledStatement, NULL) == SQLITE_OK)
+        {
+            while(YES){
+                NSInteger result = sqlite3_step(compiledStatement);
+                if(result == SQLITE_DONE){
+                    break;
+                }
+                else if(result != SQLITE_BUSY){
+                    NSLog(@"db error: %s\n", sqlite3_errmsg(database));
+                    break;
+                }
+            }
+            sqlite3_reset(compiledStatement);
+            
+        }
+        statementStr=@"delete from wo_goal_details;";
+        
+        if(sqlite3_prepare_v2(database, [statementStr UTF8String], -1, &compiledStatement, NULL) == SQLITE_OK)
+        {
+            while(YES){
+                NSInteger result = sqlite3_step(compiledStatement);
+                if(result == SQLITE_DONE){
+                    break;
+                }
+                else if(result != SQLITE_BUSY){
+                    NSLog(@"db error: %s\n", sqlite3_errmsg(database));
+                    break;
+                }
+            }
+            sqlite3_reset(compiledStatement);
+            
+        }
+        
+        
+        
+        
+        //------------------------commit-------------------
+        statementStr = @"COMMIT TRANSACTION";
+        sqlite3_stmt *commitStatement;
+        if (sqlite3_prepare_v2(database, [statementStr UTF8String], -1, &commitStatement, NULL) != SQLITE_OK) {
+            NSLog(@"db error: %s\n", sqlite3_errmsg(database));
+            return NO;
+        }
+        if (sqlite3_step(commitStatement) != SQLITE_DONE) {
+            NSLog(@"db error: %s\n", sqlite3_errmsg(database));
+            return NO;
+        }
+        sqlite3_finalize(compiledStatement);
+        sqlite3_finalize(commitStatement);
+        sqlite3_finalize(statement);
+        sqlite3_close(database);
+        return YES;
+    }
+    return NO;
+    
+    return NO;
+}
+
 
 
 
