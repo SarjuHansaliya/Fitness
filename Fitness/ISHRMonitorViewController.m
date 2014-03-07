@@ -92,6 +92,7 @@ float randomFloat(float Min, float Max){
     CPTGraphHostingView *hostingView =(CPTGraphHostingView*)self.graphView;
     hostingView.collapsesLayers = NO;
     hostingView.hostedGraph     = graph;
+    [self.graphView setHidden:NO];
     graph.paddingLeft   = 0.0;
     graph.paddingTop    = 0.0;
     graph.paddingRight  = 0.0;
@@ -447,6 +448,9 @@ float randomFloat(float Min, float Max){
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self.toDateTextField setText:nil];
+    [self.fromDateTextField setText:nil];
+    [self.graphView setHidden:YES];
     [self.countinuousMonitoringSwitch setOn:appDel.woHandler.userDetails.hrMonitoring];
     
 }
@@ -564,7 +568,6 @@ float randomFloat(float Min, float Max){
         [self.fromDateTextField resignFirstResponder];
         fromDate=[NSDate dateWithTimeIntervalSince1970:[self.datePicker.date timeIntervalSince1970]];
     }
-    
     if (toDate !=nil && fromDate !=nil) {
         [self reloadGraph];
     }

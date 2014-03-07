@@ -291,6 +291,6 @@
         <image name="radoi.png" width="15" height="15"/>
         <image name="set.png" width="75" height="38"/>
         <image name="start-goal.png" width="300" height="38"/>
-        <image name="start.png" width="300" height="54"/>
+        <image name="start.png" width="145" height="88"/>
     </resources>
 </document>

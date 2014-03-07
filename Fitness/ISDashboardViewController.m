@@ -117,7 +117,6 @@
     if (appDel.woHandler.isWOStarted) {
         [self didUpdateLocation];
     }
-    
 }
 
 
