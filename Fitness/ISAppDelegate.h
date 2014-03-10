@@ -19,6 +19,7 @@
 #import "ISConnectionManagerViewController.h"
 #import "ISProfileViewController.h"
 #import "ISReportsViewController.h"
+#import "ISStatisticsViewController.h"
 
 
 
@@ -33,12 +34,14 @@
 @property EKCalendar *calendar;
 @property EKEventStore *eventStore;
 @property BOOL isCalendarAccessGranted;
+@property BOOL isStepsCountingAvailable;
 
 @property ISSetWorkoutGoalViewController *setWorkoutGoalViewController;
 @property ISHRMonitorViewController *hrMonitorViewController;
 @property ISConnectionManagerViewController *connectionManagerViewController;
 @property ISProfileViewController *profileViewController;
 @property ISReportsViewController *reportsViewController;
+@property ISStatisticsViewController *statisticsViewController;
 
 
 -(ISReportsViewController*)getReportsViewControllerWithDateOptions:(BOOL)showDatePicker;
@@ -46,6 +49,7 @@
 -(ISHRMonitorViewController*)getHRMonitorViewController;
 -(ISConnectionManagerViewController*)getConnectionManagerViewController;
 -(ISProfileViewController*)getProfileViewController;
+-(ISStatisticsViewController*)getStatisticsViewController;
 
 
 -(void)checkEventStoreAccessForCalendar;

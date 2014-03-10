@@ -135,7 +135,6 @@
     }
     else
     {
-        
         CLLocationCoordinate2D coordinates[numberOfSteps];
         
         for (NSInteger index = 0; index < numberOfSteps; index++) {
@@ -143,6 +142,13 @@
             CLLocationCoordinate2D c1=[(ISLocation*)[locations objectAtIndex:index] coordinate];
             if (index==0 || index==(numberOfSteps-1)) {
                 MKPointAnnotation *tmpAnnotation=[[MKPointAnnotation alloc]init];
+                if (index==0) {
+                    tmpAnnotation.title=@"Start Point";
+                }
+                else
+                {
+                    tmpAnnotation.title=@"End Point";
+                }
                 [tmpAnnotation setCoordinate:c1];
                 [self.map addAnnotation:tmpAnnotation];
             }
@@ -171,8 +177,17 @@
 
 -(MKAnnotationView*)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
-     MKPinAnnotationView *tmp=[[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:@"userLocation"];
-    tmp.pinColor=MKPinAnnotationColorRed;
+    MKAnnotationView *tmp=[[MKAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:@"userLocation"];
+    MKPointAnnotation *ann=(MKPointAnnotation*)annotation;
+    tmp.canShowCallout=YES;
+    if ([ann.title isEqualToString:@"Start Point"])
+    {
+        tmp.image=[UIImage imageNamed:@"blueAnnotation.png"];
+    }
+    else
+    {
+        tmp.image=[UIImage imageNamed:@"greenAnnotation.png"];
+    }
     [tmp setDraggable:NO];
     
     return tmp;

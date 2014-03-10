@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIView *userProfileView;
 @property (weak, nonatomic) IBOutlet UIView *woReportsView;
 @property (weak, nonatomic) IBOutlet UIView *resetView;
+@property (weak, nonatomic) IBOutlet UIView *statisticsView;
 
 
 

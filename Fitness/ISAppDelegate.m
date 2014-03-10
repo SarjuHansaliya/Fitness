@@ -13,6 +13,7 @@
 #import "MMExampleDrawerVisualStateManager.h"
 #import "ISConnectionManagerViewController.h"
 #import "ILAlertView.h"
+#import "macros.h"
 #import "MBProgressHUD.h"
 
 #define DEVICE_RECONNECTION_TIMEOUT 5.0
@@ -57,7 +58,13 @@
     {
         [self.window setRootViewController:self.drawerController];
     }
-    
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") && [CMStepCounter isStepCountingAvailable]) {
+        self.isStepsCountingAvailable=YES;
+    }
+    else
+    {
+        self.isStepsCountingAvailable=NO;
+    }
     return YES;
 }
 
@@ -124,6 +131,14 @@
     }
     self.reportsViewController.showDatePicker=showDatePicker;
     return self.reportsViewController;
+}
+-(ISStatisticsViewController*)getStatisticsViewController
+{
+    if (self.statisticsViewController==nil) {
+        self.statisticsViewController=[[ISStatisticsViewController alloc]initWithNibName:nil bundle:nil];
+    }
+    
+    return self.statisticsViewController;
 }
 
 -(ISHRDistributor *)getHRDistributor

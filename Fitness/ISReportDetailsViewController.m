@@ -16,11 +16,15 @@
 @end
 
 @implementation ISReportDetailsViewController
+{
+    ISAppDelegate *appDel;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        appDel=(ISAppDelegate *)[[UIApplication sharedApplication]delegate];
     }
     return self;
 }
@@ -43,7 +47,14 @@
     
     self.woDurationLabel.text=[NSString stringWithFormat:@"%d Min",ageComponents.minute];
     self.distanceLabel.text=[NSString stringWithFormat:@"%.2f Miles", [self.workout.distance doubleValue]];
-    self.stepsLabel.text=[NSString stringWithFormat:@"%d Steps", [self.workout.steps intValue]];
+    if (appDel.isStepsCountingAvailable) {
+        self.stepsLabel.text=[NSString stringWithFormat:@"%d Steps", [self.workout.steps intValue]];
+    }
+    else
+    {
+        self.stepsLabel.text=[NSString stringWithFormat:@"n/a"];
+    }
+    
     self.calBurnedLabel.text=[NSString stringWithFormat:@"%.2f kcal", [self.workout.calBurned doubleValue]/1000];
     if ([self.workout.minSpeed doubleValue]>999.0 || [self.workout.minSpeed doubleValue]< 0.00) {
         self.minSpeedLabel.text=[NSString stringWithFormat:@"- -"];

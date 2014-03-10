@@ -62,7 +62,7 @@ static ISWorkOutHandler *sharedInstance = nil;
     self.isDeviceConnected=NO;
     self.isWOStarted=NO;
     
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") && [CMStepCounter isStepCountingAvailable]) {
+    if (appDel.isStepsCountingAvailable) {
         self.stepCounter=[[CMStepCounter alloc]init];
     }
     

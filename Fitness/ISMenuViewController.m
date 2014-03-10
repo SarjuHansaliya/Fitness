@@ -81,6 +81,15 @@
     tapOnResetView.numberOfTapsRequired=1;
     [self.resetView addGestureRecognizer:tapOnResetView];
     
+    UITapGestureRecognizer *tapOnStatisticsView = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(viewStatistics)];
+    tapOnStatisticsView.numberOfTapsRequired=1;
+    [self.statisticsView addGestureRecognizer:tapOnStatisticsView];
+    
+}
+-(void)viewStatistics
+{
+    [[appDel drawerController] toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
+    [(UINavigationController*)[appDel drawerController].centerViewController pushViewController:[appDel getStatisticsViewController] animated:YES];
 }
 
 -(void)resetAll
