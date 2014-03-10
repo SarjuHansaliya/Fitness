@@ -65,7 +65,12 @@ static ISWorkOutHandler *sharedInstance = nil;
     if (appDel.isStepsCountingAvailable) {
         self.stepCounter=[[CMStepCounter alloc]init];
     }
+    if (self.tts==nil) {
+        
     
+        self.tts=[[FliteTTS alloc]init];
+        [self.tts setPitch:100.0 variance:50.0 speed:0.8];
+    }
     appDel=(ISAppDelegate*)[[UIApplication sharedApplication]delegate];
     
 }
@@ -107,6 +112,7 @@ static ISWorkOutHandler *sharedInstance = nil;
          }];
     }
     [self updateWorkoutInfo];
+    [self textToSpeechFromString:@"Workout Started"];
     
 }
 -(void)stopWO
@@ -120,6 +126,9 @@ static ISWorkOutHandler *sharedInstance = nil;
     }
     [self.currentWO updateWorkout];
     self.isWOStarted=NO;
+//    if (!self.isWOGoalEnable) {
+//        [self textToSpeechFromString:@"Workout Stopped"];
+//    }
     
 }
 
@@ -207,7 +216,39 @@ static ISWorkOutHandler *sharedInstance = nil;
     if (self.isWOStarted || self.userDetails.hrMonitoring) {
         [[appDel getHRDistributor]saveData];
     }
-    
+}
+
+
+//------------------------------handling voice assistance------------------------------
+
+-(void)speakDistance:(double)mile
+{
+    [self textToSpeechFromString:[NSString stringWithFormat:@"%.1f miles covered",mile]];
+}
+-(void)speakDuration:(int)minute
+{
+    [self textToSpeechFromString:[NSString stringWithFormat:@"%d minutes elapsed",minute]];
+}
+-(void)speakCalBurned:(int)calBurned
+{
+    [self textToSpeechFromString:[NSString stringWithFormat:@"%d calories burned",calBurned]];
+}
+
+-(void)speakGoalValue:(int)goalValue
+{
+    if (goalValue==100)
+    {
+        [self textToSpeechFromString:[NSString stringWithFormat:@"Workout goal achieved"]];
+    }
+    else
+    {
+        [self textToSpeechFromString:[NSString stringWithFormat:@"%d percent goal completed",goalValue]];
+    }
+}
+
+-(void)textToSpeechFromString:(NSString*)str
+{
+    [self.tts speakText:str];
 }
 
 

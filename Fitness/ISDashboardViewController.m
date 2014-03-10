@@ -14,6 +14,10 @@
 #import "ISProfileViewController.h"
 #import "ILAlertView.h"
 
+#define GOAL_SPEAK_VARIANCE 20
+#define DISTANCE_SPEAK_VARIANCE 0.5
+#define DURATION_SPEAK_VARIANCE 5
+#define CALORIES_SPEAK_VARIANCE 50
 
 
 
@@ -24,6 +28,13 @@
 @implementation ISDashboardViewController
 {
     ISAppDelegate *appDel;
+    double completed;
+    double prevCompleted;
+    
+    double prevDistance;
+    double prevCalories;
+    double prevDuration;
+    
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -70,6 +81,11 @@
 
 -(void)resetLabels
 {
+    prevCompleted=0.0;
+    completed=0.0;
+    prevDistance=0.0;
+    prevCalories=0.0;
+    prevDuration=0.0;
     self.woDurationLabel.text=@"- -";
     [self resetLocationRelatedLabels];
     if (appDel.woHandler.stepCounter!=nil) {
@@ -208,7 +224,14 @@
     self.minHRLabel.text=[NSString stringWithFormat:@"%@ bpm",[minHr stringValue] ];
     
     if (appDel.woHandler.isWOStarted) {
+        
+        
         self.calBurnedLabel.text= [NSString stringWithFormat:@"%.2f kcal" ,[appDel.woHandler.currentWO.calBurned doubleValue]/1000];
+        
+        if (([appDel.woHandler.currentWO.calBurned doubleValue]-prevCalories)>=CALORIES_SPEAK_VARIANCE) {
+            prevCalories=[appDel.woHandler.currentWO.calBurned doubleValue];
+            [appDel.woHandler speakCalBurned:prevCalories];
+        }
     }
     
     [self calculateGoalCompletion];
@@ -235,9 +258,12 @@
         self.maxSpeedLabel.text=[NSString stringWithFormat:@"%.1f mph",[appDel.woHandler.currentWO.maxSpeed doubleValue] ];
     }
     
-    [self calculateSpeed];
+    if (([appDel.woHandler.currentWO.distance doubleValue]-prevDistance)>=DISTANCE_SPEAK_VARIANCE) {
+        prevDistance=[appDel.woHandler.currentWO.distance doubleValue];
+        [appDel.woHandler speakDistance:prevDistance];
+    }
     
-
+    [self calculateSpeed];
     [self calculateGoalCompletion];
 }
 -(void)calculateSpeed
@@ -276,6 +302,12 @@
     if (appDel.woHandler.isWOStarted) {
         
         //[self calculateSpeed];
+        
+        if ((ageComponents.minute -prevDuration)>=DURATION_SPEAK_VARIANCE) {
+            prevDuration=ageComponents.minute;
+            [appDel.woHandler speakDuration:prevDuration];
+        }
+        
         [self performSelector:@selector(calculateWODuration) withObject:nil afterDelay:60.0];
     }
 }
@@ -291,7 +323,6 @@
     
     if (appDel.woHandler.isWOGoalEnable) {
         
-        double completed=0.0;
         NSDateComponents *ageComponents = [[NSCalendar currentCalendar]
                                            components:NSMinuteCalendarUnit
                                            fromDate:appDel.woHandler.currentWO.startTimeStamp
@@ -300,7 +331,7 @@
         
         switch (appDel.woHandler.woGoal.goalType) {
             case MILES:
-                
+                completed=([appDel.woHandler.currentWO.distance doubleValue])/[appDel.woHandler.woGoal.goalValue doubleValue]*100.0;
                 break;
                 
             case CALORIES:
@@ -319,6 +350,7 @@
         if (completed>100.0) {
             completed=100.0;
         }
+        
         
         self.goalLabel.text=[NSString stringWithFormat:@"%.0f %%",completed];
        
@@ -348,6 +380,13 @@
             
             [self.startWOButton setTitle:@"Start Workout" forState:UIControlStateNormal];
             [appDel.woHandler stopWO];
+            [appDel.woHandler speakGoalValue:100];
+            
+        }
+        
+        if ((completed-prevCompleted)>=GOAL_SPEAK_VARIANCE) {
+            prevCompleted=completed;
+            [appDel.woHandler speakGoalValue:completed];
         }
         
     }

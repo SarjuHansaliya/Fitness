@@ -13,6 +13,7 @@
 #import "ISWorkOut.h"
 #import "ISUserDetails.h"
 #import "ISDashboardViewController.h"
+#import "FliteTTS.h"
 
 @interface ISWorkOutHandler : NSObject <CLLocationManagerDelegate>
 
@@ -33,12 +34,18 @@
 @property (weak) ISDashboardViewController * dashBoardDelegate;
 
 @property CMStepCounter *stepCounter;
-
+@property (atomic) FliteTTS *tts;
 
 +(ISWorkOutHandler*)getSharedInstance;
 +(void)reset;
 
+-(void)speakDistance:(double)mile;
 
+-(void)speakDuration:(int)minute;
+
+-(void)speakCalBurned:(int)calBurned;
+
+-(void)speakGoalValue:(int)goalValue;
 - (void)saveCurrentWorkOut;
 -(void)startWO;
 -(void)stopWO;
