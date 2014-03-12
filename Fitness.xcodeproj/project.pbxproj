@@ -130,7 +130,6 @@
 		BB365AF518CD82DE00FA1B8C /* ISStatisticsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB365AF318CD82DE00FA1B8C /* ISStatisticsViewController.xib */; };
 		BB365AFB18CDAE3D00FA1B8C /* blueAnnotation.png in Resources */ = {isa = PBXBuildFile; fileRef = BB365AF918CDAE3D00FA1B8C /* blueAnnotation.png */; };
 		BB365AFC18CDAE3D00FA1B8C /* greenAnnotation.png in Resources */ = {isa = PBXBuildFile; fileRef = BB365AFA18CDAE3D00FA1B8C /* greenAnnotation.png */; };
-		BB365B0018CDD59A00FA1B8C /* FliteTTS.m in Sources */ = {isa = PBXBuildFile; fileRef = BB365AFF18CDD59900FA1B8C /* FliteTTS.m */; };
 		BB365C1018CDD66A00FA1B8C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB365C0F18CDD66A00FA1B8C /* AVFoundation.framework */; };
 		BB365C9918CDDAD900FA1B8C /* au_none.c in Sources */ = {isa = PBXBuildFile; fileRef = BB365C3B18CDDAD800FA1B8C /* au_none.c */; };
 		BB365C9A18CDDAD900FA1B8C /* au_streaming.c in Sources */ = {isa = PBXBuildFile; fileRef = BB365C3C18CDDAD800FA1B8C /* au_streaming.c */; };
@@ -206,6 +205,21 @@
 		BB365CE018CDDAD900FA1B8C /* usenglish.c in Sources */ = {isa = PBXBuildFile; fileRef = BB365C9718CDDAD900FA1B8C /* usenglish.c */; };
 		BB3C66CB18A9EA2800CAA240 /* ISProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB3C66C918A9EA2800CAA240 /* ISProfileViewController.m */; };
 		BB3C66CC18A9EA2800CAA240 /* ISProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB3C66CA18A9EA2800CAA240 /* ISProfileViewController.xib */; };
+		BB52FBFD18D02453008A5D3D /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = BB52FBC918D02453008A5D3D /* add.png */; };
+		BB52FBFE18D02453008A5D3D /* artwork.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = BB52FBCA18D02453008A5D3D /* artwork.jpeg */; };
+		BB52FC1F18D02453008A5D3D /* music.png in Resources */ = {isa = PBXBuildFile; fileRef = BB52FBED18D02453008A5D3D /* music.png */; };
+		BB52FC2018D02453008A5D3D /* next.png in Resources */ = {isa = PBXBuildFile; fileRef = BB52FBEE18D02453008A5D3D /* next.png */; };
+		BB52FC2118D02453008A5D3D /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = BB52FBEF18D02453008A5D3D /* pause.png */; };
+		BB52FC2218D02453008A5D3D /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = BB52FBF018D02453008A5D3D /* play.png */; };
+		BB52FC2318D02453008A5D3D /* prev.png in Resources */ = {isa = PBXBuildFile; fileRef = BB52FBF118D02453008A5D3D /* prev.png */; };
+		BB52FC2418D02453008A5D3D /* ISMusicController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB52FBF318D02453008A5D3D /* ISMusicController.m */; };
+		BB52FC2618D02453008A5D3D /* MusicTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB52FBF618D02453008A5D3D /* MusicTableView.xib */; };
+		BB52FC2718D02453008A5D3D /* MusicTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB52FBF818D02453008A5D3D /* MusicTableViewController.m */; };
+		BB52FC2818D02453008A5D3D /* RNFrostedSidebar.m in Sources */ = {isa = PBXBuildFile; fileRef = BB52FBFA18D02453008A5D3D /* RNFrostedSidebar.m */; };
+		BB52FC2E18D02485008A5D3D /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB52FC2D18D02485008A5D3D /* MediaPlayer.framework */; };
+		BB52FC3018D0248E008A5D3D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB52FC2F18D0248E008A5D3D /* AudioToolbox.framework */; };
+		BB52FC3218D0249F008A5D3D /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB52FC3118D0249F008A5D3D /* Accelerate.framework */; };
+		BB52FC3318D024AE008A5D3D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB0EE34418A3ADAB00E3EA63 /* XCTest.framework */; };
 		BB5DCCAA18B7249900DAB3CE /* alertBkg.png in Resources */ = {isa = PBXBuildFile; fileRef = BB5DCCA618B7249900DAB3CE /* alertBkg.png */; };
 		BB5DCCAB18B7249900DAB3CE /* alertBkg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BB5DCCA718B7249900DAB3CE /* alertBkg@2x.png */; };
 		BB5DCCAC18B7249900DAB3CE /* ILAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB5DCCA918B7249900DAB3CE /* ILAlertView.m */; };
@@ -425,8 +439,6 @@
 		BB365AF318CD82DE00FA1B8C /* ISStatisticsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISStatisticsViewController.xib; sourceTree = "<group>"; };
 		BB365AF918CDAE3D00FA1B8C /* blueAnnotation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueAnnotation.png; sourceTree = "<group>"; };
 		BB365AFA18CDAE3D00FA1B8C /* greenAnnotation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenAnnotation.png; sourceTree = "<group>"; };
-		BB365AFE18CDD59900FA1B8C /* FliteTTS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FliteTTS.h; sourceTree = "<group>"; };
-		BB365AFF18CDD59900FA1B8C /* FliteTTS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FliteTTS.m; sourceTree = "<group>"; };
 		BB365C0F18CDD66A00FA1B8C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		BB365C1318CDDAD800FA1B8C /* cst_alloc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cst_alloc.h; sourceTree = "<group>"; };
 		BB365C1418CDDAD800FA1B8C /* cst_audio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cst_audio.h; sourceTree = "<group>"; };
@@ -560,6 +572,23 @@
 		BB3C66C818A9EA2800CAA240 /* ISProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISProfileViewController.h; sourceTree = "<group>"; };
 		BB3C66C918A9EA2800CAA240 /* ISProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISProfileViewController.m; sourceTree = "<group>"; };
 		BB3C66CA18A9EA2800CAA240 /* ISProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISProfileViewController.xib; sourceTree = "<group>"; };
+		BB52FBC918D02453008A5D3D /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
+		BB52FBCA18D02453008A5D3D /* artwork.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = artwork.jpeg; sourceTree = "<group>"; };
+		BB52FBED18D02453008A5D3D /* music.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = music.png; sourceTree = "<group>"; };
+		BB52FBEE18D02453008A5D3D /* next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = next.png; sourceTree = "<group>"; };
+		BB52FBEF18D02453008A5D3D /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
+		BB52FBF018D02453008A5D3D /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
+		BB52FBF118D02453008A5D3D /* prev.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = prev.png; sourceTree = "<group>"; };
+		BB52FBF218D02453008A5D3D /* ISMusicController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISMusicController.h; sourceTree = "<group>"; };
+		BB52FBF318D02453008A5D3D /* ISMusicController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISMusicController.m; sourceTree = "<group>"; };
+		BB52FBF618D02453008A5D3D /* MusicTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MusicTableView.xib; sourceTree = "<group>"; };
+		BB52FBF718D02453008A5D3D /* MusicTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicTableViewController.h; sourceTree = "<group>"; };
+		BB52FBF818D02453008A5D3D /* MusicTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicTableViewController.m; sourceTree = "<group>"; };
+		BB52FBF918D02453008A5D3D /* RNFrostedSidebar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNFrostedSidebar.h; sourceTree = "<group>"; };
+		BB52FBFA18D02453008A5D3D /* RNFrostedSidebar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNFrostedSidebar.m; sourceTree = "<group>"; };
+		BB52FC2D18D02485008A5D3D /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		BB52FC2F18D0248E008A5D3D /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		BB52FC3118D0249F008A5D3D /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		BB5DCCA618B7249900DAB3CE /* alertBkg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alertBkg.png; sourceTree = "<group>"; };
 		BB5DCCA718B7249900DAB3CE /* alertBkg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alertBkg@2x.png"; sourceTree = "<group>"; };
 		BB5DCCA818B7249900DAB3CE /* ILAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILAlertView.h; sourceTree = "<group>"; };
@@ -726,6 +755,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB52FC3318D024AE008A5D3D /* XCTest.framework in Frameworks */,
+				BB52FC3218D0249F008A5D3D /* Accelerate.framework in Frameworks */,
+				BB52FC3018D0248E008A5D3D /* AudioToolbox.framework in Frameworks */,
+				BB52FC2E18D02485008A5D3D /* MediaPlayer.framework in Frameworks */,
 				BB365C1018CDD66A00FA1B8C /* AVFoundation.framework in Frameworks */,
 				BB95B2A618C49B4B003AD69B /* OpenGLES.framework in Frameworks */,
 				BB8A335F18C0724A00067BE4 /* QuartzCore.framework in Frameworks */,
@@ -908,6 +941,9 @@
 		BB0EE32A18A3ADAB00E3EA63 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BB52FC3118D0249F008A5D3D /* Accelerate.framework */,
+				BB52FC2F18D0248E008A5D3D /* AudioToolbox.framework */,
+				BB52FC2D18D02485008A5D3D /* MediaPlayer.framework */,
 				BB365C0F18CDD66A00FA1B8C /* AVFoundation.framework */,
 				BB95B2A518C49B4A003AD69B /* OpenGLES.framework */,
 				BB8A375A18C07AB700067BE4 /* libCorePlot-CocoaTouch.a */,
@@ -928,7 +964,7 @@
 		BB0EE33118A3ADAB00E3EA63 /* Fitness */ = {
 			isa = PBXGroup;
 			children = (
-				BB365AFD18CDD59900FA1B8C /* TTS */,
+				BB52FBC718D02453008A5D3D /* Music player */,
 				BB95B27918C49B20003AD69B /* XBPageCurl */,
 				BB8A336918C073D800067BE4 /* core plot */,
 				BB98D6FB18B7717D00C6A16D /* process handler */,
@@ -1144,15 +1180,6 @@
 			name = "included files";
 			sourceTree = "<group>";
 		};
-		BB365AFD18CDD59900FA1B8C /* TTS */ = {
-			isa = PBXGroup;
-			children = (
-				BB365AFE18CDD59900FA1B8C /* FliteTTS.h */,
-				BB365AFF18CDD59900FA1B8C /* FliteTTS.m */,
-			);
-			path = TTS;
-			sourceTree = "<group>";
-		};
 		BB365C1118CDDAD800FA1B8C /* flite-1.4-iphone */ = {
 			isa = PBXGroup;
 			children = (
@@ -1335,6 +1362,36 @@
 				BB365C9818CDDAD900FA1B8C /* usenglish.h */,
 			);
 			path = usenglish;
+			sourceTree = "<group>";
+		};
+		BB52FBC718D02453008A5D3D /* Music player */ = {
+			isa = PBXGroup;
+			children = (
+				BB52FBC818D02453008A5D3D /* Player control images */,
+				BB52FBF218D02453008A5D3D /* ISMusicController.h */,
+				BB52FBF318D02453008A5D3D /* ISMusicController.m */,
+				BB52FBF618D02453008A5D3D /* MusicTableView.xib */,
+				BB52FBF718D02453008A5D3D /* MusicTableViewController.h */,
+				BB52FBF818D02453008A5D3D /* MusicTableViewController.m */,
+				BB52FBF918D02453008A5D3D /* RNFrostedSidebar.h */,
+				BB52FBFA18D02453008A5D3D /* RNFrostedSidebar.m */,
+			);
+			path = "Music player";
+			sourceTree = "<group>";
+		};
+		BB52FBC818D02453008A5D3D /* Player control images */ = {
+			isa = PBXGroup;
+			children = (
+				BB52FBC918D02453008A5D3D /* add.png */,
+				BB52FBCA18D02453008A5D3D /* artwork.jpeg */,
+				BB52FBED18D02453008A5D3D /* music.png */,
+				BB52FBEE18D02453008A5D3D /* next.png */,
+				BB52FBEF18D02453008A5D3D /* pause.png */,
+				BB52FBF018D02453008A5D3D /* play.png */,
+				BB52FBF118D02453008A5D3D /* prev.png */,
+			);
+			name = "Player control images";
+			path = "custom images";
 			sourceTree = "<group>";
 		};
 		BB5DCCA518B7249900DAB3CE /* alertview */ = {
@@ -1674,6 +1731,7 @@
 				BB779DE918AA4186009C2D8C /* radoi.png in Resources */,
 				BB779DE518AA4186009C2D8C /* radio-sel@1x.png in Resources */,
 				BB18B50818C713E900FE8B46 /* speed icn.png in Resources */,
+				BB52FC2018D02453008A5D3D /* next.png in Resources */,
 				BB18B4FE18C713E900FE8B46 /* cal_bg.png in Resources */,
 				1FEC254018B1E2850053A996 /* line_edit_reminder.png in Resources */,
 				BB18B50518C713E900FE8B46 /* mile.png in Resources */,
@@ -1687,13 +1745,16 @@
 				BB1194FF18B5D6D400D05A97 /* editRem.png in Resources */,
 				BB11E4CA18A8CA5900406313 /* date btn.png in Resources */,
 				BB11E4CB18A8CA5900406313 /* head bg.png in Resources */,
+				BB52FBFD18D02453008A5D3D /* add.png in Resources */,
 				BB779E5A18AA56F4009C2D8C /* lineMenu.png in Resources */,
 				BB779E5C18AA56F4009C2D8C /* orange.png in Resources */,
 				BB1194FE18B5D6D400D05A97 /* deleteRem.png in Resources */,
 				BB18B4FC18C713E900FE8B46 /* cal icn.png in Resources */,
 				BB18B51518C713E900FE8B46 /* workout done.png in Resources */,
+				BB52FC2618D02453008A5D3D /* MusicTableView.xib in Resources */,
 				BB18B50718C713E900FE8B46 /* path on map.png in Resources */,
 				BB11E4CC18A8CA5900406313 /* mid img.png in Resources */,
+				BB52FC2318D02453008A5D3D /* prev.png in Resources */,
 				BB365AFC18CDAE3D00FA1B8C /* greenAnnotation.png in Resources */,
 				BB95B29518C49B20003AD69B /* BackVertexShader.glsl in Resources */,
 				BB365CDD18CDDAD900FA1B8C /* us_pos.tree in Resources */,
@@ -1713,6 +1774,7 @@
 				BB18B50C18C713E900FE8B46 /* steps icn.png in Resources */,
 				BB18B51618C713E900FE8B46 /* workout done_bg.png in Resources */,
 				BB18B50018C713E900FE8B46 /* hr icn.png in Resources */,
+				BB52FC1F18D02453008A5D3D /* music.png in Resources */,
 				BB18B50B18C713E900FE8B46 /* start workout.png in Resources */,
 				BB18B50918C713E900FE8B46 /* speed.png in Resources */,
 				BB18B51218C713E900FE8B46 /* view report.png in Resources */,
@@ -1720,10 +1782,12 @@
 				BB95B2A818C4A2FF003AD69B /* settings.png in Resources */,
 				1F4E038518AE16D800BAF4D8 /* ISBLEConnectionManagerViewController.xib in Resources */,
 				BB1194FD18B5D6D300D05A97 /* selRem.png in Resources */,
+				BB52FBFE18D02453008A5D3D /* artwork.jpeg in Resources */,
 				BB11E4D218A8CD3D00406313 /* helvetica-world.ttf in Resources */,
 				BB779DDA18AA1DED009C2D8C /* comic sans.ttf in Resources */,
 				BBD4207D18B4BFD00094F958 /* ISRepeatReminderCell.xib in Resources */,
 				BB18B51318C713E900FE8B46 /* white.png in Resources */,
+				BB52FC2218D02453008A5D3D /* play.png in Resources */,
 				BB95B29718C49B20003AD69B /* FrontVertexShader.glsl in Resources */,
 				BB005F4C18AB3BA4003FAF8B /* back1.png in Resources */,
 				BB18B51418C713E900FE8B46 /* workout done icn.png in Resources */,
@@ -1744,6 +1808,7 @@
 				BB11E4CF18A8CA5900406313 /* text.png in Resources */,
 				BB18B50118C713E900FE8B46 /* hr.png in Resources */,
 				1F4E035018ADF26900BAF4D8 /* ISReminderTableCell.xib in Resources */,
+				BB52FC2118D02453008A5D3D /* pause.png in Resources */,
 				1F19312718B33FF8005BB31C /* ISReportDetailsCell.xib in Resources */,
 				1FEC254518B1E8F60053A996 /* ISNewReminderViewController.xib in Resources */,
 				BB28211718AB658F00ADE985 /* macros.h in Resources */,
@@ -1874,11 +1939,13 @@
 				BB365CD818CDDAD900FA1B8C /* us_int_accent_cart.c in Sources */,
 				BB365CAF18CDDAD900FA1B8C /* cst_sigpr.c in Sources */,
 				BB0EE33818A3ADAB00E3EA63 /* main.m in Sources */,
+				BB52FC2718D02453008A5D3D /* MusicTableViewController.m in Sources */,
 				BB365CD718CDDAD900FA1B8C /* us_gpos.c in Sources */,
+				BB52FC2818D02453008A5D3D /* RNFrostedSidebar.m in Sources */,
 				1F19312418B33DFD005BB31C /* ISReportDetailsViewController.m in Sources */,
 				1F19312A18B3406C005BB31C /* ISReportDetailCell.m in Sources */,
-				BB365B0018CDD59A00FA1B8C /* FliteTTS.m in Sources */,
 				BB98D6E618B738A100C6A16D /* ISHR.m in Sources */,
+				BB52FC2418D02453008A5D3D /* ISMusicController.m in Sources */,
 				BB365C9C18CDDAD900FA1B8C /* cst_alloc.c in Sources */,
 				BB365CAB18CDDAD900FA1B8C /* cst_mlsa.c in Sources */,
 				BB365CDA18CDDAD900FA1B8C /* us_nums_cart.c in Sources */,
@@ -2026,6 +2093,10 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Fitness/Fitness-Prefix.pch";
 				INFOPLIST_FILE = "Fitness/Fitness-Info.plist";
@@ -2047,6 +2118,10 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Fitness/Fitness-Prefix.pch";
 				INFOPLIST_FILE = "Fitness/Fitness-Info.plist";

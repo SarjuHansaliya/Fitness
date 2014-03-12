@@ -13,7 +13,7 @@
 #import "ISWorkOut.h"
 #import "ISUserDetails.h"
 #import "ISDashboardViewController.h"
-#import "FliteTTS.h"
+#import "ISMusicController.h"
 
 @interface ISWorkOutHandler : NSObject <CLLocationManagerDelegate>
 
@@ -34,7 +34,9 @@
 @property (weak) ISDashboardViewController * dashBoardDelegate;
 
 @property CMStepCounter *stepCounter;
-@property (atomic) FliteTTS *tts;
+
+@property ISMusicController * musicController;
+
 
 +(ISWorkOutHandler*)getSharedInstance;
 +(void)reset;

@@ -65,13 +65,11 @@ static ISWorkOutHandler *sharedInstance = nil;
     if (appDel.isStepsCountingAvailable) {
         self.stepCounter=[[CMStepCounter alloc]init];
     }
-    if (self.tts==nil) {
-        
+    self.musicController=[[ISMusicController alloc]init];
+    [self.musicController initialize];
     
-        self.tts=[[FliteTTS alloc]init];
-        [self.tts setPitch:100.0 variance:50.0 speed:0.8];
-    }
     appDel=(ISAppDelegate*)[[UIApplication sharedApplication]delegate];
+    
     
 }
 //-------------------------------setting workout object------------------
@@ -248,7 +246,7 @@ static ISWorkOutHandler *sharedInstance = nil;
 
 -(void)textToSpeechFromString:(NSString*)str
 {
-    [self.tts speakText:str];
+    [self.musicController speakText:str];
 }
 
 

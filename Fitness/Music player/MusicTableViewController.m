@@ -91,14 +91,14 @@ static NSString *kCellIdentifier = @"Cell";
 	
 	[[UIApplication sharedApplication] setStatusBarStyle: UIStatusBarStyleDefault animated:YES];
 
-	[self presentModalViewController: picker animated: YES];
+	[self presentViewController: picker animated: YES completion:nil];
 }
 
 
 // Responds to the user tapping Done after choosing music.
 - (void) mediaPicker: (MPMediaPickerController *) mediaPicker didPickMediaItems: (MPMediaItemCollection *) mediaItemCollection {
   
-	[self dismissModalViewControllerAnimated: YES];
+	[self dismissViewControllerAnimated: YES completion:nil];
 	[self.delegate updatePlayerQueueWithMediaCollection: mediaItemCollection];
 	[self.mediaItemCollectionTable reloadData];
 
@@ -109,7 +109,7 @@ static NSString *kCellIdentifier = @"Cell";
 // Responds to the user tapping done having chosen no music.
 - (void) mediaPickerDidCancel: (MPMediaPickerController *) mediaPicker {
 
-	[self dismissModalViewControllerAnimated: YES];
+	[self dismissViewControllerAnimated: YES completion:nil];
 
 	[[UIApplication sharedApplication] setStatusBarStyle: UIStatusBarStyleBlackOpaque animated:YES];
 }
@@ -191,27 +191,27 @@ static NSString *kCellIdentifier = @"Cell";
  }
 
 
-
- - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
- {
-     MainViewController *mainViewController = (MainViewController *) self.delegate;
-     NSMutableArray *updatedMediaItems	= [[mainViewController.userMediaItemCollection items] mutableCopy];
-     id tmp=[updatedMediaItems objectAtIndex:fromIndexPath.row];
-     [updatedMediaItems removeObject:tmp];
-     [updatedMediaItems insertObject:tmp atIndex:toIndexPath.row];
-     
-     [self.delegate updatePlayerAfterDeleteQueueWithMediaCollection: [MPMediaItemCollection collectionWithItems:updatedMediaItems]];
-     
- }
-
-
-
- // Override to support conditional rearranging of the table view.
- - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
- {
-     return YES;
- }
-
+//
+// - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+// {
+//     MainViewController *mainViewController = (MainViewController *) self.delegate;
+//     NSMutableArray *updatedMediaItems	= [[mainViewController.userMediaItemCollection items] mutableCopy];
+//     id tmp=[updatedMediaItems objectAtIndex:fromIndexPath.row];
+//     [updatedMediaItems removeObject:tmp];
+//     [updatedMediaItems insertObject:tmp atIndex:toIndexPath.row];
+//     
+//     [self.delegate updatePlayerAfterDeleteQueueWithMediaCollection: [MPMediaItemCollection collectionWithItems:updatedMediaItems]];
+//     
+// }
+//
+//
+//
+// // Override to support conditional rearranging of the table view.
+// - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+// {
+//     return YES;
+// }
+//
 
 
 

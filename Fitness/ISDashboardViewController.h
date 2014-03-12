@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "UIViewController+MMDrawerController.h"
+#import "RNFrostedSidebar.h"
+#import "ISMusicController.h"
 
-@interface ISDashboardViewController : UIViewController
+@interface ISDashboardViewController : UIViewController <RNFrostedSidebarDelegate>
 
 
 
@@ -29,6 +31,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *maxSpeedLabel;
 @property (weak, nonatomic) IBOutlet UILabel *speedLabel;
 
+//---------------music player-------------
+
+
+-(void)playerIsPlaying:(BOOL)b;
+-(void)setArtworkImage:(UIImage*)img;
 
 
 - (IBAction)workoutStart:(id)sender;

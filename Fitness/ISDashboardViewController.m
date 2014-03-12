@@ -14,12 +14,10 @@
 #import "ISProfileViewController.h"
 #import "ILAlertView.h"
 
-#define GOAL_SPEAK_VARIANCE 20
+#define GOAL_SPEAK_VARIANCE 20.0
 #define DISTANCE_SPEAK_VARIANCE 0.5
 #define DURATION_SPEAK_VARIANCE 5
 #define CALORIES_SPEAK_VARIANCE 50
-
-
 
 @interface ISDashboardViewController ()
 
@@ -35,14 +33,20 @@
     double prevCalories;
     double prevDuration;
     
+    
+    //------music player
+    RNFrostedSidebar *callout;
+    BOOL callouVisible;
+    
+    
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
         appDel=(ISAppDelegate*)[[UIApplication sharedApplication]delegate];
+        
     }
     return self;
 }
@@ -52,7 +56,8 @@
     [super viewDidLoad];
     [self setupNavigationBar];
     [self setupMenuItemsTouchEvents];
-   
+    [self setupCallout];
+    [appDel.woHandler.musicController setDelegate:self];
 //    [appDel.drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeNone];
     [appDel.drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
     [[appDel getHRDistributor] setDashBoardDelegate:self];
@@ -65,6 +70,89 @@
     }
     [self resetLabels];
 }
+//------------------------------------music player support--------------------
+-(void)setupCallout
+{
+    NSArray *images = @[
+                        [UIImage imageNamed:@"artwork.jpeg"],
+                        [UIImage imageNamed:@"prev.png"],
+                        [UIImage imageNamed:@"play.png"],
+                        [UIImage imageNamed:@"next.png"],
+                        [UIImage imageNamed:@"add.png"]
+                        ];
+    NSArray *colors = @[
+                        [UIColor colorWithRed:240/255.f green:159/255.f blue:254/255.f alpha:1],
+                        [UIColor colorWithRed:240/255.f green:159/255.f blue:254/255.f alpha:1],
+                        [UIColor colorWithRed:255/255.f green:137/255.f blue:167/255.f alpha:1],
+                        [UIColor colorWithRed:126/255.f green:242/255.f blue:195/255.f alpha:1],
+                        [UIColor colorWithRed:119/255.f green:152/255.f blue:255/255.f alpha:1]
+                        ];
+    
+    
+    callout = [[RNFrostedSidebar alloc] initWithImages:images selectedIndices:[NSMutableIndexSet indexSetWithIndex:PLAY_ITEM] borderColors:colors];
+    callout.delegate = self;
+    callout.showFromRight = YES;
+    callouVisible=NO;
+    
+    
+}
+-(void)playerIsPlaying:(BOOL)b
+{
+    [callout.actionButtonImageView setHighlighted:b];
+}
+
+-(void)setArtworkImage:(UIImage*)img
+{
+    [callout.artworkImageView setImage:img];
+}
+
+- (IBAction)onBurger:(id)sender {
+    
+    
+    if (!callouVisible) {
+        [callout showInViewController:self animated:YES];
+    }
+    else
+    {
+        [callout dismissAnimated:YES];
+    }
+}
+- (void)sidebar:(RNFrostedSidebar *)sidebar didShowOnScreenAnimated:(BOOL)animatedYesOrNo
+{
+    callouVisible=YES;
+}
+
+- (void)sidebar:(RNFrostedSidebar *)sidebar didDismissFromScreenAnimated:(BOOL)animatedYesOrNo
+{
+    callouVisible=NO;
+}
+
+#pragma mark - RNFrostedSidebarDelegate
+
+- (void)sidebar:(RNFrostedSidebar *)sidebar didTapItemAtIndex:(NSUInteger)index {
+    // NSLog(@"Tapped item at index %i",index);
+    switch (index) {
+        case ARTWORK_ITEM:
+            break;
+        case PREVIOUS_ITEM:
+            [appDel.woHandler.musicController prevSong:nil];
+            break;
+        case PLAY_ITEM:
+            [appDel.woHandler.musicController playOrPauseMusic:nil];
+            break;
+        case NEXT_ITEM:
+            [appDel.woHandler.musicController nextSong:nil];
+            break;
+        case ADD_ITEM:
+            [callout dismissAnimated:YES];
+            [appDel.woHandler.musicController AddMusicOrShowMusic:nil];
+            break;
+        default:
+            break;
+    }
+}
+
+
 -(void)resetLocationRelatedLabels
 {
     if ([CLLocationManager locationServicesEnabled]) {
@@ -170,7 +258,14 @@
     //self.navigationController.navigationBarHidden=YES;
     self.title=@"Dashboard";
    
-    //[self.navigationItem.backBarButtonItem setImage:backImage];
+    UIButton *addButtonCustom = [UIButton buttonWithType:UIButtonTypeCustom];
+    [addButtonCustom setFrame:CGRectMake(0.0f, 0.0f, 25.0f, 25.0f)];
+    [addButtonCustom addTarget:self action:@selector(onBurger:) forControlEvents:UIControlEventTouchUpInside];
+    [addButtonCustom setImage:[UIImage imageNamed:@"music.png"] forState:UIControlStateNormal];
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithCustomView:addButtonCustom];
+    
+    [self.navigationItem setRightBarButtonItem:addButton];
+
     [self setupLeftMenuButton];
     
 }

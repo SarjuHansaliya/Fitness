@@ -30,10 +30,12 @@
 #import <AVFoundation/AVFoundation.h>
 
 
-@interface FliteTTS : NSObject <AVAudioPlayerDelegate> {
+@interface FliteTTS : NSObject  {
 	//NSData *soundObj;		// doesn't work yet - see note in FliteTTS.m
 	AVAudioPlayer* audioPlayer;
 }
+-(id)initWithAVDelegate:(id)delegate;
+@property (weak) id delegate;
 
 // Use these:
 -(void)speakText:(NSString *)text;

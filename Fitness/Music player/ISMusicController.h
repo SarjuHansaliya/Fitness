@@ -15,45 +15,35 @@
 
 @interface ISMusicController : NSObject <MPMediaPickerControllerDelegate, MusicTableViewControllerDelegate, AVAudioPlayerDelegate>
 {
-	IBOutlet UIBarButtonItem	*artworkItem;
-	IBOutlet UINavigationBar	*navigationBar;
-	IBOutlet UILabel			*nowPlayingLabel;
+	
 	BOOL						playedMusicOnce;
-    
 	AVAudioPlayer				*appSoundPlayer;
-	NSURL						*soundFileURL;
-	IBOutlet UIButton			*appSoundButton;
-	IBOutlet UIButton			*addOrShowMusicButton;
-	BOOL						interruptedOnPlayback;
+    BOOL						interruptedOnPlayback;
 	BOOL						playing ;
-    
-	UIBarButtonItem				*playBarButton;
-	UIBarButtonItem				*pauseBarButton;
 	MPMusicPlayerController		*musicPlayer;
 	MPMediaItemCollection		*userMediaItemCollection;
 	UIImage						*noArtworkImage;
-	NSTimer						*backgroundColorTimer;
+	
 }
 
 @property id delegate;
-@property (nonatomic, strong)	UIBarButtonItem			*artworkItem;
-@property (nonatomic, strong)	UINavigationBar			*navigationBar;
-@property (nonatomic, strong)	UILabel					*nowPlayingLabel;
-@property (readwrite)			BOOL					playedMusicOnce;
 
-@property (nonatomic, strong)	UIBarButtonItem			*playBarButton;
-@property (nonatomic, strong)	UIBarButtonItem			*pauseBarButton;
+@property (readwrite)			BOOL					playedMusicOnce;
 @property (nonatomic, strong)	MPMediaItemCollection	*userMediaItemCollection;
 @property (nonatomic, strong)	MPMusicPlayerController	*musicPlayer;
 @property (nonatomic, strong)	UIImage					*noArtworkImage;
-@property (nonatomic, strong)	NSTimer					*backgroundColorTimer;
-
 @property (nonatomic, strong)	AVAudioPlayer			*appSoundPlayer;
-@property (nonatomic, strong)	NSURL					*soundFileURL;
-@property (nonatomic, strong)	IBOutlet UIButton		*appSoundButton;
-@property (nonatomic, strong)	IBOutlet UIButton		*addOrShowMusicButton;
+@property (nonatomic, strong)	AVQueuePlayer			*appQueuePlayer;
 @property (readwrite)			BOOL					interruptedOnPlayback;
 @property (readwrite)			BOOL					playing;
+
+
+//----------------voice assistance-------------
+
+-(void)speakText:(NSString *)text;
+-(void)stopTalking;
+-(void)setPitch:(float)pitch variance:(float)variance speed:(float)speed;
+
 - (IBAction)prevSong:(id)sender;
 - (IBAction)nextSong:(id)sender;
 - (void) initialize;
@@ -62,8 +52,6 @@
 - (IBAction)	playAppSound:			(id) sender;
 
 - (BOOL) useiPodPlayer;
-
-
 
 
 @end

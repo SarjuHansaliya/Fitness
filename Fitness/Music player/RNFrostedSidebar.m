@@ -6,17 +6,7 @@
 //  Copyright (c) 2013 Ryan Nystrom. All rights reserved.
 //
 
-#define __IPHONE_OS_VERSION_SOFT_MAX_REQUIRED __IPHONE_7_0
-#define IS_IPHONE_5 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
-
-#define PLAY_BUTTON_INDEX 2
-#define ARTWORK_ITEM 0
-#define PREVIOUS_ITEM 1
-#define PLAY_ITEM 2
-#define NEXT_ITEM 3
-#define ADD_ITEM 4
-
-
+#import "macros.h"
 #import "RNFrostedSidebar.h"
 #import <QuartzCore/QuartzCore.h>
 
@@ -306,7 +296,7 @@ static RNFrostedSidebar *rn_frostedMenu;
             view.imageView.image = image;
             
             //change here.........
-            if (idx==PLAY_BUTTON_INDEX) {
+            if (idx==PLAY_ITEM) {
                 self.actionButtonImageView=view.imageView;
                 view.imageView.highlightedImage=[UIImage imageNamed:@"pause.png"];
             }
@@ -563,7 +553,7 @@ static RNFrostedSidebar *rn_frostedMenu;
    // BOOL didEnable = ! [self.selectedIndices containsIndex:index];
     BOOL didEnable=NO;
     
-    if (index==PLAY_BUTTON_INDEX) {
+    if (index==PLAY_ITEM) {
         didEnable=YES;
         //change here.........
         //[[(RNCalloutItemView*)[_itemViews objectAtIndex:index] imageView] setHighlighted:![[(RNCalloutItemView*)[_itemViews objectAtIndex:index] imageView] isHighlighted]];

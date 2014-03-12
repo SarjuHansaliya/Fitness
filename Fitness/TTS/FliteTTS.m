@@ -28,12 +28,14 @@
 
 #import "FliteTTS.h"
 #import "flite.h"
+#import "ISAppDelegate.h"
 
 
 
 cst_voice *register_cmu_us_rms();
 cst_wave *sound;
 cst_voice *voice;
+
 
 @implementation FliteTTS
 
@@ -42,6 +44,21 @@ cst_voice *voice;
     self = [super init];
 	flite_init();
     voice = register_cmu_us_rms();
+    
+    return self;
+}
+
+-(id)initWithAVDelegate:(id)delegate
+{
+    self = [super init];
+	flite_init();
+    voice = register_cmu_us_rms();
+   
+   // NSLog(@"%@",delegate);
+    self.delegate=delegate;
+    [audioPlayer setDelegate:delegate];
+   [[AVAudioSession sharedInstance] setCategory: AVAudioSessionCategoryAmbient error: nil];
+    
     return self;
 }
 
@@ -79,8 +96,12 @@ cst_voice *voice;
 	NSError *err;
 	[audioPlayer stop];
 	audioPlayer =  [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:tempFilePath] error:&err];
-	[audioPlayer setDelegate:self];
+    [audioPlayer setDelegate:self.delegate];
 	//[audioPlayer prepareToPlay];
+    [audioPlayer setVolume:1.0];
+    ISMusicController *musicController=(ISMusicController *)self.delegate;
+    [musicController.musicPlayer setVolume:0.2];
+    
 	[audioPlayer play];
 	// Remove file
 	[[NSFileManager defaultManager] removeItemAtPath:tempFilePath error:nil];
