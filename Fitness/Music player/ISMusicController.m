@@ -96,6 +96,7 @@ void audioRouteChangeListenerCallback (
 {
     float volumeMusicPlayer;
     BOOL wasMusicPlayerPlaying;
+    NSString *remainingTextToSpeech;
 }
 
 @synthesize userMediaItemCollection;	// the media item collection created by the user, using the media item picker
@@ -449,6 +450,8 @@ void audioRouteChangeListenerCallback (
 - (void) audioPlayerDidFinishPlaying: (AVAudioPlayer *) appSoundPlayer1 successfully: (BOOL) flag {
     
 	playing = NO;
+    [[AVAudioSession sharedInstance] setActive: NO error:nil];
+    
     if (wasMusicPlayerPlaying) {
         [musicPlayer play];
     }
@@ -547,16 +550,11 @@ void audioRouteChangeListenerCallback (
     [self setMusicPlayer: [MPMusicPlayerController iPodMusicPlayer]];
     
     if ([musicPlayer nowPlayingItem]) {
-        
-        
-        // Update the UI to reflect the now-playing item.
         [self handle_NowPlayingItemChanged: nil];
         
     }
-    
-	
-    
 	[self registerForMediaPlayerNotifications];
+    playing=NO;
     
 	
 }
@@ -582,15 +580,13 @@ void audioRouteChangeListenerCallback (
                                      (__bridge void *)(self)
                                      );
     
-	// Activates the audio session.
 	
-	NSError *activationError = nil;
-	[[AVAudioSession sharedInstance] setActive: YES error: &activationError];
     
 }
 
 -(void)speakText:(NSString *)text
 {
+    
 	NSMutableString *cleanString;
 	cleanString = [NSMutableString stringWithString:@""];
 	if([text length] > 1)
@@ -627,16 +623,19 @@ void audioRouteChangeListenerCallback (
         wasMusicPlayerPlaying=YES;
         [musicPlayer pause];
     }
+    BOOL soundPlayed=YES;
     playing = YES;
-
-    
-	BOOL soundPlayed =[appSoundPlayer play];
-    
+    // Activates the audio session.
+	
+	NSError *activationError = nil;
+	[[AVAudioSession sharedInstance] setActive: YES error: &activationError];
+    soundPlayed =[appSoundPlayer play];
+   
     if (!soundPlayed) {
-    
-        [self audioPlayerDidFinishPlaying:appSoundPlayer successfully:soundPlayed];
         
+        [self audioPlayerDidFinishPlaying:appSoundPlayer successfully:soundPlayed];
     }
+    
 	// Remove file
 	[[NSFileManager defaultManager] removeItemAtPath:tempFilePath error:nil];
 	delete_wave(sound);

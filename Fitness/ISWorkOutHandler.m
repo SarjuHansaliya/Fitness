@@ -236,7 +236,7 @@ static ISWorkOutHandler *sharedInstance = nil;
 {
     if (goalValue==100)
     {
-        [self textToSpeechFromString:[NSString stringWithFormat:@"Workout goal achieved"]];
+        [self textToSpeechFromString:[NSString stringWithFormat:@"Workout Finish"]];
     }
     else
     {
@@ -247,6 +247,7 @@ static ISWorkOutHandler *sharedInstance = nil;
 -(void)textToSpeechFromString:(NSString*)str
 {
     [self.musicController speakText:str];
+    
 }
 
 

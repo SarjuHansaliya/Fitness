@@ -32,7 +32,7 @@
 @property (nonatomic, strong)	MPMediaItemCollection	*userMediaItemCollection;
 @property (nonatomic, strong)	MPMusicPlayerController	*musicPlayer;
 @property (nonatomic, strong)	UIImage					*noArtworkImage;
-@property (nonatomic, strong)	AVAudioPlayer			*appSoundPlayer;
+@property (nonatomic, strong)   AVAudioPlayer			*appSoundPlayer;
 @property (nonatomic, strong)	AVQueuePlayer			*appQueuePlayer;
 @property (readwrite)			BOOL					interruptedOnPlayback;
 @property (readwrite)			BOOL					playing;
@@ -49,9 +49,8 @@
 - (void) initialize;
 - (IBAction)	playOrPauseMusic:		(id) sender;
 - (IBAction)	AddMusicOrShowMusic:	(id) sender;
-- (IBAction)	playAppSound:			(id) sender;
 
-- (BOOL) useiPodPlayer;
+
 
 
 @end

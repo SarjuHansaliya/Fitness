@@ -479,7 +479,7 @@
             
         }
         
-        if ((completed-prevCompleted)>=GOAL_SPEAK_VARIANCE) {
+        else if ((completed-prevCompleted)>=GOAL_SPEAK_VARIANCE) {
             prevCompleted=completed;
             [appDel.woHandler speakGoalValue:completed];
         }
