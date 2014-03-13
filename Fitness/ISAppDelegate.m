@@ -10,7 +10,6 @@
 #import "ISProfileViewController.h"
 #import "ISMenuViewController.h"
 #import "ISDashboardViewController.h"
-#import "MMExampleDrawerVisualStateManager.h"
 #import "ISConnectionManagerViewController.h"
 #import "ILAlertView.h"
 #import "macros.h"
@@ -30,17 +29,7 @@
     self.drawerController= [[MMDrawerController alloc]initWithCenterViewController:dashboardNVC leftDrawerViewController:menuVC];
     
     
-    [self.drawerController
-     setDrawerVisualStateBlock:^(MMDrawerController *drawerController, MMDrawerSide drawerSide, CGFloat percentVisible) {
-         MMDrawerControllerDrawerVisualStateBlock block;
-         block = [[MMExampleDrawerVisualStateManager sharedManager]
-                  drawerVisualStateBlockForDrawerSide:drawerSide];
-         if(block){
-             block(drawerController, drawerSide, percentVisible);
-         }
-     }];
-    
-    // [[MMExampleDrawerVisualStateManager sharedManager] setLeftDrawerAnimationType:MMDrawerAnimationTypeSwingingDoor];
+
     
     [self.drawerController setShowsShadow:NO];
     [self.drawerController setMaximumLeftDrawerWidth:275.0];

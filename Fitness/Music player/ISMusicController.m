@@ -8,8 +8,8 @@
 
 #import "ISMusicController.h"
 #import <Foundation/Foundation.h>
-#import "ViewController.h"
 #import "flite.h"
+#import "ISDashboardViewController.h"
 
 
 cst_voice *register_cmu_us_rms();
@@ -161,10 +161,10 @@ void audioRouteChangeListenerCallback (
     
 	if (playbackState == MPMusicPlaybackStateStopped || playbackState == MPMusicPlaybackStatePaused) {
 		[musicPlayer play];
-       // [(ViewController*)self.delegate playerIsPlaying:YES];
+       // [(ISDashboardViewController*)self.delegate playerIsPlaying:YES];
 	} else if (playbackState == MPMusicPlaybackStatePlaying) {
 		[musicPlayer pause];
-      //  [(ViewController*)self.delegate playerIsPlaying:NO];
+      //  [(ISDashboardViewController*)self.delegate playerIsPlaying:NO];
 	}
 }
 
@@ -172,15 +172,16 @@ void audioRouteChangeListenerCallback (
 // already a selected collection, display the list of selected songs.
 - (IBAction) AddMusicOrShowMusic: (id) sender {
     
+    
 	// if the user has already chosen some music, display that list
 	if (userMediaItemCollection) {
         
-		MusicTableViewController *controller = [[MusicTableViewController alloc] initWithNibName: @"MusicTableView" bundle: nil];
-		controller.delegate = self;
 		
-		controller.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-		
-		[self.delegate presentModalViewController: controller animated: YES];
+        ISPlayListViewController *controller = [[ISPlayListViewController alloc] initWithNibName:nil bundle: nil];
+        controller.delegate = self;
+        UINavigationController *nav=[[UINavigationController alloc]initWithRootViewController:controller];
+        nav.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        [self.delegate presentViewController: nav animated: YES completion:nil];
         
         // else, if no music is chosen yet, display the media item picker
 	} else {
@@ -273,7 +274,7 @@ void audioRouteChangeListenerCallback (
 			[musicPlayer setQueueWithItemCollection: userMediaItemCollection];
 			[self setPlayedMusicOnce: YES];
 			[musicPlayer play];
-           // [(ViewController*)self.delegate playerIsPlaying:YES];
+           // [(ISDashboardViewController*)self.delegate playerIsPlaying:YES];
             // Obtain the music player's state so it can then be
             //		restored after updating the playback queue.
 		} else {
@@ -305,7 +306,7 @@ void audioRouteChangeListenerCallback (
                 musicPlayer.currentPlaybackTime		= currentPlaybackTime;
                 if (wasPlaying) {
                     [musicPlayer play];
-                   // [(ViewController*)self.delegate playerIsPlaying:YES];
+                   // [(ISDashboardViewController*)self.delegate playerIsPlaying:YES];
                 }
             }
             else if (wasPlaying)
@@ -339,7 +340,7 @@ void audioRouteChangeListenerCallback (
 		if (playedMusicOnce == NO) {
 			[self setPlayedMusicOnce: YES];
 			[musicPlayer play];
-            [(ViewController*)self.delegate playerIsPlaying:YES];
+            [(ISDashboardViewController*)self.delegate playerIsPlaying:YES];
 		}
 	}
     
@@ -392,7 +393,7 @@ void audioRouteChangeListenerCallback (
 	}
 	
     
-    [(ViewController*)self.delegate setArtworkImage:artworkImage];
+    [(ISDashboardViewController*)self.delegate setArtworkImage:artworkImage];
 }
 
 // When the playback state changes, set the play/pause button in the Navigation bar
@@ -403,17 +404,17 @@ void audioRouteChangeListenerCallback (
 	
 	if (playbackState == MPMusicPlaybackStatePaused) {
         
-        [(ViewController *)self.delegate playerIsPlaying:NO];
+        [(ISDashboardViewController*)self.delegate playerIsPlaying:NO];
 		
 		
 	} else if (playbackState == MPMusicPlaybackStatePlaying) {
         
-		[(ViewController *)self.delegate playerIsPlaying:YES];
+		[(ISDashboardViewController*)self.delegate playerIsPlaying:YES];
         
 	} else if (playbackState == MPMusicPlaybackStateStopped) {
         
 		//[musicPlayer stop];
-        [(ViewController*)self.delegate playerIsPlaying:NO];
+        [(ISDashboardViewController*)self.delegate playerIsPlaying:NO];
         
 	}
     
@@ -489,7 +490,7 @@ void audioRouteChangeListenerCallback (
 #pragma mark Table view delegate methods________________
 
 // Invoked when the user taps the Done button in the table view.
-- (void) musicTableViewControllerDidFinish: (MusicTableViewController *) controller {
+- (void) musicTableViewControllerDidFinish: (ISPlayListViewController *) controller {
 	
     [self.delegate dismissModalViewControllerAnimated: YES];
     //[musicPlayer play];
@@ -668,6 +669,8 @@ void audioRouteChangeListenerCallback (
      [[MPMediaLibrary defaultMediaLibrary] endGeneratingLibraryChangeNotifications];
      
      */
+    [musicPlayer stop];
+    [appSoundPlayer stop];
 	[[NSNotificationCenter defaultCenter] removeObserver: self
 													name: MPMusicPlayerControllerNowPlayingItemDidChangeNotification
 												  object: musicPlayer];

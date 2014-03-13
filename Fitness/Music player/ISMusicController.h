@@ -10,7 +10,7 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import <AVFoundation/AVFoundation.h>
 #import <AudioToolbox/AudioToolbox.h>
-#import "MusicTableViewController.h"
+#import "ISPlayListViewController.h"
 
 
 @interface ISMusicController : NSObject <MPMediaPickerControllerDelegate, MusicTableViewControllerDelegate, AVAudioPlayerDelegate>
@@ -33,7 +33,6 @@
 @property (nonatomic, strong)	MPMusicPlayerController	*musicPlayer;
 @property (nonatomic, strong)	UIImage					*noArtworkImage;
 @property (nonatomic, strong)   AVAudioPlayer			*appSoundPlayer;
-@property (nonatomic, strong)	AVQueuePlayer			*appQueuePlayer;
 @property (readwrite)			BOOL					interruptedOnPlayback;
 @property (readwrite)			BOOL					playing;
 
