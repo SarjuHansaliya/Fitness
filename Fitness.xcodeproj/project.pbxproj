@@ -226,6 +226,8 @@
 		BB52FC2E18D02485008A5D3D /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB52FC2D18D02485008A5D3D /* MediaPlayer.framework */; };
 		BB52FC3018D0248E008A5D3D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB52FC2F18D0248E008A5D3D /* AudioToolbox.framework */; };
 		BB52FC3218D0249F008A5D3D /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB52FC3118D0249F008A5D3D /* Accelerate.framework */; };
+		BB5D517418D31F4D00A232DD /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = BB5D517218D31F4D00A232DD /* splash.png */; };
+		BB5D517518D31F4D00A232DD /* splash_640x960.png in Resources */ = {isa = PBXBuildFile; fileRef = BB5D517318D31F4D00A232DD /* splash_640x960.png */; };
 		BB5DCCAA18B7249900DAB3CE /* alertBkg.png in Resources */ = {isa = PBXBuildFile; fileRef = BB5DCCA618B7249900DAB3CE /* alertBkg.png */; };
 		BB5DCCAB18B7249900DAB3CE /* alertBkg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BB5DCCA718B7249900DAB3CE /* alertBkg@2x.png */; };
 		BB5DCCAC18B7249900DAB3CE /* ILAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB5DCCA918B7249900DAB3CE /* ILAlertView.m */; };
@@ -597,6 +599,8 @@
 		BB52FC2D18D02485008A5D3D /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		BB52FC2F18D0248E008A5D3D /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		BB52FC3118D0249F008A5D3D /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		BB5D517218D31F4D00A232DD /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash.png; sourceTree = "<group>"; };
+		BB5D517318D31F4D00A232DD /* splash_640x960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash_640x960.png; sourceTree = "<group>"; };
 		BB5DCCA618B7249900DAB3CE /* alertBkg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alertBkg.png; sourceTree = "<group>"; };
 		BB5DCCA718B7249900DAB3CE /* alertBkg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alertBkg@2x.png"; sourceTree = "<group>"; };
 		BB5DCCA818B7249900DAB3CE /* ILAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILAlertView.h; sourceTree = "<group>"; };
@@ -1180,6 +1184,8 @@
 		BB318D1E18D1B96A00265FC8 /* App Icons */ = {
 			isa = PBXGroup;
 			children = (
+				BB5D517218D31F4D00A232DD /* splash.png */,
+				BB5D517318D31F4D00A232DD /* splash_640x960.png */,
 				BB318D1F18D1B96A00265FC8 /* app icon.png */,
 				BB318D2018D1B96A00265FC8 /* icon-ios7App.png */,
 				BB318D2118D1B96A00265FC8 /* logo_1x.png */,
@@ -1755,6 +1761,7 @@
 				BB11E4CB18A8CA5900406313 /* head bg.png in Resources */,
 				BB52FBFD18D02453008A5D3D /* add.png in Resources */,
 				BB779E5A18AA56F4009C2D8C /* lineMenu.png in Resources */,
+				BB5D517418D31F4D00A232DD /* splash.png in Resources */,
 				BB779E5C18AA56F4009C2D8C /* orange.png in Resources */,
 				BB1194FE18B5D6D400D05A97 /* deleteRem.png in Resources */,
 				BB18B4FC18C713E900FE8B46 /* cal icn.png in Resources */,
@@ -1774,6 +1781,7 @@
 				BB0B80DD18ACCA9A00BCC2E0 /* lineReminderCell.png in Resources */,
 				BB1F96A718ACBA6F0023A174 /* helvetica-condensed-thin.ttf in Resources */,
 				BB11950418B5D87F00D05A97 /* ISWorkoutReminderController.xib in Resources */,
+				BB5D517518D31F4D00A232DD /* splash_640x960.png in Resources */,
 				BBFEA65B18AA08CB00EDC8A7 /* helvetica-neue-lt-com-55-roman.ttf in Resources */,
 				BB11E4CD18A8CA5900406313 /* register btn.png in Resources */,
 				1F4E039618AE332E00BAF4D8 /* ISPathViewController.xib in Resources */,
