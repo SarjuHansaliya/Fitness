@@ -30,6 +30,9 @@
 
 @property BOOL isWOStarted;
 
+@property BOOL isVoiceAssistanceOn;
+
+
 @property ISWorkOut *currentWO;
 @property (weak) ISDashboardViewController * dashBoardDelegate;
 

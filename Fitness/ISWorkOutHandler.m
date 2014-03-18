@@ -69,8 +69,7 @@ static ISWorkOutHandler *sharedInstance = nil;
     [self.musicController initialize];
     
     appDel=(ISAppDelegate*)[[UIApplication sharedApplication]delegate];
-    
-    
+    self.isVoiceAssistanceOn=[[NSUserDefaults standardUserDefaults]boolForKey:@"voiceAssistance"];
 }
 //-------------------------------setting workout object------------------
 
@@ -246,7 +245,10 @@ static ISWorkOutHandler *sharedInstance = nil;
 
 -(void)textToSpeechFromString:(NSString*)str
 {
-    [self.musicController speakText:str];
+    if (self.isVoiceAssistanceOn) {
+        
+        [self.musicController speakText:str];
+    }
     
 }
 

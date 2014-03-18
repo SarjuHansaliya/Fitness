@@ -25,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *heightTextField;
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UISwitch *hrSwitch;
+@property (weak, nonatomic) IBOutlet UISwitch *voiceAssistanceSwitch;
 
 
 - (IBAction)maleRBClicked:(id)sender;
@@ -33,6 +34,7 @@
 - (IBAction)saveUserData:(id)sender;
 - (IBAction)viewDOBPicker:(id)sender;
 - (IBAction)doneEditing:(id)sender;
+- (IBAction)voiceAssistanceSwitchChange:(id)sender;
 
 @end
 

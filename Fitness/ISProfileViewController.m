@@ -40,11 +40,14 @@
     self.dobTextField.inputAccessoryView = self.accessoryView;
     [self setupGenderRB];
     [self fillTextFields];
+    
+    
 }
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     self.hrSwitch.on=self.userDetails.hrMonitoring;
+    [self.voiceAssistanceSwitch setOn:[[NSUserDefaults standardUserDefaults]boolForKey:@"voiceAssistance"]];
 }
 //---------------------loading data to text fields-------------------
 
@@ -243,6 +246,11 @@
             [appdel.window setRootViewController:appdel.drawerController];
         }
         
+        [[NSUserDefaults standardUserDefaults]setBool:self.voiceAssistanceSwitch.on forKey:@"voiceAssistance"];
+        [[NSUserDefaults standardUserDefaults]synchronize];
+        appdel.woHandler.isVoiceAssistanceOn=self.voiceAssistanceSwitch.on;
+        
+
     }
     else
     {
@@ -264,6 +272,12 @@
     
     self.dobTextField.text = [formatter stringFromDate: self.datePicker.date];
     [self.dobTextField resignFirstResponder];
+}
+
+- (IBAction)voiceAssistanceSwitchChange:(id)sender {
+//    
+//    [[NSUserDefaults standardUserDefaults]setBool:self.voiceAssistanceSwitch.on forKey:@"voiceAssistance"];
+//    [[NSUserDefaults standardUserDefaults]synchronize];
 }
 
 
