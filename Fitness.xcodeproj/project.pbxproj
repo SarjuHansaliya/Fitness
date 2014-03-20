@@ -226,6 +226,17 @@
 		BB52FC2E18D02485008A5D3D /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB52FC2D18D02485008A5D3D /* MediaPlayer.framework */; };
 		BB52FC3018D0248E008A5D3D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB52FC2F18D0248E008A5D3D /* AudioToolbox.framework */; };
 		BB52FC3218D0249F008A5D3D /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB52FC3118D0249F008A5D3D /* Accelerate.framework */; };
+		BB5C15CE18DAC15800E7AA19 /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = BB5C15CD18DAC15800E7AA19 /* share.png */; };
+		BB5C15D318DAC58C00E7AA19 /* FBShare.png in Resources */ = {isa = PBXBuildFile; fileRef = BB5C15D218DAC58C00E7AA19 /* FBShare.png */; };
+		BB5C15D618DAC9D200E7AA19 /* RNCalloutItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB5C15D518DAC9D200E7AA19 /* RNCalloutItemView.m */; };
+		BB5C15DB18DAF0D400E7AA19 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB5C15DA18DAF0D400E7AA19 /* Social.framework */; };
+		BB5C15E318DAF7BF00E7AA19 /* FPPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB5C15DE18DAF7BF00E7AA19 /* FPPopoverController.m */; };
+		BB5C15E418DAF7BF00E7AA19 /* FPPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB5C15E018DAF7BF00E7AA19 /* FPPopoverView.m */; };
+		BB5C15E518DAF7BF00E7AA19 /* FPTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB5C15E218DAF7BF00E7AA19 /* FPTouchView.m */; };
+		BB5C15E918DAF86400E7AA19 /* ISSocialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB5C15E718DAF86400E7AA19 /* ISSocialViewController.m */; };
+		BB5C15EA18DAF86400E7AA19 /* ISSocialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB5C15E818DAF86400E7AA19 /* ISSocialViewController.xib */; };
+		BB5C15ED18DAF91000E7AA19 /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = BB5C15EB18DAF91000E7AA19 /* twitter.png */; };
+		BB5C15EE18DAF91000E7AA19 /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = BB5C15EC18DAF91000E7AA19 /* facebook.png */; };
 		BB5D517418D31F4D00A232DD /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = BB5D517218D31F4D00A232DD /* splash.png */; };
 		BB5D517518D31F4D00A232DD /* splash_640x960.png in Resources */ = {isa = PBXBuildFile; fileRef = BB5D517318D31F4D00A232DD /* splash_640x960.png */; };
 		BB5DCCAA18B7249900DAB3CE /* alertBkg.png in Resources */ = {isa = PBXBuildFile; fileRef = BB5DCCA618B7249900DAB3CE /* alertBkg.png */; };
@@ -599,6 +610,23 @@
 		BB52FC2D18D02485008A5D3D /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		BB52FC2F18D0248E008A5D3D /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		BB52FC3118D0249F008A5D3D /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		BB5C15CD18DAC15800E7AA19 /* share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share.png; sourceTree = "<group>"; };
+		BB5C15D218DAC58C00E7AA19 /* FBShare.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FBShare.png; sourceTree = "<group>"; };
+		BB5C15D418DAC9D200E7AA19 /* RNCalloutItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNCalloutItemView.h; sourceTree = "<group>"; };
+		BB5C15D518DAC9D200E7AA19 /* RNCalloutItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNCalloutItemView.m; sourceTree = "<group>"; };
+		BB5C15DA18DAF0D400E7AA19 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		BB5C15DC18DAF7BF00E7AA19 /* ARCMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARCMacros.h; sourceTree = "<group>"; };
+		BB5C15DD18DAF7BF00E7AA19 /* FPPopoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPPopoverController.h; sourceTree = "<group>"; };
+		BB5C15DE18DAF7BF00E7AA19 /* FPPopoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPPopoverController.m; sourceTree = "<group>"; };
+		BB5C15DF18DAF7BF00E7AA19 /* FPPopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPPopoverView.h; sourceTree = "<group>"; };
+		BB5C15E018DAF7BF00E7AA19 /* FPPopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPPopoverView.m; sourceTree = "<group>"; };
+		BB5C15E118DAF7BF00E7AA19 /* FPTouchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPTouchView.h; sourceTree = "<group>"; };
+		BB5C15E218DAF7BF00E7AA19 /* FPTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPTouchView.m; sourceTree = "<group>"; };
+		BB5C15E618DAF86400E7AA19 /* ISSocialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISSocialViewController.h; sourceTree = "<group>"; };
+		BB5C15E718DAF86400E7AA19 /* ISSocialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISSocialViewController.m; sourceTree = "<group>"; };
+		BB5C15E818DAF86400E7AA19 /* ISSocialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISSocialViewController.xib; sourceTree = "<group>"; };
+		BB5C15EB18DAF91000E7AA19 /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter.png; sourceTree = "<group>"; };
+		BB5C15EC18DAF91000E7AA19 /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
 		BB5D517218D31F4D00A232DD /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash.png; sourceTree = "<group>"; };
 		BB5D517318D31F4D00A232DD /* splash_640x960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash_640x960.png; sourceTree = "<group>"; };
 		BB5DCCA618B7249900DAB3CE /* alertBkg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alertBkg.png; sourceTree = "<group>"; };
@@ -761,6 +789,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB5C15DB18DAF0D400E7AA19 /* Social.framework in Frameworks */,
 				BB52FC3218D0249F008A5D3D /* Accelerate.framework in Frameworks */,
 				BB52FC3018D0248E008A5D3D /* AudioToolbox.framework in Frameworks */,
 				BB52FC2E18D02485008A5D3D /* MediaPlayer.framework in Frameworks */,
@@ -946,6 +975,7 @@
 		BB0EE32A18A3ADAB00E3EA63 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BB5C15DA18DAF0D400E7AA19 /* Social.framework */,
 				BB52FC3118D0249F008A5D3D /* Accelerate.framework */,
 				BB52FC2F18D0248E008A5D3D /* AudioToolbox.framework */,
 				BB52FC2D18D02485008A5D3D /* MediaPlayer.framework */,
@@ -969,6 +999,7 @@
 		BB0EE33118A3ADAB00E3EA63 /* Fitness */ = {
 			isa = PBXGroup;
 			children = (
+				BB5C15C918DABD9D00E7AA19 /* FB */,
 				BB52FBC718D02453008A5D3D /* Music player */,
 				BB95B27918C49B20003AD69B /* XBPageCurl */,
 				BB8A336918C073D800067BE4 /* core plot */,
@@ -1083,6 +1114,10 @@
 		BB11E4C018A8CA5900406313 /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				BB5C15EB18DAF91000E7AA19 /* twitter.png */,
+				BB5C15EC18DAF91000E7AA19 /* facebook.png */,
+				BB5C15D218DAC58C00E7AA19 /* FBShare.png */,
+				BB5C15CD18DAC15800E7AA19 /* share.png */,
 				BB318D1E18D1B96A00265FC8 /* App Icons */,
 				BB365C1118CDDAD800FA1B8C /* flite-1.4-iphone */,
 				BB365AF918CDAE3D00FA1B8C /* blueAnnotation.png */,
@@ -1393,6 +1428,8 @@
 				BB52FBFA18D02453008A5D3D /* RNFrostedSidebar.m */,
 				BB318CFB18D18EEE00265FC8 /* ISPlayListViewController.h */,
 				BB318CFC18D18EEE00265FC8 /* ISPlayListViewController.m */,
+				BB5C15D418DAC9D200E7AA19 /* RNCalloutItemView.h */,
+				BB5C15D518DAC9D200E7AA19 /* RNCalloutItemView.m */,
 			);
 			path = "Music player";
 			sourceTree = "<group>";
@@ -1410,6 +1447,23 @@
 			);
 			name = "Player control images";
 			path = "custom images";
+			sourceTree = "<group>";
+		};
+		BB5C15C918DABD9D00E7AA19 /* FB */ = {
+			isa = PBXGroup;
+			children = (
+				BB5C15DC18DAF7BF00E7AA19 /* ARCMacros.h */,
+				BB5C15DD18DAF7BF00E7AA19 /* FPPopoverController.h */,
+				BB5C15DE18DAF7BF00E7AA19 /* FPPopoverController.m */,
+				BB5C15DF18DAF7BF00E7AA19 /* FPPopoverView.h */,
+				BB5C15E018DAF7BF00E7AA19 /* FPPopoverView.m */,
+				BB5C15E118DAF7BF00E7AA19 /* FPTouchView.h */,
+				BB5C15E218DAF7BF00E7AA19 /* FPTouchView.m */,
+				BB5C15E618DAF86400E7AA19 /* ISSocialViewController.h */,
+				BB5C15E718DAF86400E7AA19 /* ISSocialViewController.m */,
+				BB5C15E818DAF86400E7AA19 /* ISSocialViewController.xib */,
+			);
+			path = FB;
 			sourceTree = "<group>";
 		};
 		BB5DCCA518B7249900DAB3CE /* alertview */ = {
@@ -1750,6 +1804,7 @@
 				1FEC254018B1E2850053A996 /* line_edit_reminder.png in Resources */,
 				BB18B50518C713E900FE8B46 /* mile.png in Resources */,
 				BB18B4FB18C713E900FE8B46 /* black.png in Resources */,
+				BB5C15EA18DAF86400E7AA19 /* ISSocialViewController.xib in Resources */,
 				1F4E037518AE115700BAF4D8 /* refresh.png in Resources */,
 				BB005F5918AB3BA4003FAF8B /* text@2x.png in Resources */,
 				1F4E037718AE115700BAF4D8 /* 09-heart rate monitoring.jpg in Resources */,
@@ -1793,11 +1848,13 @@
 				BB18B50018C713E900FE8B46 /* hr icn.png in Resources */,
 				BB52FC1F18D02453008A5D3D /* music.png in Resources */,
 				BB18B50B18C713E900FE8B46 /* start workout.png in Resources */,
+				BB5C15ED18DAF91000E7AA19 /* twitter.png in Resources */,
 				BB18B50918C713E900FE8B46 /* speed.png in Resources */,
 				BB18B51218C713E900FE8B46 /* view report.png in Resources */,
 				BB005F5118AB3BA4003FAF8B /* start.png in Resources */,
 				BB95B2A818C4A2FF003AD69B /* settings.png in Resources */,
 				1F4E038518AE16D800BAF4D8 /* ISBLEConnectionManagerViewController.xib in Resources */,
+				BB5C15D318DAC58C00E7AA19 /* FBShare.png in Resources */,
 				BB1194FD18B5D6D300D05A97 /* selRem.png in Resources */,
 				BB52FBFE18D02453008A5D3D /* artwork.jpeg in Resources */,
 				BB11E4D218A8CD3D00406313 /* helvetica-world.ttf in Resources */,
@@ -1827,6 +1884,7 @@
 				BB005F5418AB3BA4003FAF8B /* radio-sel@2x.png in Resources */,
 				BB11E4CF18A8CA5900406313 /* text.png in Resources */,
 				BB18B50118C713E900FE8B46 /* hr.png in Resources */,
+				BB5C15EE18DAF91000E7AA19 /* facebook.png in Resources */,
 				1F4E035018ADF26900BAF4D8 /* ISReminderTableCell.xib in Resources */,
 				BB52FC2118D02453008A5D3D /* pause.png in Resources */,
 				1F19312718B33FF8005BB31C /* ISReportDetailsCell.xib in Resources */,
@@ -1852,6 +1910,7 @@
 				BB318D3118D1B96A00265FC8 /* logo_ios7_settings.png in Resources */,
 				BB779E5D18AA56F4009C2D8C /* orange@2x.png in Resources */,
 				BB0C902C18C9CB200011C65D /* ISReportsViewController.xib in Resources */,
+				BB5C15CE18DAC15800E7AA19 /* share.png in Resources */,
 				BB318D2F18D1B96A00265FC8 /* logo_ios7.png in Resources */,
 				BB18B50E18C713E900FE8B46 /* steps_bg.png in Resources */,
 				1F4E035F18AE110300BAF4D8 /* ISHRMonitorViewController.xib in Resources */,
@@ -1931,6 +1990,7 @@
 				BB365CB418CDDAD900FA1B8C /* cst_track.c in Sources */,
 				BB365CD918CDDAD900FA1B8C /* us_int_tone_cart.c in Sources */,
 				BB95B29C18C49B20003AD69B /* XBAnimation.m in Sources */,
+				BB5C15E418DAF7BF00E7AA19 /* FPPopoverView.m in Sources */,
 				BB98D6E318B7381E00C6A16D /* ISUserDetails.m in Sources */,
 				BB365CC618CDDAD900FA1B8C /* cmu_us_rms_cg_f0_trees.c in Sources */,
 				BB365CD018CDDAD900FA1B8C /* us_aswd.c in Sources */,
@@ -1942,6 +2002,7 @@
 				1F05309318B1D43300F34E0D /* ISEditReminderViewController.m in Sources */,
 				BB365CB918CDDAD900FA1B8C /* cst_val_const.c in Sources */,
 				BB365CB218CDDAD900FA1B8C /* cst_synth.c in Sources */,
+				BB5C15E318DAF7BF00E7AA19 /* FPPopoverController.m in Sources */,
 				BB98D6E918B738E600C6A16D /* ISWOGoal.m in Sources */,
 				BB365CC818CDDAD900FA1B8C /* cmu_us_rms_cg_single_mcep_trees.c in Sources */,
 				BB365CB318CDDAD900FA1B8C /* cst_tokenstream.c in Sources */,
@@ -1954,11 +2015,13 @@
 				BB365CAE18CDDAD900FA1B8C /* cst_relation.c in Sources */,
 				BB365CA818CDDAD900FA1B8C /* cst_lpcres.c in Sources */,
 				1F4E038418AE16D800BAF4D8 /* ISBLEConnectionManagerViewController.m in Sources */,
+				BB5C15E918DAF86400E7AA19 /* ISSocialViewController.m in Sources */,
 				BB779E6B18AA5A3E009C2D8C /* MMDrawerController.m in Sources */,
 				BB8A31FE18C0624600067BE4 /* MBProgressHUD.m in Sources */,
 				BB365CD318CDDAD900FA1B8C /* us_expand.c in Sources */,
 				BB365CD818CDDAD900FA1B8C /* us_int_accent_cart.c in Sources */,
 				BB365CAF18CDDAD900FA1B8C /* cst_sigpr.c in Sources */,
+				BB5C15D618DAC9D200E7AA19 /* RNCalloutItemView.m in Sources */,
 				BB0EE33818A3ADAB00E3EA63 /* main.m in Sources */,
 				BB365CD718CDDAD900FA1B8C /* us_gpos.c in Sources */,
 				BB52FC2818D02453008A5D3D /* RNFrostedSidebar.m in Sources */,
@@ -1974,6 +2037,7 @@
 				BB365CD518CDDAD900FA1B8C /* us_f0lr.c in Sources */,
 				BB365CA918CDDAD900FA1B8C /* cst_lts.c in Sources */,
 				1F4E034E18ADF23C00BAF4D8 /* ISReminderCell.m in Sources */,
+				BB5C15E518DAF7BF00E7AA19 /* FPTouchView.m in Sources */,
 				BB365CDF18CDDAD900FA1B8C /* us_text.c in Sources */,
 				BB365CD618CDDAD900FA1B8C /* us_ffeatures.c in Sources */,
 				BB365CBF18CDDAD900FA1B8C /* cst_wave_utils.c in Sources */,
@@ -2116,6 +2180,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					/Users/ispladmin/Desktop/DDIT_Trainees/Fitness,
+					/Users/ispladmin/Documents/FacebookSDK,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Fitness/Fitness-Prefix.pch";
@@ -2141,6 +2207,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					/Users/ispladmin/Desktop/DDIT_Trainees/Fitness,
+					/Users/ispladmin/Documents/FacebookSDK,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Fitness/Fitness-Prefix.pch";

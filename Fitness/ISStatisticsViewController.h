@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FPPopoverController.h"
 
-@interface ISStatisticsViewController : UIViewController
+
+
+@interface ISStatisticsViewController : UIViewController 
 @property (weak, nonatomic) IBOutlet UILabel *workoutsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *durationLabel;
 @property (weak, nonatomic) IBOutlet UILabel *maxDurationLabel;
@@ -25,5 +28,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *maxSpeedLabel;
 @property (weak, nonatomic) IBOutlet UILabel *avgSpeedLabel;
 
+
+@property FPPopoverController *popover;
 
 @end

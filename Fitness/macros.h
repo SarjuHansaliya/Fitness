@@ -14,6 +14,11 @@
 #define ADD_ITEM 4
 
 
+#define FB_PROFILE_ITEM 0
+#define FB_POST_ITEM 1
+#define TW_PROFILE_ITEM 2
+#define TW_POST_ITEM 3
+
 #define MILES 1
 #define CALORIES 2
 #define DURATION 3

@@ -10,6 +10,32 @@
 #import "ISPathViewController.h"
 #import "ISAppDelegate.h"
 #import "macros.h"
+#import "ISSocialViewController.h"
+
+@implementation UIView (Screenshot)
+
+- (UIImage *)screenshot {
+    //UIGraphicsBeginImageContext(self.bounds.size);
+    
+        UIGraphicsBeginImageContext(CGSizeMake(self.bounds.size.width, self.bounds.size.height-200.0));
+
+    
+    if([self respondsToSelector:@selector(drawViewHierarchyInRect:afterScreenUpdates:)]){
+        [self drawViewHierarchyInRect:self.bounds afterScreenUpdates:NO];
+    }
+    else{
+        [self.layer renderInContext:UIGraphicsGetCurrentContext()];
+    }
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    //    NSData *imageData = UIImageJPEGRepresentation(image, 0.75);
+    //    image = [UIImage imageWithData:imageData];
+    return image;
+}
+
+@end
+
+
 
 @interface ISReportDetailsViewController ()
 
@@ -176,7 +202,15 @@
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:backView];
     
     
+    UIButton *addButtonCustom = [UIButton buttonWithType:UIButtonTypeCustom];
+    [addButtonCustom setFrame:CGRectMake(0.0f, 0.0f, 25.0f, 25.0f)];
+    [addButtonCustom addTarget:self action:@selector(setUpPopover:) forControlEvents:UIControlEventTouchUpInside];
+    [addButtonCustom setImage:[UIImage imageNamed:@"share.png"] forState:UIControlStateNormal];
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithCustomView:addButtonCustom];
     
+    
+    
+    [self.navigationItem setRightBarButtonItem:addButton];
     
     // [backButton setTintColor: [UIColor colorWithHue:31.0/360.0 saturation:99.0/100.0 brightness:87.0/100.0 alpha:1]];
     [self.navigationItem setLeftBarButtonItem:backButton];
@@ -184,6 +218,32 @@
     
     
 }
+
+-(void)setUpPopover:(id)sender
+{
+    //NSLog(@"popover retain count: %d",[popover retainCount]);
+    
+    SAFE_ARC_RELEASE(popover);
+    self.popover=nil;
+    
+    //the controller we want to present as a popover
+    ISSocialViewController *controller = [[ISSocialViewController alloc] initWithNibName:nil bundle:nil delegate:self];
+    controller.imageToshare=[self.view screenshot];
+    controller.initialText=@"Checkout my workout from 'Stay Fit'...";
+    
+    self.popover = [[FPPopoverController alloc] initWithViewController:controller];
+    self.popover.tint = FPPopoverDefaultTint;
+    
+    self.popover.contentSize = CGSizeMake(150 ,120);
+    self.popover.arrowDirection = FPPopoverArrowDirectionAny;
+    self.popover.border=NO;
+    controller.popover=self.popover;
+    [self.popover presentPopoverFromView:sender];
+    
+    
+    
+}
+
 
 -(void)goBack:(id)sender
 {

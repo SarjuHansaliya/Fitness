@@ -15,6 +15,7 @@
 #import "macros.h"
 #import "MBProgressHUD.h"
 
+
 #define DEVICE_RECONNECTION_TIMEOUT 5.0
 
 @implementation ISAppDelegate
@@ -215,6 +216,7 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
      application.applicationIconBadgeNumber = 0;
+    
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

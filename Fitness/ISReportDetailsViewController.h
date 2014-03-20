@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ISWorkOut.h"
+#import "FPPopoverController.h"
 
 @interface ISReportDetailsViewController : UIViewController
 
@@ -26,5 +27,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *speedLabel;
 @property (weak, nonatomic) IBOutlet UIView *deleteReportView;
 @property (weak) ISWorkOut *workout;
+
+@property FPPopoverController *popover;
 
 @end
