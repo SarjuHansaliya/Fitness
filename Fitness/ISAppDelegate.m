@@ -28,7 +28,13 @@
     
     self.drawerController= [[MMDrawerController alloc]initWithCenterViewController:dashboardNVC leftDrawerViewController:menuVC];
     
-    
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") && [CMStepCounter isStepCountingAvailable]) {
+        self.isStepsCountingAvailable=YES;
+    }
+    else
+    {
+        self.isStepsCountingAvailable=NO;
+    }
 
     
     [self.drawerController setShowsShadow:NO];
@@ -47,13 +53,7 @@
     {
         [self.window setRootViewController:self.drawerController];
     }
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") && [CMStepCounter isStepCountingAvailable]) {
-        self.isStepsCountingAvailable=YES;
-    }
-    else
-    {
-        self.isStepsCountingAvailable=NO;
-    }
+    
     return YES;
 }
 
@@ -62,6 +62,7 @@
     [ISWorkOutHandler reset];
     [self.eventStore removeCalendar:self.calendar commit:YES error:nil];
     self.drawerController=nil;
+    [self.bluetoothManager disconnectPeripheral];
     self.bluetoothManager=nil;
     self.hrDistributor=nil;
     self.calendar=nil;

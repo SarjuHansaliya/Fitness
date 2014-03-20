@@ -37,7 +37,7 @@ static ISWorkOutHandler *sharedInstance = nil;
 }
 -(void)firstTime
 {
-    
+    appDel=(ISAppDelegate*)[[UIApplication sharedApplication]delegate];
     self.userDetails=[ISUserDetails getUserDetails];
     if (self.userDetails==nil) {
         self.isUserProfileSet=NO;
@@ -68,7 +68,7 @@ static ISWorkOutHandler *sharedInstance = nil;
     self.musicController=[[ISMusicController alloc]init];
     [self.musicController initialize];
     
-    appDel=(ISAppDelegate*)[[UIApplication sharedApplication]delegate];
+    
     self.isVoiceAssistanceOn=[[NSUserDefaults standardUserDefaults]boolForKey:@"voiceAssistance"];
 }
 //-------------------------------setting workout object------------------
