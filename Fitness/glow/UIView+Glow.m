@@ -38,7 +38,6 @@ static char* GLOWVIEW_KEY = "GLOWVIEW";
     // As a side effect, if the view's content, size or shape changes, 
     // the glow won't update.
     UIImage* image;
-    
     UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, [UIScreen mainScreen].scale); {
         [self.layer renderInContext:UIGraphicsGetCurrentContext()];
         
@@ -56,6 +55,13 @@ static char* GLOWVIEW_KEY = "GLOWVIEW";
     // point as ourself. Overlay it over ourself.
     UIView* glowView = [[UIImageView alloc] initWithImage:image];
     glowView.center = self.center;
+    
+    CGRect bounds=glowView.bounds;
+    bounds.size.width+=4.0;
+    bounds.size.height+=4.0;
+    
+    
+    [glowView setBounds:bounds];
     [self.superview insertSubview:glowView aboveSubview:self];
     
     // We don't want to show the image, but rather a shadow created by

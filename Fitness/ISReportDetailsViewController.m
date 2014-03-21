@@ -85,7 +85,7 @@
 {
     
     [rightBarButtonItem.customView stopGlowing];
-    [rightBarButtonItem.customView startGlowingWithColor:[UIColor colorWithHue:19.0/360.0 saturation:100.0/100.0 brightness:61.0/100.0 alpha:1] intensity:1.0];
+    [rightBarButtonItem.customView startGlowingWithColor:[UIColor colorWithHue:31.0/360.0 saturation:99.0/100.0 brightness:87.0/100.0 alpha:1] intensity:1.0];
     [self performSelector:@selector(stopHighlight) withObject:nil afterDelay:6.0];
 }
 -(void)viewWillDisappear:(BOOL)animated
