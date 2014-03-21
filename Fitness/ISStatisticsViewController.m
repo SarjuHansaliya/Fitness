@@ -12,6 +12,7 @@
 #import "ISWorkOut.h"
 #import <Social/Social.h>
 #import "ILAlertView.h"
+#import "MBProgressHUD.h"
 #import "ISSocialViewController.h"
 
 
@@ -22,9 +23,13 @@
     if (stepCounting) {
          UIGraphicsBeginImageContext(CGSizeMake(self.bounds.size.width, self.bounds.size.height-140.0));
     }
+    else if(!IS_IPHONE_5)
+    {
+        UIGraphicsBeginImageContext(CGSizeMake(self.bounds.size.width, self.bounds.size.height-115.0));
+    }
     else
     {
-         UIGraphicsBeginImageContext(CGSizeMake(self.bounds.size.width, self.bounds.size.height-200.0));
+        UIGraphicsBeginImageContext(CGSizeMake(self.bounds.size.width, self.bounds.size.height-200.0));
     }
    
     if([self respondsToSelector:@selector(drawViewHierarchyInRect:afterScreenUpdates:)]){
@@ -65,15 +70,19 @@
     double maxSpeed;
     double avgSpeed;
     
+    UIView *blurView;
     
     
 }
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         appDel=(ISAppDelegate*)[[UIApplication sharedApplication]delegate];
+       
+        
     }
     return self;
 }
@@ -105,7 +114,14 @@
         [self calculateStatastics];
         [self fillLabelValues];
     }
+    
+    
 }
+-(void)viewDidAppear:(BOOL)animated
+{
+    [blurView setFrame:self.view.bounds];
+}
+
 
 
 
@@ -117,22 +133,80 @@
     self.popover=nil;
     
     //the controller we want to present as a popover
-    ISSocialViewController *controller = [[ISSocialViewController alloc] initWithNibName:nil bundle:nil delegate:self];
-    controller.imageToshare=[self.view screenshot:appDel.isStepsCountingAvailable];
-    controller.initialText=@"Checkout my workout statistics from 'Stay Fit'...";
+    [self.view addSubview:blurView];
+    blurView.alpha=0.0;
+    
+//    [UIView transitionWithView:blurView duration:0.2 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+//        blurView.alpha=0.7;
+//    } completion:^(BOOL finished) {
+//        ISSocialViewController *controller = [[ISSocialViewController alloc] initWithNibName:nil bundle:nil delegate:self];
+//        
+//        controller.initialText=@"Checkout my workout statistics from 'Stay Fit'...";
+//        
+//        self.popover = [[FPPopoverController alloc] initWithViewController:controller delegate:self];
+//        self.popover.tint=FPPopoverRedTint;
+//        self.popover.arrowDirection = FPPopoverArrowDirectionUp;
+//        //self.popover.title=@"Select";
+//        
+//        self.popover.contentSize = CGSizeMake(150 ,120);
+//        
+//        self.popover.border=NO;
+//        [self.popover setShadowsHidden:YES];
+//        controller.popover=self.popover;
+//        //[self.popover presentPopoverFromPoint: CGPointMake(self.view.center.x, self.view.center.y - self.popover.contentSize.height/2)];
+//        [self.popover presentPopoverFromView:sender];
+//    }];
+//    
+    [UIView animateWithDuration:0.2 animations:^{
+        
+        blurView.alpha=1.0;
+        
+    } completion:^(BOOL finished) {
+        ISSocialViewController *controller = [[ISSocialViewController alloc] initWithNibName:nil bundle:nil delegate:self];
+        
+        controller.initialText=@"Checkout my workout statistics from 'Stay Fit'...";
+        
+        self.popover = [[FPPopoverController alloc] initWithViewController:controller delegate:self];
+        self.popover.tint=FPPopoverRedTint;
+        self.popover.arrowDirection = FPPopoverArrowDirectionUp;
+        //self.popover.title=@"Select";
+        
+        self.popover.contentSize = CGSizeMake(150 ,120);
+        
+        self.popover.border=NO;
+        [self.popover setShadowsHidden:YES];
+        controller.popover=self.popover;
+        //[self.popover presentPopoverFromPoint: CGPointMake(self.view.center.x, self.view.center.y - self.popover.contentSize.height/2)];
+        [self.popover presentPopoverFromView:sender];
+    }];
+    
+    
    
-    self.popover = [[FPPopoverController alloc] initWithViewController:controller];
-    self.popover.tint = FPPopoverDefaultTint;
-    
-    self.popover.contentSize = CGSizeMake(150 ,120);
-    self.popover.arrowDirection = FPPopoverArrowDirectionAny;
-    self.popover.border=NO;
-    controller.popover=self.popover;
-    [self.popover presentPopoverFromView:sender];
-    
 
     
 }
+- (void)popoverControllerDidDismissPopover:(FPPopoverController *)popoverController
+{
+//    [UIView animateWithDuration:0.2 animations:^{
+//        blurView.alpha=0.0;
+//    } completion:^(BOOL finished) {
+//         [blurView removeFromSuperview];
+//    }];
+    [blurView removeFromSuperview];
+   
+}
+- (void)presentedNewPopoverController:(FPPopoverController *)newPopoverController
+          shouldDismissVisiblePopover:(FPPopoverController*)visiblePopoverController
+{
+    
+}
+-(UIImage*)imageToShare
+{
+    
+    [blurView removeFromSuperview];
+    return [self.view screenshot:appDel.isStepsCountingAvailable];
+}
+
 
 
 -(void)calculateStatastics
@@ -242,7 +316,8 @@
 {
     [super viewDidLoad];
     [self setupNavigationBar];
-    
+    blurView=[[UIView alloc]initWithFrame:self.view.bounds];
+    [blurView setBackgroundColor:[UIColor colorWithWhite:0.4 alpha:0.7]];
     
     
 }

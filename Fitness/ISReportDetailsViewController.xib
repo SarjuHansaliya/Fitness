@@ -17,6 +17,7 @@
                 <outlet property="maxSpeedLabel" destination="mBz-tb-TfX" id="ZTh-jw-RUg"/>
                 <outlet property="minHRLabel" destination="XCY-28-2tc" id="l8H-LR-9v5"/>
                 <outlet property="minSpeedLabel" destination="bBr-BK-UwH" id="E8s-g6-gM2"/>
+                <outlet property="scrollView" destination="ekw-Jp-Zbe" id="sNS-Sn-Mh3"/>
                 <outlet property="speedLabel" destination="glx-kp-SMB" id="T33-1d-clx"/>
                 <outlet property="stepsLabel" destination="ix6-4x-0RY" id="a7Z-qz-S5k"/>
                 <outlet property="view" destination="kae-LS-hHN" id="rfR-3x-WzW"/>

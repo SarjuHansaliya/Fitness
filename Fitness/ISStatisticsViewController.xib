@@ -76,7 +76,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TnP-Xb-tDo" userLabel="View strip">
-                            <rect key="frame" x="0.0" y="0.0" width="10" height="60"/>
+                            <rect key="frame" x="0.0" y="0.0" width="10" height="55"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.89411764705882346" green="0.36862745098039218" blue="0.38431372549019605" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
@@ -158,7 +158,7 @@
                         <constraint firstAttribute="centerX" secondItem="kfQ-rp-DMc" secondAttribute="centerX" constant="-50" id="hEn-GB-Y8s"/>
                         <constraint firstAttribute="bottom" secondItem="hU4-rq-ew2" secondAttribute="bottom" constant="6" id="heo-Ze-LtY"/>
                         <constraint firstItem="JA0-ik-xSL" firstAttribute="leading" secondItem="MgF-cY-yG6" secondAttribute="leading" id="k0a-V8-VnA"/>
-                        <constraint firstAttribute="bottom" secondItem="TnP-Xb-tDo" secondAttribute="bottom" id="kG4-Bh-Frx"/>
+                        <constraint firstAttribute="bottom" secondItem="TnP-Xb-tDo" secondAttribute="bottom" constant="5" id="kG4-Bh-Frx"/>
                         <constraint firstAttribute="centerX" secondItem="G4b-ew-0VZ" secondAttribute="centerX" constant="34.5" id="pzB-pP-iSU"/>
                         <constraint firstItem="TnP-Xb-tDo" firstAttribute="leading" secondItem="MgF-cY-yG6" secondAttribute="leading" id="uTU-A1-JGX"/>
                         <constraint firstAttribute="bottom" secondItem="JA0-ik-xSL" secondAttribute="bottom" id="waZ-Wc-h4h"/>
@@ -170,7 +170,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DDA-ZC-hgi" userLabel="View strip">
-                            <rect key="frame" x="0.0" y="0.0" width="10" height="60"/>
+                            <rect key="frame" x="0.0" y="0.0" width="10" height="55"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.28235294117647058" green="0.41568627450980389" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
@@ -251,7 +251,7 @@
                         <constraint firstAttribute="trailing" secondItem="O8K-k9-cEU" secondAttribute="trailing" id="mBB-7Y-7HK"/>
                         <constraint firstItem="KNw-zI-fif" firstAttribute="leading" secondItem="uGu-yX-hcC" secondAttribute="leading" constant="60" id="p37-Xt-MWU"/>
                         <constraint firstItem="DDA-ZC-hgi" firstAttribute="leading" secondItem="uGu-yX-hcC" secondAttribute="leading" id="rrv-26-UwO"/>
-                        <constraint firstAttribute="bottom" secondItem="DDA-ZC-hgi" secondAttribute="bottom" id="tE5-cn-s2j"/>
+                        <constraint firstAttribute="bottom" secondItem="DDA-ZC-hgi" secondAttribute="bottom" constant="5" id="tE5-cn-s2j"/>
                         <constraint firstAttribute="bottom" secondItem="O8K-k9-cEU" secondAttribute="bottom" id="wvh-uP-GUD"/>
                     </constraints>
                 </view>
@@ -260,7 +260,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JD1-Vr-vlP" userLabel="View strip">
-                            <rect key="frame" x="0.0" y="0.0" width="10" height="60"/>
+                            <rect key="frame" x="0.0" y="0.0" width="10" height="55"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.31764705882352939" green="0.20784313725490194" blue="0.32156862745098036" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
@@ -334,7 +334,7 @@
                         <constraint firstItem="JVA-Ot-7Zu" firstAttribute="leading" secondItem="GI8-nY-jDR" secondAttribute="leading" constant="20" id="Cog-TG-I0F"/>
                         <constraint firstAttribute="trailing" secondItem="JVA-Ot-7Zu" secondAttribute="trailing" constant="20" id="QVr-HB-U7c"/>
                         <constraint firstItem="QTR-Cw-wHY" firstAttribute="leading" secondItem="GI8-nY-jDR" secondAttribute="leading" constant="20" id="Vl4-VC-LFm"/>
-                        <constraint firstAttribute="bottom" secondItem="JD1-Vr-vlP" secondAttribute="bottom" id="YZl-Nj-4he"/>
+                        <constraint firstAttribute="bottom" secondItem="JD1-Vr-vlP" secondAttribute="bottom" constant="5" id="YZl-Nj-4he"/>
                         <constraint firstItem="nFH-NI-QdE" firstAttribute="top" secondItem="GI8-nY-jDR" secondAttribute="top" constant="6" id="b2A-tV-btR"/>
                         <constraint firstAttribute="bottom" secondItem="OLm-wo-D7i" secondAttribute="bottom" constant="6" id="dVI-Kp-KpB"/>
                         <constraint firstAttribute="trailing" secondItem="C1g-w9-4sa" secondAttribute="trailing" id="fFi-Nc-fAh"/>
@@ -350,7 +350,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cSo-n9-GX7" userLabel="View strip">
-                            <rect key="frame" x="0.0" y="0.0" width="10" height="60"/>
+                            <rect key="frame" x="0.0" y="0.0" width="10" height="55"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.50196078431372548" green="0.34901960784313724" blue="0.19215686274509802" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
@@ -423,7 +423,7 @@
                         <constraint firstItem="NXt-DL-BZr" firstAttribute="top" secondItem="QXI-LV-2PZ" secondAttribute="top" constant="6" id="cf8-wu-EKi"/>
                         <constraint firstItem="2Ey-Pv-K1O" firstAttribute="leading" secondItem="QXI-LV-2PZ" secondAttribute="leading" constant="20" id="e5L-xL-1M9"/>
                         <constraint firstItem="cSo-n9-GX7" firstAttribute="top" secondItem="QXI-LV-2PZ" secondAttribute="top" id="ftD-d9-QJX"/>
-                        <constraint firstAttribute="bottom" secondItem="cSo-n9-GX7" secondAttribute="bottom" id="nKg-RK-fFs"/>
+                        <constraint firstAttribute="bottom" secondItem="cSo-n9-GX7" secondAttribute="bottom" constant="5" id="nKg-RK-fFs"/>
                         <constraint firstAttribute="centerY" secondItem="2Ey-Pv-K1O" secondAttribute="centerY" constant="-0.5" id="v4N-JO-tVd"/>
                         <constraint firstItem="nMa-8n-8qb" firstAttribute="leading" secondItem="QXI-LV-2PZ" secondAttribute="leading" constant="60" id="xvC-RG-7P6"/>
                     </constraints>
@@ -433,7 +433,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YHg-5A-4eF" userLabel="View strip">
-                            <rect key="frame" x="0.0" y="0.0" width="10" height="60"/>
+                            <rect key="frame" x="0.0" y="0.0" width="10" height="55"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.30588235294117649" green="0.47843137254901957" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
@@ -513,7 +513,7 @@
                         <constraint firstAttribute="bottom" secondItem="MtG-ar-giE" secondAttribute="bottom" constant="6" id="gMM-zj-yjh"/>
                         <constraint firstItem="en2-uQ-OIf" firstAttribute="top" secondItem="fad-t9-0rc" secondAttribute="top" constant="6" id="iK1-ZF-nhV"/>
                         <constraint firstAttribute="bottom" secondItem="q6n-DB-sby" secondAttribute="bottom" constant="6" id="lg9-Da-fAV"/>
-                        <constraint firstAttribute="bottom" secondItem="YHg-5A-4eF" secondAttribute="bottom" id="sc4-wN-cMx"/>
+                        <constraint firstAttribute="bottom" secondItem="YHg-5A-4eF" secondAttribute="bottom" constant="5" id="sc4-wN-cMx"/>
                         <constraint firstAttribute="trailing" secondItem="VM5-F4-oX3" secondAttribute="trailing" constant="20" id="yIB-cV-S33"/>
                         <constraint firstItem="0PQ-kh-QZo" firstAttribute="leading" secondItem="fad-t9-0rc" secondAttribute="leading" constant="60" id="zVx-bY-OgM"/>
                     </constraints>

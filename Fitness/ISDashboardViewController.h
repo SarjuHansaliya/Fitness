@@ -30,6 +30,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *minSpeedLabel;
 @property (weak, nonatomic) IBOutlet UILabel *maxSpeedLabel;
 @property (weak, nonatomic) IBOutlet UILabel *speedLabel;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 //---------------music player-------------
 

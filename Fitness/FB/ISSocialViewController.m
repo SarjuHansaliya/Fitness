@@ -10,6 +10,8 @@
 #import "ILAlertView.h"
 #import <Social/Social.h>
 #import "MBProgressHUD.h"
+#import "ISStatisticsViewController.h"
+#import "ISReportDetailsViewController.h"
 
 
 @interface ISSocialViewController ()
@@ -70,7 +72,18 @@
         if (self.initialText) {
             [controller setInitialText:self.initialText];
         }
+       
+        if ([self.delegate isKindOfClass:[ISReportDetailsViewController class]]) {
+            self.imageToshare=[(ISReportDetailsViewController*)self.delegate imageToShare];
+        }
+        else if ([self.delegate isKindOfClass:[ISStatisticsViewController class]])
+        {
+            self.imageToshare=[(ISStatisticsViewController*)self.delegate imageToShare];
+        }
         if (self.imageToshare) {
+            
+        
+            
             [controller addImage:self.imageToshare];
         }
         
@@ -94,7 +107,15 @@
         if (self.initialText) {
             [controller setInitialText:self.initialText];
         }
+        if ([self.delegate isKindOfClass:[ISReportDetailsViewController class]]) {
+            self.imageToshare=[(ISReportDetailsViewController*)self.delegate imageToShare];
+        }
+        else if ([self.delegate isKindOfClass:[ISStatisticsViewController class]])
+        {
+            self.imageToshare=[(ISStatisticsViewController*)self.delegate imageToShare];
+        }
         if (self.imageToshare) {
+            
             [controller addImage:self.imageToshare];
         }
         
@@ -127,10 +148,10 @@
 
 - (void)displayFBDialog:(id)sender {
     
-    
     [self.popover dismissPopoverAnimated:YES];
     [hud show:YES];
-    [self facebookSheet];
+    [self performSelector:@selector(facebookSheet) withObject:nil afterDelay:0.3];
+    // [self facebookSheet];
     [hud hide:YES];
     
 
@@ -141,10 +162,12 @@
      [self.popover dismissPopoverAnimated:YES];
     //[hud showWhileExecuting:@selector(twitterSheet) onTarget:self withObject:nil animated:YES];
     [hud show:YES];
-    [self twitterSheet];
+    [self performSelector:@selector(twitterSheet) withObject:nil afterDelay:0.3];
+    //[self twitterSheet];
     [hud hide:YES];
     
 }
+
 
 -(void)clearData
 {

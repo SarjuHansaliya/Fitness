@@ -278,10 +278,17 @@
     
 }
 -(void)leftDrawerButtonPress:(id)sender{
+    callouVisible=YES;
+    [self onBurger:nil];
     [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
     
 }
-
+-(void)viewDidDisappear:(BOOL)animated
+{
+    if (!IS_IPHONE_5) {
+        [self.scrollView setContentOffset:CGPointZero];
+    }
+}
 //----------------------------handling touch events on items---------------
 -(void)setupMenuItemsTouchEvents
 {
@@ -504,6 +511,7 @@
     {
         [self.startWOButton setTitle:@"Start Workout" forState:UIControlStateNormal];
         [appDel.woHandler stopWO];
+        
     }
     
     

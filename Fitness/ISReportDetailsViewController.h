@@ -10,7 +10,7 @@
 #import "ISWorkOut.h"
 #import "FPPopoverController.h"
 
-@interface ISReportDetailsViewController : UIViewController
+@interface ISReportDetailsViewController : UIViewController<FPPopoverControllerDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UIView *mapPathView;
@@ -26,8 +26,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *maxSpeedLabel;
 @property (weak, nonatomic) IBOutlet UILabel *speedLabel;
 @property (weak, nonatomic) IBOutlet UIView *deleteReportView;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+
 @property (weak) ISWorkOut *workout;
 
 @property FPPopoverController *popover;
+
+-(UIImage*)imageToShare;
 
 @end

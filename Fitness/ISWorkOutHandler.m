@@ -11,6 +11,7 @@
 #import "ILAlertView.h"
 #import "ISLocation.h"
 #import "macros.h"
+#import "ISReportDetailsViewController.h"
 #define LOCATIONS_SAVE_DELAY 30.0
 #define WORKOUT_SAVE_DELAY 30.0
 
@@ -123,6 +124,7 @@ static ISWorkOutHandler *sharedInstance = nil;
     }
     [self.currentWO updateWorkout];
     self.isWOStarted=NO;
+    [self navigateToWorkoutReport];
 //    if (!self.isWOGoalEnable) {
 //        [self textToSpeechFromString:@"Workout Stopped"];
 //    }
@@ -214,7 +216,14 @@ static ISWorkOutHandler *sharedInstance = nil;
         [[appDel getHRDistributor]saveData];
     }
 }
-
+-(void)navigateToWorkoutReport
+{
+    [[appDel drawerController] closeDrawerAnimated:YES completion:nil];
+    [(UINavigationController*)[appDel drawerController].centerViewController popToRootViewControllerAnimated:NO];
+    ISReportDetailsViewController* reportDetailsVC=[[ISReportDetailsViewController alloc]initWithNibName:nil bundle:nil];
+    reportDetailsVC.workout=self.currentWO;
+    [(UINavigationController*)[appDel drawerController].centerViewController pushViewController:reportDetailsVC animated:YES];
+}
 
 //------------------------------handling voice assistance------------------------------
 

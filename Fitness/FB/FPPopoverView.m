@@ -306,9 +306,13 @@
     {
         if(_arrowDirection == FPPopoverArrowDirectionUp)
         {
-            colors[0] = 0.72; colors[1] = 0.35; colors[2] = 0.32;
-            colors[4] = 0.36; colors[5] = 0.0;  colors[6] = 0.09;
+            colors[0] = 254.0/255.0; colors[1] =  247.0/255.0; colors[2] =  235.0/255.0;
+            colors[4] = 254.0/255.0; colors[5] = 247.0/255.0;  colors[6] = 235.0/255.0;
             colors[3] = colors[7] = 1.0;
+
+//            colors[0] = 0.72; colors[1] = 0.35; colors[2] = 0.32;
+//            colors[4] = 0.36; colors[5] = 0.0;  colors[6] = 0.09;
+//            colors[3] = colors[7] = 1.0;
 
         }
         else

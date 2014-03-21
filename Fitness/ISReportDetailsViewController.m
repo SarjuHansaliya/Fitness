@@ -11,13 +11,19 @@
 #import "ISAppDelegate.h"
 #import "macros.h"
 #import "ISSocialViewController.h"
+#import "UIView+Glow.h"
 
 @implementation UIView (Screenshot)
 
 - (UIImage *)screenshot {
     //UIGraphicsBeginImageContext(self.bounds.size);
-    
+    if (!IS_IPHONE_5) {
+        UIGraphicsBeginImageContext(CGSizeMake(self.bounds.size.width, self.bounds.size.height-115.0));
+    }
+    else
+    {
         UIGraphicsBeginImageContext(CGSizeMake(self.bounds.size.width, self.bounds.size.height-200.0));
+    }
 
     
     if([self respondsToSelector:@selector(drawViewHierarchyInRect:afterScreenUpdates:)]){
@@ -44,6 +50,8 @@
 @implementation ISReportDetailsViewController
 {
     ISAppDelegate *appDel;
+    UIView *blurView;
+    __weak UIBarButtonItem *rightBarButtonItem;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -61,6 +69,41 @@
     [super viewDidLoad];
     [self setupMenuItemsTouchEvents];
     [self setupNavigationBar];
+    blurView=[[UIView alloc]initWithFrame:self.view.bounds];
+    [blurView setBackgroundColor:[UIColor colorWithWhite:0.4 alpha:0.7]];
+    
+}
+-(void)viewDidAppear:(BOOL)animated
+{
+    [blurView setFrame:self.view.bounds];
+    UINavigationItem *navItem=[self.navigationController.navigationBar.items lastObject];
+    rightBarButtonItem=navItem.rightBarButtonItem;
+    [self startHighlight];
+    
+}
+-(void)startHighlight
+{
+    
+    [rightBarButtonItem.customView stopGlowing];
+    [rightBarButtonItem.customView startGlowingWithColor:[UIColor colorWithHue:19.0/360.0 saturation:100.0/100.0 brightness:61.0/100.0 alpha:1] intensity:1.0];
+    [self performSelector:@selector(stopHighlight) withObject:nil afterDelay:6.0];
+}
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [self stopHighlight];
+}
+-(void)viewDidDisappear:(BOOL)animated
+{
+    if (!IS_IPHONE_5) {
+        [self.scrollView setContentOffset:CGPointZero];
+    }
+
+    
+}
+-(void)stopHighlight
+{
+    
+    [rightBarButtonItem.customView stopGlowing];
 }
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -210,10 +253,10 @@
     
     
     
-    [self.navigationItem setRightBarButtonItem:addButton];
     
     // [backButton setTintColor: [UIColor colorWithHue:31.0/360.0 saturation:99.0/100.0 brightness:87.0/100.0 alpha:1]];
     [self.navigationItem setLeftBarButtonItem:backButton];
+    [self.navigationItem setRightBarButtonItem:addButton];
     
     
     
@@ -222,26 +265,55 @@
 -(void)setUpPopover:(id)sender
 {
     //NSLog(@"popover retain count: %d",[popover retainCount]);
-    
+    [self stopHighlight];
     SAFE_ARC_RELEASE(popover);
     self.popover=nil;
     
-    //the controller we want to present as a popover
-    ISSocialViewController *controller = [[ISSocialViewController alloc] initWithNibName:nil bundle:nil delegate:self];
-    controller.imageToshare=[self.view screenshot];
-    controller.initialText=@"Checkout my workout from 'Stay Fit'...";
+    [self.view addSubview:blurView];
+    blurView.alpha=0.0;
+
     
-    self.popover = [[FPPopoverController alloc] initWithViewController:controller];
-    self.popover.tint = FPPopoverDefaultTint;
+    [UIView animateWithDuration:0.2 animations:^{
+        
+        blurView.alpha=1.0;
+        
+    } completion:^(BOOL finished) {
     
-    self.popover.contentSize = CGSizeMake(150 ,120);
-    self.popover.arrowDirection = FPPopoverArrowDirectionAny;
-    self.popover.border=NO;
-    controller.popover=self.popover;
-    [self.popover presentPopoverFromView:sender];
+        //the controller we want to present as a popover
+        ISSocialViewController *controller = [[ISSocialViewController alloc] initWithNibName:nil bundle:nil delegate:self];
+        if (!IS_IPHONE_5) {
+            [self.scrollView setContentOffset:CGPointMake(0, 0)];
+        }
+        controller.initialText=@"Checkout my workout from 'Stay Fit'...";
+        
+        self.popover = [[FPPopoverController alloc] initWithViewController:controller delegate:self];
+        self.popover.tint=FPPopoverRedTint;
+        self.popover.arrowDirection = FPPopoverArrowDirectionUp;
+        self.popover.contentSize = CGSizeMake(150 ,120);
+        self.popover.arrowDirection = FPPopoverArrowDirectionAny;
+        self.popover.border=NO;
+        controller.popover=self.popover;
+        [self.popover presentPopoverFromView:sender];
+    }];
     
+}
+
+- (void)popoverControllerDidDismissPopover:(FPPopoverController *)popoverController
+{
+    //    [UIView animateWithDuration:0.2 animations:^{
+    //        blurView.alpha=0.0;
+    //    } completion:^(BOOL finished) {
+    //         [blurView removeFromSuperview];
+    //    }];
+    [blurView removeFromSuperview];
     
-    
+}
+
+
+-(UIImage*)imageToShare
+{
+    [blurView removeFromSuperview];
+    return [self.view screenshot];
 }
 
 

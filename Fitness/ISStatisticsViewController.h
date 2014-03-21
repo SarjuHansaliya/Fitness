@@ -11,7 +11,7 @@
 
 
 
-@interface ISStatisticsViewController : UIViewController 
+@interface ISStatisticsViewController : UIViewController <FPPopoverControllerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *workoutsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *durationLabel;
 @property (weak, nonatomic) IBOutlet UILabel *maxDurationLabel;
@@ -30,5 +30,7 @@
 
 
 @property FPPopoverController *popover;
+-(UIImage*)imageToShare;
+
 
 @end

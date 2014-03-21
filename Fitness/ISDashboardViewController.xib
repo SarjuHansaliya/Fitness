@@ -17,6 +17,7 @@
                 <outlet property="minHRLabel" destination="2OR-Mp-8PF" id="4PU-N3-MKk"/>
                 <outlet property="minSpeedLabel" destination="w4P-3x-j4x" id="L0b-69-gfB"/>
                 <outlet property="reportView" destination="ud1-uc-xQl" id="BzB-ud-UQs"/>
+                <outlet property="scrollView" destination="K5G-q8-dAm" id="cqD-Mg-41H"/>
                 <outlet property="speedLabel" destination="OTO-6f-eLQ" id="Axs-2T-2eg"/>
                 <outlet property="startWOButton" destination="Z7k-kY-h1C" id="ow6-pW-uPU"/>
                 <outlet property="stepsLabel" destination="wa1-zz-wV9" id="8Hs-MR-9b7"/>

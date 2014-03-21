@@ -8,6 +8,7 @@
 
 
 #import "FPPopoverController.h"
+#import "ISAppDelegate.h"
 
 //ivars
 @interface FPPopoverController()
@@ -253,14 +254,17 @@
     {
         [self dismissPopoverAnimated:NO];
     }
-    
-    
+   
+   
     
     [self setupView];
     self.view.alpha = 0.0;
-    [UIView animateWithDuration:0.2 animations:^{
+    
+   
+    [UIView animateWithDuration:0.3 animations:^{
         
         self.view.alpha = self.alpha;
+        
     }];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"FPNewPopoverPresented" object:self];
@@ -274,6 +278,7 @@
         bar_frame.origin.y = 0;
         b.frame = bar_frame;
     }
+    
 }
 
 
@@ -407,6 +412,7 @@
         {
             [self.delegate presentedNewPopoverController:notification.object
                              shouldDismissVisiblePopover:self];
+            
         }
     }
 }

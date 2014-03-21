@@ -275,6 +275,7 @@
 		BB95B29E18C49B20003AD69B /* XBCurlView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB95B28B18C49B20003AD69B /* XBCurlView.m */; };
 		BB95B2A618C49B4B003AD69B /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB95B2A518C49B4A003AD69B /* OpenGLES.framework */; };
 		BB95B2A818C4A2FF003AD69B /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = BB95B2A718C4A2FF003AD69B /* settings.png */; };
+		BB96F18F18DC50D800A82D73 /* UIView+Glow.m in Sources */ = {isa = PBXBuildFile; fileRef = BB96F18E18DC50D800A82D73 /* UIView+Glow.m */; };
 		BB98D6E318B7381E00C6A16D /* ISUserDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = BB98D6E218B7381E00C6A16D /* ISUserDetails.m */; };
 		BB98D6E618B738A100C6A16D /* ISHR.m in Sources */ = {isa = PBXBuildFile; fileRef = BB98D6E518B738A100C6A16D /* ISHR.m */; };
 		BB98D6E918B738E600C6A16D /* ISWOGoal.m in Sources */ = {isa = PBXBuildFile; fileRef = BB98D6E818B738E600C6A16D /* ISWOGoal.m */; };
@@ -758,6 +759,8 @@
 		BB95B28B18C49B20003AD69B /* XBCurlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBCurlView.m; sourceTree = "<group>"; };
 		BB95B2A518C49B4A003AD69B /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BB95B2A718C4A2FF003AD69B /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		BB96F18D18DC50D800A82D73 /* UIView+Glow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Glow.h"; sourceTree = "<group>"; };
+		BB96F18E18DC50D800A82D73 /* UIView+Glow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Glow.m"; sourceTree = "<group>"; };
 		BB98D6E118B7381E00C6A16D /* ISUserDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISUserDetails.h; sourceTree = "<group>"; };
 		BB98D6E218B7381E00C6A16D /* ISUserDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISUserDetails.m; sourceTree = "<group>"; };
 		BB98D6E418B738A100C6A16D /* ISHR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISHR.h; sourceTree = "<group>"; };
@@ -999,6 +1002,7 @@
 		BB0EE33118A3ADAB00E3EA63 /* Fitness */ = {
 			isa = PBXGroup;
 			children = (
+				BB96F18C18DC50D800A82D73 /* glow */,
 				BB5C15C918DABD9D00E7AA19 /* FB */,
 				BB52FBC718D02453008A5D3D /* Music player */,
 				BB95B27918C49B20003AD69B /* XBPageCurl */,
@@ -1650,6 +1654,15 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		BB96F18C18DC50D800A82D73 /* glow */ = {
+			isa = PBXGroup;
+			children = (
+				BB96F18D18DC50D800A82D73 /* UIView+Glow.h */,
+				BB96F18E18DC50D800A82D73 /* UIView+Glow.m */,
+			);
+			path = glow;
+			sourceTree = "<group>";
+		};
 		BB98D6E018B737F000C6A16D /* classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -1966,6 +1979,7 @@
 				BB365CAD18CDDAD900FA1B8C /* cst_regex.c in Sources */,
 				BB365CB118CDDAD900FA1B8C /* cst_sts.c in Sources */,
 				BB365CB618CDDAD900FA1B8C /* cst_utt_utils.c in Sources */,
+				BB96F18F18DC50D800A82D73 /* UIView+Glow.m in Sources */,
 				BB005F5D18AB3BD0003FAF8B /* ISSetWorkoutGoalViewController.m in Sources */,
 				BB365CAA18CDDAD900FA1B8C /* cst_mlpg.c in Sources */,
 				BB365C9A18CDDAD900FA1B8C /* au_streaming.c in Sources */,
