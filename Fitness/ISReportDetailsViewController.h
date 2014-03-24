@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ISWorkOut.h"
 #import "FPPopoverController.h"
+#import "SKBounceAnimation.h"
 
 @interface ISReportDetailsViewController : UIViewController<FPPopoverControllerDelegate>
 

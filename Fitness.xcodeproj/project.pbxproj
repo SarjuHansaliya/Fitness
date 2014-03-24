@@ -14,6 +14,7 @@
 		1F19312718B33FF8005BB31C /* ISReportDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F19312618B33FF8005BB31C /* ISReportDetailsCell.xib */; };
 		1F19312A18B3406C005BB31C /* ISReportDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F19312918B3406C005BB31C /* ISReportDetailCell.m */; };
 		1F19312D18B34735005BB31C /* ISReportsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F19312C18B34735005BB31C /* ISReportsViewController.m */; };
+		1F27A42818E00D72009BDE36 /* SKBounceAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F27A42718E00D72009BDE36 /* SKBounceAnimation.m */; };
 		1F4E034A18ADE5B600BAF4D8 /* ISWorkoutRemindersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4E034818ADE5B600BAF4D8 /* ISWorkoutRemindersViewController.m */; };
 		1F4E034E18ADF23C00BAF4D8 /* ISReminderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4E034D18ADF23C00BAF4D8 /* ISReminderCell.m */; };
 		1F4E035018ADF26900BAF4D8 /* ISReminderTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F4E034F18ADF26900BAF4D8 /* ISReminderTableCell.xib */; };
@@ -321,6 +322,8 @@
 		1F19312918B3406C005BB31C /* ISReportDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISReportDetailCell.m; sourceTree = "<group>"; };
 		1F19312B18B34735005BB31C /* ISReportsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISReportsViewController.h; sourceTree = "<group>"; };
 		1F19312C18B34735005BB31C /* ISReportsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISReportsViewController.m; sourceTree = "<group>"; };
+		1F27A42618E00D72009BDE36 /* SKBounceAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKBounceAnimation.h; sourceTree = "<group>"; };
+		1F27A42718E00D72009BDE36 /* SKBounceAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKBounceAnimation.m; sourceTree = "<group>"; };
 		1F4E034718ADE5B600BAF4D8 /* ISWorkoutRemindersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISWorkoutRemindersViewController.h; sourceTree = "<group>"; };
 		1F4E034818ADE5B600BAF4D8 /* ISWorkoutRemindersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISWorkoutRemindersViewController.m; sourceTree = "<group>"; };
 		1F4E034C18ADF23C00BAF4D8 /* ISReminderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISReminderCell.h; sourceTree = "<group>"; };
@@ -1657,6 +1660,8 @@
 		BB96F18C18DC50D800A82D73 /* glow */ = {
 			isa = PBXGroup;
 			children = (
+				1F27A42618E00D72009BDE36 /* SKBounceAnimation.h */,
+				1F27A42718E00D72009BDE36 /* SKBounceAnimation.m */,
 				BB96F18D18DC50D800A82D73 /* UIView+Glow.h */,
 				BB96F18E18DC50D800A82D73 /* UIView+Glow.m */,
 			);
@@ -2017,6 +2022,7 @@
 				BB365CB918CDDAD900FA1B8C /* cst_val_const.c in Sources */,
 				BB365CB218CDDAD900FA1B8C /* cst_synth.c in Sources */,
 				BB5C15E318DAF7BF00E7AA19 /* FPPopoverController.m in Sources */,
+				1F27A42818E00D72009BDE36 /* SKBounceAnimation.m in Sources */,
 				BB98D6E918B738E600C6A16D /* ISWOGoal.m in Sources */,
 				BB365CC818CDDAD900FA1B8C /* cmu_us_rms_cg_single_mcep_trees.c in Sources */,
 				BB365CB318CDDAD900FA1B8C /* cst_tokenstream.c in Sources */,

@@ -78,19 +78,20 @@
     [blurView setFrame:self.view.bounds];
     UINavigationItem *navItem=[self.navigationController.navigationBar.items lastObject];
     rightBarButtonItem=navItem.rightBarButtonItem;
-    [self startHighlight];
+   // [self startHighlight];
+    [self addBounceAnimation];
     
 }
--(void)startHighlight
-{
-    
-    [rightBarButtonItem.customView stopGlowing];
-    [rightBarButtonItem.customView startGlowingWithColor:[UIColor colorWithHue:31.0/360.0 saturation:99.0/100.0 brightness:87.0/100.0 alpha:1] intensity:1.0];
-    [self performSelector:@selector(stopHighlight) withObject:nil afterDelay:6.0];
-}
+//-(void)startHighlight
+//{
+//    
+//    [rightBarButtonItem.customView stopGlowing];
+//    [rightBarButtonItem.customView startGlowingWithColor:[UIColor colorWithHue:31.0/360.0 saturation:99.0/100.0 brightness:87.0/100.0 alpha:1] intensity:1.0];
+//    [self performSelector:@selector(stopHighlight) withObject:nil afterDelay:6.0];
+//}
 -(void)viewWillDisappear:(BOOL)animated
 {
-    [self stopHighlight];
+   // [self stopHighlight];
 }
 -(void)viewDidDisappear:(BOOL)animated
 {
@@ -100,11 +101,11 @@
 
     
 }
--(void)stopHighlight
-{
-    
-    [rightBarButtonItem.customView stopGlowing];
-}
+//-(void)stopHighlight
+//{
+//    
+//    [rightBarButtonItem.customView stopGlowing];
+//}
 -(void)viewWillAppear:(BOOL)animated
 {
     
@@ -265,7 +266,7 @@
 -(void)setUpPopover:(id)sender
 {
     //NSLog(@"popover retain count: %d",[popover retainCount]);
-    [self stopHighlight];
+   // [self stopHighlight];
     SAFE_ARC_RELEASE(popover);
     self.popover=nil;
     
@@ -353,6 +354,37 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void) addBounceAnimation {
+//	if (!CGRectContainsPoint(rightBarButtonItem.customView.frame, CGPointMake(160, 200))) {
+//		rightBarButtonItem.customView.frame = CGRectMake(10, 10, 40, 40);
+//		rightBarButtonItem.customView.center = CGPointMake(160, 200);
+//		return;
+//	}
+	
+	
+	NSString *keyPath = @"transform";
+	CATransform3D transform = rightBarButtonItem.customView.layer.transform;
+    id fromValue = [NSValue valueWithCATransform3D:
+                     CATransform3DScale(transform, 0.6, 0.6, 0.6)
+                     ];
+	id finalValue = [NSValue valueWithCATransform3D:
+                     CATransform3DScale(transform, 1.0, 1.0, 1.0)
+                     ];
+    
+	SKBounceAnimation *bounceAnimation = [SKBounceAnimation animationWithKeyPath:keyPath];
+//	bounceAnimation.fromValue = [NSValue valueWithCATransform3D:transform];
+    bounceAnimation.fromValue = fromValue;
+	bounceAnimation.toValue = finalValue;
+	bounceAnimation.duration = 3.0f;
+	bounceAnimation.numberOfBounces = 6;
+	bounceAnimation.shouldOvershoot = YES;
+	
+	[rightBarButtonItem.customView.layer addAnimation:bounceAnimation forKey:@"someKey"];
+	
+	//[rightBarButtonItem.customView.layer setValue:finalValue forKeyPath:keyPath];
+    
 }
 
 @end
