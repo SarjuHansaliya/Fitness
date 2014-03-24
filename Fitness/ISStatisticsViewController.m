@@ -240,7 +240,7 @@
             duration+=[w.endTimeStamp timeIntervalSinceDate:w.startTimeStamp]/60.0;
             
             if (maxCalories<[w.calBurned doubleValue]) {
-                maxCalories=[w.calBurned doubleValue];
+                maxCalories=[w.calBurned doubleValue]/1000.0;
             }
             if (maxDistance<[w.distance doubleValue]) {
                 maxDistance=[w.distance doubleValue];

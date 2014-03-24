@@ -78,6 +78,7 @@ static ISWorkOutHandler *sharedInstance = nil;
 {
     self.currentWO=[[ISWorkOut alloc]init];
     self.currentWO.startTimeStamp=[NSDate date];
+    self.currentWO.endTimeStamp=[NSDate date];
     self.currentWO.minSpeed=@1000.0;
     self.currentWO.maxSpeed=@0.0;
     self.currentWO.distance=@0.0;
@@ -178,7 +179,9 @@ static ISWorkOutHandler *sharedInstance = nil;
     if ([self.currentWO.minSpeed doubleValue] > newLocation.speed && newLocation.speed>=0.0) {
         self.currentWO.minSpeed=[NSNumber numberWithDouble:newLocation.speed];
     }
-    
+    if (newLocation.speed>=0) {
+        self.currentSpeed=newLocation.speed;
+    }
     if ([self.dashBoardDelegate respondsToSelector:@selector(didUpdateLocation)]) {
         [self.dashBoardDelegate didUpdateLocation];
     }

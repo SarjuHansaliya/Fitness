@@ -212,7 +212,7 @@
     ISWorkOut *wo=(ISWorkOut*)[workouts objectAtIndex:indexPath.row];
     int goalId=wo.woGoalId;
     NSString *goalTypeLabel=@"Calories :";
-    NSString *goalValueLabel=[NSString stringWithFormat:@"%@  kcal",wo.calBurned];
+    NSString *goalValueLabel=[NSString stringWithFormat:@"%.2f  kcal",[wo.calBurned doubleValue]/1000.0];
     if (goalId!=0)
     {
         ISWOGoal *goal=[ISWOGoal getWOGoalWithId:goalId];
@@ -224,7 +224,7 @@
                 break;
             case CALORIES:
                 goalTypeLabel=@"Calories :";
-                goalValueLabel=[NSString stringWithFormat:@"%.2f  kcal",[wo.calBurned doubleValue]/1000];
+                goalValueLabel=[NSString stringWithFormat:@"%.2f  kcal",[wo.calBurned doubleValue]/1000.0];
                 break;
             case DURATION:
                 goalTypeLabel=@"Duration :";

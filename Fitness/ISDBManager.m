@@ -393,7 +393,7 @@ static sqlite3_stmt *statement = nil;
         
         sqlite3_finalize(compiledStatement);
         sqlite3_finalize(commitStatement);
-        sqlite3_finalize(stmt);
+        //sqlite3_finalize(stmt);
         sqlite3_finalize(statement);
         sqlite3_close(database);
         return YES;
@@ -634,7 +634,7 @@ static sqlite3_stmt *statement = nil;
         
         sqlite3_finalize(compiledStatement);
         sqlite3_finalize(commitStatement);
-        sqlite3_finalize(stmt);
+       // sqlite3_finalize(stmt);
         sqlite3_finalize(statement);
         sqlite3_close(database);
         return YES;

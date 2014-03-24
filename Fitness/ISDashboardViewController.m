@@ -365,7 +365,8 @@
         [appDel.woHandler speakDistance:prevDistance];
     }
     
-    [self calculateSpeed];
+    //[self calculateSpeed];
+    [self updateSpeedLabel];
     [self calculateGoalCompletion];
 }
 -(void)calculateSpeed
@@ -384,6 +385,19 @@
     else
         self.speedLabel.text=@"- -";
 }
+
+-(void)updateSpeedLabel
+{
+    
+    if (appDel.woHandler.currentSpeed>=0) {
+        
+        self.speedLabel.text=[NSString stringWithFormat:@"%.2f mph", appDel.woHandler.currentSpeed];
+    }
+    else
+        self.speedLabel.text=@"- -";
+    
+}
+
 
 //--------------------------------------handling duration updates--------------------------
 -(void)calculateWODuration

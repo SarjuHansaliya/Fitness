@@ -7,6 +7,7 @@
 //
 
 #import "ISReportDetailCell.h"
+#import "macros.h"
 
 @implementation ISReportDetailCell
 
@@ -34,6 +35,7 @@
     formatter.dateFormat=@"dd MMM yy, hh:mm a";
     self.workoutDateLabel.text=[formatter stringFromDate:date];
     self.goalTypeLabel.text=goalType;
+    
     self.goalValueLabel.text=goalValue;
 }
 

@@ -450,6 +450,8 @@ float randomFloat(float Min, float Max){
     [super viewWillAppear:animated];
     [self.toDateTextField setText:nil];
     [self.fromDateTextField setText:nil];
+    toDate=nil;
+    fromDate=nil;
     [self.graphView setHidden:YES];
     [self.countinuousMonitoringSwitch setOn:appDel.woHandler.userDetails.hrMonitoring];
     

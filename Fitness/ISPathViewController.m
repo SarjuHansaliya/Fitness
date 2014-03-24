@@ -157,7 +157,17 @@
         }
         MKPolyline *polyLine = [MKPolyline polylineWithCoordinates:coordinates count:numberOfSteps];
         [self.map addOverlay:polyLine];
-        [self.map setVisibleMapRect:[polyLine boundingMapRect]];
+        MKMapRect r=[polyLine boundingMapRect];
+        double x=r.origin.x;
+        double y=r.origin.y;
+        r.size.width =r.size.width*1.2;
+        r.size.height=r.size.height*1.2;
+        r.origin.x=x;
+        r.origin.y=y;
+        
+       // [self.map setVisibleMapRect:[polyLine boundingMapRect]];
+        [self.map setVisibleMapRect:[polyLine boundingMapRect] edgePadding:UIEdgeInsetsMake(100, 100, 100, 100) animated:YES];
+       
     }
     
 }
