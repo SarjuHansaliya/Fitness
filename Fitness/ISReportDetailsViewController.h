@@ -29,6 +29,8 @@
 @property (weak, nonatomic) IBOutlet UIView *deleteReportView;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
+@property BOOL shareButtonShouldBounce;
+
 @property (weak) ISWorkOut *workout;
 
 @property FPPopoverController *popover;

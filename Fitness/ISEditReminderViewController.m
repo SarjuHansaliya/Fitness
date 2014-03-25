@@ -146,12 +146,14 @@
         }
         
     }
-
+    
+    
     
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
+   
     self.alertLabel.text =  [[self getAlertController] label];
 }
 

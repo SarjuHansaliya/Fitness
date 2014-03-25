@@ -225,6 +225,7 @@ static ISWorkOutHandler *sharedInstance = nil;
     [(UINavigationController*)[appDel drawerController].centerViewController popToRootViewControllerAnimated:NO];
     ISReportDetailsViewController* reportDetailsVC=[[ISReportDetailsViewController alloc]initWithNibName:nil bundle:nil];
     reportDetailsVC.workout=self.currentWO;
+    reportDetailsVC.shareButtonShouldBounce=YES;
     [(UINavigationController*)[appDel drawerController].centerViewController pushViewController:reportDetailsVC animated:YES];
 }
 

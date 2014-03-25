@@ -255,6 +255,8 @@ static RNFrostedSidebar *rn_frostedMenu;
     return rn_frostedMenu;
 }
 
+
+
 - (instancetype)initWithImages:(NSArray *)images selectedIndices:(NSIndexSet *)selectedIndices borderColors:(NSArray *)colors {
     if (self = [super init]) {
         _isSingleSelect = NO;
@@ -470,6 +472,11 @@ static RNFrostedSidebar *rn_frostedMenu;
             [self animateFauxBounceWithView:view idx:idx initDelay:initDelay];
         }
     }];
+    
+    if ([self.delegate respondsToSelector:@selector(checkArtworkImage)]) {
+        [self.delegate checkArtworkImage];
+    }
+    
 }
 
 - (void)showAnimated:(BOOL)animated {

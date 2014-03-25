@@ -37,6 +37,7 @@
 
 -(void)playerIsPlaying:(BOOL)b;
 -(void)setArtworkImage:(UIImage*)img;
+-(void)checkArtworkImage;
 
 
 - (IBAction)workoutStart:(id)sender;

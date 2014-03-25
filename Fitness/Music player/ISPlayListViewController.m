@@ -120,7 +120,7 @@ static NSString *kCellIdentifier = @"Cell";
 	picker.delegate						= self;
 	picker.allowsPickingMultipleItems	= YES;
 	picker.prompt						= NSLocalizedString (@"AddSongsPrompt", @"Prompt to user to choose some songs to play");
-	
+	picker.showsCloudItems=NO;
 	[[UIApplication sharedApplication] setStatusBarStyle: UIStatusBarStyleDefault animated:YES];
     
 	[self presentViewController: picker animated: YES completion:nil];
@@ -190,7 +190,7 @@ static NSString *kCellIdentifier = @"Cell";
     
 	[tableView deselectRowAtIndexPath: indexPath animated: YES];
     ISMusicController *mController = (ISMusicController *) self.delegate;
-    [mController.musicPlayer stop];
+  //  [mController.musicPlayer stop];
     [mController.musicPlayer setNowPlayingItem:[[mController.userMediaItemCollection items] objectAtIndex:indexPath.row]];
     [mController.musicPlayer play];
     [self.delegate musicTableViewControllerDidFinish: self];

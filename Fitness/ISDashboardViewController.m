@@ -94,16 +94,26 @@
     callout.showFromRight = YES;
     callouVisible=NO;
     
-    
 }
 -(void)playerIsPlaying:(BOOL)b
 {
     [callout.actionButtonImageView setHighlighted:b];
 }
 
+-(void)checkArtworkImage
+{
+    if  (appDel.woHandler.musicController.userMediaItemCollection==nil || [appDel.woHandler.musicController.userMediaItemCollection count]<1)
+    {
+        [callout.artworkImageView setImage:[UIImage imageNamed:@"artwork.jpeg"]];
+    }
+    
+}
+
 -(void)setArtworkImage:(UIImage*)img
 {
     [callout.artworkImageView setImage:img];
+    [self checkArtworkImage];
+    
 }
 
 - (IBAction)onBurger:(id)sender {

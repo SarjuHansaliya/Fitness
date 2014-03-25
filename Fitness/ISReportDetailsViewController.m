@@ -11,7 +11,7 @@
 #import "ISAppDelegate.h"
 #import "macros.h"
 #import "ISSocialViewController.h"
-#import "UIView+Glow.h"
+
 
 @implementation UIView (Screenshot)
 
@@ -59,6 +59,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         appDel=(ISAppDelegate *)[[UIApplication sharedApplication]delegate];
+        self.shareButtonShouldBounce=NO;
     }
     return self;
 }
@@ -71,6 +72,7 @@
     [self setupNavigationBar];
     blurView=[[UIView alloc]initWithFrame:self.view.bounds];
     [blurView setBackgroundColor:[UIColor colorWithWhite:0.4 alpha:0.7]];
+   
     
 }
 -(void)viewDidAppear:(BOOL)animated
@@ -78,17 +80,14 @@
     [blurView setFrame:self.view.bounds];
     UINavigationItem *navItem=[self.navigationController.navigationBar.items lastObject];
     rightBarButtonItem=navItem.rightBarButtonItem;
-   // [self startHighlight];
-    [self addBounceAnimation];
+    if (self.shareButtonShouldBounce) {
+        [self addBounceAnimation];
+        self.shareButtonShouldBounce=NO;
+    }
+    
     
 }
-//-(void)startHighlight
-//{
-//    
-//    [rightBarButtonItem.customView stopGlowing];
-//    [rightBarButtonItem.customView startGlowingWithColor:[UIColor colorWithHue:31.0/360.0 saturation:99.0/100.0 brightness:87.0/100.0 alpha:1] intensity:1.0];
-//    [self performSelector:@selector(stopHighlight) withObject:nil afterDelay:6.0];
-//}
+
 -(void)viewWillDisappear:(BOOL)animated
 {
    // [self stopHighlight];
@@ -141,12 +140,21 @@
         self.maxSpeedLabel.text=[NSString stringWithFormat:@"%.1f mph",[self.workout.maxSpeed doubleValue] ];
     }
     
-    double speed=[self.workout.distance doubleValue]/(ageComponents.minute/60.0);
-    if (speed>=0.0 && ageComponents.minute!=0.0) {
+    //double speed=[self.workout.distance doubleValue]/(ageComponents.minute/60.0);
+   
+    if ([self.workout.maxSpeed doubleValue]> 0.0 && [self.workout.minSpeed doubleValue]>= 0.0 && ageComponents.minute!=0.0) {
+         double speed=([self.workout.maxSpeed doubleValue]+[self.workout.minSpeed doubleValue])/2.0;
         self.speedLabel.text=[NSString stringWithFormat:@"%.2f mph", speed];
     }
     else
         self.speedLabel.text=@"- -";
+
+    
+//    if (speed>=0.0 && ageComponents.minute!=0.0) {
+//        self.speedLabel.text=[NSString stringWithFormat:@"%.2f mph", speed];
+//    }
+//    else
+//        self.speedLabel.text=@"- -";
     
     
     

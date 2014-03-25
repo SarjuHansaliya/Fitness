@@ -10,6 +10,7 @@
 #import <Foundation/Foundation.h>
 #import "flite.h"
 #import "ISDashboardViewController.h"
+#import "ILAlertView.h"
 
 
 cst_voice *register_cmu_us_rms();
@@ -160,7 +161,14 @@ void audioRouteChangeListenerCallback (
 	MPMusicPlaybackState playbackState = [musicPlayer playbackState];
     
 	if (playbackState == MPMusicPlaybackStateStopped || playbackState == MPMusicPlaybackStatePaused) {
-		[musicPlayer play];
+        if (self.userMediaItemCollection!=nil || [self.userMediaItemCollection count]>0) {
+                [musicPlayer play];
+        }
+        else
+        {
+            [ILAlertView showWithTitle:@"Warning" message:@"Playlist is Empty" closeButtonTitle:@"OK" secondButtonTitle:nil tappedSecondButton:nil];
+        }
+		
        // [(ISDashboardViewController*)self.delegate playerIsPlaying:YES];
 	} else if (playbackState == MPMusicPlaybackStatePlaying) {
 		[musicPlayer pause];
@@ -192,7 +200,9 @@ void audioRouteChangeListenerCallback (
 		picker.delegate						= self;
 		picker.allowsPickingMultipleItems	= YES;
 		picker.prompt						= NSLocalizedString (@"Add songs to play", "Prompt in media item picker");
-		
+        
+        picker.showsCloudItems=NO;
+        
 		// The media item picker uses the default UI style, so it needs a default-style
 		//		status bar to match it visually
 		[[UIApplication sharedApplication] setStatusBarStyle: UIStatusBarStyleDefault animated: YES];
@@ -217,7 +227,7 @@ void audioRouteChangeListenerCallback (
 			[self setUserMediaItemCollection: mediaItemCollection];
 			[musicPlayer setQueueWithItemCollection: userMediaItemCollection];
 			[self setPlayedMusicOnce: YES];
-			[musicPlayer play];
+			//[musicPlayer play];
             
             
             
@@ -359,7 +369,7 @@ void audioRouteChangeListenerCallback (
 	[self.delegate dismissModalViewControllerAnimated: YES];
 	// Apply the chosen songs to the music player's queue.
 	[self updatePlayerQueueWithMediaCollection: mediaItemCollection];
-    
+   // [self.delegate playerIsPlaying:YES];
 	[[UIApplication sharedApplication] setStatusBarStyle: UIStatusBarStyleBlackOpaque animated: YES];
 }
 
