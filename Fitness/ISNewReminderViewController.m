@@ -53,7 +53,7 @@
     [super viewDidLoad];
     [self setupGestureRecognizer];
     [self setupNavigationBar];
-    
+    self.repeatLabel.text=@"";
     self.toDateTextField.inputView=self.datePicker;
     self.toDateTextField.inputAccessoryView=self.accessoryView;
     
@@ -69,6 +69,9 @@
     if (self.alertController!=nil) {
 
         self.alertLabel.text = self.alertController.label;
+    }
+    if (self.repeatController!=nil) {
+        self.repeatLabel.text=[self.repeatController getRepeatString];
     }
     
 }
@@ -187,7 +190,7 @@
     
     
     if (![self.reminderLabel.text length]>0) {
-        [ILAlertView showWithTitle:@"Warning" message:@"Enter Label" closeButtonTitle:@"OK" secondButtonTitle:nil tappedSecondButton:nil];
+        [ILAlertView showWithTitle:@"Warning" message:@"Enter Title" closeButtonTitle:@"OK" secondButtonTitle:nil tappedSecondButton:nil];
         [self.reminderLabel becomeFirstResponder];
     }
     else
@@ -252,6 +255,7 @@
            
             
         }
+                
         if([weekDays count] <=0 || self.repeatController ==nil)
         {
             [ILAlertView showWithTitle:@"Warning" message:@"Please select repeat options" closeButtonTitle:@"OK" secondButtonTitle:nil tappedSecondButton:nil];
@@ -277,7 +281,7 @@
      
         
         
-        [ILAlertView showWithTitle:@"Save Reminder" message:@"Do u want to save Reminder?" closeButtonTitle:@"No" secondButtonTitle:@"Yes" tappedSecondButton:^{
+        [ILAlertView showWithTitle:@"Save Reminder" message:@"Do you want to save Reminder?" closeButtonTitle:@"No" secondButtonTitle:@"Yes" tappedSecondButton:^{
             NSError *err;
             [appDel.eventStore saveReminder:reminder commit:YES error:&err];
             //NSLog(@"%@",err);

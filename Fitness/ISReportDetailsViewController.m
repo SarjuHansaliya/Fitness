@@ -124,7 +124,7 @@
         self.stepsLabel.text=[NSString stringWithFormat:@"n/a"];
     }
     
-    self.calBurnedLabel.text=[NSString stringWithFormat:@"%.2f kcal", [self.workout.calBurned doubleValue]/1000];
+    self.calBurnedLabel.text=[NSString stringWithFormat:@"%.0f cal", [self.workout.calBurned doubleValue]];
     if ([self.workout.minSpeed doubleValue]>999.0 || [self.workout.minSpeed doubleValue]< 0.00) {
         self.minSpeedLabel.text=[NSString stringWithFormat:@"- -"];
     }

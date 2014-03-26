@@ -184,6 +184,53 @@
  }
  */
 
+-(NSString *)getRepeatString
+{
+    NSMutableString *weekdaysStr=[[NSMutableString alloc]initWithCapacity:1];
+    
+    for(int i=1;i<=7;i++)
+    {
+        NSIndexPath *ip = [NSIndexPath indexPathForRow:i inSection:0];
+        
+        ISRepeatReminderCell *cell = (ISRepeatReminderCell*)[self.tableView cellForRowAtIndexPath:ip];
+        if(cell.selectedImage.hidden == NO)
+        {
+            
+            switch (i) {
+                    
+                case 1:
+                    [weekdaysStr appendString:@"Sun, "];
+                    break;
+                case 2:
+                   [weekdaysStr appendString:@"Mon, "];
+                    break;
+                case 3:
+                    [weekdaysStr appendString:@"Tue, "];
+                    break;
+                case 4:
+                    [weekdaysStr appendString:@"Wed, "];
+                    break;
+                case 5:
+                    [weekdaysStr appendString:@"Thu, "];
+                    break;
+                case 6:
+                    [weekdaysStr appendString:@"Fri, "];
+                    break;
+                case 7:
+                   [weekdaysStr appendString:@"Sat, "];
+                    break;
+            }
+        }
+        
+        
+        
+    }
+    
+    
+    return [weekdaysStr substringToIndex:([weekdaysStr length]-2)];
+}
+
+
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {

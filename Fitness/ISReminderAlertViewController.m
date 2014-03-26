@@ -77,7 +77,7 @@
     
     self.navigationController.navigationBar.translucent=NO;
     
-    UILabel *titleLable=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 25)];
+    UILabel *titleLable=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 55, 25)];
     
     titleLable.backgroundColor=[UIColor clearColor];
     titleLable.text=@"Alert";

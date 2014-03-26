@@ -64,7 +64,7 @@
     [super viewDidLoad];
     [self setupGestureRecognizer];
     [self setupNavigationBar];
-    
+    self.repeatLabel.text=@"";
     self.toDateTextField.inputView=self.datePicker;
     self.toDateTextField.inputAccessoryView=self.accessoryView;
     
@@ -151,10 +151,62 @@
     
 }
 
+-(NSString *)getRepeatString
+{
+    NSMutableString *weekdaysStr=[[NSMutableString alloc]initWithCapacity:1];
+    
+    for(int i=1;i<=7;i++)
+    {
+       
+        if(weekdays[i] == 1)
+        {
+            
+            switch (i) {
+                    
+                case 1:
+                    [weekdaysStr appendString:@"Sun, "];
+                    break;
+                case 2:
+                    [weekdaysStr appendString:@"Mon, "];
+                    break;
+                case 3:
+                    [weekdaysStr appendString:@"Tue, "];
+                    break;
+                case 4:
+                    [weekdaysStr appendString:@"Wed, "];
+                    break;
+                case 5:
+                    [weekdaysStr appendString:@"Thu, "];
+                    break;
+                case 6:
+                    [weekdaysStr appendString:@"Fri, "];
+                    break;
+                case 7:
+                    [weekdaysStr appendString:@"Sat, "];
+                    break;
+            }
+        }
+        
+        
+        
+    }
+    
+    
+    return [weekdaysStr substringToIndex:([weekdaysStr length]-2)];
+}
+
 -(void)viewWillAppear:(BOOL)animated
 {
    
     self.alertLabel.text =  [[self getAlertController] label];
+    
+    if (self.repeatController==nil) {
+        self.repeatLabel.text=[self getRepeatString];
+    }
+    else
+    {
+        self.repeatLabel.text=[self.repeatController getRepeatString];
+    }
 }
 
 //--------------------------------setting up navigation bar--------------------------------------
@@ -274,7 +326,7 @@
     
     
     if (![self.reminderLabel.text length]>0) {
-        [ILAlertView showWithTitle:@"Warning" message:@"Enter Label" closeButtonTitle:@"OK" secondButtonTitle:nil tappedSecondButton:nil];
+        [ILAlertView showWithTitle:@"Warning" message:@"Enter Title" closeButtonTitle:@"OK" secondButtonTitle:nil tappedSecondButton:nil];
         [self.reminderLabel becomeFirstResponder];
     }
     else
@@ -367,7 +419,7 @@
         
         
         
-        [ILAlertView showWithTitle:@"Save Reminder" message:@"Do u want to save changes?" closeButtonTitle:@"No" secondButtonTitle:@"Yes" tappedSecondButton:^{
+        [ILAlertView showWithTitle:@"Save Reminder" message:@"Do you want to save changes?" closeButtonTitle:@"No" secondButtonTitle:@"Yes" tappedSecondButton:^{
             NSError *err;
             [appDel.eventStore removeReminder:self.reminder commit:YES error:&err];
             // NSLog(@"%@",err);

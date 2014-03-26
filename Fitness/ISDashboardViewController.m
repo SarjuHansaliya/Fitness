@@ -338,7 +338,7 @@
     if (appDel.woHandler.isWOStarted) {
         
         
-        self.calBurnedLabel.text= [NSString stringWithFormat:@"%.2f kcal" ,[appDel.woHandler.currentWO.calBurned doubleValue]/1000];
+        self.calBurnedLabel.text= [NSString stringWithFormat:@"%.0f cal" ,[appDel.woHandler.currentWO.calBurned doubleValue]];
         
         if (([appDel.woHandler.currentWO.calBurned doubleValue]-prevCalories)>=CALORIES_SPEAK_VARIANCE) {
             prevCalories=[appDel.woHandler.currentWO.calBurned doubleValue];

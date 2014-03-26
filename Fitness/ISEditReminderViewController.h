@@ -26,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *toDateTextField;
 @property (strong, nonatomic) IBOutlet UIToolbar *accessoryView;
 @property (weak, nonatomic) IBOutlet UITextField *reminderLabel;
+@property (weak, nonatomic) IBOutlet UILabel *repeatLabel;
 
 - (IBAction)doneEditing:(id)sender;
 

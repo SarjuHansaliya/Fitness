@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Fitness/ISEditReminderViewController.m"
-            timestampString = "417435608.523933"
+            timestampString = "417505484.475681"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "164"
-            endingLineNumber = "164"
+            startingLineNumber = "216"
+            endingLineNumber = "216"
             landmarkName = "-setupNavigationBar"
             landmarkType = "5">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Fitness/ISEditReminderViewController.m"
-            timestampString = "417435608.523933"
+            timestampString = "417505484.475681"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "159"
-            endingLineNumber = "159"
+            startingLineNumber = "211"
+            endingLineNumber = "211"
             landmarkName = "@implementation ISEditReminderViewController"
             landmarkType = "3">
          </BreakpointContent>

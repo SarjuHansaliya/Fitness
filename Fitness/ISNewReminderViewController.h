@@ -22,6 +22,7 @@
 
 
 @property (weak, nonatomic) IBOutlet UILabel *alertLabel;
+@property (weak, nonatomic) IBOutlet UILabel *repeatLabel;
 
 
 @property (weak, nonatomic) IBOutlet UITextField *toDateTextField;
